@@ -1,0 +1,29 @@
+from assembly.settings.base import *
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'jnn==!2o60ikz*2-am^zo%d9@tgr(9m3$0o#7aot@1h9ak)or0'
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+TEMPLATE_DEBUG = True
+MODELTRANSLATION_DEBUG = True
+# Limit connectivity to given hosts
+ALLOWED_HOSTS = []
+# Configure CORS
+# https://github.com/ottoyiu/django-cors-headers/
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = ()
+
+# Database. Use PostgreSQL for development if at all possible to ensure compatibility.
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    }
+}
+
+# Add development apps here
+INSTALLED_APPS += ()
