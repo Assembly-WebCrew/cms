@@ -9,7 +9,15 @@
   <body>
       {% cms_toolbar %}
       {% placeholder base_content %}
+      {% block header %}
+      {% load menu_tags %}
+          <ul>
+              {% show_menu 0 100 100 100 %}
+          </ul>
+      {% endblock %}
+      {% block breadcrumb %}{% show_breadcrumb %}{% endblock %}
       {% block base_content %}{% endblock %}
+      {% block footer %}{% endblock %}
       <script src="{% static "assembly/scripts/vendor.js" %}"></script>
       <script src="{% static "assembly/scripts/main.js" %}"></script>
       {% render_block "js" %}
