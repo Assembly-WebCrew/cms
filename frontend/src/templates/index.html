@@ -1,0 +1,41 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" ng-app="asmFrontend">
+  <head>
+    <meta charset="utf-8">
+    <title>assemblyFrontend</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <base href="/"></base>
+    <!-- !django:<base href="/"></base> -->
+    <base href="/{{event}}/"></base>
+
+    <link rel="stylesheet" href="{% static "asm/styles/app-f6969e12.css" %}">
+
+    <script>
+      window.DJANGO = {};
+      window.DJANGO.staticPath = '{{ STATIC_URL }}asm/';
+    </script>
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <ui-view class="container"></ui-view>
+
+    <!-- <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script> -->
+
+    <script src="{% static "asm/scripts/vendor-b18aa0c8.js" %}"></script>
+
+    <script src="{% static "asm/scripts/app-68b8df32.js" %}"></script>
+
+  </body>
+</html>

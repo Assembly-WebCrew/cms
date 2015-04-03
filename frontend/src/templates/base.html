@@ -1,25 +1,127 @@
-{% load static cms_tags sekizai_tags %}
-<html>
-  <head>
-      <title>{% page_attribute "page_title" %}</title>
-      {% render_block "css" %}
-      <link rel="stylesheet" href="{% static "assembly/styles/vendor.css" %}">
-      <link rel="stylesheet" href="{% static "assembly/styles/main.css" %}">
-  </head>
-  <body>
-      {% cms_toolbar %}
-      {% placeholder base_content %}
-      {% block header %}
-      {% load menu_tags %}
-          <ul>
-              {% show_menu 0 100 100 100 %}
-          </ul>
-      {% endblock %}
-      {% block breadcrumb %}{% show_breadcrumb %}{% endblock %}
-      {% block base_content %}{% endblock %}
-      {% block footer %}{% endblock %}
-      <script src="{% static "assembly/scripts/vendor.js" %}"></script>
-      <script src="{% static "assembly/scripts/main.js" %}"></script>
-      {% render_block "js" %}
-  </body>
+<!doctype html>
+{% load static %}
+{% load menu_tags %}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="{% static "assembly/styles/main.css" %}" rel="stylesheet" />
+    <link type="text/css" href="{% static "assembly/styles/vendor.css"%}" rel="stylesheet" />
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,800,300' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="{% static "assembly/scripts/main.js" %}"></script>
+    <script type="text/javascript" src="{% static "assembly/scripts/vendor.js" %}"></script>
+</head>
+<body>
+
+<div class="container">
+
+
+    <div class="menu-wrap">
+        <button class="menu-button" id="close-button">Close</button>
+        <nav class="menu-side">
+            <ul>
+                <li> <a href="#"><i class="fa fa-home"></i> HOME</a></li>
+                <li class="expanded">
+                <a href="#"><i class="fa fa-book"></i> THREE LIFTS</a>
+                    <ul>
+                        <li><a href="#">Submenu Item</a></li>
+                        <li><a href="#">Submenu Item</a></li>
+                        <li><a href="#">Submenu Item</a></li>
+                        <li><a href="#">Submenu Item</a></li>
+                    </ul>
+                </li>
+                <li> <a href="#"><i class="fa fa-ticket"></i> TICKETS</a></li>
+                <li> <a href="#"><i class="fa fa-book"></i> PARTY MANUAL</a></li>
+                <li> <a href="#"><i class="fa fa-star"></i> EVENT</a></li>
+                <li> <a href="#"><i class="fa fa-bookmark"></i> SPONSORS</a></li>
+                <li> <a href="#"><i class="fa fa-heart"></i> ABOUT US</a></li>
+                <li> <a href="#"><i class="fa fa-spinner"></i> HISTORY</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content-wrap">
+    <header id="top" class="clearfix">
+        <canvas id="demo-canvas"></canvas>
+        <div id="top_bar">
+            <div class="wrapper clearfix">
+                <div id="open_menu">
+                    <button class="menu-button" id="open-button">Open Site Menu</button>
+                </div>
+                <div id="header_links">
+                    <ul class="navigation clearfix">
+                        <li><a href="#">Party manual</a></li>
+                        <li><a href="#">Event</a></li>
+                        <li><a href="#">Schedule</a></li>
+                    </ul>
+                </div>
+                <div id="language">
+                    <ul class="navigation clearfix">
+                        <li><a href="#">FI</a></li>
+                        <li><a href="#">EN</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="event_info">
+            <div class="wrapper clearfix">
+                <div class="logo">
+                    <img src="{% static "images/logo_summer_2015.png" %}" alt="ASSEMBLY Summer 2015" title="ASSEMBLY Summer 2015" />
+                </div>
+                <div class="event_schedule_location">
+                    <h4 class="event_time">30.7 - 2.8.2015</h4>
+                    <h4 class="event_location">Messukeskus, Helsinki</h4>
+                </div>
+                <div class="buy_tickets">
+                    <a href="#" class="btn btn-1e">Buy tickets now</a>
+                </div>
+            </div>
+        </div>
+        <div id="carousel">
+            <div class="carousel_meta">
+                <h3>ASUS ROG $25 000 Prize Pool</h3>
+                <a href="#" class="carousel_read_more">Read More</a>
+            </div>
+            <div class="fader"></div>
+        </div>
+    </header>
+    <aside id="main_sponsors" class="wrapper">
+            <ul class="sponsors clearfix">
+                <li><a href="http://www.jimms.fi" target="_blank"><img src="{% static "images/s-jimms.png" %}" alt="Jimms.fi" title="Jimms.fi"></a></li>
+                <li><a href="http://www.asus.com" target="_blank"><img src="{% static "images/s-asus.png" %}" alt="ASUS" title="ASUS"></a></li>
+                <li><a href="http://rog.asus.com" target="_blank"><img src="{% static "images/s-rog.png" %}" alt="Republic of Gamers" title="Republic of Gamers"></a></li>
+            </ul>
+    </aside>
+      {% block base_content %}{% endblock %} 
+
+  <a href="#" class="news_archive">News archive</a>
+    <footer id="bottom">
+        <div class="wrapper">
+            <div id="footer_menu">
+                <ul class="navigation clearfix">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">THREE LIFTS</a></li>
+                    <li><a href="#">TICKETS</a></li>
+                    <li><a href="#">PARTY MANUAL</a></li>
+                    <li><a href="#">EVENT</a></li>
+                    <li><a href="#">SPONSORS</a></li>
+                    <li><a href="#">ABOUT US</a></li>
+                    <li><a href="#">HISTORY</a></li>
+                </ul>
+            </div>
+            <div id="organization">
+                <ul class="navigation clearfix">
+                <li><a href="#">feedback</a></li>
+                <li><a href="#">privacy</a></li>
+                <li><a href="#">contact</a></li>
+                <li><a href="#">organizing</a></li>
+                </ul>
+                <p>&copy; 2009 - 2015 Assembly Organizing</p>
+            </div>
+        </div>
+    </footer>
+    </div>
+</div>
+    </body>
 </html>
