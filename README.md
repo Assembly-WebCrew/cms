@@ -13,6 +13,7 @@ To create an optional virtual environment run `pyvenv ./env` in the *project roo
 3. Setup your project configruation as adviced in the [configuration section](#configuration)
 4. Run database migrations `python manage.py migrate`
 5. Create a superuser to access the cms `python manage.py createsuperuser`
+6. Setup and build frontend project `cd frontend && npm start`
 6. Run the server in foreground `python manage.py runserver` or proceed to the [deployment section](#deployment)
 
 # <a name="configuration"></a> Configuration
