@@ -1,19 +1,21 @@
 <!doctype html>
-{% load static %}
-{% load menu_tags %}
-
+{% load static cms_tags sekizai_tags %}
+<html>
 <head>
+  <title>{% page_attribute "page_title" %}</title>
+  {% render_block "css" %}
+  <link rel="stylesheet" href="{% static "assembly/styles/vendor.css" %}">
+  <link rel="stylesheet" href="{% static "assembly/styles/main.css" %}">
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="text/css" href="{% static "assembly/styles/main.css" %}" rel="stylesheet" />
-    <link type="text/css" href="{% static "assembly/styles/vendor.css"%}" rel="stylesheet" />
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,800,300' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="{% static "assembly/scripts/main.js" %}"></script>
-    <script type="text/javascript" src="{% static "assembly/scripts/vendor.js" %}"></script>
 </head>
+
 <body>
+
+{% cms_toolbar %}
 
 <div class="container">
 
@@ -95,6 +97,7 @@
     </aside>
       {% block base_content %}{% endblock %} 
 
+
   <a href="#" class="news_archive">News archive</a>
     <footer id="bottom">
         <div class="wrapper">
@@ -121,6 +124,9 @@
             </div>
         </div>
     </footer>
+    <script src="{% static "assembly/scripts/vendor.js" %}"></script>
+    <script src="{% static "assembly/scripts/main.js" %}"></script>
+    {% render_block "js" %}
     </div>
 </div>
     </body>
