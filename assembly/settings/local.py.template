@@ -5,13 +5,10 @@ SECRET_KEY = 'jnn==!2o60ikz*2-am^zo%d9@tgr(9m3$0o#7aot@1h9ak)or0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 TEMPLATE_DEBUG = True
-MODELTRANSLATION_DEBUG = True
 # Limit connectivity to given hosts
 ALLOWED_HOSTS = []
-# Configure CORS
-# https://github.com/ottoyiu/django-cors-headers/
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = ()
+
+SITE_ID = 1
 
 # Database. Use PostgreSQL for development if at all possible to ensure compatibility.
 DATABASES = {
@@ -27,3 +24,13 @@ DATABASES = {
 
 # Add development apps here
 INSTALLED_APPS += ()
+
+# Since Django-CMS hooks static dir, we need to defined our frontend statics to another folder
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'statics'),
+)
+
+# Add enabled templates here
+CMS_TEMPLATES = (
+    ('assembly/single_column.html', 'Single Content Column'),
+)

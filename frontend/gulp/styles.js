@@ -43,7 +43,7 @@ var compileStylesheet = function (source) {
     .pipe($.if(args.production, $.csso()))
     .pipe($.sourcemaps.write('./'))
     .on('error', gulp.handleError)
-    .pipe(gulp.dest(paths.dest + '/static/assembly/styles/'));
+    .pipe(gulp.dest(paths.statics + '/assembly/styles/'));
 };
 
 gulp.task('styles', function () {

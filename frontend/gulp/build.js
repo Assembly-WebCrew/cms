@@ -11,7 +11,7 @@ var $ = require('gulp-load-plugins')({
 gulp.task('images', function () {
   return gulp.src(paths.src + '/images/**/*')
     .on('error', gulp.handleError)
-    .pipe(gulp.dest(paths.dest + '/static/images/'));
+    .pipe(gulp.dest(paths.statics +'/images/'));
 });
 
 gulp.task('fonts', function () {
@@ -19,20 +19,20 @@ gulp.task('fonts', function () {
     .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
     .pipe($.flatten())
     .on('error', gulp.handleError)
-    .pipe(gulp.dest(paths.dest + '/static/fonts/'));
+    .pipe(gulp.dest(paths.statics +'/fonts/'));
 });
 
 gulp.task('misc', function () {
   return gulp.src(paths.src + '/**/*.ico')
     .on('error', gulp.handleError)
-    .pipe(gulp.dest(paths.dest + '/static/'));
+    .pipe(gulp.dest(paths.statics +'/'));
 });
 
 gulp.task('clean', function (callback) {
   $.del([
     '.sass-cache',
-    paths.dest + '/static/assembly/**/*.*',
-    paths.dest + '/templates/assembly/**/*.*'
+    paths.statics +'/assembly/**/*.*',
+    paths.templates + '/assembly/**/*.*'
   ], {force: true}, callback)
 });
 

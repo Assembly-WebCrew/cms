@@ -13,7 +13,7 @@ gulp.task('scripts', function () {
     .pipe($.if(args.production, $.uglify()))
     .pipe($.concat('main.js'))
     .on('error', gulp.handleError)
-    .pipe(gulp.dest(paths.dest + '/static/assembly/scripts/'))
+    .pipe(gulp.dest(paths.statics + '/assembly/scripts/'))
 });
 
 gulp.task('vendor-scripts', function () {
@@ -21,5 +21,5 @@ gulp.task('vendor-scripts', function () {
     .pipe($.if(args.production, $.uglify()))
     .pipe($.concat('vendor.js'))
     .on('error', gulp.handleError)
-    .pipe(gulp.dest(paths.dest + '/static/assembly/scripts/'));
+    .pipe(gulp.dest(paths.statics + '/assembly/scripts/'));
 });

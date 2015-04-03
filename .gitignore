@@ -7,3 +7,4 @@ frontend/bower_components/
 static/assembly/
 templates/assembly/
 frontend/.sass-cache/
+statics/
