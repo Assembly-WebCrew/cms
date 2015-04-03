@@ -1,0 +1,45 @@
+{
+  "name": "assembly-cms-frontend",
+  "version": "0.0.0",
+  "description": "Frontend project for assembly cms",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Assembly-WebCrew/cms"
+  },
+  "keywords": [
+    "assembly",
+    "cms",
+    "frontend"
+  ],
+  "author": "Assembly WebCrew",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Assembly-WebCrew/cms/issues"
+  },
+  "homepage": "https://github.com/Assembly-WebCrew/cms",
+  "devDependencies": {
+    "del": "^1.1.1",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-concat": "^2.5.2",
+    "gulp-csso": "^1.0.0",
+    "gulp-filter": "^2.0.2",
+    "gulp-flatten": "0.0.4",
+    "gulp-if": "^1.2.5",
+    "gulp-inject": "^1.2.0",
+    "gulp-load-plugins": "^0.9.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.3",
+    "gulp-ruby-sass": "0.7.x",
+    "gulp-sourcemaps": "^1.5.1",
+    "gulp-uglify": "^1.1.0",
+    "gulp-util": "^3.0.4",
+    "main-bower-files": "^2.6.2",
+    "require-dir": "^0.3.0",
+    "uglify-save-license": "^0.4.1",
+    "yargs": "^3.6.0"
+  }
+}

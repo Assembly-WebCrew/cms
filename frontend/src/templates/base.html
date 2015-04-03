@@ -3,11 +3,15 @@
   <head>
       <title>{% page_attribute "page_title" %}</title>
       {% render_block "css" %}
+      <link rel="stylesheet" href="{% static "assembly/styles/vendor.css" %}">
+      <link rel="stylesheet" href="{% static "assembly/styles/main.css" %}">
   </head>
   <body>
       {% cms_toolbar %}
       {% placeholder base_content %}
       {% block base_content %}{% endblock %}
+      <script src="{% static "assembly/scripts/vendor.js" %}"></script>
+      <script src="{% static "assembly/scripts/main.js" %}"></script>
       {% render_block "js" %}
   </body>
 </html>
