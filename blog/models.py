@@ -43,8 +43,18 @@ class BlogListPlugin(CMSPlugin):
         self.blogs = old_instance.blogs
 
 
+class BlogDetailPlugin(CMSPlugin):
+    blog = models.ForeignKey(Blog)
+
+    def copy_relations(self, old_instance):
+        self.blog = old_instance.blog
+
+
 class PostListPlugin(CMSPlugin):
     blog = models.ForeignKey(Blog)
 
     def posts(self):
         return self.blog.post_set.all()
+
+    def copy_relations(self, old_instance):
+        self.blog = old_instance.blog
