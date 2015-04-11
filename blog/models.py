@@ -32,3 +32,13 @@ class Permission(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+from cms.models import CMSPlugin
+
+
+class BlogPlugin(CMSPlugin):
+    blog = models.ForeignKey(Blog)
+
+    def copy_relations(self, old_instance):
+        self.blog = old_instance.blog.get()

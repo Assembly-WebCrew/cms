@@ -1,0 +1,26 @@
+{% extends "assembly/base.html" %}
+{% load cms_tags %}
+{% load static %}
+
+
+
+{% block base_content %}
+    <script>
+        $('body').addClass("news_page");
+    </script>
+    <section id="content" class="wrapper clearfix">
+        {% placeholder Article %}
+        <aside id="content_links" class="wrapper">
+            <ul class="navigation links clearfix">
+                <li><a href="#" class="btn btn-1e">Party Manual</a></li>
+                <li><a href="#" class="btn btn-1e">Party Manual</a></li>
+                <li><a href="#" class="btn btn-1e">Party Manual</a></li>
+                <li><a href="#" class="btn btn-1e">Party Manual</a></li>
+                <li><a href="#" class="btn btn-1e">Party Manual</a></li>
+            </ul>
+        </aside>
+    </section>
+
+{% endblock %}
+
+

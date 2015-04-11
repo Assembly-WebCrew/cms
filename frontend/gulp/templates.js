@@ -12,5 +12,5 @@ gulp.task('templates', function () {
   return gulp.src(paths.src + '/templates/**/*.html')
     .pipe($.size({title: 'templates', showFiles: gulp.showOutputFiles}))
     .on('error', gulp.handleError)
-    .pipe(gulp.dest(paths.templates + '/assembly/'))
+    .pipe(gulp.dest(paths.templates + '/'))
 });
