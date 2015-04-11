@@ -44,7 +44,7 @@ class PostForm(forms.ModelForm):
                         raise forms.ValidationError("You do not have permission to create posts to this blog.")
 
 
-class BlogAdmin(admin.ModelAdmin):
+class BlogAdmin(TranslationAdmin):
     pass
 
 
