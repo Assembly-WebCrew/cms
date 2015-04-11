@@ -7,6 +7,7 @@ BASE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), '..')
 
 INSTALLED_APPS = (
     'modeltranslation',
+    'filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
