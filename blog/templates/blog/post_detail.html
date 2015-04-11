@@ -1,0 +1,13 @@
+<a href="{% url 'blog-detail' blog_id %}">&laquo; Back to blog</a>
+<article>
+    <div>
+        {{ post.cover_image }}
+        <h1>{{ post.title }}</h1>
+    </div>
+    <p>
+        {{ post.body }}
+    </p>
+    <footer>
+        Created by {{ post.author }} on {{ post.created }} {% if post.updated %}modified on {{ post.updated }}{% endif %}
+    </footer>
+</article>

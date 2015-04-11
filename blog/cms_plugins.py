@@ -7,11 +7,11 @@ from django.utils.translation import ugettext as _
 class CMSBlogListPlugin(CMSPluginBase):
     model = BlogListPlugin
     name = _('Blog List')
-    render_template = 'blog/list.html'
+    render_template = 'blog/blog_list.html'
 
     def render(self, context, instance, placeholder):
         context.update({
-            'blog': instance.blogs,
+            'blogs': instance.blogs.all(),
             'object': instance,
             'placeholder': placeholder
         })

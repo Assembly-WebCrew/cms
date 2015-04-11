@@ -10,6 +10,7 @@ admin.autodiscover()
 urlpatterns = i18n_patterns('',
                             url(r'^admin/filebrowser/', include(site.urls)),
                             url(r'^admin/', include(admin.site.urls)),
+                            url(r'^blog/', include('blog.urls')),
                             url(r'^', include('cms.urls')),)
 
 if settings.DEBUG:
