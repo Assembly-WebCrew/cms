@@ -3,6 +3,7 @@ from django.contrib import admin
 from django import forms
 from blog.models import Blog, Post, Permission
 from django.contrib import messages
+from modeltranslation.admin import TranslationAdmin
 
 
 class PostForm(forms.ModelForm):
@@ -42,7 +43,7 @@ class BlogAdmin(admin.ModelAdmin):
     pass
 
 
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(TranslationAdmin):
     actions = ['delete_model']
     list_display = ('title', 'blog')
     exclude = ('author', 'created', )

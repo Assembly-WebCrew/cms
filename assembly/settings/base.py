@@ -6,6 +6,7 @@ BASE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), '..')
 # Application definition
 
 INSTALLED_APPS = (
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -28,8 +29,7 @@ INSTALLED_APPS = (
     'djangocms_text_ckeditor',
     'djangocms_admin_style',
     'cms',
-    'blog',
-    'modeltranslation'
+    'blog'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -83,6 +83,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+MODELTRANSLATION_TRANSLATION_FILES = (
+    'blog.translation',
+)
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
