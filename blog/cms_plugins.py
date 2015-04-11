@@ -1,6 +1,6 @@
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
-from .models import BlogListPlugin, PostListPlugin, BlogDetailPlugin
+from .models import BlogListPlugin, PostListPlugin, BlogDetailPlugin, PostDetailPlugin
 from django.utils.translation import ugettext as _
 
 
@@ -43,7 +43,7 @@ class CMSPostListPlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         context.update({
-            "blog_id": instance.blog.id,
+            "blog_id": instance.blog_id,
             "post_list": instance.posts,
             "object": instance,
             "placeholder": placeholder
@@ -52,3 +52,21 @@ class CMSPostListPlugin(CMSPluginBase):
         return context
 
 plugin_pool.register_plugin(CMSPostListPlugin)
+
+
+class CMSPostDetailPlugin(CMSPluginBase):
+    model = PostDetailPlugin
+    name = _("Blog Post View")
+    render_template = "blog/post_detail.html"
+
+    def render(self, context, instance, placeholder):
+        context.update({
+            "blog_id": instance.blog_id,
+            "post": instance.post,
+            "object": instance,
+            "placeholder": placeholder
+        })
+
+        return context
+
+plugin_pool.register_plugin(CMSPostDetailPlugin)

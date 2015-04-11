@@ -1,4 +1,5 @@
 from blog.models import Blog, Post
+from django.http import JsonResponse
 from django.views.generic import ListView, DetailView
 
 

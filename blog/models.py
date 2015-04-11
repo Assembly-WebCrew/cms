@@ -64,7 +64,7 @@ class PostDetailPlugin(CMSPlugin):
     post = models.ForeignKey(Post)
 
     def blog_id(self):
-        return self.blog.id
+        return self.post.blog.id
 
     def copy_relations(self, old_instance):
         self.post = old_instance.post

@@ -6,7 +6,7 @@ cmsplugin-filer==0.10.1
 django-appconf==1.0.1
 django-classy-tags==0.5
 django-cms==3.0.12
--e git://github.com/smacker/django-filebrowser-no-grappelli.git@911318f0e735ab60485c5783759b3f6a058f2337#egg=django_filebrowser_no_grappelli-3.5.7
+-e git://github.com/smacker/django-filebrowser-no-grappelli.git@911318f0e735ab60485c5783759b3f6a058f2337#egg=django_filebrowser_no_grappelli-master
 django-filer==0.9.8
 django-modeltranslation==0.8.1
 django-mptt==0.6.1
@@ -23,6 +23,7 @@ djangocms-picture==0.1
 djangocms-teaser==0.1
 djangocms-text-ckeditor==2.4.3
 djangocms-video==0.1
+djangorestframework==3.1.1
 easy-thumbnails==2.2
 html5lib==0.999
 psycopg2==2.6
