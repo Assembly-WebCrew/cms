@@ -228,5 +228,3 @@ class PermissionAdmin(admin.ModelAdmin):
     list_display = ('user', 'blog', 'can_create', 'can_edit', 'can_delete')
 
 admin.site.register(Blog, BlogAdmin)
-admin.site.register(Post, PostReversionModelAdmin)
-admin.site.register(Permission, PermissionAdmin)

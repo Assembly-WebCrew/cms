@@ -21,6 +21,7 @@ INSTALLED_APPS = (
     'mptt',
     'menus',
     'sekizai',
+    'ckeditor',
     'djangocms_file',
     'djangocms_flash',
     'djangocms_googlemap',
@@ -34,7 +35,7 @@ INSTALLED_APPS = (
     'cms',
     'assembly.core',
     'blog',
-    'ckeditor'
+    'tweetembly',
 )
 
 MIDDLEWARE_CLASSES = (
