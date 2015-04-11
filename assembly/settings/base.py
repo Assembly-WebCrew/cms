@@ -30,6 +30,7 @@ INSTALLED_APPS = (
     'djangocms_text_ckeditor',
     'djangocms_admin_style',
     'cms',
+    'assembly.core',
     'blog'
 )
 
