@@ -8,6 +8,7 @@ TEMPLATE_DEBUG = True
 # Limit connectivity to given hosts
 ALLOWED_HOSTS = []
 
+# Default site id to 1 (preset example.com on clean installations)
 SITE_ID = 1
 
 # Database. Use PostgreSQL for development if at all possible to ensure compatibility.

@@ -10,28 +10,30 @@ var $ = require('gulp-load-plugins')({
 
 gulp.task('images', function () {
   return gulp.src(paths.src + '/images/**/*')
+    .pipe($.size({title: 'images', showFiles: gulp.showOutputFiles}))
     .on('error', gulp.handleError)
-    .pipe(gulp.dest(paths.statics +'/images/'));
+    .pipe(gulp.dest(paths.statics + '/images/'));
 });
 
 gulp.task('fonts', function () {
-  return gulp.src($.mainBowerFiles())
-    .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
+  return gulp.src('./bower_components/**/*.{eot,svg,ttf,woff,woff2}')
     .pipe($.flatten())
+    .pipe($.size({title: 'fonts', showFiles: gulp.showOutputFiles}))
     .on('error', gulp.handleError)
-    .pipe(gulp.dest(paths.statics +'/fonts/'));
+    .pipe(gulp.dest(paths.statics + '/fonts/'));
 });
 
 gulp.task('misc', function () {
   return gulp.src(paths.src + '/**/*.ico')
+    .pipe($.size({title: 'misc', showFiles: gulp.showOutputFiles}))
     .on('error', gulp.handleError)
-    .pipe(gulp.dest(paths.statics +'/'));
+    .pipe(gulp.dest(paths.statics + '/'));
 });
 
 gulp.task('clean', function (callback) {
   $.del([
     '.sass-cache',
-    paths.statics +'/assembly/**/*.*',
+    paths.statics + '/assembly/**/*.*',
     paths.templates + '/assembly/**/*.*'
   ], {force: true}, callback)
 });

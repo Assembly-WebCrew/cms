@@ -18,7 +18,8 @@ var compileStylesheet = function (source) {
     paths.src + '/styles/**/*.scss',
     '!' + paths.src + '/styles/assembly/variables.scss',
     '!' + paths.src + '/styles/assembly/main.scss',
-    '!' + paths.src + '/styles/assembly/vendor.scss'
+    '!' + paths.src + '/styles/assembly/vendor.scss',
+    '!' + paths.src + '/styles/assembly/vendor/**/*.*'
   ], { read: false });
 
   var injectOptions = {
@@ -42,6 +43,7 @@ var compileStylesheet = function (source) {
     .pipe($.autoprefixer())
     .pipe($.if(args.production, $.csso()))
     .pipe($.sourcemaps.write('./'))
+    .pipe($.size({title: 'styles', showFiles: gulp.showOutputFiles}))
     .on('error', gulp.handleError)
     .pipe(gulp.dest(paths.statics + '/assembly/styles/'));
 };

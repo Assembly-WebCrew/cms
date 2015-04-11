@@ -18,6 +18,8 @@ gulp.watchlist = [
   {path: paths.src + '/templates/**/*.html', tasks: ['templates']}
 ];
 
+gulp.showOutputFiles = true;
+
 gulp.handleError = function (error) {
   $.util.log($.util.colors.red('Error'), error.message);
 };

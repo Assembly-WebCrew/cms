@@ -1,4 +1,9 @@
 @import "variables";
 
-// TODO: Theme vendor styles here
-// TODO: Import vendor styles here
+// Import base styling
+@import "vendor/cssreset";
+@import "vendor/normalize";
+// Set font path
+$fa-font-path: '../../fonts';
+// Import Font-Awesome
+@import "../../../bower_components/font-awesome/scss/font-awesome";
