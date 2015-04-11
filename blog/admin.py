@@ -11,32 +11,35 @@ class PostForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(PostForm, self).__init__(*args, **kwargs)
 
-        access_to_blogs = []
-        permissions = Permission.objects.filter(
-            Q(user=self.current_user),
-            Q(can_edit=True) | Q(can_delete=True)
-        )
-        for permission in permissions:
-            access_to_blogs.append(permission.blog.id)
+        if not self.current_user.is_superuser:
+            access_to_blogs = []
+            permissions = Permission.objects.filter(
+                Q(user=self.current_user),
+                Q(can_edit=True) | Q(can_delete=True)
+            )
+            for permission in permissions:
+                access_to_blogs.append(permission.blog.id)
 
-        self.fields['blog'].queryset = Blog.objects.filter(pk__in=access_to_blogs)
+            self.fields['blog'].queryset = Blog.objects.filter(pk__in=access_to_blogs)
 
     class Meta:
         model = Post
 
     def clean(self):
-        cleaned_data = super(PostForm, self).clean()
+        if not self.current_user.is_superuser:
+            cleaned_data = super(PostForm, self).clean()
 
-        if self.instance.id:
-            try:
-                Permission.objects.get(user=self.current_user, blog=cleaned_data['blog'], can_edit=True)
-            except Permission.DoesNotExist:
-                raise forms.ValidationError("You do not have permission to edit this post.")
-        else:
-            try:
-                Permission.objects.get(user=self.current_user, blog=cleaned_data['blog'], can_create=True)
-            except Permission.DoesNotExist:
-                raise forms.ValidationError("You do not have permission to create posts to this blog.")
+            if 'blog' in cleaned_data:
+                if self.instance.id:
+                    try:
+                        Permission.objects.get(user=self.current_user, blog=cleaned_data['blog'], can_edit=True)
+                    except Permission.DoesNotExist:
+                        raise forms.ValidationError("You do not have permission to edit this post.")
+                else:
+                    try:
+                        Permission.objects.get(user=self.current_user, blog=cleaned_data['blog'], can_create=True)
+                    except Permission.DoesNotExist:
+                        raise forms.ValidationError("You do not have permission to create posts to this blog.")
 
 
 class BlogAdmin(admin.ModelAdmin):

@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.db.models.signals import pre_save
-from django.dispatch import receiver
+
+from filebrowser.fields import FileBrowseField
+from cms.models import CMSPlugin
 
 
 class Blog(models.Model):
@@ -14,6 +15,7 @@ class Blog(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=255)
     body = models.TextField()
+    cover_image = FileBrowseField("Image", max_length=200, blank=True, null=True)
     blog = models.ForeignKey(Blog)
     author = models.ForeignKey(User)
     created = models.DateTimeField(auto_now_add=True)
@@ -34,14 +36,12 @@ class Permission(models.Model):
         return self.user.username
 
 
-from cms.models import CMSPlugin
-
-
 class BlogListPlugin(CMSPlugin):
     blogs = Blog.objects.all()
 
     def copy_relations(self, old_instance):
         self.blogs = old_instance.blogs
+
 
 class PostListPlugin(CMSPlugin):
     blog = models.ForeignKey(Blog)
