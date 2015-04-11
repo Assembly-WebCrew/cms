@@ -9,3 +9,4 @@ templates/assembly/
 frontend/.sass-cache/
 statics/
 media/uploads/*
+*.pid
