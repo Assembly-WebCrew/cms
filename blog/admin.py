@@ -4,6 +4,7 @@ from django import forms
 from blog.models import Blog, Post, Permission
 from django.contrib import messages
 from modeltranslation.admin import TranslationAdmin
+import reversion
 
 
 class PostForm(forms.ModelForm):
@@ -24,6 +25,7 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
+        exclude = ['author', ]
 
     def clean(self):
         if not self.current_user.is_superuser:
@@ -135,9 +137,13 @@ class PostAdmin(TranslationAdmin):
         obj.save()
 
 
+class PostReversionModelAdmin(PostAdmin, reversion.VersionAdmin):
+    pass
+
+
 class PermissionAdmin(admin.ModelAdmin):
     list_display = ('user', 'blog', 'can_create', 'can_edit', 'can_delete')
 
 admin.site.register(Blog, BlogAdmin)
-admin.site.register(Post, PostAdmin)
+admin.site.register(Post, PostReversionModelAdmin)
 admin.site.register(Permission, PermissionAdmin)

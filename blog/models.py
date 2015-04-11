@@ -28,9 +28,9 @@ class Post(models.Model):
 class Permission(models.Model):
     blog = models.ForeignKey(Blog)
     user = models.ForeignKey(User)
-    can_edit = models.BooleanField()
-    can_create = models.BooleanField()
-    can_delete = models.BooleanField()
+    can_edit = models.BooleanField(default=False)
+    can_create = models.BooleanField(default=False)
+    can_delete = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user.username
