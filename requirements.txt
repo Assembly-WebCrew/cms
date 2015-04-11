@@ -12,7 +12,7 @@ django-celery==3.1.16
 django-ckeditor==4.4.7
 django-classy-tags==0.5
 django-cms==3.0.12
--e git://github.com/smacker/django-filebrowser-no-grappelli.git@911318f0e735ab60485c5783759b3f6a058f2337#egg=django_filebrowser_no_grappelli-origin/HEAD
+-e git://github.com/smacker/django-filebrowser-no-grappelli.git@911318f0e735ab60485c5783759b3f6a058f2337#egg=django_filebrowser_no_grappelli-master
 django-filer==0.9.8
 django-modeltranslation==0.8.1
 django-mptt==0.6.1
