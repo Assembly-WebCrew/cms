@@ -3,7 +3,7 @@ from django.contrib import admin
 from django import forms
 from blog.models import Blog, Post, Permission
 from django.contrib import messages
-from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
+from modeltranslation.admin import TranslationAdmin, TranslationStackedInline
 import reversion
 
 
@@ -48,8 +48,9 @@ class PermissionInline(admin.TabularInline):
     model = Permission
 
 
-class PostInline(TranslationTabularInline):
+class PostInline(TranslationStackedInline):
     model = Post
+    exclude = ['author', ]
 
 
 class BlogAdmin(TranslationAdmin):
@@ -57,6 +58,38 @@ class BlogAdmin(TranslationAdmin):
         PermissionInline,
         PostInline
     ]
+
+    def get_queryset(self, request):
+        qs = super(BlogAdmin, self).get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+
+        access_to_blogs = []
+        permissions = Permission.objects.filter(
+            Q(user=request.user),
+            Q(can_edit=True) | Q(can_delete=True) | Q(can_create=True)
+        )
+        for permission in permissions:
+            access_to_blogs.append(permission.blog.id)
+
+        return qs.filter(id__in=access_to_blogs)
+
+    def has_add_permission(self, request, obj=None):
+        if request.user.is_superuser:
+            return True
+
+        return False
+
+    def save_formset(self, request, form, formset, change):
+        if formset.model != Post:
+            return super(BlogAdmin, self).save_formset(request, form, formset, change)
+
+        instances = formset.save(commit=False)
+        for instance in instances:
+            if not hasattr(instance, 'author'):
+                instance.author = request.user
+            instance.save()
+        formset.save_m2m()
 
 
 class PostAdmin(TranslationAdmin):
