@@ -44,8 +44,19 @@ class PostForm(forms.ModelForm):
                         raise forms.ValidationError("You do not have permission to create posts to this blog.")
 
 
+class PermissionInline(admin.TabularInline):
+    model = Permission
+
+
+class PostInline(admin.TabularInline):
+    model = Post
+
+
 class BlogAdmin(TranslationAdmin):
-    pass
+    inlines = [
+        PermissionInline,
+        PostInline
+    ]
 
 
 class PostAdmin(TranslationAdmin):
