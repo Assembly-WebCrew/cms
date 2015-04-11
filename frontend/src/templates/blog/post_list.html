@@ -1,0 +1,11 @@
+{% load cms_tags %}
+{% for post in posts %}
+    {% include "blog/post_detail.html" %}
+{% empty %}
+    <article class="news">
+        <div class="article_left">
+            No posts yet.
+        </div>
+        <div class="article_right"></div>
+    </article>
+{% endfor %}

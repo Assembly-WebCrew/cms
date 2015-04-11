@@ -2,17 +2,18 @@
 <article class="news">
     <div class="article_left">
         <div class="news_image">
-            <img src="{% static "images/photo2.jpg" %}" alt="" title=""/>
+            <img src="{{ post.cover_image }}" alt="{{ post.title }}" title="{{ post.title }}"/>
         </div>
         <div class="news_content">
             <div class="news_title">
                 {{ post.title }}
             </div>
+            {{ post.body | safe }}
         </div>
     </div>
     <div class="article_right">
         <div class="news_meta">
-            <p class="time">Kirjoitettu 27.1.2017</p>
+            <p class="time">Kirjoitettu {{ post.created }}</p>
             <button id="twitter_share"><i class="fa fa-twitter"></i> 15 JAKOA</button>
 
             <button id="facebook_share"><i class="fa fa-facebook-official"></i> JAA</button>

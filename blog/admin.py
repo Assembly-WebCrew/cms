@@ -61,6 +61,7 @@ class PostInlineForm(forms.ModelForm):
 
 class PermissionInline(admin.TabularInline):
     model = Permission
+    extra = 0
 
 
 class PostInline(TranslationStackedInline):
@@ -70,6 +71,7 @@ class PostInline(TranslationStackedInline):
     model = Post
     form = PostInlineForm
     exclude = ['author', ]
+    extra = 0
 
     def get_formset(self, *args, **kwargs):
         def formfield_callback(field, **kwargs):

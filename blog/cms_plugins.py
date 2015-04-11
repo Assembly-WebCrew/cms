@@ -4,69 +4,29 @@ from .models import BlogListPlugin, PostListPlugin, BlogDetailPlugin, PostDetail
 from django.utils.translation import ugettext as _
 
 
-class CMSBlogListPlugin(CMSPluginBase):
-    model = BlogListPlugin
-    name = _("Blog List")
-    render_template = "blog/blog_list.html"
-
-    def render(self, context, instance, placeholder):
-        context.update({
-            "blog_list": instance.blogs.all(),
-            "object": instance,
-            "placeholder": placeholder
-        })
-
-        return context
-
-plugin_pool.register_plugin(CMSBlogListPlugin)
-
-class CMSBlogDetailPlugin(CMSPluginBase):
-    model = BlogDetailPlugin
-    name = _("Blog View")
-    render_template = "blog/blog_detail.html"
-
-    def render(self, context, instance, placeholder):
-        context.update({
-            "blog": instance.blog,
-            "object": instance,
-            "placeholder": placeholder
-        })
-
-        return context
-
-plugin_pool.register_plugin(CMSBlogDetailPlugin)
-
-class CMSPostListPlugin(CMSPluginBase):
-    model = PostListPlugin
-    name = _("Blog Post List")
+class PostListCMSPlugin(CMSPluginBase):
+    name = 'Blog post list'
     render_template = "blog/post_list.html"
+    model = PostListPlugin
+    allow_children = True
+    child_classes = ['PostDetailCMSPlugin']
 
     def render(self, context, instance, placeholder):
-        context.update({
-            "blog_id": instance.blog_id,
-            "post_list": instance.posts,
-            "object": instance,
-            "placeholder": placeholder
-        })
-
+        context['blog_id'] = instance.blog_id
+        context['posts'] = instance.posts
         return context
 
-plugin_pool.register_plugin(CMSPostListPlugin)
+plugin_pool.register_plugin(PostListCMSPlugin)
 
-
-class CMSPostDetailPlugin(CMSPluginBase):
+class PostDetailCMSPlugin(CMSPluginBase):
+    name = 'Blog post detail'
+    render_template = "blog/blog_detail.html"
     model = PostDetailPlugin
-    name = _("Blog Post View")
-    render_template = "blog/post_detail.html"
+    parent_classes = ['PostListCMSPlugin']
 
     def render(self, context, instance, placeholder):
-        context.update({
-            "blog_id": instance.blog_id,
-            "post": instance.post,
-            "object": instance,
-            "placeholder": placeholder
-        })
-
+        context['blog_id'] = instance.blog_id
+        context['post'] = instance.post
         return context
 
-plugin_pool.register_plugin(CMSPostDetailPlugin)
+plugin_pool.register_plugin(PostDetailCMSPlugin)
