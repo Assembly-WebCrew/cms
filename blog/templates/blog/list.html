@@ -1,3 +1,6 @@
-<article>
-    I'm a blog list!
-</article>
+{% load static %}
+<ul>
+    {% for blog in blogs %}
+    <li>{{ blog.title }}</li>
+    {% endfor %}
+</ul>

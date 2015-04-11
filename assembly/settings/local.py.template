@@ -23,6 +23,13 @@ DATABASES = {
     }
 }
 
+# Cache configuration
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
+}
+
 # Add development apps here
 INSTALLED_APPS += ()
 

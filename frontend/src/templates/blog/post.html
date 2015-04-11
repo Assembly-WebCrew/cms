@@ -1,10 +1,12 @@
+{% load static %}
 <article class="news">
     <div class="article_left">
         <div class="news_image">
-            <img src="/images/photo2.jpg" alt="" title=""/>
+            <img src="{% static "images/photo2.jpg" %}" alt="" title=""/>
         </div>
         <div class="news_content">
             <div class="news_title">
+                {{ post.title }}
             </div>
         </div>
     </div>

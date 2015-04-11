@@ -37,8 +37,14 @@ class Permission(models.Model):
 from cms.models import CMSPlugin
 
 
-class BlogPlugin(CMSPlugin):
-    blog = models.ForeignKey(Blog)
+class BlogListPlugin(CMSPlugin):
+    blogs = Blog.objects.all()
 
     def copy_relations(self, old_instance):
-        self.blog = old_instance.blog.get()
+        self.blogs = old_instance.blogs
+
+class PostListPlugin(CMSPlugin):
+    blog = models.ForeignKey(Blog)
+
+    def posts(self):
+        return self.blog.post_set.all()
