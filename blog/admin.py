@@ -3,7 +3,7 @@ from django.contrib import admin
 from django import forms
 from blog.models import Blog, Post, Permission
 from django.contrib import messages
-from modeltranslation.admin import TranslationAdmin
+from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
 import reversion
 
 
@@ -48,7 +48,7 @@ class PermissionInline(admin.TabularInline):
     model = Permission
 
 
-class PostInline(admin.TabularInline):
+class PostInline(TranslationTabularInline):
     model = Post
 
 
