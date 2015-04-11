@@ -32,7 +32,8 @@ INSTALLED_APPS = (
     'djangocms_admin_style',
     'cms',
     'assembly.core',
-    'blog'
+    'blog',
+    'ckeditor'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -117,3 +118,5 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 MEDIA_URL = '/media/'
+
+CKEDITOR_UPLOAD_PATH = "uploads/"

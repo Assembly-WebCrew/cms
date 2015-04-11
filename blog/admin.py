@@ -6,6 +6,7 @@ from django.contrib.sites.models import Site
 from blog.models import Blog, Post, Permission
 from modeltranslation.admin import TranslationAdmin, TranslationStackedInline
 import reversion
+from ckeditor.widgets import CKEditorWidget
 
 
 class PostForm(forms.ModelForm):
@@ -52,6 +53,10 @@ class PostInlineForm(forms.ModelForm):
     class Meta:
         model = Post
         exclude = ['author', ]
+        widgets = {
+            'body_en': CKEditorWidget(),
+            'body_fi': CKEditorWidget()
+        }
 
 
 class PermissionInline(admin.TabularInline):

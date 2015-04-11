@@ -8,6 +8,7 @@ from filebrowser.sites import site
 admin.autodiscover()
 
 urlpatterns = i18n_patterns('',
+                            url(r'^ckeditor/', include('ckeditor.urls')),
                             url(r'^admin/filebrowser/', include(site.urls)),
                             url(r'^admin/', include(admin.site.urls)),
                             url(r'^blog/', include('blog.urls')),
