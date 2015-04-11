@@ -8,3 +8,4 @@ static/assembly/
 templates/assembly/
 frontend/.sass-cache/
 statics/
+media/uploads/*
