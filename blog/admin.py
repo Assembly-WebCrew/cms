@@ -102,6 +102,16 @@ class PostAdmin(admin.ModelAdmin):
 
         return True
 
+    def has_add_permission(self, request, obj=None):
+        if request.user.is_superuser:
+            return True
+
+        try:
+            Permission.objects.filter(user=request.user, can_create=True)
+            return True
+        except Permission.DoesNotExist:
+            return False
+
     def has_change_permission(self, request, obj=None):
         if request.user.is_superuser:
             return True
