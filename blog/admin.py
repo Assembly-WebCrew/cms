@@ -1,8 +1,9 @@
 from django.db.models import Q
 from django.contrib import admin
 from django import forms
-from blog.models import Blog, Post, Permission
 from django.contrib import messages
+from django.contrib.sites.models import Site
+from blog.models import Blog, Post, Permission
 from modeltranslation.admin import TranslationAdmin, TranslationStackedInline
 import reversion
 
@@ -44,13 +45,40 @@ class PostForm(forms.ModelForm):
                         raise forms.ValidationError("You do not have permission to create posts to this blog.")
 
 
+class PostInlineForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(PostInlineForm, self).__init__(*args, **kwargs)
+
+    class Meta:
+        model = Post
+        exclude = ['author', ]
+
+
 class PermissionInline(admin.TabularInline):
     model = Permission
 
 
 class PostInline(TranslationStackedInline):
+    _parent_instance = None
+    _current_user = None
+
     model = Post
+    form = PostInlineForm
     exclude = ['author', ]
+
+    def get_formset(self, *args, **kwargs):
+        def formfield_callback(field, **kwargs):
+            formfield = field.formfield(**kwargs)
+            if field.name == "sites":
+                blog_sites = []
+                for site in self._parent_instance.sites.all():
+                    blog_sites.append(site.id)
+                formfield.queryset = Site.objects.filter(pk__in=blog_sites)
+            return formfield
+
+        if self._parent_instance is not None:
+            kwargs['formfield_callback'] = formfield_callback
+        return super(PostInline, self).get_formset(*args, **kwargs)
 
 
 class BlogAdmin(TranslationAdmin):
@@ -73,6 +101,12 @@ class BlogAdmin(TranslationAdmin):
             access_to_blogs.append(permission.blog.id)
 
         return qs.filter(id__in=access_to_blogs)
+
+    def get_formsets(self, request, obj=None, *args, **kwargs):
+        for inline in self.get_inline_instances(request, obj):
+            inline._parent_instance = obj
+            inline._current_user = request.user
+            yield inline.get_formset(request, obj)
 
     def has_add_permission(self, request, obj=None):
         if request.user.is_superuser:
