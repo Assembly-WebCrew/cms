@@ -35,7 +35,7 @@
     display: inline-block;
     box-sizing: border-box;
     width: 60%;
-    font-size: 12px;
+    font-size: 14px;
     vertical-align: middle;
 
     .navigation {
@@ -53,14 +53,18 @@
           border-radius: 0 0 5px 5px;
           background-color: rgba(20, 29, 64, 1);
           opacity: 0;
-          padding: 0 16px 16px;
+          padding: 0 10px 10px;
+          width: 140px;
 
           li {
+            transition: margin .2s;
             display: block;
-            margin: 30px 0;
+            margin: 15px 0;
+            text-align: left;
 
-            &:last-of-type {
-              margin-bottom: 0;
+            a {
+              text-transform: none;
+              font-weight: 400;
             }
           }
         }
@@ -68,7 +72,15 @@
         &:hover > ul, & > ul:hover {
           max-height: none;
           opacity: 1;
-          padding: 10px 16px 16px;
+          padding: 10px;
+
+          li {
+            margin: 20px 0;
+
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+          }
         }
       }
     }
