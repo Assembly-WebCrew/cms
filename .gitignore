@@ -10,4 +10,4 @@ frontend/.sass-cache/
 statics/
 media/uploads/*
 *.pid
-./templates/
+/templates/
