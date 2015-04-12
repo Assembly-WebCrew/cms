@@ -6,7 +6,7 @@ class Command(BaseCommand):
     help = 'Bootstrap the database with given fixture or initial_data fixture'
 
     def handle(self, *args, **options):
-        if isinstance(args[0], str):
+        if args and isinstance(args[0], str):
             file = args[0]
         else:
             file = 'assembly/core/fixtures/initial_data.json'
