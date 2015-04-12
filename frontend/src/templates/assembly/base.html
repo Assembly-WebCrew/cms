@@ -1,5 +1,5 @@
 <!doctype html>
-{% load static cms_tags sekizai_tags %}
+{% load static cms_tags sekizai_tags menu_tags %}
 <html>
 <head>
   <title>{% page_attribute "page_title" %}</title>
@@ -53,9 +53,7 @@
                 </div>
                 <div id="header_links">
                     <ul class="navigation clearfix">
-                        <li><a href="#">Party manual</a></li>
-                        <li><a href="#">Event</a></li>
-                        <li><a href="#">Schedule</a></li>
+                        {% show_menu 1 1 %}
                     </ul>
                 </div>
                 <div id="language">
@@ -95,7 +93,7 @@
                 <li><a href="http://rog.asus.com" target="_blank"><img src="{% static "images/s-rog.png" %}" alt="Republic of Gamers" title="Republic of Gamers"></a></li>
             </ul>
     </aside>
-      {% block base_content %}{% endblock %} 
+      {% block base_content %}{% endblock %}
 
 
   <a href="#" class="news_archive">News archive</a>
