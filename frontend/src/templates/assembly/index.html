@@ -1,41 +1,45 @@
+{% extends "assembly/base.html" %}
+{% load cms_tags %}
 {% load static %}
-<!doctype html>
-<html class="no-js" ng-app="asmFrontend">
-  <head>
-    <meta charset="utf-8">
-    <title>assemblyFrontend</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <base href="/"></base>
-    <!-- !django:<base href="/"></base> -->
-    <base href="/{{event}}/"></base>
+{% load menu_tags %}
 
-    <link rel="stylesheet" href="{% static "asm/styles/app-f6969e12.css" %}">
+{% block page_header %}
+<div id="event_info">
+  <div class="wrapper clearfix">
+    <div class="logo">
+      <img src="{% static "images/logo_summer_2015.png" %}" alt="ASSEMBLY Summer 2015" title="ASSEMBLY Summer 2015" />
+    </div>
+    <div class="event_schedule_location">
+      <h4 class="event_time">30.7 - 2.8.2015</h4>
+      <h4 class="event_location">Messukeskus, Helsinki</h4>
+    </div>
+    <div class="buy_tickets">
+      <a href="#" class="btn btn-1e">Buy tickets now</a>
+    </div>
+  </div>
+</div>
+<div id="carousel">
+  <div class="carousel_meta">
+    <h3>ASUS ROG $25 000 Prize Pool</h3>
+    <a href="#" class="carousel_read_more">Read More</a>
+  </div>
+  <div class="fader"></div>
+</div>
+{% endblock %}
 
-    <script>
-      window.DJANGO = {};
-      window.DJANGO.staticPath = '{{ STATIC_URL }}asm/';
-    </script>
-  </head>
-  <body>
-    <!--[if lt IE 10]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+{% block top_sponsors %}
+  <aside id="main_sponsors" class="wrapper">
+    <ul class="sponsors clearfix">
+      <!-- <li>{% placeholder sponsor1 %}</li>
+      <li>{% placeholder sponsor2 %}</li>
+      <li>{% placeholder sponsor3 %}</li> -->
+      <li><a href="http://www.jimms.fi" target="_blank"><img src="{% static "images/s-jimms.png" %}" alt="Jimms.fi" title="Jimms.fi"></a></li>
+      <li><a href="http://www.asus.com" target="_blank"><img src="{% static "images/s-asus.png" %}" alt="ASUS" title="ASUS"></a></li>
+      <li><a href="http://rog.asus.com" target="_blank"><img src="{% static "images/s-rog.png" %}" alt="Republic of Gamers" title="Republic of Gamers"></a></li>
+    </ul>
+  </aside>
+{% endblock %}
 
-    <ui-view class="container"></ui-view>
-
-    <!-- <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script> -->
-
-    <script src="{% static "asm/scripts/vendor-b18aa0c8.js" %}"></script>
-
-    <script src="{% static "asm/scripts/app-68b8df32.js" %}"></script>
-
-  </body>
-</html>
+{% block base_content %}
+<a href="#" class="news_archive">News archive</a>
+{% endblock %}

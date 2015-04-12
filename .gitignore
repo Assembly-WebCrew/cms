@@ -9,5 +9,6 @@ templates/assembly/
 frontend/.sass-cache/
 statics/
 media/uploads/*
+media/cms_page_media/*
 *.pid
 /templates/
