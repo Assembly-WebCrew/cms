@@ -1,0 +1,49 @@
+{% extends "assembly/base.html" %}
+{% load cms_tags %}
+{% load static %}
+
+
+
+{% block base_content %}
+<script>
+  $('body').addClass("news_page");
+</script>
+    <section id="content" class="wrapper clearfix">
+        <article class="news">
+            <div class="article_left">
+                <div class="news_image">
+                    <img src="{% static "images/photo2.jpg"%}" alt="" title="" />
+                </div>
+                <div class="news_content">
+                    <div class="news_title">
+
+
+
+                        {% placeholder template_1_content %}
+
+                      </div>
+                </div>
+            </div>
+            <div class="article_right">
+                <div class="news_meta">
+                    <p class="time">Kirjoitettu 27.1.2017</p>
+                    <button id="twitter_share"><i class="fa fa-twitter"></i> 15 JAKOA</button>
+
+                    <button id="facebook_share"><i class="fa fa-facebook-official"></i> JAA</button>
+                </div>
+            </div>
+        </article>
+        <aside id="content_links" class="wrapper">
+            <ul class="navigation links clearfix">
+                <li><a href="#" class="btn btn-1e">Party Manual</a></li>
+                <li><a href="#" class="btn btn-1e">Party Manual</a></li>
+                <li><a href="#" class="btn btn-1e">Party Manual</a></li>
+                <li><a href="#" class="btn btn-1e">Party Manual</a></li>
+                <li><a href="#" class="btn btn-1e">Party Manual</a></li>
+            </ul>
+        </aside>
+    </section>
+
+{% endblock %}
+
+
