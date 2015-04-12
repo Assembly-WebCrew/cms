@@ -11,28 +11,10 @@
   width: 100% !important;
 }
 
-#top_bar {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  font-size: 0;
-  z-index: 99;
-}
-
 .logo img {
   max-width: 90%;
   margin: 0 auto;
   text-align: center;
-}
-
-#top_bar.scrolled {
-  position: fixed;
-  top: 0;
-  height: auto;
-  background: rgba(0, 0, 0, 0.75);
-  z-index: 999;
-  padding: 10px 0;
 }
 
 #open_menu {
@@ -56,38 +38,6 @@
 }
 
 #open_menu span:hover {
-  opacity: 1.0;
-  filter: alpha(opacity=100);
-}
-
-#header_links {
-  padding: 20px;
-  display: inline-block;
-  box-sizing: border-box;
-  width: 60%;
-  font-size: 12px;
-  vertical-align: middle;
-}
-
-#header_links ul {
-  text-align: right;
-}
-
-#header_links ul li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-#header_links ul li a {
-  color: #FFF;
-  font-weight: 800;
-  text-transform: uppercase;
-  opacity: 0.8;
-  filter: alpha(opacity=80);
-  transition: all 0.3s;
-}
-
-#header_links ul li a:hover {
   opacity: 1.0;
   filter: alpha(opacity=100);
 }
