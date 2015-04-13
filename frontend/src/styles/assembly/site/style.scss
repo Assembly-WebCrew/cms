@@ -10,7 +10,7 @@ body {
   color: #000;
   font-weight: 300;
   font-size: 14px;
-  font-family: 'Open Sans', Arial, Verdana, Tahoma;
+  font-family: 'Open Sans', Arial, Verdana, Tahoma !important;
 }
 
 p {
@@ -358,13 +358,13 @@ header#top {
   height: auto;
 }
 
-#content .news_content ul {
+#content .text_content ul {
   padding-left: 15px;
   display: block;
   margin-bottom: 24px;
 }
 
-#content .news_content ul li {
+#content .text_content ul li {
   margin: 5px 0;
   padding: 5px 0;
   list-style: square;
@@ -410,7 +410,7 @@ header#top {
   max-width: 100%;
 }
 
-.news .news_content {
+.news .text_content {
   border-right: 1px solid #eee;
   font-size: 16px;
   width: 100%;
@@ -489,15 +489,15 @@ header#top {
   color: #FFF;
 }
 
-.news_page #content {
+.page #content {
   font-size: 0;
 }
 
-.news_page #content_links ul li a {
+.page #content_links ul li a {
   margin: 10px 0;
 }
 
-.news_page #content_links {
+.page #content_links {
   width: 30%;
   font-size: 14px;
   margin: 0;
@@ -506,13 +506,14 @@ header#top {
   box-sizing: border-box;
 }
 
-.news_page #content_links ul li {
+.page #content_links ul li {
   display: block;
   margin: 10px 0;
 }
 
-.news_page .news {
-  width: 70%;
+.page .news {
+  width:57%;
+/*  width: 70%;*/
   vertical-align: top;
   margin: 0;
   display: inline-block;
@@ -520,8 +521,8 @@ header#top {
   font-size: 0;
 }
 
-.news_page .news .article_left {
-  width: 70%;
+.page .news .article_left {
+/*  width: 70%; poistin tyhjän valkoisen tilan*/
   vertical-align: top;
   margin: 0;
   display: inline-block;
@@ -529,7 +530,7 @@ header#top {
   font-size: 14px;
 }
 
-.news_page .news .article_right {
+.page .news .article_right {
   width: 30%;
   vertical-align: top;
   margin: 0;
@@ -540,17 +541,17 @@ header#top {
   text-align: right;
 }
 
-.news_page .news .news_meta .time {
+.page .news .news_meta .time {
   width: 100%;
   font-weight: 300;
   font-size: 18px;
 }
 
-.news_page .news .news_content {
+.page .news .text_content {
   border-right: 0;
 }
 
-.news_page .news .article_right button {
+.page .news .article_right button {
   display: inline;
   margin: 10px 0;
   padding: 15px 25px;
@@ -563,20 +564,20 @@ header#top {
   transition: all 0.3s;
 }
 
-.news_page .news .article_right button#twitter_share {
+.page .news .article_right button#twitter_share {
   background: #56a3d9;
 }
 
-.news_page .news .article_right button#facebook_share {
+.page .news .article_right button#facebook_share {
   background: #3b579d;
 }
 
-.news_page .news .article_right button i.fa {
+.page .news .article_right button i.fa {
   font-size: 20px;
   padding-right: 15px;
 }
 
-.news_page .news .article_right button:hover {
+.page .news .article_right button:hover {
   min-width: 80%;
 }
 
@@ -807,7 +808,7 @@ header#top {
     min-width: 50px;
     padding: 15px 30px;
   }
-  #content_links ul li a.btn {
+  #content_links ul li a.btn{
     margin: 10px;
   }
   .news {
@@ -857,7 +858,7 @@ header#top {
   html, body, .container, .content-wrap {
     overflow: visible;
   }
-  .news_page .news, .news_page #content_links {
+  .page .news, .page #content_links {
     display: block;
     width: 100%;
   }
@@ -869,14 +870,14 @@ header#top {
 }
 
 @media screen and (max-width: 768px) {
-  .news_page .news .article_left, .news_page .news .article_right {
+  .page .news .article_left, .page .news .article_right {
     display: block;
     width: 100%;
   }
-  .news_page .news .article_right {
+  .page .news .article_right {
     text-align: left;
   }
-  .news_page .news .article_right button {
+  .page .news .article_right button {
     font-size: 12px;
   }
   #bottom .navigation li {
@@ -944,7 +945,7 @@ header#top {
   .carousel_meta h3 {
     font-size: 22px;
   }
-  body, p, .btn, .news .news_meta .time, .news .news_meta .news_read_more {
+  body, p, .btn, .news .news_meta .time, .news .news_meta .news_read_more{
     font-size: 12px;
   }
   .facebook_post
