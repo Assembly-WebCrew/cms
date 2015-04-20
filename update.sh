@@ -7,8 +7,11 @@ echo "Cleaning frontend"
 cd frontend && gulp clean
 echo "Building frontend"
 npm install && bower install && gulp build
+cd .. && source env/bin/activate
+echo "Updating Python modules"
+pip install -r requirements.txt
 echo "Collecting statics"
-cd .. && source env/bin/activate && python manage.py collectstatic --noinput
+python manage.py collectstatic --noinput
 echo "Running migrations"
 python manage.py migrate
 deactivate
