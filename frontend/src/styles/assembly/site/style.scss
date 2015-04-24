@@ -147,39 +147,6 @@ cite:before {
   color: #FFF;
 }
 
-/* EVENT INFO */
-
-#event_info {
-  position: absolute;
-  top: 140px;
-  margin: 0 auto;
-  text-align: center;
-  width: 100%;
-  z-index: 100;
-}
-
-.event_schedule_location .event_time {
-  font-weight: 800;
-  font-family: 'Open Sans';
-  font-style: italic;
-  font-size: 36px;
-  margin-top: 35px;
-}
-
-.event_schedule_location .event_location {
-  font-weight: 600;
-  font-family: 'Open Sans';
-  font-style: italic;
-  font-size: 24px;
-}
-
-.buy_tickets a {
-  text-transform: uppercase;
-  color: #FFF;
-  font-weight: 800;
-  border-radius: 5px;
-}
-
 /* CAROUSEL */
 
 header#top {
