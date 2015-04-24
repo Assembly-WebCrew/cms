@@ -1,9 +1,7 @@
 .top-bar {
   position: absolute;
-  height: 100%;
-  width: 100%;
   top: 0;
-  font-size: 0;
+  width: 100%;
   z-index: 101;
 
   &.scrolled {
@@ -103,4 +101,37 @@
     }
   }
 
+  .language {
+    padding: 20px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 15%;
+    vertical-align: middle;
+
+    .lang {
+      display: inline-block;
+      margin-right: 8px;
+    }
+
+    .active {
+      border-radius: 50%;
+      box-shadow: 0 0 12px #adf;
+    }
+
+    a {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background-position: center no-repeat;
+      background-size: 100%;
+    }
+
+    [href^="/fi"] {
+      background-image: url("../../images/finnish.png");
+    }
+
+    [href^="/en"] {
+      background-image: url("../../images/english.png");
+    }
+  }
 }

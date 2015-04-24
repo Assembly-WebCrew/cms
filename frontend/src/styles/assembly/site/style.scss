@@ -117,36 +117,6 @@ cite:before {
   filter: alpha(opacity=100);
 }
 
-#language {
-  padding: 20px;
-  display: inline-block;
-  box-sizing: border-box;
-  width: 15%;
-  font-size: 12px;
-  vertical-align: middle;
-}
-
-#language ul {
-  text-align: right;
-}
-
-#language ul li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-#language ul li:after {
-  /* REMOVE LATER */
-  content: "|";
-  color: #FFF;
-}
-
-#language ul li a {
-  /* REMOVE LATER */
-  font-weight: 800;
-  color: #FFF;
-}
-
 /* CAROUSEL */
 
 header#top {
