@@ -119,6 +119,7 @@
     }
 
     a {
+      color: transparent;
       display: inline-block;
       width: 16px;
       height: 16px;
@@ -133,5 +134,27 @@
     [href^="/en"] {
       background-image: url("../../images/english.png");
     }
+  }
+
+  .search {
+    padding: 20px;
+    display: inline-block;
+
+    input {
+      padding-left: 8px;
+      transition: border .1s, background .5s;
+      border: 1px solid #457;
+      background-color: #1a2a4a;
+      color: #fff;
+      font-size: 10px;
+      border-radius: 10px;
+
+      &:focus {
+        outline: none;
+        border: 1px solid #6a7a9a;
+        background-color: #283858;
+      }
+    }
+
   }
 }
