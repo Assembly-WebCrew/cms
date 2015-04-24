@@ -38,7 +38,7 @@ var compileStylesheet = function (source) {
     .pipe($.if(source.indexOf('main.scss') > -1, mainFilter))
     .pipe($.if(source.indexOf('main.scss') > -1, $.inject(injectFiles, injectOptions)))
     .pipe($.if(source.indexOf('main.scss') > -1, mainFilter.restore()))
-    .pipe($.rubySass(sassOptions))
+    .pipe($.rubySass(sassOptions)).on('error', gulp.handleError)
     .pipe($.sourcemaps.init())
     .pipe($.autoprefixer())
     .pipe($.if(args.production, $.csso()))
