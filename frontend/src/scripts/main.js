@@ -1,10 +1,10 @@
 $ = jQuery;
-$(function() {
+$(function () {
 
     var bodyEl = document.body,
-        content = document.querySelector( '.content-wrap' ),
-        openbtn = document.getElementById( 'open-button' ),
-        closebtn = document.getElementById( 'close-button' ),
+        content = document.querySelector('.content-wrap'),
+        openbtn = document.getElementById('open-button'),
+        closebtn = document.getElementById('close-button'),
         isOpen = false;
 
     function init() {
@@ -12,27 +12,23 @@ $(function() {
     }
 
     function initEvents() {
-        openbtn.addEventListener( 'click', toggleMenu );
-        if( closebtn ) {
-            closebtn.addEventListener( 'click', toggleMenu );
-        }
+        if (openbtn) openbtn.addEventListener('click', toggleMenu);
+        if (closebtn) closebtn.addEventListener('click', toggleMenu);
 
         // close the menu element if the target it´s not the menu element or one of its descendants..
-        content.addEventListener( 'click', function(ev) {
+        content.addEventListener('click', function (ev) {
             var target = ev.target;
-            if( isOpen && target !== openbtn ) {
-                toggleMenu();
-            }
-        } );
+            if (isOpen && target !== openbtn) toggleMenu();
+        });
     }
 
     function toggleMenu() {
-        if( isOpen ) {
-            classie.remove( bodyEl, 'show-menu' );
+        if (isOpen) {
+            classie.remove(bodyEl, 'show-menu');
             $('.menu-wrap').stop().slideUp(300);
         }
         else {
-            classie.add( bodyEl, 'show-menu' );
+            classie.add(bodyEl, 'show-menu');
             $('.menu-wrap').slideDown(300);
         }
         isOpen = !isOpen;
@@ -40,22 +36,22 @@ $(function() {
 
     init();
 
-    $('.menu-side ul li.expanded').hover(function() {
-        if($(window).width() >= 960) {
+    $('.menu-side ul li.expanded').hover(function () {
+        if ($(window).width() >= 960) {
             $(this).children('ul').stop().slideToggle();
-            $(this).toggleClass('open')
+            $(this).toggleClass('open');
         }
     });
-    $('.menu-side ul li.expanded').click(function() {
-        if($(window).width() >= 960) {
+    $('.menu-side ul li.expanded').click(function () {
+        if ($(window).width() >= 960) {
             $(this).children('ul').stop().slideToggle();
-            $(this).toggleClass('open')
+            $(this).toggleClass('open');
         }
     });
 
     /* HEADER */
 
-    (function() {
+    (function () {
 
         var width, height, largeHeader, canvas, ctx, circles, target, animateHeader = true;
 
@@ -91,7 +87,7 @@ $(function() {
         }
 
         function scrollCheck() {
-            if(document.body.scrollTop > height) animateHeader = false;
+            if (document.body.scrollTop > height) animateHeader = false;
             else animateHeader = true;
         }
 
@@ -103,7 +99,7 @@ $(function() {
         }
 
         function animate() {
-            if(animateHeader) {
+            if (animateHeader) {
                 ctx.clearRect(0,0,width,height);
                 for(var i in circles) {
                     circles[i].draw();
@@ -117,7 +113,7 @@ $(function() {
             var _this = this;
 
             // constructor
-            (function() {
+            (function () {
                 _this.pos = {};
                 init();
             })();
@@ -130,8 +126,8 @@ $(function() {
                 _this.velocity = Math.random();
             }
 
-            this.draw = function() {
-                if(_this.alpha <= 0) {
+            this.draw = function () {
+                if (_this.alpha <= 0) {
                     init();
                 }
                 _this.pos.y -= _this.velocity;
