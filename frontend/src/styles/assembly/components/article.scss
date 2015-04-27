@@ -4,21 +4,20 @@ article {
   }
 
   a {
-    color: #4a9a16;
     text-decoration: underline;
+    color: #4a9a16;
   }
 
-  ul {
+  ul, ol {
+    margin-bottom: 24px;
     padding-left: 15px;
     display: block;
-    margin-bottom: 24px;
   }
 
   li {
     margin: 5px 0;
     padding: 5px 0;
-    list-style: square;
-    list-style-position: inside;
+    list-style: square inside;
     font-weight: 400;
     line-height: 1.4;
 
@@ -27,6 +26,10 @@ article {
       padding-left: 20px;
       margin: 0;
     }
+  }
+
+  ol li {
+    list-style-type: decimal;
   }
 
   hr {
