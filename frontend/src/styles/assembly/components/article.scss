@@ -12,6 +12,14 @@ article {
     display: block;
   }
 
+  ol {
+    padding-left: 32px;
+
+    li {
+      list-style: decimal outside;
+    }
+  }
+
   li {
     margin: 5px 0;
     padding: 5px 0;
@@ -24,9 +32,6 @@ article {
     }
   }
 
-  ol li {
-    list-style: decimal outside;
-  }
 
   hr {
     border-style: solid;
