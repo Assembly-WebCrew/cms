@@ -1,7 +1,5 @@
 article {
-  p {
-    font-weight: 400;
-  }
+  line-height: 1.4;
 
   a {
     text-decoration: underline;
@@ -18,8 +16,6 @@ article {
     margin: 5px 0;
     padding: 5px 0;
     list-style: square inside;
-    font-weight: 400;
-    line-height: 1.4;
 
     // Inner lists don't need margin on the bottom, but more padding for clarity.
     ul {
@@ -29,12 +25,19 @@ article {
   }
 
   ol li {
-    list-style-type: decimal;
+    list-style: decimal outside;
   }
 
   hr {
     border-style: solid;
     border-top-width: 0;
     color: #888;
+  }
+
+  blockquote {
+    background: #f9f9f9;
+    border-left: 8px solid #ccc;
+    margin: 1.5em 10px;
+    padding: .5em 10px;
   }
 }
