@@ -44,6 +44,7 @@
     > .child {
       position: relative;
       display: inline-block;
+      margin: 0 20px;
 
       // Sub level navigation
       ul {
@@ -52,16 +53,16 @@
         border-radius: 0 0 5px 5px;
         padding: 0 10px 10px;
         position: absolute;
-        max-height: 0;
-        width: 140px;
+        width: 165px;
         z-index: 100;
         opacity: 0;
         left: 0;
       }
 
       .child {
-        transition: margin .2s;
+        transition: padding .2s;
         text-align: left;
+        padding: 0 8px;
 
         a {
           text-transform: none;
@@ -73,13 +74,13 @@
       &:hover > ul, ul:hover {
         max-height: none;
         opacity: 1;
-        padding: 10px;
+        padding-top: 20px;
 
         li {
-          margin: 20px 0;
+          padding: 8px;
 
           &:last-of-type {
-            margin-bottom: 8px;
+            padding-bottom: 8px;
           }
         }
       }
@@ -89,7 +90,6 @@
 
   // Navigation link styling
   .child a {
-    padding: 0 20px;
     color: #fff;
     font-weight: 800;
     text-transform: uppercase;
