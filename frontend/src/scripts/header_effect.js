@@ -2,7 +2,7 @@
   'use strict';
 
   /**
-   * Effect's WebGL implementation by Pekka (cce) Väänänen
+   * Effect's WebGL implementation by Pekka Väänänen
    */
 
   // http://dvolvr.davidwaterston.com/2012/06/24/javascript-accurate-timing-is-almost-here/
