@@ -14,8 +14,8 @@
       <h3>30.7 &ndash; 2.8.2015</h3>
       <h4>Messukeskus, Helsinki</h4>
     </div>
-    <div class="buy-tickets">
-      <a href="#" class="btn btn-1e">Buy tickets now</a>
+    <div class="call-for-action">
+      {% placeholder "call_for_action" or %}<a href="">...</a>{% endplaceholder %}
     </div>
   </div>
 </div>
@@ -29,14 +29,14 @@
 {% endblock %}
 
 {% block top_sponsors %}
-  <aside id="main_sponsors" class="wrapper">
+  <aside class="main-sponsors" class="wrapper">
     <ul class="sponsors clearfix">
-      <!-- <li>{% placeholder sponsor1 %}</li>
-      <li>{% placeholder sponsor2 %}</li>
-      <li>{% placeholder sponsor3 %}</li> -->
-      <li><a href="http://www.jimms.fi" target="_blank"><img src="{% static "images/s-jimms.png" %}" alt="Jimms.fi" title="Jimms.fi"></a></li>
+      <li>{% placeholder "sponsor1" %}</li>
+      <li>{% placeholder "sponsor2" %}</li>
+      <li>{% placeholder "sponsor3" %}</li>
+      <!-- <li><a href="http://www.jimms.fi" target="_blank"><img src="{% static "images/s-jimms.png" %}" alt="Jimms.fi" title="Jimms.fi"></a></li>
       <li><a href="http://www.asus.com" target="_blank"><img src="{% static "images/s-asus.png" %}" alt="ASUS" title="ASUS"></a></li>
-      <li><a href="http://rog.asus.com" target="_blank"><img src="{% static "images/s-rog.png" %}" alt="Republic of Gamers" title="Republic of Gamers"></a></li>
+      <li><a href="http://rog.asus.com" target="_blank"><img src="{% static "images/s-rog.png" %}" alt="Republic of Gamers" title="Republic of Gamers"></a></li> -->
     </ul>
   </aside>
 {% endblock %}

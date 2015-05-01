@@ -22,7 +22,10 @@
     }
   }
 
-  .buy-tickets a {
+  .call-for-action a {
+    @extend .btn;
+    @extend .btn-1e;
+
     z-index: 100;
   }
 }
