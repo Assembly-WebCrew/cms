@@ -59,4 +59,43 @@ article {
     margin: 1.5em 10px;
     padding: .5em 10px;
   }
+
+  table {
+    margin-bottom: 24px;
+    width: 100%;
+    font-size: 14px;
+    border: 1px solid #eee;
+
+    th {
+      font-weight: 800;
+      padding: 10px;
+      background: #141d40;
+      color: #fff;
+      text-align: center;
+    }
+
+    tbody th:first-child {
+      text-align: right;
+    }
+
+    tbody th:last-child {
+      text-align: left;
+    }
+
+    td {
+      padding: 10px;
+      transition: all .1s;
+      border-right: 1px solid #eee;
+    }
+
+    td:last-child {
+      border-right: 0;
+    }
+
+    td:hover {
+      transform: scale(1.03);
+      box-shadow: rgba(0, 0, 0, .3) 0 0 10px;
+      background: #f6f6f6;
+    }
+  }
 }

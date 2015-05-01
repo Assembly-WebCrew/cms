@@ -279,36 +279,6 @@ header#top {
   height: auto;
 }
 
-#content table {
-  width: 100%;
-  font-size: 14px;
-  border: 1px solid #eee;
-}
-
-#content table thead th {
-  font-weight: 800;
-  padding: 10px;
-  background: #141d40;
-  color: #FFF;
-  text-align: left;
-}
-
-#content table td {
-  padding: 10px;
-  transition: all 0.1s;
-  border-right: 1px solid #eee;
-}
-
-#content table td:last-child {
-  border-right: 0;
-}
-
-#content table td:hover {
-  transform: scale(1.03);
-  box-shadow: rgba(0,0,0,.3) 0 0 10px;
-  background: #f6f6f6;
-}
-
 .news .news_image {
   display: block;
   width: 100%;
