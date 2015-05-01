@@ -22,11 +22,15 @@
     }
   }
 
-  .call-for-action a {
-    @extend .btn;
-    @extend .btn-1e;
-
+  .call-for-action {
     width: 300px;
-    z-index: 100;
+    margin: 0 auto;
+
+    a {
+      @extend .btn;
+      @extend .btn-1e;
+
+      z-index: 100;
+    }
   }
 }
