@@ -119,11 +119,11 @@
       "}"].join('\n');
 
     var canvas = document.getElementById('demo-canvas');
-    var gl = initGL(canvas);
+    if (!canvas) return;
 
-    if (!gl) {
-      return;
-    }
+    var gl = initGL(canvas);
+    if (!gl) return;
+
 
     var quad_vertices = [
       -1.0, 1.0,
@@ -188,7 +188,6 @@
       var height = Math.floor(window.innerHeight / 2.5);
       canvas.width = width;
       canvas.height = height;
-      console.log(width);
       setupViewport();
       particleCount = Math.floor(Math.min(MAX_QUADS, canvas.width / 3));
     };
