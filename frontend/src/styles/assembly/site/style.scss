@@ -12,6 +12,14 @@ body {
   font-family: 'Open Sans', Arial, Verdana, Tahoma !important;
 }
 
+// .content-wrap {
+//   background-image: url("../../images/assembly_backwitfractals.jpg");
+//   background-repeat: no-repeat;
+//   background-attachment: local;
+//   background-position: top;
+//   background-size: 100%;
+// }
+
 p {
   line-height: 1.4;
   margin-bottom: 24px;
@@ -128,7 +136,7 @@ header#top {
   width: 100%;
   height: auto;
   min-height: 700px;
-  background: url(../../images/assembly_backwitfractals.jpg) center no-repeat;
+  background: url("../../images/assembly_backwitfractals.jpg") center no-repeat;
   background-size: cover;
 }
 
