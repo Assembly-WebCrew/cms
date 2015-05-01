@@ -1,6 +1,6 @@
 .main-sponsors {
   margin: 20px auto;
-  background: #141d40;
+  background: $bg-color;
 
   ul {
     text-align: center;
@@ -10,12 +10,13 @@
   li {
     display: inline-block;
     padding: 20px;
-    width: 250px;
+    min-width: 200px;
     text-align: center;
   }
 
   img {
     max-height: 100px;
+    max-width: 250px;
     width: auto;
   }
 }

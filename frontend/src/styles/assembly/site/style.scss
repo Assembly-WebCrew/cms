@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-  background: #141d40;
+  background: $bg-color;
   color: #000;
   font-weight: 400;
   font-size: 14px;
@@ -20,19 +20,14 @@ body {
 //   background-size: 100%;
 // }
 
-p {
-  line-height: 1.4;
-  margin-bottom: 24px;
-}
-
 a {
-  color: #8aba56;
+  color: $link-color;
   text-decoration: none;
-  transition: all 0.3s;
+  transition: color .3s;
 }
 
 a:hover {
-  color: #6a8f43;
+  color: lighten($link-color, 2%);
   text-decoration: none;
 }
 
@@ -79,11 +74,6 @@ cite:before {
   font-size: 24px;
   display: inline-block;
 }
-
-/*
-    green: 1f233b rgba(20, 29, 64, 1)
-    light blue: 8493ab;
-*/
 
 /* HEADER */
 
@@ -263,18 +253,7 @@ header#top {
 /* NEWS */
 
 #content {
-  font-size: 0;
   margin-bottom: 50px;
-}
-
-#content h3, #content h4 {
-  margin-bottom: 24px;
-  font-weight: 300;
-}
-
-#content h5 {
-  font-weight: 800;
-  margin-bottom: 24px;
 }
 
 .news {
@@ -644,8 +623,8 @@ header#top {
 /* FOOTER */
 
 #bottom {
-  background: rgba(0, 0, 0, 0.1);
-  color: #FFF;
+  background: darken($bg-color, 2%);
+  color: #fff;
   padding: 50px 0;
 }
 
