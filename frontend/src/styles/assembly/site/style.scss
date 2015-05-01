@@ -249,11 +249,7 @@ header#top {
 #content_links ul li {
   display: inline-block;
   box-sizing: border-box;
-}
-
-#content_links ul li a.btn {
-  min-width: 100px;
-  margin: 35px 15px;
+  width: 80%;
 }
 
 /* NEWS */
