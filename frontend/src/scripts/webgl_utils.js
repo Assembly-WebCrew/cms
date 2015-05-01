@@ -119,4 +119,4 @@ function loadProgram(vs, fs, callback) {
         window.cancelAnimationFrame = function(id) {
             clearTimeout(id);
         };
-}())
+}());

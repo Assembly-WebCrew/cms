@@ -8,18 +8,13 @@ var $ = require('gulp-load-plugins')();
 
 var args = require('yargs').argv;
 
-gulp.task('scripts', ['shaders'], function () {
+gulp.task('scripts', function () {
   return gulp.src(paths.src + '/scripts/**/*.js')
     .pipe($.if(args.production, $.uglify()))
     .pipe($.concat('main.js'))
     .pipe($.size({title: 'scripts', showFiles: gulp.showOutputFiles}))
     .on('error', gulp.handleError)
-    .pipe(gulp.dest(paths.statics + '/assembly/scripts/'))
-});
-
-gulp.task('shaders', function () {
-  return gulp.src(paths.src + '/scripts/**/*.shader')
-    .pipe(gulp.dest(paths.statics + '/assembly/scripts/'))
+    .pipe(gulp.dest(paths.statics + '/assembly/scripts/'));
 });
 
 gulp.task('vendor-scripts', function () {
