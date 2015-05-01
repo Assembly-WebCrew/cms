@@ -82,7 +82,7 @@ cite:before {
 #demo-canvas {
   position: absolute;
   bottom: 0;
-  //width: 100% !important;
+  max-width: 100% !important;
 }
 
 .logo img {

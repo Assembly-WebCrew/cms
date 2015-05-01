@@ -185,9 +185,10 @@
 
     var resize = function() {
       var width = window.innerWidth;
-      var height = window.innerHeight / 2.5;
+      var height = Math.floor(window.innerHeight / 2.5);
       canvas.width = width;
       canvas.height = height;
+      console.log(width);
       setupViewport();
       particleCount = Math.floor(Math.min(MAX_QUADS, canvas.width / 3));
     };
