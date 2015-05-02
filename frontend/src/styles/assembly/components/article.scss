@@ -1,0 +1,113 @@
+article {
+  line-height: 1.4;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 24px 0;
+  }
+
+  h3, h4 {
+    font-weight: 300;
+  }
+
+  h5 {
+    font-weight: 800;
+  }
+
+  p {
+    margin-bottom: 24px;
+  }
+
+  a {
+    text-decoration: underline;
+    color: darken($link-color, 10%);
+  }
+
+  ul, ol {
+    margin-bottom: 24px;
+    padding-left: 15px;
+    display: block;
+  }
+
+  ol {
+    padding-left: 32px;
+
+    li {
+      list-style: decimal outside;
+    }
+  }
+
+  li {
+    margin: 5px 0;
+    padding: 5px 0;
+    list-style: square inside;
+
+    // Inner lists don't need margin on the bottom, but more padding for clarity.
+    ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+  }
+
+  .breadcrumbs {
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+
+    li {
+      list-style: none;
+      display: inline;
+    }
+  }
+
+  hr {
+    border-style: solid;
+    border-top-width: 0;
+    color: #888;
+  }
+
+  blockquote {
+    background: #f9f9f9;
+    border-left: 8px solid #ccc;
+    margin: 1.5em 10px;
+    padding: .5em 10px;
+  }
+
+  table {
+    margin-bottom: 24px;
+    width: 100%;
+    font-size: 14px;
+    border: 1px solid #eee;
+
+    th {
+      font-weight: 800;
+      padding: 10px;
+      background: $bg-color;
+      color: #fff;
+      text-align: center;
+    }
+
+    tbody th:first-child {
+      text-align: right;
+    }
+
+    tbody th:last-child {
+      text-align: left;
+    }
+
+    td {
+      padding: 10px;
+      transition: all .1s;
+      border-right: 1px solid #eee;
+    }
+
+    td:last-child {
+      border-right: 0;
+    }
+
+    td:hover {
+      transform: scale(1.03);
+      box-shadow: rgba(0, 0, 0, .3) 0 0 10px;
+      background: #f6f6f6;
+    }
+  }
+}

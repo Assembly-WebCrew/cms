@@ -20,19 +20,19 @@
     right: 0;
     left: 0;
     top: 0;
-    background: -moz-linear-gradient(top, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); /* FF3.6+ */
-    background: -webkit-linear-gradient(top, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); /* IE10+ */
-    background: linear-gradient(to bottom, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); /* W3C */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, rgba(20, 29, 64, 1)), color-stop(100%, rgba(0, 0, 0, 0))); /* Chrome,Safari4+ */
+    background: -moz-linear-gradient(top, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); // FF3.6+
+    background: -webkit-linear-gradient(top, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); // Chrome10+,Safari5.1+
+    background: -o-linear-gradient(top, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); // Opera 11.10+
+    background: -ms-linear-gradient(top, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); // IE10+
+    background: linear-gradient(to bottom, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); // W3C
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, rgba(20, 29, 64, 1)), color-stop(100%, rgba(0, 0, 0, 0))); // Chrome,Safari4+
   }
 
   .header-links {
     padding: 20px;
     display: inline-block;
     box-sizing: border-box;
-    width: 60%;
+    width: 70%;
     font-size: 14px;
     vertical-align: middle;
   }
@@ -44,24 +44,25 @@
     > .child {
       position: relative;
       display: inline-block;
+      margin: 0 20px;
 
       // Sub level navigation
       ul {
-        background-color: rgba(20, 29, 64, 1);
-        transition: padding .2s, opacity .2s;
+        background-color: $bg-color;
+        transition: padding .2s, opacity .2s, box-shadow .25s;
         border-radius: 0 0 5px 5px;
         padding: 0 10px 10px;
         position: absolute;
-        max-height: 0;
-        width: 140px;
+        width: 165px;
         z-index: 100;
         opacity: 0;
         left: 0;
       }
 
       .child {
-        transition: margin .2s;
+        transition: padding .2s;
         text-align: left;
+        padding: 0 8px;
 
         a {
           text-transform: none;
@@ -73,13 +74,14 @@
       &:hover > ul, ul:hover {
         max-height: none;
         opacity: 1;
-        padding: 10px;
+        padding-top: 20px;
+        box-shadow: rgba($bg-color, .7) -4px 10px 30px, rgba($bg-color, .7) 4px 10px 30px;
 
         li {
-          margin: 20px 0;
+          padding: 8px;
 
           &:last-of-type {
-            margin-bottom: 8px;
+            padding-bottom: 8px;
           }
         }
       }
@@ -89,7 +91,6 @@
 
   // Navigation link styling
   .child a {
-    padding: 0 20px;
     color: #fff;
     font-weight: 800;
     text-transform: uppercase;

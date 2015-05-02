@@ -55,8 +55,8 @@ $(function () {
     var width, height, largeHeader, canvas, ctx, circles, target, animateHeader = true;
 
     // Main
-    initHeader();
-    addListeners();
+    //initHeader();
+    //addListeners();
 
     function initHeader() {
       width = window.innerWidth;

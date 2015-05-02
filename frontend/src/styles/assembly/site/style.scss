@@ -5,27 +5,29 @@ html, body {
 }
 
 body {
-  background: #141d40;
-  /* background: #111;*/
+  background: $bg-color;
   color: #000;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 14px;
   font-family: 'Open Sans', Arial, Verdana, Tahoma !important;
 }
 
-p {
-  line-height: 1.4;
-  margin-bottom: 24px;
-}
+// .content-wrap {
+//   background-image: url("../../images/assembly_backwitfractals.jpg");
+//   background-repeat: no-repeat;
+//   background-attachment: local;
+//   background-position: top;
+//   background-size: 100%;
+// }
 
 a {
-  color: #8aba56;
+  color: $link-color;
   text-decoration: none;
-  transition: all 0.3s;
+  transition: color .3s;
 }
 
 a:hover {
-  color: #6a8f43;
+  color: lighten($link-color, 2%);
   text-decoration: none;
 }
 
@@ -73,17 +75,12 @@ cite:before {
   display: inline-block;
 }
 
-/*
-    green: 1f233b rgba(20, 29, 64, 1)
-    light blue: 8493ab;
-*/
-
 /* HEADER */
 
 #demo-canvas {
   position: absolute;
   bottom: 0;
-  width: 100% !important;
+  max-width: 100% !important;
 }
 
 .logo img {
@@ -122,13 +119,14 @@ cite:before {
 header#top {
   position: relative;
   color: #FFF;
+  min-height: 120px;
 }
 
 #carousel {
   width: 100%;
   height: auto;
   min-height: 700px;
-  background: url(../../images/assembly_backwitfractals.jpg) center no-repeat;
+  background: url("../../images/assembly_backwitfractals.jpg") center no-repeat;
   background-size: cover;
 }
 
@@ -181,22 +179,10 @@ header#top {
 }
 
 /* SPONSORS */
-
-#main_sponsors {
-  margin: 20px auto;
-}
-
-#main_sponsors ul,
-#sponsors ul {
-  text-align: center;
-  font-size: 0;
-}
-
 #sponsors ul {
   background: #141d40;
 }
 
-#main_sponsors ul li,
 #sponsors ul li {
   box-sizing: border-box;
   display: inline-block;
@@ -261,28 +247,13 @@ header#top {
 #content_links ul li {
   display: inline-block;
   box-sizing: border-box;
-}
-
-#content_links ul li a.btn {
-  min-width: 100px;
-  margin: 35px 15px;
+  width: 80%;
 }
 
 /* NEWS */
 
 #content {
-  font-size: 0;
   margin-bottom: 50px;
-}
-
-#content h3, #content h4 {
-  margin-bottom: 24px;
-  font-weight: 300;
-}
-
-#content h5 {
-  font-weight: 800;
-  margin-bottom: 24px;
 }
 
 .news {
@@ -293,48 +264,6 @@ header#top {
   font-size: 0;
   box-sizing: border-box;
   height: auto;
-}
-
-#content .text_content ul {
-  padding-left: 15px;
-  display: block;
-  margin-bottom: 24px;
-}
-
-#content .text_content ul li {
-  margin: 5px 0;
-  padding: 5px 0;
-  list-style: square;
-  list-style-position: inside;
-}
-
-#content table {
-  width: 100%;
-  font-size: 14px;
-  border: 1px solid #eee;
-}
-
-#content table thead th {
-  font-weight: 800;
-  padding: 10px;
-  background: #141d40;
-  color: #FFF;
-  text-align: left;
-}
-
-#content table td {
-  padding: 10px;
-  transition: all 0.1s;
-  border-right: 1px solid #eee;
-}
-
-#content table td:last-child {
-  border-right: 0;
-}
-
-#content table td:hover {
-  transform: scale(1.1);
-  background: #f6f6f6;
 }
 
 .news .news_image {
@@ -354,7 +283,7 @@ header#top {
   display: block;
   padding: 25px 40px 10px 40px;
   box-sizing: border-box;
-  font-weight: 300;
+  font-weight: 400;
   vertical-align: top;
 }
 
@@ -431,7 +360,7 @@ header#top {
 }
 
 .page #content_links ul li a {
-  margin: 10px 0;
+  /*margin: 10px 0;*/
 }
 
 .page #content_links {
@@ -445,7 +374,7 @@ header#top {
 
 .page #content_links ul li {
   display: block;
-  margin: 10px 0;
+  margin: 10px auto;
 }
 
 .page .news {
@@ -694,8 +623,8 @@ header#top {
 /* FOOTER */
 
 #bottom {
-  background: rgba(0, 0, 0, 0.1);
-  color: #FFF;
+  background: darken($bg-color, 2%);
+  color: #fff;
   padding: 50px 0;
 }
 

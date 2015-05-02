@@ -14,7 +14,7 @@ gulp.task('scripts', function () {
     .pipe($.concat('main.js'))
     .pipe($.size({title: 'scripts', showFiles: gulp.showOutputFiles}))
     .on('error', gulp.handleError)
-    .pipe(gulp.dest(paths.statics + '/assembly/scripts/'))
+    .pipe(gulp.dest(paths.statics + '/assembly/scripts/'));
 });
 
 gulp.task('vendor-scripts', function () {

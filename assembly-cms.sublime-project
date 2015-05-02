@@ -1,0 +1,21 @@
+{
+  "folders":
+  [
+    {
+      "name": "Back-end",
+      "path": ".",
+       "folder_exclude_patterns": ["static", "statics", "media", "frontend"]
+    },
+    {
+      "name": "Front-end",
+      "path": "./frontend",
+      "folder_exclude_patterns": ["bower_components", "node_modules", ".sass-cache"]
+    }
+  ],
+  "settings":
+  {
+    "tab_size": 2,
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": true
+  },
+}
