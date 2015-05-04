@@ -28,11 +28,11 @@
     background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, rgba(20, 29, 64, 1)), color-stop(100%, rgba(0, 0, 0, 0))); // Chrome,Safari4+
   }
 
-  .header-links {
-    padding: 20px;
+  .header-navigation {
+    padding: 20px 10px;
     display: inline-block;
     box-sizing: border-box;
-    width: 70%;
+    width: 73%;
     font-size: 14px;
     vertical-align: middle;
   }
@@ -44,7 +44,7 @@
     > .child {
       position: relative;
       display: inline-block;
-      margin: 0 20px;
+      margin: 0 15px;
 
       // Sub level navigation
       ul {
@@ -103,7 +103,7 @@
   }
 
   .language {
-    padding: 20px;
+    padding: 20px 10px;
     display: inline-block;
     box-sizing: border-box;
     width: 15%;
@@ -138,7 +138,7 @@
   }
 
   .search {
-    padding: 20px;
+    padding: 20px 10px;
     display: inline-block;
 
     input {

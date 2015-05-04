@@ -1,0 +1,56 @@
+footer {
+
+  background: darken($bg-color, 2%);
+  color: #fff;
+  padding: 50px 0;
+
+  .footer-navigation {
+    width: 100%;
+    margin-bottom: 20px;
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 14px;
+    vertical-align: middle;
+  }
+
+  .navigation {
+    text-align: center;
+
+    li {
+      position: relative;
+      display: inline-block;
+      margin: 0 15px;
+
+      // Navigation link styling
+      a {
+        color: #fff;
+        font-weight: 800;
+        text-transform: uppercase;
+        opacity: .8;
+        transition: opacity .3s;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .organization {
+    text-align: center;
+    margin: 25px 0;
+    color: #fff;
+    text-align: center;
+
+    .navigation a {
+      font-size: 12px;
+      font-style: italic;
+      text-transform: none;
+    }
+
+    .copyright {
+      margin: 35px 0;
+    }
+  }
+
+}

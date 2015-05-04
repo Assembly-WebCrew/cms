@@ -620,51 +620,6 @@ header#top {
   margin-top: 35px;
 }
 
-/* FOOTER */
-
-#bottom {
-  background: darken($bg-color, 2%);
-  color: #fff;
-  padding: 50px 0;
-}
-
-#bottom .navigation {
-  font-size: 0;
-  text-align: center;
-}
-
-#bottom a:hover {
-  color: #fff;
-}
-
-#bottom .navigation li {
-  display: inline-block;
-  box-sizing: border-box;
-  margin: 0 20px;
-}
-
-#footer_menu ul li a {
-  font-size: 16px;
-  font-style: italic;
-  font-weight: 800;
-}
-
-#organization {
-  margin-top: 35px;
-  color: #FFF;
-  text-align: center;
-}
-
-#organization .navigation {
-  margin-bottom: 35px;
-}
-
-#organization .navigation li a {
-  font-size: 12px;
-  font-style: italic;
-  font-weight: 800;
-  text-transform: uppercase;
-}
 
 @media screen and (max-width: 960px) {
   #demo-canvas {

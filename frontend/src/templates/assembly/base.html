@@ -49,7 +49,7 @@
             <!-- <div id="open_menu">
               <button class="menu-button" id="open-button">Open Site Menu</button>
             </div> -->
-            <div class="header-links">
+            <div class="header-navigation">
               <ul class="navigation clearfix">
                 {% show_menu 0 1 1 1 %}
               </ul>
@@ -76,28 +76,21 @@
 
       {% block base_content %}{% endblock %}
 
-      <footer id="bottom">
+      <footer>
         <div class="wrapper">
-          <div id="footer_menu">
+          <div class="footer-navigation">
             <ul class="navigation clearfix">
-              <li><a href="#">HOME</a></li>
-              <li><a href="#">THREE LIFTS</a></li>
-              <li><a href="#">TICKETS</a></li>
-              <li><a href="#">PARTY MANUAL</a></li>
-              <li><a href="#">EVENT</a></li>
-              <li><a href="#">SPONSORS</a></li>
-              <li><a href="#">ABOUT US</a></li>
-              <li><a href="#">HISTORY</a></li>
+              {% show_menu 0 0 0 0 %}
             </ul>
           </div>
-          <div id="organization">
+          <div class="organization">
             <ul class="navigation clearfix">
-            <li><a href="#">feedback</a></li>
-            <li><a href="#">privacy</a></li>
-            <li><a href="#">contact</a></li>
-            <li><a href="#">organizing</a></li>
+            <li><a href="mailto:web-contact@assembly.org">Feedback</a></li>
+            <li><a href="http://www.assembly.org/asmorg/legal/privacy">Privacy</a></li>
+            <li><a href="mailto:asm@assembly.org">Contact</a></li>
+            <li><a href="about-us">Organizing</a></li>
             </ul>
-            <p>&copy; 2009 - 2015 Assembly Organizing</p>
+            <p class="copyright">&copy; 1992 &ndash; 2015 Assembly Organizing</p>
           </div>
         </div>
       </footer>
