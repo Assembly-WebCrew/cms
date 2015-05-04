@@ -1,3 +1,5 @@
+// Refactor into header!
+
 .top-bar {
   position: absolute;
   top: 0;
@@ -90,14 +92,21 @@
   }
 
   // Navigation link styling
-  .child a {
-    color: #fff;
-    font-weight: 800;
-    text-transform: uppercase;
-    opacity: .8;
-    transition: opacity .3s;
+  .child {
+    &.selected > a, &.ancestor > a {
+      opacity: 1;
+      text-decoration: underline;
+    }
 
-    &:hover {
+    a {
+      color: #fff;
+      font-weight: 800;
+      text-transform: uppercase;
+      opacity: .8;
+      transition: opacity .3s;
+    }
+
+    a:hover {
       opacity: 1;
     }
   }
