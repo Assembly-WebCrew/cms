@@ -24,6 +24,7 @@ a {
   color: $link-color;
   text-decoration: none;
   transition: color .3s;
+  cursor:pointer;
 }
 
 a:hover {
@@ -353,6 +354,35 @@ header#top {
   content: "\25BE";
   display: block;
   color: #FFF;
+}
+
+.page{
+  position:relative;
+}
+
+.page .backgroundimage{
+  z-index:-20;
+  position:absolute;
+  top:-85px;
+  left:0px;
+  height:100%;
+  width:100%;
+  background-image:url('../../images/assembly_backwithfractals.jpg');
+  background-size:cover;
+}
+.page .backgroundfade{
+  background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(20,29,64,1) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(20,29,64,1)));
+  background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(20,29,64,1) 100%);
+  background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(20,29,64,1) 100%);
+  background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(20,29,64,1) 100%);
+  background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(20,29,64,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#141d40',GradientType=0 );
+  position:absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:110px;
 }
 
 .page #content {

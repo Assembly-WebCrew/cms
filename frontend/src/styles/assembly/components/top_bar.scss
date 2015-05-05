@@ -28,6 +28,26 @@
     background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, rgba(20, 29, 64, 1)), color-stop(100%, rgba(0, 0, 0, 0))); // Chrome,Safari4+
   }
 
+  .logocontainer{
+    float:left;
+    width:200px;
+    padding-bottom:20px;
+    .logo{
+      width:200px;
+      margin-bottom:8px;
+    }
+    .date, .location{
+      font-weight: 800;
+      font-family: 'Open Sans';
+      font-style: italic;
+      font-size: 10px;
+      text-transform:uppercase;
+    }
+    .location{
+      font-weight:600;
+    }
+  }
+
   .header-navigation {
     padding: 20px 10px;
     display: inline-block;
@@ -38,7 +58,8 @@
   }
 
   .navigation {
-    text-align: right;
+    padding-top:25px;
+    padding-left:20px;
 
     // Main level navigation
     > .child {
