@@ -15,23 +15,28 @@ footer {
 
   .navigation {
     text-align: center;
+  }
 
-    li {
-      position: relative;
-      display: inline-block;
-      margin: 0 15px;
+  li {
+    position: relative;
+    display: inline-block;
+    margin: 0 15px;
 
-      // Navigation link styling
-      a {
-        color: #fff;
-        font-weight: 800;
-        text-transform: uppercase;
-        opacity: .8;
-        transition: opacity .3s;
+    &.selected > a, &.ancestor > a {
+      opacity: 1;
+      text-decoration: underline;
+    }
 
-        &:hover {
-          opacity: 1;
-        }
+    // Navigation link styling
+    a {
+      color: #fff;
+      font-weight: 800;
+      text-transform: uppercase;
+      opacity: .8;
+      transition: opacity .3s;
+
+      &:hover {
+        opacity: 1;
       }
     }
   }
