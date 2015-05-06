@@ -2,7 +2,7 @@
 {% load static cms_tags sekizai_tags menu_tags %}
 <html>
 <head>
-  <title>{% page_attribute "page_title" %}</title>
+  <title>ASSEMBLY &gt; {% page_attribute "page_title" %}</title>
   {% render_block "css" %}
   <link rel="stylesheet" href="{% static "assembly/styles/vendor.css" %}">
   <link rel="stylesheet" href="{% static "assembly/styles/main.css" %}">
@@ -49,8 +49,15 @@
             <!-- <div id="open_menu">
               <button class="menu-button" id="open-button">Open Site Menu</button>
             </div> -->
+
             <div class="header-navigation">
-              <ul class="navigation clearfix">
+              <div class="logocontainer">
+                <img src="{% static "images/logo_summer_2015.png" %}" class="logo"/>
+                <span class="date">30.7. - 2.8.2015</span>
+                <span class="location">Messukeskus, Helsinki</span>
+              </div>
+
+              <ul class="navigation">
                 {% show_menu 0 1 1 1 %}
               </ul>
             </div>

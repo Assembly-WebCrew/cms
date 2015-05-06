@@ -57,6 +57,9 @@ article {
       list-style: none;
       display: inline;
     }
+    li:first-child{
+      display:none;
+    }
   }
 
   hr {
