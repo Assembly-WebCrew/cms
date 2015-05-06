@@ -28,19 +28,16 @@
 </div>
 {% endblock %}
 
-{% block top_sponsors %}
-  <aside class="main-sponsors" class="wrapper">
-    <ul class="sponsors clearfix">
-      <li>{% placeholder "sponsor1" %}</li>
-      <li>{% placeholder "sponsor2" %}</li>
-      <li>{% placeholder "sponsor3" %}</li>
-      <!-- <li><a href="http://www.jimms.fi" target="_blank"><img src="{% static "images/s-jimms.png" %}" alt="Jimms.fi" title="Jimms.fi"></a></li>
-      <li><a href="http://www.asus.com" target="_blank"><img src="{% static "images/s-asus.png" %}" alt="ASUS" title="ASUS"></a></li>
-      <li><a href="http://rog.asus.com" target="_blank"><img src="{% static "images/s-rog.png" %}" alt="Republic of Gamers" title="Republic of Gamers"></a></li> -->
-    </ul>
-  </aside>
-{% endblock %}
-
 {% block base_content %}
-<a href="#" class="news_archive">News archive</a>
+<div class="wrapper">
+  <aside class="main-sponsors" class="wrapper">
+    {% placeholder "main_sponsors" %}
+  </aside>
+
+  <nav class="quick-links">
+    {% placeholder "quick_links" %}
+  </nav>
+
+  <a href="#" class="news_archive">News archive</a>
+</div>
 {% endblock %}
