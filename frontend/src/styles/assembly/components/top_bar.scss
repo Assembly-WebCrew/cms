@@ -30,23 +30,26 @@
     background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, rgba(20, 29, 64, 1)), color-stop(100%, rgba(0, 0, 0, 0))); // Chrome,Safari4+
   }
 
-  .logocontainer{
-    float:left;
-    width:200px;
-    padding-bottom:20px;
-    .logo{
-      width:200px;
-      margin-bottom:8px;
+  .logocontainer {
+    float: left;
+    width: 200px;
+    padding-bottom: 20px;
+
+    .logo {
+      width: 200px;
+      margin-bottom: 8px;
     }
-    .date, .location{
+
+    .date, .location {
       font-weight: 800;
       font-family: 'Open Sans';
       font-style: italic;
       font-size: 10px;
-      text-transform:uppercase;
+      text-transform: uppercase;
     }
-    .location{
-      font-weight:600;
+
+    .location {
+      font-weight: 600;
     }
   }
 
@@ -60,8 +63,8 @@
   }
 
   .navigation {
-    padding-top:25px;
-    padding-left:20px;
+    padding-top: 25px;
+    padding-left: 20px;
 
     // Main level navigation
     > .child {
