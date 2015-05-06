@@ -124,8 +124,10 @@ MEDIA_URL = '/media/'
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 CMS_PLACEHOLDER_CONF = {
+    # General
+    'footer_links':    { 'plugins': ['LinkPlugin'] },
+
     # Frontpage
-    #
     'call_for_action': { 'plugins': ['LinkPlugin'] },
     'main_sponsors':   { 'plugins': ['PicturePlugin'] },
     'quick_links':     { 'plugins': ['LinkPlugin'] },

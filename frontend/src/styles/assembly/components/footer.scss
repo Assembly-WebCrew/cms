@@ -44,13 +44,14 @@ footer {
   .organization {
     text-align: center;
     margin: 25px 0;
-    color: #fff;
-    text-align: center;
 
     .navigation a {
+      margin: 0 15px;
+      color: #fff;
+      opacity: .8;
       font-size: 12px;
       font-style: italic;
-      text-transform: none;
+      font-weight: 800;
     }
 
     .copyright {
