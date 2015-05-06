@@ -1,4 +1,6 @@
 .quick-links {
+  display: flex;
+  justify-content: space-between;
   text-align: center;
 
   a {
@@ -10,5 +12,13 @@
     line-height: 70px;
     padding: 0 20px;
     margin: 0 20px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }

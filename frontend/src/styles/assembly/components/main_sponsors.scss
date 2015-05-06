@@ -1,4 +1,6 @@
 .main-sponsors {
+  display: flex;
+  justify-content: space-between;
   margin: 20px auto;
   background: $bg-color;
   text-align: center;
