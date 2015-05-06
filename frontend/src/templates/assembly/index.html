@@ -38,6 +38,43 @@
     {% placeholder "quick_links" %}
   </nav>
 
+  <div class="some_wrap">
+
+    <article class="twitter_post linked">
+      <a href="https://twitter.com/assemblyparty">
+        <div class="twitter_icon"><img src="{% static "images/i-twitter.png" %}" alt="" title=""></div>
+        <div class="twitter_text">FOLLOW</div>
+        <div class="twitter_username">@ASSEMBLYPARTY<p></p></div>
+        <div class="twitter_hashtag">hashtag #asmparty</div>
+      </a>
+    </article>
+
+     <article class="facebook_post linked">
+      <a href="https://www.facebook.com/assemblyparty">
+        <div class="facebook_icon"><img src="{% static "images/i-facebook.png" %}" alt="" title=""></div>
+        <div class="facebook_text">LIKE US</div>
+        <div class="facebook_username">ASSEMBLY COMPUTER FESTIVAL<p></p></div>
+        <div class="facebook_likes">7 971 likes</div>
+      </a>
+    </article>
+
+    <!-- TODO: Posts from SoMe. -->
+
+    <article class="twitter_post post">
+      <div class="twitter_username">@assemblyparty</div>
+      <div class="twitter_real_name">Assembly Party</div>
+      <div class="twitter_content"><p>#Assymuisto kisa on ratkennut, voittajana @jsanevalainen. Onnea Joona! Ohessa voittanut kuva. http://bit.ly/1bXN5sh  #assemblyparty</p></div>
+      <div class="twitter_posted">Tweeted May 4</div>
+    </article>
+
+    <article class="facebook_post post">
+      <div class="facebook_username">ASSEMBLY COMPUTER FESTIVAL</div>
+      <div class="facebook_content"><p>ASSEMBLY is a festival, in which thousands of people spend the weekend by meeting friends, playing games and enjoying the great productions from the demoscene.</p></div>
+      <!-- <div class="facebook_posted">14.2.2015 13.45</div> -->
+    </article>
+
+  </div>
+
   <a href="#" class="news_archive">News archive</a>
 </div>
 {% endblock %}
