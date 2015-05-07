@@ -21,7 +21,7 @@
 </div>
 <div id="carousel">
   <div class="carousel_meta">
-    <h3>ASUS ROG $25 000 Prize Pool</h3>
+    <h3>KAHEN KILON $2 000 Siika</h3>
     <a href="#" class="carousel_read_more">Read More</a>
   </div>
   <div class="fader"></div>
@@ -38,42 +38,68 @@
     {% placeholder "quick_links" %}
   </nav>
 
-  <div class="some_wrap">
+  <div class="some-wrap">
 
-    <article class="twitter_post linked">
+    <article class="some-box twitter linked">
       <a href="https://twitter.com/assemblyparty">
-        <div class="twitter_icon"><img src="{% static "images/i-twitter.png" %}" alt="" title=""></div>
-        <div class="twitter_text">FOLLOW</div>
-        <div class="twitter_username">@ASSEMBLYPARTY<p></p></div>
-        <div class="twitter_hashtag">hashtag #asmparty</div>
+        <div class="icon"><img src="{% static "images/i-twitter.png" %}" alt></div>
+        <div class="prompt">FOLLOW</div>
+        <div class="username">@ASSEMBLYPARTY<p></p></div>
+        <div class="bottom">hashtag #asmparty</div>
       </a>
     </article>
 
-     <article class="facebook_post linked">
+     <article class="some-box facebook linked">
       <a href="https://www.facebook.com/assemblyparty">
-        <div class="facebook_icon"><img src="{% static "images/i-facebook.png" %}" alt="" title=""></div>
-        <div class="facebook_text">LIKE US</div>
-        <div class="facebook_username">ASSEMBLY COMPUTER FESTIVAL<p></p></div>
-        <div class="facebook_likes">7 971 likes</div>
+        <div class="icon"><img src="{% static "images/i-facebook.png" %}" alt></div>
+        <div class="prompt">LIKE US</div>
+        <div class="username">ASSEMBLY COMPUTER FESTIVAL<p></p></div>
+        <div class="bottom">7 971 likes</div>
       </a>
     </article>
 
     <!-- TODO: Posts from SoMe. -->
 
-    <article class="twitter_post post">
-      <div class="twitter_username">@assemblyparty</div>
-      <div class="twitter_real_name">Assembly Party</div>
-      <div class="twitter_content"><p>#Assymuisto kisa on ratkennut, voittajana @jsanevalainen. Onnea Joona! Ohessa voittanut kuva. http://bit.ly/1bXN5sh  #assemblyparty</p></div>
-      <div class="twitter_posted">Tweeted May 4</div>
+    <article class="some-box twitter">
+      <div class="username">@assemblyparty</div>
+      <div class="real-name">Assembly Party</div>
+      <div class="text">
+        <p>#Assymuisto kisa on ratkennut, voittajana @jsanevalainen. Onnea Joona! Ohessa voittanut kuva. http://bit.ly/1bXN5sh  #assemblyparty</p>
+      </div>
+      <div class="bottom">Tweeted May 4</div>
     </article>
 
-    <article class="facebook_post post">
-      <div class="facebook_username">ASSEMBLY COMPUTER FESTIVAL</div>
-      <div class="facebook_content"><p>ASSEMBLY is a festival, in which thousands of people spend the weekend by meeting friends, playing games and enjoying the great productions from the demoscene.</p></div>
-      <!-- <div class="facebook_posted">14.2.2015 13.45</div> -->
+    <article class="some-box facebook">
+      <div class="username">ASSEMBLY COMPUTER FESTIVAL</div>
+      <div class="text">
+        <p>ASSEMBLY is a festival, in which thousands of people spend the weekend by meeting friends, playing games and enjoying the great productions from the demoscene.</p>
+      </div>
+      <!-- <div class="bottom">14.2.2015 13.45</div> -->
     </article>
 
   </div>
+
+  <aside id="sponsors" class="wrapper cycle-slideshow" data-cycle-fx="scrollHorz" data-cycle-timeout="5000" data-cycle-speed="2000" data-cycle-slides="ul" style="overflow: hidden;">
+
+    <ul class="sponsors cycle-slide cycle-sentinel" style="position: static; top: 0px; left: 0px; z-index: 100; opacity: 1; display: block; visibility: hidden;; width: 100%">
+      <li style="visibility: hidden;"><a href="http://www.jimms.fi" target="_blank" style="visibility: hidden;"><img src="{% static "images/s-jimms.png" %}" alt="Jimms.fi" title="Jimms.fi" style="visibility: hidden;"></a></li>
+      <li style="visibility: hidden;"><a href="http://www.asus.com" target="_blank" style="visibility: hidden;"><img src="{% static "images/s-asus.png" %}" alt="ASUS" title="ASUS" style="visibility: hidden;"></a></li>
+      <li style="visibility: hidden;"><a href="http://rog.asus.com" target="_blank" style="visibility: hidden;"><img src="{% static "images/s-rog.png" %}" alt="Republic of Gamers" title="Republic of Gamers" style="visibility: hidden;"></a></li>
+      <li style="visibility: hidden;"><a href="http://www.asus.com" target="_blank" style="visibility: hidden;"><img src="{% static "images/s-asus.png" %}" alt="ASUS" title="ASUS" style="visibility: hidden;"></a></li>
+    </ul>
+
+    <div class="fader left"></div>
+    <div class="sponsor_logos"></div>
+    <div class="fader right"></div>
+
+    <ul class="sponsors cycle-slide" style="position: absolute; top: 0px; left: 0px; z-index: 97; opacity: 1; display: block; visibility: hidden; width: 100%">
+      <li><a href="http://www.asus.com" target="_blank"><img src="{% static "images/s-asus.png" %}" alt="ASUS" title="ASUS"></a></li>
+      <li><a href="http://rog.asus.com" target="_blank"><img src="{% static "images/s-rog.png" %}" alt="Republic of Gamers" title="Republic of Gamers"></a></li>
+      <li><a href="http://www.asus.com" target="_blank"><img src="{% static "images/s-asus.png" %}" alt="ASUS" title="ASUS"></a></li>
+      <li><a href="http://www.jimms.fi" target="_blank"><img src="{% static "images/s-jimms.png" %}" alt="Jimms.fi" title="Jimms.fi"></a></li>
+    </ul>
+
+  </aside>
 
   <a href="#" class="news_archive">News archive</a>
 </div>

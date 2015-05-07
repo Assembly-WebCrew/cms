@@ -1,5 +1,13 @@
 // Refactor into header!
 
+  body.home .logocontainer, body.etusivu .logocontainer{
+    display:none;
+  }
+
+  body.home .navigation, body.etusivu .logocontainer{
+    padding-top:0px;
+  }
+
 .top-bar {
   position: absolute;
   top: 0;
@@ -29,6 +37,9 @@
     background: linear-gradient(to bottom, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); // W3C
     background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, rgba(20, 29, 64, 1)), color-stop(100%, rgba(0, 0, 0, 0))); // Chrome,Safari4+
   }
+  a .logocontainer span.location, a .logocontainer span.date{
+    color:white;
+  }
 
   .logocontainer {
     float: left;
@@ -51,8 +62,8 @@
     .location {
       font-weight: 600;
     }
-  }
 
+  }
   .header-navigation {
     padding: 20px 10px;
     display: inline-block;
@@ -60,6 +71,11 @@
     width: 73%;
     font-size: 14px;
     vertical-align: middle;
+  }
+
+
+  .header-navigation .navigation li:first-child{
+    display:none;
   }
 
   .navigation {

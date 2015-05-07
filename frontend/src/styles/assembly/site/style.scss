@@ -12,13 +12,6 @@ body {
   font-family: 'Open Sans', Arial, Verdana, Tahoma !important;
 }
 
-// .content-wrap {
-//   background-image: url("../../images/assembly_backwitfractals.jpg");
-//   background-repeat: no-repeat;
-//   background-attachment: local;
-//   background-position: top;
-//   background-size: 100%;
-// }
 
 a {
   color: $link-color;
@@ -28,13 +21,13 @@ a {
 }
 
 a:hover {
-  color: lighten($link-color, 2%);
+  color: darken($link-color, 2%);
   text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', Arial, Verdana, Tahoma;
-  text-transform: uppercase;
+/*  text-transform: uppercase;*/
   font-weight: 800;
 }
 
@@ -129,7 +122,7 @@ cite:before {
   width: 100%;
   height: auto;
   min-height: 700px;
-  background: url("../../images/assembly_backwitfractals.jpg") center no-repeat;
+  background: url("../../images/assembly_backwithfractals.jpg") center no-repeat;
   background-size: cover;
 }
 
@@ -187,8 +180,7 @@ cite:before {
 }
 
 #sponsors ul li {
-  box-sizing: border-box;
-  display: inline-block;
+  float: left;
   padding: 20px;
 }
 
@@ -199,11 +191,6 @@ cite:before {
 #sponsors {
   position: relative;
   margin-bottom: 50px;
-}
-
-#sponsors ul li {
-  /* REMOVE LATER */
-  text-align: center;
 }
 
 #sponsors .fader {
@@ -241,18 +228,40 @@ cite:before {
 
 #content_links {
   margin-bottom: 50px;
-}
 
-#content_links ul {
+ul {
   text-align: center;
 }
 
-#content_links ul li {
-  display: inline-block;
+ul li {
   box-sizing: border-box;
   width: 80%;
+  display:none;
+}
+li.selected{
+  background-color:transparent;
+  /*FIX so that links can be seen*/
+}
+.btn-1e, #content_links .selected, #content_links li.ancestor{
+  display: inline-block;
+  background-color:rgb(18, 25, 56);
+  background-color:rgba(18, 25, 56, 0.7);
+}
+ul li ul li .btn{
+  padding:0px;
+  background-color:transparent;
+  border:none;
+  text-align:left;
+  transition:none;
+  &:after{
+    display:none;
+  }
 }
 
+.ancestor .selected ~ li{
+  display:none;
+}
+}
 /* NEWS */
 
 #content {
@@ -362,7 +371,7 @@ cite:before {
   position:relative;
 }
 
-.page .backgroundimage{
+.page .backgroundimage {
   z-index:-20;
   position:absolute;
   top:-85px;
@@ -372,7 +381,7 @@ cite:before {
   background-image:url('../../images/assembly_backwithfractals.jpg');
   background-size:cover;
 }
-.page .backgroundfade{
+.page .backgroundfade {
   background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(20,29,64,1) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(20,29,64,1)));
   background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(20,29,64,1) 100%);
@@ -479,185 +488,13 @@ cite:before {
   min-width: 80%;
 }
 
-/* Twitter */
+// FRONTPAGE SOME
 
-.twitter_post {
-  width: 25%;
-  display: block;
-  float: left;
-  box-sizing: border-box;
-  background: #56a3d9;
-  color: #FFF;
-  padding: 35px 40px;
-  vertical-align: top;
-  font-size: 14px;
-  text-align: center;
-  height: 300px;
-}
-
-.twitter_post .twitter_username {
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 18px;
-}
-
-.twitter_post .twitter_real_name {
-  text-transform: uppercase;
-  margin: 5px 0 10px 0;
-  font-size: 16px;
-}
-
-.twitter_post .twitter_content {
-  margin-top: 30px;
-  font-style: italic;
-  font-size: 16px;
-}
-
-.twitter_post .twitter_posted {
-  margin-top: 30px;
-  font-weight: 800;
-  font-style: italic;
-  color: #abd5f3;
-}
-
-.twitter_post .twitter_icon {
-  margin-top: 15px;
-  margin-bottom: 35px;
-}
-
-.twitter_post.linked {
-  padding: 0;
-  font-style: italic;
-}
-
-.twitter_post a {
-  color: #FFF;
-  padding: 35px 40px;
-  display: block;
-  height: 300px;
-  text-decoration: none;
-}
-
-.twitter_post a:hover {
-  background: #5d8fb4;
-  text-decoration: underline;
-}
-
-.twitter_post .twitter_text {
-  font-size: 20px;
-}
-
-.twitter_post .twitter_hashtag {
-  font-size: 20px;
-  font-weight: 800;
-  font-style: italic;
-  text-transform: uppercase;
-  margin-top: 55px;
-}
-
-.some_wrap, .news_wrap {
+.some-wrap, .news_wrap {
   position: relative;
   overflow: hidden;
   margin: 50px 0;
 }
-
-.twitter_post:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: -1;
-  left: 0;
-  background: #56a3d9;
-}
-
-.facebook_post:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: -1;
-  left: 0;
-  background: #3b579d;
-}
-
-/* Facebook */
-
-.facebook_post {
-  width: 25%;
-  display: block;
-  float: left;
-  box-sizing: border-box;
-  background: #3b579d;
-  color: #FFF;
-  padding: 35px 40px;
-  vertical-align: top;
-  font-size: 14px;
-  text-align: center;
-  height: 300px;
-}
-
-.facebook_post .facebook_username {
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: 18px;
-}
-
-.facebook_post .facebook_real_name {
-  text-transform: uppercase;
-  margin: 5px 0 10px 0;
-  font-size: 16px;
-}
-
-.facebook_post .facebook_content {
-  margin-top: 35px;
-  font-style: italic;
-  font-size: 16px;
-}
-
-.facebook_post .facebook_posted {
-  margin-top: 30px;
-  font-weight: 800;
-  font-style: italic;
-  color: #a6b5fa;
-}
-
-.facebook_post.linked {
-  padding: 0;
-  font-style: italic;
-}
-
-.facebook_post.linked a {
-  color: #FFF;
-  display: block;
-  padding: 35px 40px;
-  height: 300px;
-  text-decoration: none;
-}
-
-.facebook_post.linked a:hover {
-  background: #2d4480;
-  text-decoration: underline;
-}
-
-.facebook_post .facebook_icon {
-  margin-top: 15px;
-  margin-bottom: 35px;
-}
-
-.facebook_post .facebook_text {
-  font-size: 20px;
-  font-style: italic;
-}
-
-.facebook_post .facebook_likes {
-  font-size: 20px;
-  font-weight: 800;
-  text-transform: uppercase;
-  font-style: italic;
-  margin-top: 35px;
-}
-
 
 @media screen and (max-width: 960px) {
   #demo-canvas {
@@ -806,23 +643,6 @@ cite:before {
   }
   body, p, .btn, .news .news_meta .time, .news .news_meta .news_read_more{
     font-size: 12px;
-  }
-  .facebook_post
-  .facebook_text,
-  .facebook_post
-  .facebook_username,
-  .twitter_post
-  .twitter_username,
-  .twitter_post,
-  .twitter_real_name,
-  .twitter_post .twitter_hashtag {
-    font-size: 14px;
-  }
-  .twitter_post .twitter_hashtag {
-    margin-top: 35px;
-  }
-  .twitter_post a {
-    padding: 10px;
   }
   .news .news_meta .news_read_more {
     padding: 10px;
