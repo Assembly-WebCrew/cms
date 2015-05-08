@@ -258,7 +258,7 @@ ul li ul li .btn{
   }
 }
 
-.ancestor .selected ~ li{
+.ancestor .selected ~ li ul{
   display:none;
 }
 }
