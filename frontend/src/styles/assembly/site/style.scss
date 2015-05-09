@@ -242,12 +242,14 @@ cite:before {
     margin: 0 auto 8px;
     box-sizing: border-box;
     width: 80%;
-
+    background-color: $bg-color;
+    background-color: rgba($bg-color, .7);
     &.selected {
-      // FIX so that links can be seen
       background-color: transparent;
     }
-
+    a {
+      z-index:100;
+    }
     ul {
       padding-top: 12px;
     }
@@ -259,8 +261,6 @@ cite:before {
 
   .btn-1e, #content_links .selected, #content_links .ancestor {
     display: inline-block;
-    background-color: $bg-color;
-    background-color: rgba($bg-color, .7);
   }
 
   ul li ul li .btn { // uliuliuliuli
