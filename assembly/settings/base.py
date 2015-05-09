@@ -131,4 +131,7 @@ CMS_PLACEHOLDER_CONF = {
     'call_for_action': { 'plugins': ['LinkPlugin'] },
     'main_sponsors':   { 'plugins': ['PicturePlugin'] },
     'quick_links':     { 'plugins': ['LinkPlugin'] },
+
+    # Article page
+    'article_header_image':   { 'plugins': ['PicturePlugin'] }
 }

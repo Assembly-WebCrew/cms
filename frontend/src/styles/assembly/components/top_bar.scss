@@ -5,9 +5,15 @@
     display: none;
   }
 
-  .top-bar .navigation {
-    margin-left: 200px;
-    padding-top: 0;
+  .top-bar {
+    .navigation {
+      margin-left: 200px;
+      padding-top: 0;
+    }
+
+    .fader {
+      top: 0;
+    }
   }
 }
 
@@ -32,7 +38,7 @@
     position: absolute;
     right: 0;
     left: 0;
-    top: 0;
+    top: 20px;
     background: -moz-linear-gradient(top, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); // FF3.6+
     background: -webkit-linear-gradient(top, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); // Chrome10+,Safari5.1+
     background: -o-linear-gradient(top, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); // Opera 11.10+

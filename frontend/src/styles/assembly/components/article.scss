@@ -50,6 +50,18 @@ article {
     }
   }
 
+  .header-image {
+    display: block;
+    width: 100%;
+    max-height: 250px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+
+
   .breadcrumbs {
     font-size: 14px;
     padding: 0;
