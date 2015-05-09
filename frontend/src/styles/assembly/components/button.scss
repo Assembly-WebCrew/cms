@@ -70,7 +70,7 @@
 
 .btn-1e:hover,
 .btn-1e:active {
-  color: #8aba56;
+  color: lighten($link-color, 10%);
 }
 
 .btn-1e:hover:after {

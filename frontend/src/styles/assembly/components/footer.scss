@@ -36,6 +36,7 @@ footer {
       transition: opacity .3s;
 
       &:hover {
+        color: #fff;
         opacity: 1;
       }
     }
@@ -52,6 +53,10 @@ footer {
       font-size: 12px;
       font-style: italic;
       font-weight: 800;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
     .copyright {

@@ -163,10 +163,11 @@ cite:before {
   text-transform: uppercase;
   font-size: 12px;
   margin-top: 25px;
+  transition: transform .2s;
 }
 
 .carousel_meta .carousel_read_more:hover {
-  color: #8aba56;
+  transform: translateY(5px);
 }
 
 .carousel_meta .carousel_read_more:after {
@@ -227,41 +228,73 @@ cite:before {
 /* PAGE LINKS */
 
 #content_links {
+  width: 23%;
   margin-bottom: 50px;
-
-ul {
-  text-align: center;
-}
-
-ul li {
-  box-sizing: border-box;
-  width: 80%;
-  display:none;
-}
-li.selected{
-  background-color:transparent;
-  /*FIX so that links can be seen*/
-}
-.btn-1e, #content_links .selected, #content_links li.ancestor{
+  font-size: 14px;
+  margin: 0;
   display: inline-block;
-  background-color:rgb(18, 25, 56);
-  background-color:rgba(18, 25, 56, 0.7);
-}
-ul li ul li .btn{
-  padding:0px;
-  background-color:transparent;
-  border:none;
-  text-align:left;
-  transition:none;
-  &:after{
-    display:none;
+
+  ul {
+    text-align: center;
   }
+
+  li {
+    margin: 0 auto 10px auto;
+    box-sizing: border-box;
+    width: 80%;
+
+    &.selected {
+      // FIX so that links can be seen
+      background-color: transparent;
+    }
+
+    ul {
+      padding-top: 12px;
+    }
+  }
+
+  .btn-1e, #content_links .selected, #content_links .ancestor {
+    display: inline-block;
+    background-color: $bg-color;
+    background-color: rgba($bg-color, .7);
+  }
+
+  ul li ul li .btn { // uliuliuliuli
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    text-align: left;
+    transition: none;
+
+    &:after {
+      display: none;
+    }
+  }
+
+  .navigation {
+    > .child > ul {
+      display: none;
+    }
+
+    .ancestor > ul, .selected > ul {
+      display: block;
+    }
+
+    .child.selected > a {
+      color: $link-color;
+    }
+
+    > li > ul {
+      background-color: $bg-color;
+      background-color: rgba($bg-color, .7);
+      padding-bottom: 1px;
+      margin-top: -2px;
+      border-radius: 0 0 6px 6px;
+    }
+  }
+
 }
 
-.ancestor .selected ~ li ul{
-  display:none;
-}
-}
 /* NEWS */
 
 #content {
@@ -398,24 +431,6 @@ ul li ul li .btn{
 
 .page #content {
   font-size: 0;
-}
-
-.page #content_links ul li a {
-  /*margin: 10px 0;*/
-}
-
-.page #content_links {
-  width: 30%;
-  font-size: 14px;
-  margin: 0;
-  display: inline-block;
-  vertical-align: top;
-  box-sizing: border-box;
-}
-
-.page #content_links ul li {
-  display: block;
-  margin: 10px auto;
 }
 
 .page .news {
