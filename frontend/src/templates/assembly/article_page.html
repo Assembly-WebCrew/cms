@@ -20,8 +20,8 @@
       <article class="news">
         <div class="article_left">
           <div class="header-image">
-            {% placeholder article_header_image or %}
-            <img src="{% static "images/default_article_header.jpg"%}" alt />
+            {% placeholder "article_header_image" inherit or %}
+              <img src="{% static "images/default_article_header.jpg"%}" alt />
             {% endplaceholder %}
           </div>
           <div class="text_content">
