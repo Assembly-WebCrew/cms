@@ -23,7 +23,7 @@ class LocaleMiddleware(object):
             possible_languages = settings.LANGUAGES
             for possible_lang in possible_languages:
                 if language in possible_lang:
-                    # Change active language to session and profile if user has authenticated
+                    # Change active language
                     translation.activate(language)
                     break
 
