@@ -188,11 +188,11 @@
       background-size: 100%;
     }
 
-    [href^="/fi"] {
+    [href^="?lang=fi"] {
       background-image: url("../../images/finnish.png");
     }
 
-    [href^="/en"] {
+    [href^="?lang=en"] {
       background-image: url("../../images/english.png");
     }
   }
