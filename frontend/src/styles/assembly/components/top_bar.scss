@@ -40,8 +40,9 @@
     background: linear-gradient(to bottom, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); // W3C
     background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, rgba(20, 29, 64, 1)), color-stop(100%, rgba(0, 0, 0, 0))); // Chrome,Safari4+
   }
-  a .logocontainer span.location, a .logocontainer span.date{
-    color:white;
+
+  a .logocontainer span.location, a .logocontainer span.date {
+    color: #fff;
   }
 
   .logocontainer {
@@ -67,6 +68,7 @@
     }
 
   }
+
   .header-navigation {
     padding: 20px 10px;
     display: inline-block;

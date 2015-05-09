@@ -239,7 +239,7 @@ cite:before {
   }
 
   li {
-    margin: 0 auto 10px auto;
+    margin: 0 auto 8px;
     box-sizing: border-box;
     width: 80%;
 
@@ -251,6 +251,10 @@ cite:before {
     ul {
       padding-top: 12px;
     }
+  }
+
+  .btn {
+    padding: 14px 40px;
   }
 
   .btn-1e, #content_links .selected, #content_links .ancestor {
