@@ -1,8 +1,8 @@
 <h1>Blogs</h1>
 <ul>
-    {% for blog in blog_list %}
-    <li><a href="{% url 'blog-detail' blog.id %}">{{ blog.title }}</a></li>
-    {% empty %}
-    <li>No blogs yet.</li>
-    {% endfor %}
+	{% for blog in blog_list %}
+		<li><a href="{% url 'blog:blog-detail' blog.id %}">{{ blog.title }}</a></li>
+	{% empty %}
+		<li>No blogs yet.</li>
+	{% endfor %}
 </ul>

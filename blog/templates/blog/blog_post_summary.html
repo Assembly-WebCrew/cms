@@ -1,0 +1,17 @@
+{% load i18n %}
+<div class="blog-post">
+	<img src="{{ post.cover_image }}" alt="{{ post.title }}">
+	<h3>
+		{{ post.title }}
+		<small>
+			{% trans "Posted by" %} {{ post.author }} {% trans "on" %} {{ post.created }}
+			{% if post.updated %}
+				{% trans "modified on" %} {{ post.updated }}
+			{% endif %}
+		</small>
+	</h3>
+	<p>
+		{{ post.body | safe }}
+		<a href="{% url 'blog:post-detail' blog_id post.id %}">{% trans "Read more" %}...</a>
+	</p>
+</div>

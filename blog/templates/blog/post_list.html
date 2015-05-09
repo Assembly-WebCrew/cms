@@ -1,7 +1,0 @@
-<ul>
-    {% for post in post_list %}
-    <li><a href="{% url 'post-detail' blog_id post.id %}">{{ post.title }}</a></li>
-    {% empty %}
-    <li>No posts yet.</li>
-    {% endfor %}
-</ul>

@@ -1,0 +1,13 @@
+{% extends "assembly/base.html" %}
+{% load i18n %}
+{% block base_content %}
+<ul class="blog-post-list">
+	{% for post in post_list %}
+		<li>
+			{% include "blog/blog_post_summary.html" %}
+		</li>
+	{% empty %}
+		<li>{% trans "No posts yet" %}.</li>
+	{% endfor %}
+</ul>
+{% endblock %}

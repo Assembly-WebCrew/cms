@@ -1,0 +1,11 @@
+{% extends "assembly/base.html" %}
+{% block base_content %}
+	<h1>Blogs</h1>
+	<ul>
+		{% for blog in blog_list %}
+			<li><a href="{% url 'blog:blog-detail' blog.id %}">{{ blog.title }}</a></li>
+		{% empty %}
+			<li>No blogs yet.</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

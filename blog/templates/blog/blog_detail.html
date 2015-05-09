@@ -1,9 +1,11 @@
-<a href="{% url 'blog-list' %}">&laquo; Back to blog list</a>
-<section>
-    <h1>{{ blog.title }}</h1>
-    {% with blog.post_set.all as post_list %}
-    {% with blog.id as blog_id %}
-    {% include 'blog/post_list.html' %}
-    {% endwith %}
-    {% endwith %}
-</section>
+{% load i18n %}
+<div class="blog-details">
+	<section>
+		<h1>{{ blog.title }}</h1>
+		{% with blog.post_set.all as post_list %}
+			{% with blog.id as blog_id %}
+				{% include 'blog/blog_post_summary_list.html' %}
+			{% endwith %}
+		{% endwith %}
+	</section>
+</div>
