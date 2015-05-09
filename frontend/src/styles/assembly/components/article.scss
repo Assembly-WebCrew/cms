@@ -1,7 +1,7 @@
 article {
   line-height: 1.4;
   // Don't let article be too short.
-  min-height: 650px;
+  &.page { min-height: 650px; }
 
   h1, h2, h3, h4, h5, h6 {
     margin: 24px 0;
