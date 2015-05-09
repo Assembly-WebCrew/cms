@@ -1,14 +1,12 @@
 {% extends "assembly/base.html" %}
 {% load i18n %}
-{% block base_content %}
-	<div class="blog-details">
-		<section>
-			<h1>{{ blog.title }}</h1>
-			{% with blog.post_set.all as post_list %}
-				{% with blog.id as blog_id %}
-					{% include 'blog/blog_post_summary_list.html' %}
-				{% endwith %}
+<div class="blog-details">
+	<section>
+		<h1>{{ blog.title }}</h1>
+		{% with blog.post_set.all as post_list %}
+			{% with blog.id as blog_id %}
+				{% include 'blog/blog_post_summary_list.html' %}
 			{% endwith %}
-		</section>
-	</div>
-{% endblock %}
+		{% endwith %}
+	</section>
+</div>

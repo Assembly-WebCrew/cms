@@ -1,17 +1,17 @@
 {% extends "assembly/base.html" %}
 {% load i18n %}
 {% block base_content %}
-	<article>
-		<div>
-			{{ post.cover_image }}
-			<h1>{{ post.title }}</h1>
-		</div>
-		<p>
-			{{ post.body | safe }}
-		</p>
-		<footer>
-			{% trans "Posted by" %} {{ post.author }} on {{ post.created }} {% if post.updated %} {% trans "modified on" %}
-			{{ post.updated }}{% endif %}
-		</footer>
-	</article>
+<article>
+	<div>
+		{{ post.cover_image }}
+		<h1>{{ post.title }}</h1>
+	</div>
+	<p>
+		{{ post.body | safe }}
+	</p>
+	<footer>
+		{% trans "Posted by" %} {{ post.author }} on {{ post.created }} {% if post.updated %} {% trans "modified on" %}
+		{{ post.updated }}{% endif %}
+	</footer>
+</article>
 {% endblock %}
