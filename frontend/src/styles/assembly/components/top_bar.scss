@@ -84,8 +84,6 @@
     vertical-align: middle;
   }
 
-
-
   .navigation {
     padding-top: 25px;
     padding-left: 20px;
@@ -107,6 +105,7 @@
         z-index: 100;
         opacity: 0;
         left: 0;
+        pointer-events: none;
       }
 
       .child {
@@ -122,7 +121,7 @@
 
       // Show sub level if hovering main level or sub level.
       &:hover > ul, ul:hover {
-        max-height: none;
+        pointer-events: all;
         opacity: 1;
         padding-top: 20px;
         box-shadow: rgba($bg-color, .7) -4px 10px 30px, rgba($bg-color, .7) 4px 10px 30px;
