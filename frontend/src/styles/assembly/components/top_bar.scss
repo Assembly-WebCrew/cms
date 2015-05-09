@@ -1,12 +1,15 @@
 // Refactor into header!
 
-  body.home .logocontainer, body.etusivu .logocontainer{
-    display:none;
+.home, .etusivu {
+  .logocontainer {
+    display: none;
   }
 
-  body.home .navigation, body.etusivu .logocontainer{
-    padding-top:0px;
+  .top-bar .navigation {
+    margin-left: 200px;
+    padding-top: 0;
   }
+}
 
 .top-bar {
   position: absolute;
