@@ -4,7 +4,7 @@ $(function () {
   //backgroundimage fade position
   var height = 0.5625 * parseInt($('.page .backgroundimage').css('width'));
   $('.page .backgroundimage').css('height', height+'px');
-  $('.page .backgroundfade').css('top', (height-110)+'px'); 
+  $('.page .backgroundfade').css('top', (height-300)+'px'); 
 
   var bodyEl = document.body,
     content = document.querySelector('.content-wrap'),
