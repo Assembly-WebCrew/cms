@@ -1,4 +1,7 @@
 .some-box {
+  $bg-twitter: #56a3d9;
+  $bg-facebook: #3b579d;
+
   position: relative;
   width: 25%;
   display: block;
@@ -10,15 +13,11 @@
   text-align: center;
   height: 300px;
 
-  &.twitter {
-    background: #56a3d9;
-  }
-
-  &.facebook {
-    background: #3b579d;
-  }
+  &.twitter { background: $bg-twitter; }
+  &.facebook { background: $bg-facebook; }
 
   a {
+    transition: background .2s;
     color: #fff;
     padding: 35px 40px;
     display: block;
@@ -26,7 +25,12 @@
     text-decoration: none;
 
     &:hover {
-      background: #5d8fb4;
+      background: rgba(255, 255, 255, .15);
+      color: #fff;
+
+      .prompt {
+        transform: translateY(-15px);
+      }
     }
   }
 
@@ -47,6 +51,7 @@
   }
 
   .prompt {
+    transition: transform .2s ease-out;
     font-size: 20px;
   }
 
