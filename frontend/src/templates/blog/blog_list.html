@@ -1,0 +1,12 @@
+{% extends "assembly/base.html" %}
+{% load i18n %}
+{% block base_content %}
+<h1>{% trans "Blogs" %}</h1>
+<ul>
+	{% for blog in blog_list %}
+		<li><a href="{% url 'blog:blog-detail' blog.id %}">{{ blog.title }}</a></li>
+	{% empty %}
+		<li>{% trans "No blogs yet" %}.</li>
+	{% endfor %}
+</ul>
+{% endblock %}

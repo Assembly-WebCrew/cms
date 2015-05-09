@@ -4,25 +4,44 @@ from .models import BlogListPlugin, PostListPlugin, BlogDetailPlugin, PostDetail
 from django.utils.translation import ugettext as _
 
 
-class PostListCMSPlugin(CMSPluginBase):
-    name = 'Blog post list'
-    render_template = "blog/post_list.html"
+class BlogListCMSPlugin(CMSPluginBase):
+    name = _('Blog List Plugin')
+    module = _('Blog')
+    render_template = 'blog/blog_list.html'
+    model = BlogListPlugin
+
+
+class LinkListCMSPlugin(CMSPluginBase):
+    name = _('Blog Link List Plugin')
+    module = _('Blog')
+    render_template = 'blog/blog_post_link_list.html'
     model = PostListPlugin
-    allow_children = True
-    child_classes = ['PostDetailCMSPlugin']
 
     def render(self, context, instance, placeholder):
         context['blog_id'] = instance.blog_id
-        context['posts'] = instance.posts
+        context['post_list'] = instance.posts
         return context
 
-plugin_pool.register_plugin(PostListCMSPlugin)
+plugin_pool.register_plugin(LinkListCMSPlugin)
+
+class SummaryListCMSPlugin(CMSPluginBase):
+    name = _('Blog Summary List Plugin')
+    module = _('Blog')
+    render_template = 'blog/blog_post_summary_list.html'
+    model = PostListPlugin
+
+    def render(self, context, instance, placeholder):
+        context['blog_id'] = instance.blog_id
+        context['post_list'] = instance.posts
+        return context
+
+plugin_pool.register_plugin(SummaryListCMSPlugin)
 
 class PostDetailCMSPlugin(CMSPluginBase):
-    name = 'Blog post detail'
-    render_template = "blog/blog_detail.html"
+    name = _('Blog Post Detail Plugin')
+    module = _('Blog')
+    render_template = 'blog/blog_post_detail.html'
     model = PostDetailPlugin
-    parent_classes = ['PostListCMSPlugin']
 
     def render(self, context, instance, placeholder):
         context['blog_id'] = instance.blog_id
