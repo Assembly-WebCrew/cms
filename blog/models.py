@@ -1,5 +1,6 @@
 from datetime import datetime
 from django.db import models
+from django.db.models import Q
 from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
 
@@ -62,7 +63,10 @@ class PostListPlugin(CMSPlugin):
 
     def posts(self):
         if self.only_featured:
-            return self.blog.post_set.filter(featured=True, featured_until__gt=datetime.now())
+            return self.blog.post_set.filter(
+                Q(featured=True),
+                Q(featured_until__isnull=True) | Q(featured_until__gt=datetime.now())
+            )
         else:
             return self.blog.post_set.all()
 
