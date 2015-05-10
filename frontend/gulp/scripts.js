@@ -9,7 +9,10 @@ var $ = require('gulp-load-plugins')();
 var args = require('yargs').argv;
 
 gulp.task('scripts', function () {
-  return gulp.src(paths.src + '/scripts/**/*.js')
+  return gulp.src([
+      paths.src + '/scripts/**/*.js',
+      paths.src + '/components/**/*.js'
+    ])
     .pipe($.if(args.production, $.uglify()))
     .pipe($.concat('main.js'))
     .pipe($.size({title: 'scripts', showFiles: gulp.showOutputFiles}))

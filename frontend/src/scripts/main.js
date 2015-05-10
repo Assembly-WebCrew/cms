@@ -1,3 +1,5 @@
+angular.module('asmApp', []);
+
 $(function () {
 
   //backgroundimage fade position

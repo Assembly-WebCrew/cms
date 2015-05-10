@@ -35,9 +35,9 @@ gulp.task('clean', function (callback) {
     '.sass-cache',
     paths.statics + '/assembly/**/*.*',
     paths.templates + '/assembly/**/*.*'
-  ], {force: true}, callback)
+  ], {force: true}, callback);
 });
 
 gulp.task('assets', ['images', 'fonts', 'misc']);
 
-gulp.task('build', ['assets', 'vendor-scripts', 'scripts', 'vendor-styles', 'styles', 'templates']);
+gulp.task('build', ['assets', 'vendor-scripts', 'scripts', 'vendor-styles', 'styles', 'templates', 'angular-templates']);

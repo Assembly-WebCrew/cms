@@ -11,9 +11,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
   <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,800,300' rel='stylesheet' type='text/css'>
+  <script>
+    window.DJANGO = {};
+    window.DJANGO.staticPath = '{{ STATIC_URL }}';
+  </script>
 </head>
 
-<body class="{%page_attribute "slug"%}">
+<body class="{%page_attribute "slug"%}" ng-app="asmApp">
   {% cms_toolbar %}
 
   <div class="container">

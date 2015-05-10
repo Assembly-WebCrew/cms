@@ -10,12 +10,17 @@ var args = require('yargs').argv;
 
 var compileStylesheet = function (source) {
   var sassOptions = {
+    loadPath: [
+      './src/styles/assembly',
+      './src'
+    ],
     style: 'expanded',
     'sourcemap=none': true
   };
 
   var injectFiles = gulp.src([
     paths.src + '/styles/**/*.scss',
+    paths.src + '/components/**/*.scss',
     '!' + paths.src + '/styles/assembly/variables.scss',
     '!' + paths.src + '/styles/assembly/main.scss',
     '!' + paths.src + '/styles/assembly/vendor.scss',
@@ -24,7 +29,9 @@ var compileStylesheet = function (source) {
 
   var injectOptions = {
     transform: function(filePath) {
-      filePath = filePath.replace(paths.src + '/styles/assembly/', '');
+      filePath = filePath
+        .replace(paths.src + '/styles/assembly/', '')
+        .replace(paths.src + '/', '');
       return '@import \'' + filePath + '\';';
     },
     starttag: '// startinject',
