@@ -1,5 +1,6 @@
 <!doctype html>
-{% load static cms_tags sekizai_tags menu_tags %}
+{% load static cms_tags sekizai_tags menu_tags i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 <html>
 <head>
   <title>ASSEMBLY &gt; {% page_attribute "page_title" %}</title>
@@ -14,6 +15,7 @@
   <script>
     window.DJANGO = {};
     window.DJANGO.staticPath = '{{ STATIC_URL }}';
+    window.DJANGO.currentLanguage = '{{ LANGUAGE_CODE }}';
   </script>
 </head>
 
@@ -107,5 +109,8 @@
   <script src="{% static "assembly/scripts/vendor.js" %}"></script>
   <script src="{% static "assembly/scripts/main.js" %}"></script>
   {% render_block "js" %}
+  <script>
+    moment.locale(DJANGO.currentLanguage);
+  </script>
 </body>
 </html>
