@@ -1,5 +1,6 @@
 from django.db.models import Q
 from django.contrib import admin
+from django.contrib.admin import widgets
 from django import forms
 from django.contrib import messages
 from django.contrib.sites.models import Site
@@ -55,7 +56,8 @@ class PostInlineForm(forms.ModelForm):
         exclude = ['author', ]
         widgets = {
             'body_en': CKEditorWidget(),
-            'body_fi': CKEditorWidget()
+            'body_fi': CKEditorWidget(),
+            'featured_until': widgets.AdminSplitDateTime()
         }
 
 

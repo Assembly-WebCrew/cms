@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
@@ -23,6 +24,8 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     sites = models.ManyToManyField(Site, blank=True, null=True)
+    featured = models.BooleanField(default=False)
+    featured_until = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return self.title
@@ -55,9 +58,13 @@ class BlogDetailPlugin(CMSPlugin):
 
 class PostListPlugin(CMSPlugin):
     blog = models.ForeignKey(Blog)
+    only_featured = models.BooleanField(default=False)
 
     def posts(self):
-        return self.blog.post_set.all()
+        if self.only_featured:
+            return self.blog.post_set.filter(featured=True, featured_until__gt=datetime.now())
+        else:
+            return self.blog.post_set.all()
 
     def copy_relations(self, old_instance):
         self.blog = old_instance.blog
