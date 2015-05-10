@@ -8,6 +8,7 @@ BASE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), '..')
 INSTALLED_APPS = (
     'modeltranslation',
     'filebrowser',
+    'djangocms_admin_style',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -31,7 +32,6 @@ INSTALLED_APPS = (
     'djangocms_video',
     'djangocms_link',
     'djangocms_text_ckeditor',
-    'djangocms_admin_style',
     'cms',
     'assembly.core',
     'blog',
