@@ -247,18 +247,20 @@ cite:before {
     text-align: center;
   }
 
+  > ul > li {
+    background-color: $bg-color;
+    background-color: rgba($bg-color, .7);
+  }
+
   li {
     margin: 0 auto 8px;
     box-sizing: border-box;
     width: 80%;
-    background-color: $bg-color;
-    background-color: rgba($bg-color, .7);
-    &.selected {
-      background-color: transparent;
-    }
+
     a {
-      z-index:100;
+      z-index: 100;
     }
+
     ul {
       padding-top: 12px;
     }
@@ -278,6 +280,7 @@ cite:before {
     border: none;
     text-align: left;
     transition: none;
+    overflow: visible;
 
     &:after {
       display: none;
@@ -294,13 +297,13 @@ cite:before {
     }
 
     .child.selected > a {
-      color: $link-color;
+      text-decoration: underline;
     }
 
     > li > ul {
       background-color: $bg-color;
       background-color: rgba($bg-color, .7);
-      padding-bottom: 1px;
+      padding-bottom: 4px;
       margin-top: -2px;
       border-radius: 0 0 6px 6px;
     }
