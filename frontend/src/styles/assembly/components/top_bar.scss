@@ -10,9 +10,11 @@
       margin-left: 200px;
       padding-top: 0;
     }
-    .language, .search{
-      padding:20px 10px;
+
+    .language, .search {
+      padding: 20px 10px;
     }
+
     .fader {
       top: 0;
     }
@@ -162,11 +164,11 @@
   }
 
   .language {
-    float:left;
-    padding: 45px 10px 0px 10px;
+    float: left;
+    padding: 45px 10px 0;
     display: inline-block;
     box-sizing: border-box;
-    width: 15%;
+    width: 10%;
     vertical-align: middle;
 
     .lang {
