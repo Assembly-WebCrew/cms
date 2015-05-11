@@ -10,16 +10,17 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-  <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,800,300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,800,300' rel='stylesheet'>
   <script>
-    window.DJANGO = {};
-    window.DJANGO.staticPath = '{{ STATIC_URL }}';
-    window.DJANGO.currentLanguage = '{{ LANGUAGE_CODE }}';
+    /** Global CMS features. */
+    window.DJANGO = {
+      staticPath: '{{ STATIC_URL }}',
+      currentLanguage: '{{ LANGUAGE_CODE }}'
+    };
   </script>
 </head>
 
-<body class="{%page_attribute "slug"%}" ng-app="asmApp">
+<body class="{% page_attribute "slug" %}" ng-app="asmApp">
   {% cms_toolbar %}
 
   <div class="container">
@@ -60,7 +61,7 @@
               <a href="/">
                 <div class="logocontainer">
                   <img src="{% static "images/logo_summer_2015.png" %}" class="logo"/>
-                  <span class="date">30.7. - 2.8.2015</span>
+                  <span class="date">30.7. &ndash; 2.8.2015</span>
                   <span class="location">Messukeskus, Helsinki</span>
                 </div>
               </a>
@@ -77,7 +78,8 @@
             </div>
 
             <div class="search">
-              <input type="search" name="search" placeholder="Search..." results>
+              <!-- <input type="search" name="search" placeholder="Search..." results> -->
+              <gcse:search lr="lang_{{ LANGUAGE_CODE }}"></gcse:search>
             </div>
 
           </div>
@@ -106,11 +108,22 @@
       </footer>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
   <script src="{% static "assembly/scripts/vendor.js" %}"></script>
   <script src="{% static "assembly/scripts/main.js" %}"></script>
   {% render_block "js" %}
+  <script>moment.locale(DJANGO.currentLanguage);</script>
   <script>
-    moment.locale(DJANGO.currentLanguage);
+    (function() {
+      var cx = '011838194253909694812:kzzecceknke';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+          '//cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
   </script>
 </body>
 </html>
