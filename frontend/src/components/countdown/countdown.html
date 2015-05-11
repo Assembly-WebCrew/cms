@@ -1,18 +1,20 @@
 <h5 class="countdown">
   <!-- Event has not started yet. -->
-  <span ng-if="::cd.startDiff > 0">
+  <span ng-if="cd.startDiff > 0">
     <span ng-repeat="part in ::cd.parts" ng-class="part" ng-if="cd.duration.get(part)">
-      <span ng-bind="cd.duration.get(part)"></span> {{:: cd.locale.units[$index] }}
+      <span ng-bind="cd.duration.get(part)"></span>
+      {{ cd.duration.get(part) === 1 ? cd.locale.units.singular[$index] : cd.locale.units.plural[$index] }}
     </span> {{:: cd.locale.until }}
   </span>
   <!-- Event has started already. -->
-  <span ng-if="::cd.startDiff < 0 && cd.endDiff > 0">
+  <span ng-if="cd.startDiff < 0 && cd.endDiff > 0">
     <span ng-repeat="part in ::cd.parts" ng-class="part" ng-if="cd.duration.get(part)">
-      <span ng-bind="cd.duration.get(part)"></span> {{:: cd.locale.units[$index] }}
+      <span ng-bind="cd.duration.get(part)"></span>
+      {{ cd.duration.get(part) === 1 ? cd.locale.units.singular[$index] : cd.locale.units.plural[$index] }}
     </span> {{:: cd.locale.left }}
   </span>
   <!-- Event is over -->
-  <span ng-if="::cd.startDiff < 0 && cd.endDiff < 0">
+  <span ng-if="cd.startDiff < 0 && cd.endDiff < 0">
     {{:: cd.locale.over }}
   </span>
 </h5>

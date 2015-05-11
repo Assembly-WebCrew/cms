@@ -3,13 +3,19 @@
 
   var COUNTDONW_LOCALES = {
     en: {
-      units: ['months', 'days', 'hours', 'minutes', 'seconds'],
+      units: {
+        singular: ['month', 'day', 'hour', 'minute', 'second'],
+        plural: ['months', 'days', 'hours', 'minutes', 'seconds']
+      },
       until: 'until Assembly!',
       left: 'of Assembly left!',
       over: 'Assembly is over.'
     },
     fi: {
-      units: ['kuukautta', 'päivää', 'tuntia', 'minuuttia', 'sekuntia'],
+      units: {
+        singular: ['kuukausi', 'päivä', 'tunti', 'minuutti', 'sekunti'],
+        plural: ['kuukautta', 'päivää', 'tuntia', 'minuuttia', 'sekuntia']
+      },
       until: 'Assemblyyn!',
       left: 'Assemblya jäljellä!',
       over: 'Assembly on ohi.'
