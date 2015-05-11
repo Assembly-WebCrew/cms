@@ -10,7 +10,7 @@
     },
     fi: {
       units: ['kuukautta', 'päivää', 'tuntia', 'minuuttia', 'sekuntia'],
-      until: 'Assemblyihin!',
+      until: 'Assemblyyn!',
       left: 'Assemblya jäljellä!',
       over: 'Assembly on ohi.'
     }
