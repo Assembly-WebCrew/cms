@@ -97,7 +97,6 @@ cite:before {
 #open_menu {
   width: 25%;
   display: inline-block;
-  box-sizing: border-box;
   padding: 20px;
   vertical-align: middle;
   font-size: 18px;
@@ -254,7 +253,6 @@ cite:before {
 
   li {
     margin: 0 auto 8px;
-    box-sizing: border-box;
     width: 80%;
 
     a {
@@ -317,73 +315,87 @@ cite:before {
   margin-bottom: 50px;
 }
 
-.news {
+.blog-post {
   width: 25%;
-  margin: 0 0 10px 0;
-  background: #FFF;
-  display: inline-block;
-  font-size: 0;
-  box-sizing: border-box;
-  height: auto;
-}
-
-.news .text_content {
-  border-right: 1px solid #eee;
-  font-size: 16px;
-  width: 100%;
+  height: 420px;
+  max-height: 420px;
+  margin: 0 0 10px;
+  background: #fff;
   display: block;
-  padding: 25px 40px 10px 40px;
-  box-sizing: border-box;
-  font-weight: 400;
-  vertical-align: top;
-}
-
-.news .news_title h3 {
-  font-size: 18px;
-  font-weight: 800 !important;
-  margin-bottom: 15px;
-  overflow: hidden;
-}
-
-.news .news_excerpt {
-  padding: 10px 0;
-  overflow: hidden;
-}
-
-.news .news_meta {
+  float: left;
   font-size: 0;
-}
+  position: relative;
 
-.news .news_meta .time {
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 800;
-  color: #1f233b;
-  width: 50%;
-  box-sizing: border-box;
-  vertical-align: middle;
-}
+  .post-image {
+    background-color: #bbb;
+    height: 175px;
+    max-height: 175px;
+    overflow: hidden;
 
-.news .news_meta .news_read_more {
-  color: #FFF;
-  text-transform: uppercase;
-  font-weight: 800;
-  text-align: center;
-  display: inline-block;
-  width: 50%;
-  background: #8aba56;
-  border: 0;
-  border-radius: 0;
-  font-size: 12px;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 20px 10px;
-  vertical-align: middle;
-  transition: background 0.3s;
-}
+    img { max-width: 100%; }
+  }
 
-.news .news_meta .news_read_more:hover {
-  background: #6a8f43;
+  .post-content {
+    height: 240px;
+    border-right: 1px solid #eee;
+    font-size: 16px;
+    width: 100%;
+    display: block;
+    padding: 20px 25px 5px;
+    font-weight: 400;
+  }
+
+  .post-content h3 {
+    font-size: 18px;
+    font-weight: 800 !important;
+    margin-bottom: 15px;
+    margin-top: 0;
+    overflow: hidden;
+  }
+
+  .post-content p {
+    padding: 10px 0;
+    overflow: hidden;
+  }
+
+  .post-meta {
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
+    width: 100%;
+
+    .time {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 800;
+      color: #1f233b;
+      width: 50%;
+      padding: 8px;
+      margin: 0;
+    }
+
+    a {
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 800;
+      text-align: center;
+      display: inline-block;
+      width: 50%;
+      background: #8aba56;
+      border: 0;
+      border-radius: 0;
+      font-size: 12px;
+      margin: 0;
+      padding: 20px 10px;
+      vertical-align: middle;
+      transition: background 0.3s;
+      float: right;
+      text-decoration: none;
+
+      &:hover { background: #6a8f43; }
+    }
+  }
+
 }
 
 .news_archive {
@@ -439,47 +451,44 @@ cite:before {
   font-size: 0;
 }
 
-.page .news {
+.page .blog-post {
   width:57%;
 /*  width: 70%;*/
   vertical-align: top;
   margin: 0;
   display: inline-block;
-  box-sizing: border-box;
   font-size: 0;
 }
 
-.page .news .article_left {
+.page .blog-post .article_left {
 /*  width: 70%; poistin tyhjän valkoisen tilan*/
   vertical-align: top;
   margin: 0;
   display: inline-block;
-  box-sizing: border-box;
   font-size: 14px;
 }
 
-.page .news .article_right {
+.page .blog-post .article_right {
   width: 30%;
   vertical-align: top;
   margin: 0;
   padding: 25px;
   display: inline-block;
-  box-sizing: border-box;
   font-size: 16px;
   text-align: right;
 }
 
-.page .news .news_meta .time {
+.page .blog-post .post-meta .time {
   width: 100%;
   font-weight: 300;
   font-size: 18px;
 }
 
-.page .news .text_content {
+.page .blog-post .text_content {
   border-right: 0;
 }
 
-.page .news .article_right button {
+.page .blog-post .article_right button {
   display: inline;
   margin: 10px 0;
   padding: 15px 25px;
@@ -492,29 +501,34 @@ cite:before {
   transition: all 0.3s;
 }
 
-.page .news .article_right button#twitter_share {
+.page .blog-post .article_right button#twitter_share {
   background: #56a3d9;
 }
 
-.page .news .article_right button#facebook_share {
+.page .blog-post .article_right button#facebook_share {
   background: #3b579d;
 }
 
-.page .news .article_right button i.fa {
+.page .blog-post .article_right button i.fa {
   font-size: 20px;
   padding-right: 15px;
 }
 
-.page .news .article_right button:hover {
+.page .blog-post .article_right button:hover {
   min-width: 80%;
 }
 
 // FRONTPAGE SOME
 
-.some-wrap, .news_wrap {
+.blog-post-list {
   position: relative;
   overflow: hidden;
-  margin: 50px 0;
+}
+
+.some-wrap {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 50px;
 }
 
 @media screen and (max-width: 960px) {
@@ -528,7 +542,7 @@ cite:before {
   #content_links ul li a.btn{
     margin: 10px;
   }
-  .news {
+  .blog-post {
     width: 50%;
   }
   .twitter_post, .facebook_post {
@@ -587,14 +601,14 @@ cite:before {
 }
 
 @media screen and (max-width: 768px) {
-  .page .news .article_left, .page .news .article_right {
+  .page .blog-post .article_left, .page .blog-post .article_right {
     display: block;
     width: 100%;
   }
-  .page .news .article_right {
+  .page .blog-post .article_right {
     text-align: left;
   }
-  .page .news .article_right button {
+  .page .blog-post .article_right button {
     font-size: 12px;
   }
   #bottom .navigation li {
@@ -607,7 +621,7 @@ cite:before {
     display: block;
     padding: 5px;
   }
-  .news .news_image img {
+  .blog-post .post-image img {
     width: 100%;
   }
   #open_menu {
@@ -662,16 +676,16 @@ cite:before {
   .carousel_meta h3 {
     font-size: 22px;
   }
-  body, p, .btn, .news .news_meta .time, .news .news_meta .news_read_more{
+  body, p, .btn, .blog-post .post-meta .time, .blog-post .post-meta a{
     font-size: 12px;
   }
-  .news .news_meta .news_read_more {
+  .blog-post .post-meta a {
     padding: 10px;
   }
-  .news .news_title h3 {
+  .blog-post .post-content h3 {
     font-size: 14px;
   }
-  .news {
+  .blog-post {
     width: 100%;
   }
   .twitter_post, .facebook_post {

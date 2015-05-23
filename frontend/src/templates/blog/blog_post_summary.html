@@ -1,20 +1,24 @@
 {% load i18n %}
-<div class="blog-post">
-	<img src="{{ post.cover_image }}" alt="{{ post.title }}">
-
-	<h3>
-		<a href="{% url 'blog:post-detail' blog_id post.id %}">
-			{{ post.title }}
-			<small>
-				{% trans "Posted by" %} {{ post.author }} {% trans "on" %} {{ post.created }}
-				{% if post.updated %}
-					{% trans "modified on" %} {{ post.updated }}
-				{% endif %}
-			</small>
-		</a>
-	</h3>
-	<p>
+{% load static %}
+<article class="blog-post">
+	<div class="post-image">
+		{% if post.cover_image %}
+			<img src="{{ post.cover_image }}" alt="{{ post.title }}">
+		{% else %}
+			<img class="placeholder" src="{% static "images/news_placeholder.png" %}" alt="News placeholder">
+		{% endif %}
+	</div>
+	<div class="post-content">
+		<h3>
+			<a href="{% url 'blog:post-detail' blog_id post.id %}">{{ post.title }}</a>
+		</h3>
 		{{ post.body | safe }}
-		<a href="{% url 'blog:post-detail' blog_id post.id %}">{% trans "Read more" %}...</a>
-	</p>
-</div>
+	</div>
+	<div class="post-meta">
+		<p class="time">{{ post.created }}</p>
+		<a href="{% url 'blog:post-detail' blog_id post.id %}">{% trans "Read more" %}</a>
+	</div>
+</article>
+<!-- 				{% if post.updated %}
+					{% trans "modified on" %} {{ post.updated }}
+				{% endif %} -->
