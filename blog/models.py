@@ -19,6 +19,7 @@ class Blog(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=255)
     body = models.TextField()
+    teaser = models.CharField(max_length=140)
     cover_image = FileBrowseField("Image", max_length=200, blank=True, null=True)
     blog = models.ForeignKey(Blog)
     author = models.ForeignKey(User)
@@ -27,6 +28,9 @@ class Post(models.Model):
     sites = models.ManyToManyField(Site, blank=True, null=True)
     featured = models.BooleanField(default=False)
     featured_until = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        ordering = ["-created"]
 
     def __str__(self):
         return self.title
