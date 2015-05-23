@@ -16,7 +16,12 @@
     }
 
     .fader {
-      top: 0;
+      background: -moz-linear-gradient(top, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); // FF3.6+
+      background: -webkit-linear-gradient(top, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); // Chrome10+,Safari5.1+
+      background: -o-linear-gradient(top, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); // Opera 11.10+
+      background: -ms-linear-gradient(top, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); // IE10+
+      background: linear-gradient(to bottom, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); // W3C
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, rgba(20, 29, 64, 1)), color-stop(100%, rgba(0, 0, 0, 0))); // Chrome,Safari4+
     }
   }
 }
@@ -42,13 +47,13 @@
     position: absolute;
     right: 0;
     left: 0;
-    top: 20px;
-    background: -moz-linear-gradient(top, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); // FF3.6+
-    background: -webkit-linear-gradient(top, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); // Chrome10+,Safari5.1+
-    background: -o-linear-gradient(top, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); // Opera 11.10+
-    background: -ms-linear-gradient(top, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); // IE10+
-    background: linear-gradient(to bottom, rgba(20, 29, 64, 1) 30%, rgba(0, 0, 0, 0) 100%); // W3C
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, rgba(20, 29, 64, 1)), color-stop(100%, rgba(0, 0, 0, 0))); // Chrome,Safari4+
+    top: 0;
+    background: -moz-linear-gradient(top, rgba(20, 29, 64, 1) 55%, rgba(0, 0, 0, 0) 100%); // FF3.6+
+    background: -webkit-linear-gradient(top, rgba(20, 29, 64, 1) 55%, rgba(0, 0, 0, 0) 100%); // Chrome10+,Safari5.1+
+    background: -o-linear-gradient(top, rgba(20, 29, 64, 1) 55%, rgba(0, 0, 0, 0) 100%); // Opera 11.10+
+    background: -ms-linear-gradient(top, rgba(20, 29, 64, 1) 55%, rgba(0, 0, 0, 0) 100%); // IE10+
+    background: linear-gradient(to bottom, rgba(20, 29, 64, 1) 55%, rgba(0, 0, 0, 0) 100%); // W3C
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(55%, rgba(20, 29, 64, 1)), color-stop(100%, rgba(0, 0, 0, 0))); // Chrome,Safari4+
   }
 
   a .logocontainer span.location, a .logocontainer span.date {
@@ -81,7 +86,7 @@
 
   .header-navigation {
     float:left;
-    padding: 20px 10px;
+    padding: 20px 10px 0;
     display: inline-block;
     box-sizing: border-box;
     width: 73%;
