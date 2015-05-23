@@ -240,7 +240,8 @@ cite:before {
   margin-bottom: 50px;
   font-size: 14px;
   margin: 0;
-  display: inline-block;
+  display: block;
+  float: left;
 
   ul {
     text-align: center;
@@ -420,7 +421,7 @@ cite:before {
   color: #FFF;
 }
 
-.page{
+.page {
   position:relative;
 }
 
@@ -453,33 +454,6 @@ cite:before {
   font-size: 0;
 }
 
-.page .blog-post {
-  width:57%;
-/*  width: 70%;*/
-  vertical-align: top;
-  margin: 0;
-  display: inline-block;
-  font-size: 0;
-}
-
-.page .blog-post .article_left {
-/*  width: 70%; poistin tyhjän valkoisen tilan*/
-  vertical-align: top;
-  margin: 0;
-  display: inline-block;
-  font-size: 14px;
-}
-
-.page .blog-post .article_right {
-  width: 30%;
-  vertical-align: top;
-  margin: 0;
-  padding: 25px;
-  display: inline-block;
-  font-size: 16px;
-  text-align: right;
-}
-
 .page .blog-post .post-meta .time {
   width: 100%;
   font-weight: 300;
@@ -488,19 +462,6 @@ cite:before {
 
 .page .blog-post .text_content {
   border-right: 0;
-}
-
-.page .blog-post .article_right button {
-  display: inline;
-  margin: 10px 0;
-  padding: 15px 25px;
-  border: 0;
-  color: #FFF;
-  font-size: 16px;
-  font-weight: 800;
-  background: #56a3d9;
-  min-width: 70%;
-  transition: all 0.3s;
 }
 
 .page .blog-post .article_right button#twitter_share {
