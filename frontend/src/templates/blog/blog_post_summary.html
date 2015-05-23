@@ -9,16 +9,11 @@
 		{% endif %}
 	</div>
 	<div class="post-content">
-		<h3>
-			<a href="{% url 'blog:post-detail' blog_id post.id %}">{{ post.title }}</a>
-		</h3>
+		<h3><a href="{% url 'blog:post-detail' blog_id post.id %}">{{ post.title }}</a></h3>
 		{{ post.body | safe }}
 	</div>
 	<div class="post-meta">
-		<p class="time">{{ post.created }}</p>
+		<p class="time">{{ post.created | date:'d.m.Y H:i' }}</p>
 		<a href="{% url 'blog:post-detail' blog_id post.id %}">{% trans "Read more" %}</a>
 	</div>
 </article>
-<!-- 				{% if post.updated %}
-					{% trans "modified on" %} {{ post.updated }}
-				{% endif %} -->
