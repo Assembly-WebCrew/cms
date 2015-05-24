@@ -1,17 +1,26 @@
-{% extends "assembly/base.html" %}
+{% extends "assembly/base_page.html" %}
 {% load i18n %}
-{% block base_content %}
-<article>
-	<div>
-		{{ post.cover_image }}
-		<h1>{{ post.title }}</h1>
-	</div>
-	<p>
-		{{ post.body | safe }}
-	</p>
-	<footer>
+{% load cms_tags %}
+{% load static %}
+{% load menu_tags %}
+
+{% block page_content %}
+<article class="article">
+  <div class="header-image">
+		{% if post.cover_image %}
+			<img src="{{ post.cover_image }}" alt="{{ post.title }}">
+		{% else %}
+			<img class="placeholder" src="{% static "images/news_placeholder.png" %}" alt="News placeholder">
+		{% endif %}
+  </div>
+  <div class="content">
+    <ul class="breadcrumbs">{% show_breadcrumb %}</ul>
+    <h1>{{ post.title }}</h1>
+    {{ post.body | safe }}
+  </div>
+	<div class="meta">
 		{% trans "Posted by" %} {{ post.author }} on {{ post.created }} {% if post.updated %} {% trans "modified on" %}
 		{{ post.updated }}{% endif %}
-	</footer>
+	</div class="meta">
 </article>
 {% endblock %}
