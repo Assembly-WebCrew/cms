@@ -9,35 +9,38 @@
       <div class="backgroundfade"></div>
     </div>
     <section id="content" class="wrapper clearfix">
+      <!-- <aside class="main-sponsors">
+        {% static_placeholder "main_sponsors" %}
+      </aside> -->
 
-      <aside id="content_links" class="wrapper">
-        <ul class="navigation links clearfix">
+      <div id="content_links">
+        <ul class="navigation links">
           {% show_sub_menu 100 1 100 "assembly/sidemenu.html" %}
         </ul>
+        &nbsp; <!-- Don't let the element collapse -->
+      </div>
 
-        <aside id="sponsors" class="wrapper cycle-slideshow" data-cycle-timeout="5000" data-cycle-speed="2000" data-cycle-slides="ul" style="overflow: hidden;">
+      {% block page_content %}{% endblock %}
 
-          <ul class="sponsors" style="position: static; top: 0px; left: 0px; z-index: 100; opacity: 1; display: block; width: 100%">
-            <li><a href="http://www.jimms.fi" target="_blank"><img src="{% static "images/s-jimms.png" %}" alt="Jimms.fi" title="Jimms.fi"></a></li>
-            <li><a href="http://www.asus.com" target="_blank"><img src="{% static "images/s-asus.png" %}" alt="ASUS" title="ASUS"></a></li>
-            <li><a href="http://www.asus.com" target="_blank"><img src="{% static "images/s-asus.png" %}" alt="ASUS" title="ASUS"></a></li>
-           <li><a href="http://www.jimms.fi" target="_blank"><img src="{% static "images/s-jimms.png" %}" alt="Jimms.fi" title="Jimms.fi"></a></li>
-          </ul>
+      <aside class="side-sponsors wrapper cycle-slideshow" data-cycle-timeout="5000" data-cycle-speed="2000" data-cycle-slides="ul" style="overflow: hidden;">
+
+        <ul class="sponsors" style="position: static; top: 0px; left: 0px; z-index: 100; opacity: 1; display: block; width: 100%">
+          <li><a href="http://www.jimms.fi" target="_blank"><img src="{% static "images/s-jimms.png" %}" alt="Jimms.fi" title="Jimms.fi"></a></li>
+          <li><a href="http://www.asus.com" target="_blank"><img src="{% static "images/s-asus.png" %}" alt="ASUS" title="ASUS"></a></li>
+          <li><a href="http://www.asus.com" target="_blank"><img src="{% static "images/s-asus.png" %}" alt="ASUS" title="ASUS"></a></li>
+          <li><a href="http://www.jimms.fi" target="_blank"><img src="{% static "images/s-jimms.png" %}" alt="Jimms.fi" title="Jimms.fi"></a></li>
+        </ul>
 
         <div class="sponsor_logos"></div>
 
-          <ul class="sponsors" style="position: absolute; top: 0px; left: 0px; z-index: 97; opacity: 1; display: block; width: 100%">
-            <li><a href="http://www.asus.com" target="_blank"><img src="{% static "images/s-asus.png" %}" alt="ASUS" title="ASUS"></a></li>
-            <li><a href="http://rog.asus.com" target="_blank"><img src="{% static "images/s-rog.png" %}" alt="Republic of Gamers" title="Republic of Gamers"></a></li>
-            <li><a href="http://www.asus.com" target="_blank"><img src="{% static "images/s-asus.png" %}" alt="ASUS" title="ASUS"></a></li>
-             <li><a href="http://rog.asus.com" target="_blank"><img src="{% static "images/s-rog.png" %}" alt="Republic of Gamers" title="Republic of Gamers"></a></li>
-          </ul>
-
-        </aside>
+        <ul class="sponsors" style="position: absolute; top: 0px; left: 0px; z-index: 97; opacity: 1; display: block; width: 100%">
+          <li><a href="http://www.asus.com" target="_blank"><img src="{% static "images/s-asus.png" %}" alt="ASUS" title="ASUS"></a></li>
+          <li><a href="http://rog.asus.com" target="_blank"><img src="{% static "images/s-rog.png" %}" alt="Republic of Gamers" title="Republic of Gamers"></a></li>
+          <li><a href="http://www.asus.com" target="_blank"><img src="{% static "images/s-asus.png" %}" alt="ASUS" title="ASUS"></a></li>
+          <li><a href="http://rog.asus.com" target="_blank"><img src="{% static "images/s-rog.png" %}" alt="Republic of Gamers" title="Republic of Gamers"></a></li>
+        </ul>
 
       </aside>
-
-      {% block page_content %}{% endblock %}
 
     </section>
   </div>

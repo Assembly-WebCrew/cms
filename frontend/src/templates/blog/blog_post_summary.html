@@ -2,11 +2,13 @@
 {% load static %}
 <article class="blog-post">
 	<div class="post-image">
-		{% if post.cover_image %}
-			<img src="{{ post.cover_image }}" alt="{{ post.title }}">
-		{% else %}
-			<img class="placeholder" src="{% static "images/news_placeholder.png" %}" alt="News placeholder">
-		{% endif %}
+		<div class="ratio-container">
+			{% if post.cover_image %}
+				<img src="{{ post.cover_image }}" alt="{{ post.title }}">
+			{% else %}
+				<img class="placeholder" src="{% static "images/news_placeholder.png" %}" alt="News placeholder">
+			{% endif %}
+		</div>
 	</div>
 	<div class="post-content">
 		<h3><a href="{% url 'blog:post-detail' blog_id post.id %}">{{ post.title }}</a></h3>

@@ -1,0 +1,39 @@
+.side-sponsors {
+  margin-top: 30px;
+  width: 20%;
+  float: left;
+
+  ul.sponsors li {
+    float: none;
+    padding: 20px;
+
+    img { max-width: 100%; }
+  }
+}
+
+.main-sponsors {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto;
+  text-align: center;
+
+  .plugin_picture {
+    display: inline-block;
+    padding: 20px;
+  }
+
+  img {
+    width: auto;
+    max-height: 100px;
+    max-width: 100%;
+  }
+}
+
+#sponsors {
+  padding: 0;
+
+  .sponsors li {
+    float: left;
+    width: initial;
+  }
+}

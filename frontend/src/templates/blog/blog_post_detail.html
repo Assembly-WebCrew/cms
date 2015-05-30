@@ -5,22 +5,38 @@
 {% load menu_tags %}
 
 {% block page_content %}
-<article class="article">
-  <div class="header-image">
-		{% if post.cover_image %}
-			<img src="{{ post.cover_image }}" alt="{{ post.title }}">
-		{% else %}
-			<img class="placeholder" src="{% static "images/news_placeholder.png" %}" alt="News placeholder">
-		{% endif %}
-  </div>
+<article class="article post">
   <div class="content">
-    <ul class="breadcrumbs">{% show_breadcrumb %}</ul>
-    <h1>{{ post.title }}</h1>
+    <h2>{{ post.title }}</h2>
+    <strong class="time">{{ post.created | date:'d.m.Y' }}</strong>
+    <div class="clearfix">
+      <div class="header-image">
+        <div class="ratio-container">
+          {% if post.cover_image %}
+            <img src="/{{ post.cover_image }}" alt="{{ post.title }}">
+          {% else %}
+            <img class="placeholder" src="{% static "images/news_placeholder.png" %}" alt="News placeholder">
+          {% endif %}
+        </div>
+      </div>
+      <div class="meta">
+        <!-- {% if post.updated %}
+          <strong>{% trans "Updated on" %} {{ post.updated | date:'d.m.Y' }}</strong><br>
+        {% endif %} -->
+        <a href="https://twitter.com/home?status={{ post.id }}"
+          target="_blank"
+          class="some-button twitter">
+            <i class="fa fa-twitter"></i> {% trans "Tweet" %}
+        </a>
+
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ post.id }}&amp;display=popup"
+          target="_blank"
+          class="some-button facebook">
+            <i class="fa fa-facebook-official"></i> {% trans "Share" %}
+        </a>
+      </div>
+    </div>
     {{ post.body | safe }}
   </div>
-	<div class="meta">
-		{% trans "Posted by" %} {{ post.author }} on {{ post.created }} {% if post.updated %} {% trans "modified on" %}
-		{{ post.updated }}{% endif %}
-	</div class="meta">
 </article>
 {% endblock %}
