@@ -501,6 +501,13 @@ cite:before {
 }
 
 @media screen and (max-width: 960px) {
+  .search{
+    width:auto;
+    overflow:hidden!important;
+    table{
+      overflow:hidden!important; 
+    }
+  }
   #demo-canvas {
     display: none;
   }
@@ -620,6 +627,15 @@ cite:before {
   }
 }
 
+@media screen and (max-width: 723px) {
+  .search{
+    position:absolute;
+    top:69px;
+  }
+  .home .search{
+    top:0px;
+  }
+}
 @media screen and (max-width: 560px) {
   #header_links,
   #language {
