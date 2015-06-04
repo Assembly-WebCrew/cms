@@ -12,7 +12,9 @@ body {
   font-family: 'Open Sans', Arial, Verdana, Tahoma !important;
 }
 
-
+.content img{
+  max-width:100%;
+}
 a {
   color: $link-color;
   text-decoration: none;
@@ -573,6 +575,10 @@ cite:before {
     display: block;
     overflow-x: scroll;
   }
+  .article{
+    margin-left:3%!important;
+    width:70%!important;
+  }
 
 }
 
@@ -637,6 +643,25 @@ cite:before {
   }
 }
 @media screen and (max-width: 560px) {
+  .side-sponsors{
+    float:none!important;
+    ul.sponsors li{
+      float:left;
+      padding:20px;
+      width:25%;
+    }
+  }
+  .main-side-sponsors{
+    justify-content:space-between;
+    width:100%;
+    a{
+      float:left;
+      width:30%;
+    }
+  }
+  .article{
+    width:93%!important;
+  }
   #header_links,
   #language {
     display: block;
