@@ -4,7 +4,7 @@
 	<div class="post-image">
 		<div class="ratio-container">
 			{% if post.cover_image %}
-				<img src="{{ post.cover_image }}" alt="{{ post.title }}">
+				<img src="/media/{{ post.cover_image }}" alt="{{ post.title }}">
 			{% else %}
 				<img class="placeholder" src="{% static "images/news_placeholder.png" %}" alt="News placeholder">
 			{% endif %}
