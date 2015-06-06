@@ -383,22 +383,13 @@ cite:before {
     justify-content: space-between;
   }
 
-  .search {
-    width: auto;
-    overflow: hidden !important;
-
-    table {
-      overflow: hidden !important;
-    }
-  }
-
   .article {
     margin: 0 5%;
     width: 90% !important;
   }
 
   #content_links {
-    margin: 0 10%;
+    margin: 50px 10% 0 10%;
     display: block;
     width: 80%;
   }
@@ -467,7 +458,7 @@ cite:before {
 
 }
 
-// @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
 //   .page .blog-post .article_left, .page .blog-post .article_right {
 //     display: block;
 //     width: 100%;
@@ -516,17 +507,6 @@ cite:before {
 //   .event_schedule_location .event_location {
 //     font-size: 18px;
 //   }
-// }
-
-@media screen and (max-width: 723px) {
-  .search {
-    position: absolute;
-    top: 69px;
-  }
-
-  .home .search {
-    top: 0;
-  }
 }
 
 // @media screen and (max-width: 560px) {
