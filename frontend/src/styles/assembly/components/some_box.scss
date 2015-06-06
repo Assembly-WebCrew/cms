@@ -81,4 +81,17 @@
     font-style: italic;
     color: #abd5f3;
   }
+
+  @media screen and (max-width: 1200px) {
+    padding: 4% 3%;
+  }
+
+  @media screen and (max-width: 960px) {
+    width: 49%;
+    margin-bottom: 2%;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 }

@@ -12,7 +12,14 @@ body {
   font-family: 'Open Sans', Arial, Verdana, Tahoma !important;
 }
 
-.content img{
+.wrapper {
+  width: 100%;
+  max-width: 1400px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.content img {
   max-width:100%;
 }
 a {
@@ -355,12 +362,26 @@ cite:before {
   position: relative;
   overflow: hidden;
   margin-top: 60px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .some-wrap {
   position: relative;
   overflow: hidden;
   margin-bottom: 50px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1500px) {
+  .wrapper {
+    padding: 0 2.5%;
+  }
 }
 
 @media screen and (max-width: 960px) {
