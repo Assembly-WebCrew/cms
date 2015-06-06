@@ -362,20 +362,12 @@ cite:before {
   position: relative;
   overflow: hidden;
   margin-top: 60px;
-
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .some-wrap {
   position: relative;
   overflow: hidden;
   margin-bottom: 50px;
-
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 @media screen and (max-width: 1500px) {
@@ -385,6 +377,12 @@ cite:before {
 }
 
 @media screen and (max-width: 960px) {
+  .blog-post-list, .some-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
   .search {
     width: auto;
     overflow: hidden !important;
