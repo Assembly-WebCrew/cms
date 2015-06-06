@@ -13,7 +13,7 @@
       <div class="header-image">
         <div class="ratio-container">
           {% if post.cover_image %}
-            <img src="/{{ post.cover_image }}" alt="{{ post.title }}">
+            <img src="{{ post.cover_image }}" alt="{{ post.title }}">
           {% else %}
             <img class="placeholder" src="{% static "images/news_placeholder.png" %}" alt="News placeholder">
           {% endif %}
@@ -23,7 +23,7 @@
         <!-- {% if post.updated %}
           <strong>{% trans "Updated on" %} {{ post.updated | date:'d.m.Y' }}</strong><br>
         {% endif %} -->
-        <a href="https://twitter.com/home?status={{ post.id }}"
+        <!-- <a href="https://twitter.com/home?status={{ post.id }}"
           target="_blank"
           class="some-button twitter">
             <i class="fa fa-twitter"></i> {% trans "Tweet" %}
@@ -33,7 +33,7 @@
           target="_blank"
           class="some-button facebook">
             <i class="fa fa-facebook-official"></i> {% trans "Share" %}
-        </a>
+        </a> -->
       </div>
     </div>
     {{ post.body | safe }}
