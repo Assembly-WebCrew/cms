@@ -63,6 +63,7 @@
   &.post {
     .header-image {
       @include aspect-ratio(3, 2);
+      background-color: #bbb;
       max-height: 100%;
       width: 50%;
       float: left;
