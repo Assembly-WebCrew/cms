@@ -12,6 +12,11 @@ body {
   font-family: 'Open Sans', Arial, Verdana, Tahoma !important;
 }
 
+// Hide cms placeholders, they scew up the layout in edit mode.
+.cms_placeholder {
+  display: none;
+}
+
 .wrapper {
   width: 100%;
   max-width: 1400px;

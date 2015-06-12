@@ -41,18 +41,32 @@
 .main-sponsors {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap-reverse;
   margin: 20px auto;
   text-align: center;
-
-  .plugin_picture {
-    display: inline-block;
-    padding: 20px;
-  }
 
   img {
     width: auto;
     max-height: 100px;
     max-width: 100%;
+    vertical-align: middle;
+  }
+
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+
+    .plugin_picture {
+      margin-top: 10px;
+      line-height: 100px;
+      flex-basis: 50%;
+      padding: 0 10px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .plugin_picture {
+      flex-basis: 100%;
+    }
   }
 }
 
@@ -60,6 +74,8 @@
   background: #141d40;
   position: relative;
   margin-bottom: 50px;
+  //min-height: 60px;
+  overflow: hidden;
 
   .fader {
     position: absolute;
@@ -90,7 +106,7 @@
   }
 }
 
-.sponsors {
+.sponsors-slide {
   width: 100%;
 
   img { max-width: 100%; }
@@ -99,6 +115,7 @@
     float: left;
     padding: 20px;
     width: 25%;
+    text-align: center;
   }
 
   @media screen and (max-width: 500px) {
