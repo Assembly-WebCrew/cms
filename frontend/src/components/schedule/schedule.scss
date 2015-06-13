@@ -30,7 +30,10 @@ asm-schedule {
     font-size: 16px;
   }
 
-  .flags a { margin: 0 14px; }
+  .flags {
+    justify-content: space-between;
+    a { margin: 0 14px; }
+  }
 
   th.subtitle {
     padding: 18px;
