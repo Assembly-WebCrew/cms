@@ -4,15 +4,23 @@
   var LOCALE = {
     en: {
       ends: 'ends',
-      original: 'originally scheduled'
+      original: 'originally scheduled',
+      ongoing: 'ongoing',
+      days: 'Days',
+      filter: 'Filter',
+      search: 'Search'
     },
     fi: {
       ends: 'päättyy',
-      original: 'piti alkaa'
+      original: 'piti alkaa',
+      ongoing: 'meneillään',
+      days: 'Päivät',
+      filter: 'Näytä',
+      search: 'Etsi'
     }
   };
 
-  function Schedule($http, $anchorScroll, $location) {
+  function Schedule($http, $anchorScroll, $location, $interval) {
     var vm = this;
 
     vm.$location = $location;
@@ -30,8 +38,16 @@
         setTimeout($anchorScroll); // Scroll to selected event.
       }
 
+      // Update ongoing events every minute.
+      $interval(vm.updateEvents.bind(vm), 60 * 1000);
     });
   }
+
+  Schedule.prototype.updateEvents = function () {
+    this.events.forEach(function (event) {
+      event.isOngoing = moment().isBetween(event.startTime, event.endTime);
+    });
+  };
 
   Schedule.prototype.select = function (event) {
     this.events.forEach(function (event) {
@@ -47,12 +63,12 @@
 
     // Figure out event flags.
     vm.flags = _(vm.events).pluck('flags').flatten().uniq().valueOf();
-    vm.eventsByFlag = {};
-    vm.flags.forEach(function (flag) {
-      vm.eventsByFlag[flag] = vm.events.filter(function (event) {
-        return event.flags.indexOf(flag) === -1;
-      });
-    });
+    // vm.eventsByFlag = {};
+    // vm.flags.forEach(function (flag) {
+    //   vm.eventsByFlag[flag] = vm.events.filter(function (event) {
+    //     return event.flags.indexOf(flag) === -1;
+    //   });
+    // });
 
     // Figure out event days.
     vm.days = _(vm.events).pluck('startTime').invoke('format', 'dddd').uniq().valueOf();
@@ -62,14 +78,13 @@
         return event.startTime.format('dddd') === day;
       });
     });
-
-    // Figure out delayed events.
-    vm.rescheduledEvents = vm.events.filter(function (event) {
-      return !event.startTime.isSame(event.originalStartTime);
-    });
   };
 
   Schedule.prototype.formatEvent = function (event) {
+    var start = moment(event.start_time, moment.ISO_8601),
+      orig = moment(event.original_start_time, moment.ISO_8601),
+      end = moment(event.end_time, moment.ISO_8601);
+
     return {
       id: event.key,
       name: event['name' + this.fieldSuffix],
@@ -77,11 +92,11 @@
       flags: event.flags,
       categories: event.categories,
       location: this.locations[event.location_key],
-      startTime: moment(event.start_time, moment.ISO_8601),
-      originalStartTime: moment(event.original_start_time, moment.ISO_8601),
-      endTime: moment(event.end_time, moment.ISO_8601),
-      isRescheduled: !moment(event.start_time, moment.ISO_8601)
-        .isSame(moment(event.original_start_time, moment.ISO_8601))
+      startTime: start,
+      originalStartTime: orig,
+      endTime: end,
+      isRescheduled: !start.isSame(orig),
+      isOngoing: moment().isBetween(start, end)
     };
   };
 

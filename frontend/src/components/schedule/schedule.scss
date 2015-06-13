@@ -1,38 +1,67 @@
 asm-schedule {
+  display: block;
+  width: 100%;
+  min-height: 200px;
+  $color-rescheduled: #f88;
+  $color-ongoing: #88f;
+  $color-major: #0ff;
+
+  a {
+    color: darken($link-color, 15%);
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+
+    &:not([href]):not([ng-click]) {
+      cursor: default;
+      color: #111;
+
+      &:hover { text-decoration: none; }
+    }
+  }
 
   .schedule-table {
     border: 0;
     margin: 0;
   }
 
+  .days, .flags {
+    display: flex;
+    justify-content: space-around;
+    font-size: 16px;
+  }
+
+  .flags a { margin: 0 14px; }
+
+  th.subtitle {
+    padding: 18px;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+
   .event {
     h4 {
       margin: 0;
 
-      .name {
-        text-decoration: none;
-
-        &:not([href]) {
-          cursor: default;
-          color: #111;
-          &:hover { text-decoration: none; }
-        }
-        &:hover { text-decoration: underline; }
-      }
-
       .anchor {
         visibility: hidden;
         color: #aaa;
-        text-decoration: none;
       }
     }
 
     &:hover h4 .anchor { visibility: visible; }
 
-    &.major td { border-left: 4px solid #0ff; }
+    &.major td { border-left: 4px solid $color-major; }
+
     &.rescheduled td {
-      border-left: 4px solid #f88;
-      background-color: #ffe6e6;
+      border-left: 4px solid $color-rescheduled;
+      background-color: lighten($color-rescheduled, 18%);
+    }
+
+    &.ongoing td {
+      border-left: 4px solid $color-ongoing;
+      background-color: lighten($color-ongoing, 18%);
+
+      h4 { font-weight: 400; }
     }
 
     &.selected td {
