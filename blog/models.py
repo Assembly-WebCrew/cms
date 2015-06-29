@@ -64,15 +64,17 @@ class BlogDetailPlugin(CMSPlugin):
 class PostListPlugin(CMSPlugin):
     blog = models.ForeignKey(Blog)
     only_featured = models.BooleanField(default=False)
+    limit = models.IntegerField(default=4)
+    offset = models.IntegerField(default=0)
 
     def posts(self):
         if self.only_featured:
             return self.blog.post_set.filter(
                 Q(featured=True),
                 Q(featured_until__isnull=True) | Q(featured_until__gt=datetime.now())
-            )
+            )[self.offset:self.limit]
         else:
-            return self.blog.post_set.all()
+            return self.blog.post_set.all()[self.offset:self.limit]
 
     def copy_relations(self, old_instance):
         self.blog = old_instance.blog
