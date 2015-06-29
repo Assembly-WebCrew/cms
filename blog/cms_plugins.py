@@ -24,6 +24,19 @@ class LinkListCMSPlugin(CMSPluginBase):
 
 plugin_pool.register_plugin(LinkListCMSPlugin)
 
+
+class SingleFeaturedPostCMSPlugin(CMSPluginBase):
+    name = _('Single featured post')
+    module = _('Blog')
+    render_template = 'blog/blog_post_summary_list.html'
+    model = PostListPlugin
+
+    def render(self, context, instance, placeholder):
+        context['blog_id'] = instance.blog_id
+        context['post_list'] = instance.posts
+        return context
+
+
 class SummaryListCMSPlugin(CMSPluginBase):
     name = _('Blog Summary List Plugin')
     module = _('Blog')

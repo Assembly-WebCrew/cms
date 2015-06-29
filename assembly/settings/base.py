@@ -106,6 +106,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'sekizai.context_processors.sekizai',
     'cms.context_processors.cms_settings',
+    'assembly.context_processors.asm_context'
 )
 
 TEMPLATE_DIRS = (
