@@ -37,22 +37,19 @@ INSTALLED_APPS = (
     'blog',
     'tweetembly',
 )
+
 CKEDITOR_SETTINGS = {
     'toolbar_CMS': [
         ['cmsplugins'],
-        ['Source', 'Save', 'NewPage', 'DocProps', 'Preview', 'Print', 'Templates', 'document'],
+        ['Source', 'Maximize', 'ShowBlocks', 'Templates'],
+        ['CreatePlaceholder', 'Image', 'Flash', 'Table', 'HorizontalRule', 'SpecialChar', 'PageBreak', 'InsertPre'],
+        ['Link', 'Unlink', 'Anchor'],
         ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', 'Undo', 'Redo'],
         ['Find', 'Replace', 'SelectAll', 'Scayt'],
-        ['CreatePlaceholder', 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe', 'InsertPre'],
-        ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField'],
-        ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'RemoveFormat'],
-        ['NumberedList', 'BulletedList', 'Outdent', 'Indent', 'Blockquote', 'CreateDiv', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', 'BidiLtr', 'BidiRtl'],
-        ['Link', 'Unlink', 'Anchor'],
-        [ 'Styles', 'Format', 'Font', 'FontSize'],
-        ['TextColor', 'BGColor'],
-        ['UIColor', 'Maximize', 'ShowBlocks'],
-        ['About']
+        ['Format', 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'TextColor', 'BGColor', 'RemoveFormat', 'Styles'],
+        ['NumberedList', 'BulletedList', 'Outdent', 'Indent', 'Blockquote', 'CreateDiv', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']
     ],
+    'skin': 'moono'
 }
 
 
