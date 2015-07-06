@@ -12,7 +12,7 @@
 	</div>
 	<div class="post-content">
 		<h3><a href="{% url 'blog:post-detail' blog_id post.id %}">{{ post.title }}</a></h3>
-		{{ post.teaser | safe }}
+		<p>{{ post.teaser | safe }}</p>
 	</div>
 	<div class="post-meta">
 		<p class="time">{{ post.created | date:'d.m.Y H:i' }}</p>
