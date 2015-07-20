@@ -38,6 +38,21 @@ INSTALLED_APPS = (
     'tweetembly',
 )
 
+CKEDITOR_SETTINGS = {
+    'toolbar_CMS': [
+        ['cmsplugins'],
+        ['Source', 'Maximize', 'ShowBlocks', 'Templates'],
+        ['CreatePlaceholder', 'Image', 'Flash', 'Table', 'HorizontalRule', 'SpecialChar', 'PageBreak', 'InsertPre'],
+        ['Link', 'Unlink', 'Anchor'],
+        ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', 'Undo', 'Redo'],
+        ['Find', 'Replace', 'SelectAll', 'Scayt'],
+        ['Format', 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'TextColor', 'BGColor', 'RemoveFormat', 'Styles'],
+        ['NumberedList', 'BulletedList', 'Outdent', 'Indent', 'Blockquote', 'CreateDiv', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']
+    ],
+    'skin': 'moono'
+}
+
+
 MIDDLEWARE_CLASSES = (
     'assembly.middlewares.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -106,6 +121,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'sekizai.context_processors.sekizai',
     'cms.context_processors.cms_settings',
+    'assembly.context_processors.asm_context'
 )
 
 TEMPLATE_DIRS = (

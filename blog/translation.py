@@ -3,7 +3,7 @@ from blog.models import Post, Blog
 
 
 class PostTranslationOptions(TranslationOptions):
-    fields = ('title', 'body', )
+    fields = ('title', 'body', 'teaser', )
 
 
 class BlogTranslationOptions(TranslationOptions):

@@ -64,4 +64,10 @@ footer {
     }
   }
 
+  @media screen and (max-width: 768px) {
+    .organization .navigation a {
+      display: inline-block;
+      margin: 15px 20px;
+    }
+  }
 }

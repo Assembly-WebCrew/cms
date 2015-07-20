@@ -14,6 +14,7 @@ class LocaleMiddleware(object):
         :param request: django request
         :return: if lang found, redirects back to view but without get params
         """
+
         if 'lang' in request.GET:
             # Get selected language and current view
             language = request.GET.get('lang', False)

@@ -3,9 +3,6 @@ from blog.views import BlogListView, BlogDetailView, BlogPostLinkListView, PostD
 from django.conf.urls import url, include
 from rest_framework.routers import DefaultRouter
 
-router = DefaultRouter()
-router.register(r'blogs', BlogViewSet)
-router.register(r'posts', PostViewSet)
 
 urlpatterns = [
     url(r'^$', BlogListView.as_view(), name='blog-list'),

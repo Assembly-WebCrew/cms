@@ -1,10 +1,8 @@
 {% load i18n %}
-<ul class="blog-post-list">
+<div class="blog-post-list">
 	{% for post in post_list %}
-		<li>
-			{% include "blog/blog_post_summary.html" %}
-		</li>
+		{% include "blog/blog_post_summary.html" %}
 	{% empty %}
-		<li>{% trans "No posts yet" %}.</li>
+		<span>{% trans "No posts yet" %}.</span>
 	{% endfor %}
-</ul>
+</div>

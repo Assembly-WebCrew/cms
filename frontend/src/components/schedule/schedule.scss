@@ -1,0 +1,77 @@
+asm-schedule {
+  background-color: #fff;
+  display: block;
+  width: 100%;
+  min-height: 200px;
+  $color-rescheduled: #f88;
+  $color-ongoing: #88f;
+  $color-major: #0ff;
+
+  a {
+    color: darken($link-color, 15%);
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+
+    &:not([href]):not([ng-click]) {
+      cursor: default;
+      color: #111;
+
+      &:hover { text-decoration: none; }
+    }
+  }
+
+  .schedule-table {
+    border: 0;
+    margin: 0;
+  }
+
+  .days, .flags {
+    display: flex;
+    justify-content: space-around;
+    font-size: 16px;
+  }
+
+  .flags {
+    justify-content: space-between;
+    a { margin: 0 14px; }
+  }
+
+  th.subtitle {
+    padding: 18px;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+
+  .event {
+    h4 {
+      margin: 0;
+
+      .anchor {
+        visibility: hidden;
+        color: #aaa;
+      }
+    }
+
+    &:hover h4 .anchor { visibility: visible; }
+
+    &.major td { border-left: 4px solid $color-major; }
+
+    &.rescheduled td {
+      border-left: 4px solid $color-rescheduled;
+      background-color: lighten($color-rescheduled, 18%);
+    }
+
+    &.ongoing td {
+      border-left: 4px solid $color-ongoing;
+      background-color: lighten($color-ongoing, 18%);
+
+      h4 { font-weight: 400; }
+    }
+
+    &.selected td {
+      transform: scale(1.03);
+      box-shadow: 1px 2px 10px 2px rgba(0, 0, 0, .4);
+      background: #eee;
+    }
+  }
+}

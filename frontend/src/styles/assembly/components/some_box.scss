@@ -1,7 +1,4 @@
 .some-box {
-  $bg-twitter: #56a3d9;
-  $bg-facebook: #3b579d;
-
   position: relative;
   width: 25%;
   display: block;
@@ -83,5 +80,18 @@
     font-weight: 800;
     font-style: italic;
     color: #abd5f3;
+  }
+
+  @media screen and (max-width: 1200px) {
+    padding: 4% 3%;
+  }
+
+  @media screen and (max-width: 960px) {
+    width: 49%;
+    margin-bottom: 2%;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
   }
 }

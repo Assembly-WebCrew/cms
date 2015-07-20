@@ -11,7 +11,7 @@
 		</small>
 	</h3>
 	<p>
-		{{ post.body | safe }}
+		{{ post.teaser | safe }}
 		<a href="{% url 'blog:post-detail' blog_id post.id %}">{% trans "Read more" %}...</a>
 	</p>
 </div>

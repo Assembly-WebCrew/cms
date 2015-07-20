@@ -1,17 +1,42 @@
-{% extends "assembly/base.html" %}
+{% extends "assembly/base_page.html" %}
 {% load i18n %}
-{% block base_content %}
-<article>
-	<div>
-		{{ post.cover_image }}
-		<h1>{{ post.title }}</h1>
-	</div>
-	<p>
-		{{ post.body | safe }}
-	</p>
-	<footer>
-		{% trans "Posted by" %} {{ post.author }} on {{ post.created }} {% if post.updated %} {% trans "modified on" %}
-		{{ post.updated }}{% endif %}
-	</footer>
+{% load cms_tags %}
+{% load static %}
+{% load menu_tags %}
+
+{% block page_content %}
+<article class="article post">
+  <div class="content">
+    <h2>{{ post.title }}</h2>
+    <strong class="time">{{ post.created | date:'d.m.Y' }}</strong>
+    <div class="clearfix">
+      <div class="header-image">
+        <div class="ratio-container">
+          {% if post.cover_image %}
+            <img src="/media/{{ post.cover_image }}" alt="{{ post.title }}">
+          {% else %}
+            <img class="placeholder" src="{% static "images/news_placeholder.png" %}" alt="News placeholder">
+          {% endif %}
+        </div>
+      </div>
+      <div class="meta">
+        <!-- {% if post.updated %}
+          <strong>{% trans "Updated on" %} {{ post.updated | date:'d.m.Y' }}</strong><br>
+        {% endif %} -->
+        <!-- <a href="https://twitter.com/home?status={{ post.id }}"
+          target="_blank"
+          class="some-button twitter">
+            <i class="fa fa-twitter"></i> {% trans "Tweet" %}
+        </a>
+
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ post.id }}&amp;display=popup"
+          target="_blank"
+          class="some-button facebook">
+            <i class="fa fa-facebook-official"></i> {% trans "Share" %}
+        </a> -->
+      </div>
+    </div>
+    {{ post.body | safe }}
+  </div>
 </article>
 {% endblock %}
