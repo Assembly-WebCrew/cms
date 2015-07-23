@@ -87,6 +87,7 @@ class PostInline(TranslationStackedInline):
 
         if self._parent_instance is not None:
             kwargs['formfield_callback'] = formfield_callback
+
         return super(PostInline, self).get_formset(*args, **kwargs)
 
 
@@ -95,6 +96,13 @@ class BlogAdmin(TranslationAdmin):
         PermissionInline,
         PostInline
     ]
+
+    class Media:
+        js = [
+            'blog/collapsed_post_inlines.js',
+        ]
+        css = {
+        }
 
     def get_queryset(self, request):
         qs = super(BlogAdmin, self).get_queryset(request)

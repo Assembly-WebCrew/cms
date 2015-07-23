@@ -8,9 +8,10 @@ static/assembly/
 templates/assembly/
 frontend/.sass-cache/
 statics/
-static/
+./static/
 media/uploads/*
 media/cms_page_media/*
 *.pid
 /templates/
 *.sublime-workspace
+*.sql
