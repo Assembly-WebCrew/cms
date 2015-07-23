@@ -1,4 +1,8 @@
 #!/bin/bash
+echo "Backing up current state"
+current_time=$(date "+%d%m%Y_%H%M%S")
+file_name='preupdate_state_'$current_time'.tar.gz'
+tar -zcvf $file_name ./ &> /dev/null
 echo "Pulling repository"
 git pull
 echo "Cleaning statics"
