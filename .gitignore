@@ -14,3 +14,4 @@ media/cms_page_media/*
 /templates/
 *.sublime-workspace
 *.sql
+celerybeat-schedule

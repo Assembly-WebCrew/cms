@@ -3,6 +3,15 @@ import os
 gettext = lambda s: s
 BASE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), '..')
 
+from datetime import timedelta
+
+import djcelery
+djcelery.setup_loader()
+
+CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
+
+CELERY_TIMEZONE = 'UTC'
+
 # Application definition
 
 INSTALLED_APPS = (
@@ -39,6 +48,7 @@ INSTALLED_APPS = (
     'tweetembly',
 )
 
+
 CKEDITOR_SETTINGS = {
     'toolbar_CMS': [
         ['cmsplugins'],
@@ -55,6 +65,7 @@ CKEDITOR_SETTINGS = {
 
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.cache.UpdateCacheMiddleware',
     'assembly.middlewares.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -62,13 +73,12 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.doc.XViewMiddleware',
-    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
 MIGRATION_MODULES = {
