@@ -28,6 +28,8 @@ class Post(models.Model):
     sites = models.ManyToManyField(Site, blank=True, null=True)
     featured = models.BooleanField(default=False)
     featured_until = models.DateTimeField(null=True, blank=True)
+    public_from = models.DateTimeField(null=True, blank=True)
+    hidden = models.BooleanField(default=False)
 
     class Meta:
         ordering = ["-created"]
@@ -71,10 +73,13 @@ class PostListPlugin(CMSPlugin):
         if self.only_featured:
             return self.blog.post_set.filter(
                 Q(featured=True),
+                Q(hidden=False) & Q(public_from__lt=datetime.now()),
                 Q(featured_until__isnull=True) | Q(featured_until__gt=datetime.now())
             )[self.offset:self.limit]
         else:
-            return self.blog.post_set.all()[self.offset:self.limit]
+            return self.blog.post_set.filter(
+                Q(hidden=False) & Q(public_from__lt=datetime.now())
+            )[self.offset:self.limit]
 
     def copy_relations(self, old_instance):
         self.blog = old_instance.blog

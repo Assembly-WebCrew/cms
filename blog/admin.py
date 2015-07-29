@@ -57,7 +57,8 @@ class PostInlineForm(forms.ModelForm):
         widgets = {
             'body_en': CKEditorWidget(),
             'body_fi': CKEditorWidget(),
-            'featured_until': widgets.AdminSplitDateTime()
+            'featured_until': widgets.AdminSplitDateTime(),
+            'public_from': widgets.AdminSplitDateTime()
         }
 
 
