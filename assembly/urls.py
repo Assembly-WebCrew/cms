@@ -5,6 +5,8 @@ from django.conf import settings
 
 from filebrowser.sites import site
 
+from cms.sitemaps import CMSSitemap
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -13,6 +15,7 @@ urlpatterns = patterns('',
                             url(r'^admin/', include(admin.site.urls)),
                             url(r'^blogs/', include('blog.urls')),
                             url(r'^blogit/', include('blog.urls')),
+                            url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': {'cmspages': CMSSitemap}}),
                             url(r'^', include('cms.urls')),)
 
 if settings.DEBUG:
