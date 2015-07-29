@@ -73,12 +73,12 @@ class PostListPlugin(CMSPlugin):
         if self.only_featured:
             return self.blog.post_set.filter(
                 Q(featured=True),
-                Q(hidden=False) & Q(public_from__lt=datetime.now()),
+                Q(hidden=False) & (Q(public_from__isnull=True) | Q(public_from__lt=datetime.now())),
                 Q(featured_until__isnull=True) | Q(featured_until__gt=datetime.now())
             )[self.offset:self.limit]
         else:
             return self.blog.post_set.filter(
-                Q(hidden=False) & Q(public_from__lt=datetime.now())
+                Q(hidden=False) & (Q(public_from__isnull=True) | Q(public_from__lt=datetime.now()))
             )[self.offset:self.limit]
 
     def copy_relations(self, old_instance):
