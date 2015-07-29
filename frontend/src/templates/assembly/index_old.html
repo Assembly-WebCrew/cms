@@ -12,13 +12,11 @@
     </div>
     <div class="schedule-location">
       <asm-countdown start-date="2015-07-30T10:00:00" end-date="2015-08-02T18:00:00"></asm-countdown>
-      <h3 style="font-size: 25px;">30.7. &ndash; 2.8.2015, Messukeskus, Helsinki</h3>
+      <h3>30.7. &ndash; 2.8.2015</h3>
+      <h4>Messukeskus, Helsinki</h4>
     </div>
     <div class="call-for-action">
       {% placeholder "call_for_action" or %}<a href="">...</a>{% endplaceholder %}
-    </div>
-     <div class="call-for-action">
-      {% placeholder "call_for_action2" or %}<a href="">...</a>{% endplaceholder %}
     </div>
   </div>
 </div>
@@ -61,46 +59,28 @@
         <div class="icon"><img src="{% static "images/i-facebook.png" %}" alt></div>
         <div class="prompt">LIKE US</div>
         <div class="username">ASSEMBLY COMPUTER FESTIVAL<p></p></div>
-        <!-- <div class="bottom">7 971 likes</div> -->
+        <div class="bottom">7 971 likes</div>
       </a>
     </article>
 
     <!-- TODO: Posts from SoMe. -->
-    
-     <article class="some-box twitter linked">
-      <a href="https://twitter.com/assemblyprogram">
-        <div class="icon"><img src="{% static "images/i-twitter.png" %}" alt></div>
-        <div class="prompt">FOLLOW</div>
-        <div class="username">@ASSEMBLYPROGRAM<p></p></div>
-        <div class="bottom">Real-time Assembly party program information about events starting next.</div>
-      </a>
-    </article>
-    
-      <article class="some-box facebook linked">
-      <a href="https://www.facebook.com/events/371547649696044/">
-        <div class="icon"><img src="{% static "images/i-facebook.png" %}" alt></div>
-        <div class="prompt">JOIN US</div>
-        <div class="username">Assembly Summer 2015<p></p></div>
-        <!-- <div class="bottom">7 971 likes</div> -->
-      </a>
-    </article>
 
-    <!-- <article class="some-box twitter">
+    <article class="some-box twitter">
       <div class="username">@assemblyparty</div>
       <div class="real-name">Assembly Party</div>
       <div class="text">
         <p>Our new glorious website is released! Thanks #assemblycomputerfestival #webcrew ! http://www.assembly.org</p>
       </div>
       <div class="bottom">Tweeted Jun 4</div>
-    </article> -->
+    </article>
 
-    <!-- <article class="some-box facebook">
+    <article class="some-box facebook">
       <div class="username">ASSEMBLY COMPUTER FESTIVAL</div>
       <div class="text">
         <p>ASSEMBLY is a festival, in which thousands of people spend the weekend by meeting friends, playing games and enjoying the great productions from the demoscene.</p>
       </div>
       <!-- <div class="bottom">14.2.2015 13.45</div> -->
-    <!-- </article> -->
+    </article>
 
   </div>
 
@@ -139,6 +119,6 @@
 
 </section>
 
- <a href="/news/" class="news_archive">News archive</a>
+  <!--<a href="#" class="news_archive">News archive</a>-->
 </div>
 {% endblock %}
