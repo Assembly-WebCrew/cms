@@ -144,10 +144,11 @@
 window.NinchatAsyncInit = function() {
 	var languages = {
 		fi: {
+      responsive: 768,
 			language:       'fi',
 			audienceQueues: '239dqg97004',
 			userName:       'Asiakas',
-			titleText:      'Asiakaspalvelu chat',
+			titleText:      'Info',
 			translations:   {
 				'Join audience queue {{audienceQueue.queue_attrs.name}}': 'Asiakaspalvelu',
 				'Join audience queue {{audienceQueue.queue_attrs.name}} (closed)': 'Asiakaspalvelu (suljettu)',
@@ -159,20 +160,21 @@ window.NinchatAsyncInit = function() {
                         },
 			motd:           (
 				'<ul class="links unstyled">' +
-				'<li><a href="http://www.assembly.org/summer14/manual/faq" target="tausta">Usein kysytyt kysymykset</a></li>' +
-				'<li><a href="http://www.assembly.org/asmorg/contact" target="tausta">Ota yhteyttä</a></li>' +
+				'<li><a href="http://www.assembly.org/manual/first-time-guide/" target="tausta">Ensikertalaisen opas</a></li>' +
+				'<li><a href="http://www.assembly.org/about-us/contact/" target="tausta">Ota yhteyttä</a></li>' +
 				'</ul>' +
 				'<p>' +
-				'Chat avoinna arkisin 9:30-2:00' +
+				'Chat avoinna 24h' +
 				'</p>'
 			)
 		},
 
 		en: {
-			language:       'en',
+			responsive: 768,
+      language:       'en',
 			audienceQueues: '239dqg97004',
 			userName:       'Customer',
-			titleText:      'Customer Service Chat',
+			titleText:      'Info',
 			translations:   {
 				'Join audience queue {{audienceQueue.queue_attrs.name}}':' Customer support',
 				'Join audience queue {{audienceQueue.queue_attrs.name}} (closed)':'Customer support (closed)',
@@ -183,11 +185,11 @@ window.NinchatAsyncInit = function() {
 			},
 			motd:           (
 				'<ul class="links unstyled">' +
-				'<li><a href="http://www.assembly.org/summer14/manual/faq" target="tausta">Frequently asked questions</a></li>' +
-				'<li><a href="http://www.assembly.org/asmorg/contact" target="tausta">Leave a message</a></li>' +
+				'<li><a href="http://www.assembly.org/manual/first-time-guide/" target="tausta">Frequently asked questions</a></li>' +
+				'<li><a href="http://www.assembly.org/about-us/contact/" target="tausta">Leave a message</a></li>' +
 				'</ul>' +
 				'<p>' +
-				'Chat open 9:30-2:00' +
+				'Chat open 24h' +
 				'</p>'
 			)
 		}

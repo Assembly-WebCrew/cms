@@ -11,6 +11,7 @@ from cms.models import CMSPlugin
 class Blog(models.Model):
     title = models.CharField(max_length=255)
     sites = models.ManyToManyField(Site, blank=True, null=True)
+    slug = models.SlugField(unique=True)
 
     def __str__(self):
         return self.title
