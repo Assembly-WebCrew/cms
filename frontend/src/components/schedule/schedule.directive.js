@@ -81,9 +81,9 @@
   };
 
   Schedule.prototype.formatEvent = function (event) {
-    var start = moment(event.start_time, moment.ISO_8601),
-      orig = moment(event.original_start_time, moment.ISO_8601),
-      end = moment(event.end_time, moment.ISO_8601);
+    var start = moment(event.start_time, moment.ISO_8601).utcOffset(3),
+      orig = moment(event.original_start_time, moment.ISO_8601).utcOffset(3),
+      end = moment(event.end_time, moment.ISO_8601).utcOffset(3);
 
     return {
       id: event.key,

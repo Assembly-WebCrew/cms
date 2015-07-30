@@ -137,6 +137,19 @@ class BlogAdmin(TranslationAdmin):
             return super(BlogAdmin, self).save_formset(request, form, formset, change)
 
         instances = formset.save(commit=False)
+        for obj in formset.deleted_objects:
+            if request.user.is_superuser:
+                obj.delete()
+                messages.add_message(request, messages.SUCCESS, 'Post %s has bee deleted' % obj.title)
+                continue
+            try:
+                Permission.objects.get(user=request.user, blog=obj.blog, can_delete=True)
+                obj.delete()
+                messages.add_message(request, messages.SUCCESS, 'Post %s has bee deleted' % obj.title)
+            except Permission.DoesNotExist:
+                messages.add_message(request, messages.ERROR, 'You do not have permissions to'
+                                                              'delete post %s.' % obj.title)
+
         for instance in instances:
             if not hasattr(instance, 'author'):
                 instance.author = request.user
