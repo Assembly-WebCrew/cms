@@ -3,7 +3,9 @@ import os
 gettext = lambda s: s
 BASE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), '..')
 
-from datetime import timedelta
+from djangocms_siteselector.site_id import SiteId
+#SITE_ID = SiteId()
+SITE_ID = 1
 
 import djcelery
 djcelery.setup_loader()
@@ -25,6 +27,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'djangocms_siteselector',
     'django.contrib.sitemaps',
     'djcelery',
     'rest_framework',
@@ -65,8 +68,9 @@ CKEDITOR_SETTINGS = {
 
 
 MIDDLEWARE_CLASSES = (
+    'djangocms_siteselector.middlewares.SiteSelectorMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
-    'assembly.middlewares.LocaleMiddleware',
+    'assembly.core.middlewares.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -132,7 +136,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'sekizai.context_processors.sekizai',
     'cms.context_processors.cms_settings',
-    'assembly.context_processors.asm_context'
+    'assembly.core.context_processors.asm_context'
 )
 
 TEMPLATE_DIRS = (
