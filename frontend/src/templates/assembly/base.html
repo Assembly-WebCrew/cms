@@ -140,16 +140,15 @@
   </script>
 
 <script type="text/javascript">
-
-window.NinchatAsyncInit = function() {
+  window.NinchatAsyncInit = function() {
 	var languages = {
 		fi: {
-      responsive: 768,
 			language:       'fi',
 			audienceQueues: '239dqg97004',
 			userName:       'Asiakas',
 			titleText:      'Info',
 			translations:   {
+				'How was our customer service?': 'Kiitos! Kuinka onnistuimme? <br> <br>',
 				'Join audience queue {{audienceQueue.queue_attrs.name}}': 'Asiakaspalvelu',
 				'Join audience queue {{audienceQueue.queue_attrs.name}} (closed)': 'Asiakaspalvelu (suljettu)',
 				'Joined audience queue {{audienceQueue.queue_attrs.name}}, you are at position {{audienceQueue.queue_position}}.':
@@ -170,15 +169,16 @@ window.NinchatAsyncInit = function() {
 		},
 
 		en: {
-			responsive: 768,
-      language:       'en',
+      		language:       'en',
 			audienceQueues: '239dqg97004',
 			userName:       'Customer',
-			titleText:      'Info',
+			titleText:      'Customer Support',
 			translations:   {
-				'Join audience queue {{audienceQueue.queue_attrs.name}}':' Customer support',
+				'How was our customer service?': 'Thanks! How did we do? <br> <br>',
+				'Join audience queue {{audienceQueue.queue_attrs.name}}': 'Start Customer support',
 				'Join audience queue {{audienceQueue.queue_attrs.name}} (closed)':'Customer support (closed)',
-				'Joined audience queue {{audienceQueue.queue_attrs.name}}, you are {{audienceQueue.queue_position}}.': '',
+				'Joined audience queue {{audienceQueue.queue_attrs.name}}, you are at position {{audienceQueue.queue_position}}.':
+				'In queue. Your position is: {{audienceQueue.queue_position}}.',
 				'Audience in queue {{queue}} accepted.': 'Conversation has started',
 				'Joined audience queue {{audienceQueue.queue_attrs.name}}, you are next.': 'You are next in line.',
 				'Enter your message': 'Enter your message'
@@ -196,17 +196,22 @@ window.NinchatAsyncInit = function() {
 	};
 
 	var lang = window.DJANGO.currentLanguage;
+
 	var language = languages[lang] || languages.en;
 
 	window.Ninchat.embedInit({
 		audienceRealmId: '239dq423004',
 		audienceQueues:  language.audienceQueues,
 		userName:        language.userName,
-		remember:        false,
+		responsive: 	 768,
+		remember:        true,
 		audienceRating:  true,
+		css: 			 'https://ninchat.s3.amazonaws.com/b/assembly/support.css',
+		domain: 		 'supportchat.assembly.org',
 		language:        language.language,
-		titleBackground: 'black',
+		titleBackground: '#141d40',
 		titleText:       language.titleText,
+		titleTextColor: '#ffffff',
 		translations:    language.translations,
 		motd:            (
 			'<style>' +
@@ -239,7 +244,6 @@ window.NinchatAsyncInit = function() {
 	js.src = 'https://ninchat.com/js/embed.min.js?_' + new Date().getDate();
 	first.parentNode.insertBefore(js, first);
 }(document));
-
 </script>
 </body>
 </html>
