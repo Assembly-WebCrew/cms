@@ -1,5 +1,5 @@
 asm-schedule {
-  background-color: #fff000;
+  background-color: #fff;
   display: block;
   width: 100%;
   min-height: 200px;
@@ -82,7 +82,10 @@ asm-schedule {
     -webkit-box-pack: start;
     -moz-box-pack: start;
     display:block;
-
+    input{
+      margin-top:7px;
+      margin-left:14px;
+    }
   }
 }
 }
