@@ -10,12 +10,10 @@ var args = require('yargs').argv;
 
 var compileStylesheet = function (source) {
   var sassOptions = {
-    loadPath: [
+    includePaths: [
       './src/styles/assembly',
       './src'
-    ],
-    style: 'expanded',
-    'sourcemap=none': true
+    ]
   };
 
   var injectFiles = gulp.src([
@@ -45,7 +43,7 @@ var compileStylesheet = function (source) {
     .pipe($.if(source.indexOf('main.scss') > -1, mainFilter))
     .pipe($.if(source.indexOf('main.scss') > -1, $.inject(injectFiles, injectOptions)))
     .pipe($.if(source.indexOf('main.scss') > -1, mainFilter.restore()))
-    .pipe($.rubySass(sassOptions)).on('error', gulp.handleError)
+    .pipe($.sass(sassOptions)).on('error', gulp.handleError)
     .pipe($.sourcemaps.init())
     .pipe($.autoprefixer())
     .pipe($.if(args.production, $.csso()))

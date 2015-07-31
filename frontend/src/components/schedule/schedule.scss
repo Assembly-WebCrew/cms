@@ -1,5 +1,5 @@
 asm-schedule {
-  background-color: #fff;
+  background-color: #fff000;
   display: block;
   width: 100%;
   min-height: 200px;
@@ -74,4 +74,15 @@ asm-schedule {
       background: #eee;
     }
   }
+}
+@media screen and (max-width: 960px) {
+asm-schedule {
+  .flags{
+    justify-content: flex-start;
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    display:block;
+
+  }
+}
 }
