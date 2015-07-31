@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'assembly.core',
     'blog',
     'tweetembly',
+    'opbeat.contrib.django'
 )
 
 
@@ -65,6 +66,7 @@ CKEDITOR_SETTINGS = {
 
 
 MIDDLEWARE_CLASSES = (
+    'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
     'assembly.middlewares.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -118,6 +120,13 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+OPBEAT = {
+    'ORGANIZATION_ID': '#########',
+    'APP_ID': '#########',
+    'SECRET_TOKEN': '#########',
+}
 
 MODELTRANSLATION_TRANSLATION_FILES = (
     'blog.translation',
