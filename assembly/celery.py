@@ -6,7 +6,7 @@ from celery import Celery
 
 from django.conf import settings
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'assembly.settings.local')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'assembly.settings')
 
 app = Celery('assembly')
 

@@ -1,5 +1,5 @@
 <!doctype html>
-{% load static cms_tags sekizai_tags menu_tags i18n %}
+{% load static cms_tags sekizai_tags menu_tags i18n site_selector %}
 {% get_current_language as LANGUAGE_CODE %}
 <html>
 <head>
@@ -38,41 +38,13 @@
   {% cms_toolbar %}
 
   <div class="container">
-    <!-- <div class="menu-wrap">
-      <button class="menu-button" id="close-button">Close</button>
-      <nav class="menu-side">
-        <ul>
-          <li> <a href="#"><i class="fa fa-home"></i> HOME</a></li>
-          <li class="expanded">
-          <a href="#"><i class="fa fa-book"></i> THREE LIFTS</a>
-            <ul>
-              <li><a href="#">Submenu Item</a></li>
-              <li><a href="#">Submenu Item</a></li>
-              <li><a href="#">Submenu Item</a></li>
-              <li><a href="#">Submenu Item</a></li>
-            </ul>
-          </li>
-          <li> <a href="#"><i class="fa fa-ticket"></i> TICKETS</a></li>
-          <li> <a href="#"><i class="fa fa-book"></i> PARTY MANUAL</a></li>
-          <li> <a href="#"><i class="fa fa-star"></i> EVENT</a></li>
-          <li> <a href="#"><i class="fa fa-bookmark"></i> SPONSORS</a></li>
-          <li> <a href="#"><i class="fa fa-heart"></i> ABOUT US</a></li>
-          <li> <a href="#"><i class="fa fa-spinner"></i> HISTORY</a></li>
-        </ul>
-      </nav>
-    </div> -->
     <div class="content-wrap">
-
       <header id="top" class="clearfix">
         <div class="top-bar">
           <div class="fader"></div>
           <div class="wrapper clearfix">
-            <!-- <div id="open_menu">
-              <button class="menu-button" id="open-button">Open Site Menu</button>
-            </div> -->
-
             <div class="header-navigation">
-              <a href="/">
+              <a href="{% site_page_url "home" %}">
                 <div class="logocontainer">
                   <img src="{% static "images/logo_summer_2015.png" %}" class="logo"/>
                   <span class="date">30.7. &ndash; 2.8.2015</span>

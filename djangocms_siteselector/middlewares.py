@@ -15,7 +15,6 @@ class SiteSelectorMiddleware(object):
         :return: TODO
         """
 
-        global site_instance
         using_default = False
         slug = request.path.split('/')[1]
 
@@ -29,7 +28,7 @@ class SiteSelectorMiddleware(object):
                 using_default = True
                 site_instance = SiteInstance.objects.get(default=True)
             except SiteInstance.DoesNotExist:
-                pass
+                site_instance = None
 
         if site_instance is not None:
             settings.SITE_ID = site_instance.site.id
@@ -38,5 +37,3 @@ class SiteSelectorMiddleware(object):
                 request.path_info = request.path_info.replace(slug + '/', '')
         else:
             settings.SITE_ID = 1
-
-        return None
