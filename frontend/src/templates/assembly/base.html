@@ -14,7 +14,7 @@
   <link rel="icon" type="image/png" href="/static/images/favicon.png" />
 
    <!-- Facebook optimization -->
-+  <!-- ei toimi <meta property="og:url"                content="{% page_url %}" /> -->
++  <meta property="og:url"                content="{{ current_url }}" /> 
 +  <meta property="og:type"               content="article" />
 +  <meta property="og:title"              content="{% page_attribute "page_title" %}" />
 +  <meta property="og:description"        content="{% page_attribute "meta_description" %}" />
