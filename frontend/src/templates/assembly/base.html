@@ -13,6 +13,18 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,800,300' rel='stylesheet'>
   <link rel="icon" type="image/png" href="/static/images/favicon.png" />
 
+   <!-- Facebook optimization -->
++  <meta property="og:url"                content="{% page_url %}" />
++  <meta property="og:type"               content="article" />
++  <meta property="og:title"              content="{% page_attribute "page_title" %}" />
++  <meta property="og:description"        content="{% page_attribute "meta_description" %}" />
++  <meta property="og:image"              content="http://www.assembly.org/media/uploads/asm15s/assembly_poster_background_v4.png" />
++  <meta property="og:locale" content="en_US" /> 
++  <meta property="og:locale:alternate" content="fi_FI" />
++  <meta property="og:site_name" content="Assembly" />
++  <meta property="article:author" content="https://www.facebook.com/assemblyparty" />
++  <meta property="article:publisher" content="https://www.facebook.com/asmorg" />
+
   <script>
     /** Global CMS features. */
     window.DJANGO = {
