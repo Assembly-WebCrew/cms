@@ -4,11 +4,15 @@
 <html>
 <head>
 
-{% if blog.title %}
-  {% block title %}{{blog.title}}{% endblock %}
-{% else %}
-  {% block title %}{% page_attribute "page_title" %}{% endblock %}
-{% endif %}
+{% block pagetitle %}
+  {% if blog.title %}
+    <title>{{blog.title}} - ASSEMBLY Summer 2015</title>
+    <meta property="og:title"              content="{{blog.title}}" />
+  {% else %}
+    <title>{% page_attribute "page_title" %} - ASSEMBLY Summer 2015</title>
+    <meta property="og:title"              content="{% page_attribute "page_title" %}" />
+  {% endif %}
+{% endblock %}
 
   <title>{{ pagetitle }} - ASSEMBLY Summer 2015</title>
   {% render_block "css" %}
@@ -23,7 +27,7 @@
    <!-- Facebook optimization -->
   <meta property="og:url"                content="{{ current_url }}" /> 
   <meta property="og:type"               content="article" />
-  <meta property="og:title"              content="{% block title %}{% endblock %}" />
+  <meta property="og:title"              content="{% block pagetitle %}{% endblock %}" />
   <meta property="og:description"        content="{% page_attribute "meta_description" %}" />
   <meta property="og:image"              content="http://www.assembly.org/media/uploads/asm15s/assembly_poster_background_v4.png" />
   <meta property="og:locale" content="en_US" /> 
