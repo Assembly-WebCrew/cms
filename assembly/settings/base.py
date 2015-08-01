@@ -48,7 +48,7 @@ INSTALLED_APPS = (
     'tweetembly',
     'opbeat.contrib.django',
     # Uncomment when schedule models are ready
-    # 'schedule'
+    'schedule'
 )
 
 
