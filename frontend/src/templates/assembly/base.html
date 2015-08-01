@@ -5,9 +5,9 @@
 <head>
 
 {% if blog.title %}
-    {{ blog.title as pagetitle }}
+  {% block title %}{{blog.title}}{% endblock %}
 {% else %}
-    {% page_attribute "page_title" as pagetitle %}
+  {% block title %}{% page_attribute "page_title" %}{% endblock %}
 {% endif %}
 
   <title>{{ pagetitle }} - ASSEMBLY Summer 2015</title>
@@ -23,7 +23,7 @@
    <!-- Facebook optimization -->
   <meta property="og:url"                content="{{ current_url }}" /> 
   <meta property="og:type"               content="article" />
-  <meta property="og:title"              content="{{ pagetitle }}" />
+  <meta property="og:title"              content="{% block title %}{% endblock %}" />
   <meta property="og:description"        content="{% page_attribute "meta_description" %}" />
   <meta property="og:image"              content="http://www.assembly.org/media/uploads/asm15s/assembly_poster_background_v4.png" />
   <meta property="og:locale" content="en_US" /> 
