@@ -46,7 +46,8 @@ INSTALLED_APPS = (
     'assembly.core',
     'blog',
     'tweetembly',
-    'opbeat.contrib.django'
+    'opbeat.contrib.django',
+    'schedule'
 )
 
 

@@ -15,3 +15,4 @@ media/cms_page_media/*
 *.sublime-workspace
 *.sql
 celerybeat-schedule
+env-experimental/
