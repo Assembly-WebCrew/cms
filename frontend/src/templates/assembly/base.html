@@ -4,15 +4,13 @@
 <html>
 <head>
 
-{% block pagetitle %}
-  {% if blog.title %}
-    <title>{{blog.title}} - ASSEMBLY Summer 2015</title>
-    <meta property="og:title"              content="{{blog.title}}" />
-  {% else %}
-    <title>{% page_attribute "page_title" %} - ASSEMBLY Summer 2015</title>
-    <meta property="og:title"              content="{% page_attribute "page_title" %}" />
-  {% endif %}
-{% endblock %}
+{% if blog.title %}
+  <title>{{blog.title}} - ASSEMBLY Summer 2015</title>
+  <meta property="og:title"              content="{{blog.title}}" />
+{% else %}
+  <title>{% page_attribute "page_title" %} - ASSEMBLY Summer 2015</title>
+  <meta property="og:title"              content="{% page_attribute "page_title" %}" />
+{% endif %}
 
   <title>{{ pagetitle }} - ASSEMBLY Summer 2015</title>
   {% render_block "css" %}
