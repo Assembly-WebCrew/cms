@@ -3,9 +3,9 @@
 {% get_current_language as LANGUAGE_CODE %}
 <html>
 <head>
-{% if blog.title %}
-  <title>{{blog.title}} - ASSEMBLY Summer 2015</title>
-  <meta property="og:title" content="{{blog.title}}" />
+{% if post.title %}
+  <title>{{post.title}} - ASSEMBLY Summer 2015</title>
+  <meta property="og:title" content="{{post.title}}" />
 {% else %}
   <title>{% page_attribute "page_title" %} - ASSEMBLY Summer 2015</title>
   <meta property="og:title" content="{% page_attribute "page_title" %}" />
