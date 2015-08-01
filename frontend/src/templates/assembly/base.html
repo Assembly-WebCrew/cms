@@ -3,7 +3,14 @@
 {% get_current_language as LANGUAGE_CODE %}
 <html>
 <head>
-  <title>{% page_attribute "page_title" as pagetitle %} - ASSEMBLY Summer 2015</title>
+
+{% if blog.title %}
+    {{ blog.title as pagetitle }}
+{% else %}
+    {% page_attribute "page_title" as pagetitle %}
+{% endif %}
+
+  <title>{{ pagetitle }} - ASSEMBLY Summer 2015</title>
   {% render_block "css" %}
   <link rel="stylesheet" href="{% static "assembly/styles/vendor.css" %}">
   <link rel="stylesheet" href="{% static "assembly/styles/main.css" %}">
@@ -16,7 +23,7 @@
    <!-- Facebook optimization -->
   <meta property="og:url"                content="{{ current_url }}" /> 
   <meta property="og:type"               content="article" />
-  <meta property="og:title"              content="{{ blog.title | default: "pagetitle" }}" />
+  <meta property="og:title"              content="{{ pagetitle }}" />
   <meta property="og:description"        content="{% page_attribute "meta_description" %}" />
   <meta property="og:image"              content="http://www.assembly.org/media/uploads/asm15s/assembly_poster_background_v4.png" />
   <meta property="og:locale" content="en_US" /> 
