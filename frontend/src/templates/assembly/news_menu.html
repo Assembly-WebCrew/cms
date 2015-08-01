@@ -1,0 +1,5 @@
+{% load menu_tags %}
+
+	{% for blog in blog_list %}
+		<li class="child{% if child.selected %} selected{% endif %}{% if child.ancestor %} ancestor{% endif %}{% if child.sibling %} sibling{% endif %}{% if child.descendant %} descendant{% endif %}"><a class="btn btn-1e" ref="{% url 'blog:blog-detail' blog.id %}">{{ blog.title }}</a></li>
+	{% endfor %}
