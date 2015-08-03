@@ -16,3 +16,4 @@ media/cms_page_media/*
 *.sql
 celerybeat-schedule
 env-experimental/
+.DS_Store
