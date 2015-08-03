@@ -25,9 +25,8 @@
 <div id="carousel">
   <div class="carousel_meta">
     <!--<h3>KAHEN KILON $2 000 Siika</h3>-->
-    {% placeholder "carousel_read_more" or %}<a href="#news" class="carousel_read_more" >News</a>{% endplaceholder %}
- </div>
-
+    <span class="carousel_read_more">{% placeholder "carousel_read_more" or %}<a href="#news" >News</a>{% endplaceholder %}</span>
+  </div>
   <div class="fader"></div>
 </div>
 {% endblock %}
@@ -113,15 +112,14 @@
 
     {% include "assembly/sub_sponsors.html" %}
 
-
     <div class="fader left"></div>
     <div class="fader right"></div>
   </aside>
 
 </section>
 
-  <div class="news_archive">
-    {% placeholder "news_archive_link" or %}<a href="/news/" class="news_archive" >News archive</a>{% endplaceholder %}
-  </div>
+  <span class="news_archive">
+    {% placeholder "news_archive_link" or %}<a href="/news/">News archive</a>{% endplaceholder %}
+  </span>
 </div>
 {% endblock %}
