@@ -2,6 +2,7 @@
 {% load cms_tags %}
 {% load static %}
 {% load menu_tags %}
+{% load i18n %}
 
 {% block page_header %}
 <canvas id="demo-canvas"></canvas>
@@ -11,7 +12,7 @@
       <img src="{% static "images/logo_summer_2015.png" %}" alt="ASSEMBLY Summer 2015" title="ASSEMBLY Summer 2015" />
     </div>
     <div class="schedule-location">
-      <h3 style="font-size: 25px;">30.7. &ndash; 2.8.2015, Messukeskus, Helsinki</h3>
+      <h3 style="font-size: 16px;">30.7. &ndash; 2.8.2015, Messukeskus, Helsinki</h3>
       <asm-countdown start-date="2015-07-30T10:00:00" end-date="2015-08-02T18:00:00"></asm-countdown>
     </div>
     <div class="call-for-action">
@@ -25,7 +26,7 @@
 <div id="carousel">
   <div class="carousel_meta">
     <!--<h3>KAHEN KILON $2 000 Siika</h3>-->
-    <span class="carousel_read_more">{% placeholder "carousel_read_more" or %}<a href="#news" >News</a>{% endplaceholder %}</span>
+    <a href="#" class="carousel_read_more">{% trans "News" %}</a>
   </div>
   <div class="fader"></div>
 </div>
@@ -51,8 +52,8 @@
       <a href="https://twitter.com/assemblyparty">
         <div class="icon"><img src="{% static "images/i-twitter.png" %}" alt="twitter icon" ></div>
         <div class="prompt">FOLLOW</div>
-        <div class="username">@ASSEMBLYPARTY<p></p></div>
-        <div class="bottom">hashtag #asmparty</div>
+        <div class="username"><p></p>@ASSEMBLYPARTY<p></p></div>
+        <div class="bottom"></div>
       </a>
     </article>
 
@@ -60,7 +61,7 @@
       <a href="https://www.facebook.com/assemblyparty">
         <div class="icon"><img src="{% static "images/i-facebook.png" %}" alt="facebook icon" ></div>
         <div class="prompt">LIKE US</div>
-        <div class="username">ASSEMBLY COMPUTER FESTIVAL<p></p></div>
+        <div class="username"><p></p>ASSEMBLY COMPUTER FESTIVAL<p></p></div>
         <!-- <div class="bottom">7 971 likes</div> -->
       </a>
     </article>
@@ -68,11 +69,11 @@
     <!-- TODO: Posts from SoMe. -->
     
      <article class="some-box twitter linked">
-      <a href="https://twitter.com/assemblyprogram">
+      <a href="https://twitter.com/hashtag/Asmparty?src=hash">
         <div class="icon"><img src="{% static "images/i-twitter.png" %}" alt="twitter icon" ></div>
-        <div class="prompt">FOLLOW</div>
-        <div class="username">@ASSEMBLYPROGRAM<p></p></div>
-        <div class="bottom">Real-time Assembly party program information about events starting next.</div>
+        <div class="prompt">Hastag</div>
+        <div class="username"><p></p>#asmparty<p></p></div>
+        <div class="bottom"></div>
       </a>
     </article>
     
@@ -80,7 +81,7 @@
       <a href="https://www.facebook.com/events/371547649696044/">
         <div class="icon"><img src="{% static "images/i-facebook.png" %}" alt="Facebook icon" ></div>
         <div class="prompt">JOIN US</div>
-        <div class="username">Assembly Summer 2015<p></p></div>
+        <div class="username"><p></p>Assembly Summer 2015</div>
         <!-- <div class="bottom">7 971 likes</div> -->
       </a>
     </article>
@@ -107,6 +108,7 @@
   <section class="content">
     {% placeholder "content_2" %}
   </section>
+ <a href="news" class="news_archive">{% trans "News archive" %}</a>
 
   <aside class="horizontal-sponsors cycle-slideshow" data-cycle-timeout="5000" data-cycle-fx="scrollHorz" data-cycle-speed="2000" data-cycle-slides="ul">
 
@@ -118,8 +120,5 @@
 
 </section>
 
-  <span class="news_archive">
-    {% placeholder "news_archive_link" or %}<a href="/news/">News archive</a>{% endplaceholder %}
-  </span>
 </div>
 {% endblock %}
