@@ -3,6 +3,7 @@ asm-schedule {
   display: block;
   width: 100%;
   min-height: 200px;
+	padding: 0 3px;
   $color-rescheduled: #f88;
   $color-ongoing: #88f;
   $color-major: #0ff;
@@ -54,7 +55,9 @@ asm-schedule {
 
     &:hover h4 .anchor { visibility: visible; }
 
-    &.major td { border-left: 4px solid $color-major; font-weight: bold;}
+    &.major td { border-left: 4px solid $color-major; font-weight: 400;}
+
+		&.major h4 {font-weight: 400;}
 
     &.rescheduled td {
       border-left: 4px solid $color-rescheduled;
