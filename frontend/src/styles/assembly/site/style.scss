@@ -17,8 +17,10 @@ body {
   display: none;
 }
 
+// Moving all template boxes to top.
 .cms_dragarea {
   position: initial!important;
+  margin-left: 1em!important;
 }
 
 .wrapper {
