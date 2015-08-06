@@ -4,12 +4,12 @@
     color: #000;
     font-size: 8pt;
     line-height: 150%;
-    margin: 0px;
+    margin: 0;
   }
 
    h1,h2,h3,h4,h5,h6{
-    color: black;
-   text-transform: none;
+    color: #000!important;
+    text-transform: none;
   }
 
    h1 {
@@ -47,8 +47,34 @@
 
   #content {
     width: 100%;
+    padding: 0;
     margin: 0;
     float: none;
   }
+
+  asm-schedule {
+    background-color: #fff;
+    display: block;
+    width: 100%;
+    $color-rescheduled: #f88;
+    $color-major: #0ff;
+
+  a {
+    color: #000;
+  }
+
+  .days, .flags {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .flags {
+    justify-content: space-between;
+  }
+
+  .event h4 {
+    color: #000;
+  }
+}
 
 }
