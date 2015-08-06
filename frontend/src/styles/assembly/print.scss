@@ -39,13 +39,12 @@
     background: white;
     font-weight: bold;
   }
-
-  #top, .noprint, #content-links, .side-sponsors, .footer-navigation, #cms_toolbar, .background-image, .navigation, .header-image {
+  header, footer, aside, #cms_toolbar, #content_links, .navigation,  .noprint, #cms_toolbar, .background-image, .header-image {
     display: none;
     visibility: hidden;
   }
 
-  #content {
+  #content, article {
     width: 100%;
     padding: 0;
     margin: 0;
