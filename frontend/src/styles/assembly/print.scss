@@ -1,15 +1,10 @@
 @media print {
 
-  * {
+  #top, .noprint, #content-links, .side-sponsors, .footer-navigation, #cms_toolbar, .background-image, .navigation {
     display: none;
   }
 
-  #top, .noprint, .content-links, .side-sponsors, .footer-navigation {
-    display: none;
-  }
-
-  #container, #container2, #content {
-    display: initial;
+  #content {
     width: 100%;
     margin: 0;
     float: none;
