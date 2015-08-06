@@ -147,7 +147,7 @@
       display: inline;
     }
 
-    li:first-child { display: none; }
+    li:first-child a { display: none; }
   }
 
   hr { border-style: solid; }

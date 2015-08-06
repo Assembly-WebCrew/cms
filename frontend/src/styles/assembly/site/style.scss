@@ -17,6 +17,12 @@ body {
   display: none;
 }
 
+// Moving all template boxes to top.
+.cms_dragarea {
+  position: initial!important;
+  margin-left: 2em!important;
+}
+
 .wrapper {
   width: 100%;
   max-width: 1400px;
@@ -26,6 +32,7 @@ body {
 
 .content img {
   max-width:100%;
+	height: auto!important;
 }
 a {
   color: $link-color;
