@@ -50,30 +50,4 @@
     margin: 0;
     float: none;
   }
-
-  asm-schedule {
-    background-color: #fff;
-    display: block;
-    width: 100%;
-    $color-rescheduled: #f88;
-    $color-major: #0ff;
-
-  a {
-    color: #000;
-  }
-
-  .days, .flags {
-    display: flex;
-    justify-content: space-around;
-  }
-
-  .flags {
-    justify-content: space-between;
-  }
-
-  .event h4 {
-    color: #000;
-  }
-}
-
 }
