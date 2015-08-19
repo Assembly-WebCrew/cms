@@ -1,7 +1,8 @@
 <!doctype html>
 {% load static cms_tags sekizai_tags menu_tags i18n %}
 {% get_current_language as LANGUAGE_CODE %}
-<html>
+{% page_attribute "meta_description" as meta_description %}
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
 {% if post.title %}
   <title>{{post.title}} - ASSEMBLY Summer 2015</title>
@@ -44,16 +45,16 @@
 {% if post.teaser %}
   <meta property="og:description" content="{{ post.teaser }}" />
   <meta name="twitter:description" content="{{ post.teaser }}" />
-{% elif page_attribute "meta_description" %}
-  <meta property="og:description" content="{% page_attribute "meta_description" %}" />
-  <meta name="twitter:description" content="{% page_attribute "meta_description" %}" />
+{% elif meta_description %}
+  <meta property="og:description" content="{{ meta_description }}" />
+  <meta name="twitter:description" content="{{ meta_description }}" />
 {% endif %}
 
   <!-- facebook locale -->
 {% if LANGUAGE_CODE == en %}
   <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="fi_FI" />
-{% elseif LANGUAGE_CODE == fi %}
+{% elif LANGUAGE_CODE == fi %}
   <meta property="og:locale" content="fi_FI" />
   <meta property="og:locale:alternate" content="en_US" />
 {% endif %}
