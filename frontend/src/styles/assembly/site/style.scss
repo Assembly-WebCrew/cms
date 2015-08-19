@@ -61,15 +61,16 @@ hr {
   margin: 1em 0; padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', Arial, Verdana, Tahoma;
 /*  text-transform: uppercase;*/
-  font-weight: 800;
+  font-weight: 400;
 }
 
 h1 {
   font-size: 48px;
   color:$bg-color;
+  font-weight: 800;
 }
 
 h2 {
