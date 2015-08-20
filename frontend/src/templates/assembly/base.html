@@ -1,14 +1,17 @@
 <!doctype html>
 {% load static cms_tags sekizai_tags menu_tags i18n %}
 {% get_current_language as LANGUAGE_CODE %}
-<html>
+{% page_attribute "meta_description" as meta_description %}
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
 {% if post.title %}
   <title>{{post.title}} - ASSEMBLY Summer 2015</title>
   <meta property="og:title" content="{{post.title}}" />
+  <meta name="twitter:title" content="{{post.title}}">
 {% else %}
   <title>{% page_attribute "page_title" %} - ASSEMBLY Summer 2015</title>
   <meta property="og:title" content="{% page_attribute "page_title" %}" />
+  <meta name="twitter:title" content="{% page_attribute "page_title" %}">
 {% endif %}
 {% render_block "css" %}
   <link rel="stylesheet" href="{% static "assembly/styles/vendor.css" %}">
@@ -19,16 +22,42 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,800,300' rel='stylesheet'>
   <link rel="icon" type="image/png" href="/static/images/favicon.png" />
 
-   <!-- Facebook optimization -->
-  <meta property="og:url"                content="{{ current_url }}" /> 
-  <meta property="og:type"               content="article" />
-  <meta property="og:description"        content="{% page_attribute "meta_description" %}" />
-  <meta property="og:image"              content="/media/uploads/asm15s/assembly_poster_background_v4.png" />
-  <meta property="og:locale" content="en_US" /> 
-  <meta property="og:locale:alternate" content="fi_FI" />
+   <!-- Facebook sharing -->
+  <meta property="og:url" content="{{ current_url }}" />
+  <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Assembly" />
   <meta property="article:author" content="https://www.facebook.com/assemblyparty" />
   <meta property="article:publisher" content="https://www.facebook.com/asmorg" />
+  <!-- Twitter sharing -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@assemblyparty" />
+
+  <!-- SoMe sharing image tags -->
+{% if post.cover_image %}
+  <meta property="og:image" content="/media/{{ post.cover_image }}" />
+  <meta name="twitter:image" content="/media/{{ post.cover_image }}" />
+{% else %}
+  <meta property="og:image" content="/media/uploads/asm15s/assembly_poster_background_v4.png" />
+  <meta name="twitter:image" content="/media/uploads/asm15s/assembly_poster_background_v4.png" />
+{% endif %}
+
+  <!-- SoMe sharing description -->
+{% if post.teaser %}
+  <meta property="og:description" content="{{ post.teaser }}" />
+  <meta name="twitter:description" content="{{ post.teaser }}" />
+{% elif meta_description %}
+  <meta property="og:description" content="{{ meta_description }}" />
+  <meta name="twitter:description" content="{{ meta_description }}" />
+{% endif %}
+
+  <!-- facebook locale -->
+{% if LANGUAGE_CODE == "en" %}
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="fi_FI" />
+{% elif LANGUAGE_CODE == "fi" %}
+  <meta property="og:locale" content="fi_FI" />
+  <meta property="og:locale:alternate" content="en_US" />
+{% endif %}
 
   <script>
     /** Global CMS features. */

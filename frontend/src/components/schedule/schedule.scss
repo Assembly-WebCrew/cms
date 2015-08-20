@@ -80,16 +80,50 @@ asm-schedule {
   }
 }
 @media screen and (max-width: 960px) {
-asm-schedule {
-  .flags{
-    justify-content: flex-start;
-    -webkit-box-pack: start;
-    -moz-box-pack: start;
-    display:block;
-    input{
-      margin-top:7px;
-      margin-left:14px;
+  asm-schedule {
+    .flags{
+      justify-content: flex-start;
+      -webkit-box-pack: start;
+      -moz-box-pack: start;
+      display:block;
+      input{
+        margin-top:7px;
+        margin-left:14px;
+      }
     }
   }
 }
+
+@media print {
+  asm-schedule {
+    a, a:link, a:visited {
+      color: #000;
+      text-decoration: none;
+    }
+    .event h4 {
+      color: #000;
+      font-size: 10pt;
+      font-family: Georgia, "Times New Roman", Times, serif !important;
+    }
+    .event.major {
+      font-weight: bold;
+    }
+
+    .schedule-table, table {
+      th {
+        background: #fff;
+        color: #000;
+        font-size: 10pt;
+        font-weight: bold;
+        page-break-after: avoid;
+      }
+      tr {
+        border-bottom: 1px solid lightgray;
+        page-break-inside: avoid;
+      }
+      td {
+        page-break-inside: avoid;
+      }
+    }
+  }
 }

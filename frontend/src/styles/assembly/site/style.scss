@@ -10,6 +10,14 @@ body {
   font-weight: 400;
   font-size: 14px;
   font-family: 'Open Sans', Arial, Verdana, Tahoma !important;
+
+  @media print {
+    background: #fff;
+    color: #000;
+    font-size: 10pt;
+    line-height: 150%;
+    font-family: Georgia, "Times New Roman", Times, serif!important;
+  }
 }
 
 // Hide cms placeholders, they scew up the layout in edit mode.
@@ -18,10 +26,10 @@ body {
 }
 
 // Moving all template boxes to top.
-.cms_dragarea {
-  position: initial!important;
-  margin-left: 2em!important;
-}
+//.cms_dragarea {
+//  position: initial!important;
+//  margin-left: 2em!important;
+//}
 
 .wrapper {
   width: 100%;
