@@ -2,6 +2,7 @@
 {% load cms_tags %}
 {% load static %}
 {% load menu_tags %}
+{% load i18n %}
 
 {% block page_header %}
 <canvas id="demo-canvas"></canvas>
@@ -11,7 +12,7 @@
       <img src="{% static "images/logo_summer_2015.png" %}" alt="ASSEMBLY Summer 2015" title="ASSEMBLY Summer 2015" />
     </div>
     <div class="schedule-location">
-      <h3 style="font-size: 25px;">30.7. &ndash; 2.8.2015, Messukeskus, Helsinki</h3>
+      <h3 style="font-size: 16px;">30.7. &ndash; 2.8.2015, Messukeskus, Helsinki</h3>
       <asm-countdown start-date="2015-07-30T10:00:00" end-date="2015-08-02T18:00:00"></asm-countdown>
     </div>
     <div class="call-for-action">
@@ -23,11 +24,10 @@
   </div>
 </div>
 <div id="carousel">
-  <!--<div class="carousel_meta">
-    <h3>KAHEN KILON $2 000 Siika</h3>
-    <a href="#" class="carousel_read_more">Read More</a>
-  </div>-->
-  <a href="#content" class="news_archive">News</a>
+  <div class="carousel_meta">
+    <!--<h3>KAHEN KILON $2 000 Siika</h3>-->
+    <a href="#news" class="carousel_read_more">{% trans "News" %}</a>
+  </div>
   <div class="fader"></div>
 </div>
 {% endblock %}
@@ -42,7 +42,7 @@
     {% placeholder "quick_links" %}
   </nav>
 
-  <section class="content">
+  <section class="content" id="news">
     {% placeholder "content" %}
   </section>
 
@@ -50,18 +50,18 @@
 
     <article class="some-box twitter linked">
       <a href="https://twitter.com/assemblyparty">
-        <div class="icon"><img src="{% static "images/i-twitter.png" %}" alt></div>
+        <div class="icon"><img src="{% static "images/i-twitter.png" %}" alt="twitter icon" ></div>
         <div class="prompt">FOLLOW</div>
-        <div class="username">@ASSEMBLYPARTY<p></p></div>
-        <div class="bottom">hashtag #asmparty</div>
+        <div class="username"><p></p>@ASSEMBLYPARTY<p></p></div>
+        <div class="bottom"></div>
       </a>
     </article>
 
      <article class="some-box facebook linked">
       <a href="https://www.facebook.com/assemblyparty">
-        <div class="icon"><img src="{% static "images/i-facebook.png" %}" alt></div>
+        <div class="icon"><img src="{% static "images/i-facebook.png" %}" alt="facebook icon" ></div>
         <div class="prompt">LIKE US</div>
-        <div class="username">ASSEMBLY COMPUTER FESTIVAL<p></p></div>
+        <div class="username"><p></p>ASSEMBLY COMPUTER FESTIVAL<p></p></div>
         <!-- <div class="bottom">7 971 likes</div> -->
       </a>
     </article>
@@ -69,19 +69,19 @@
     <!-- TODO: Posts from SoMe. -->
     
      <article class="some-box twitter linked">
-      <a href="https://twitter.com/assemblyprogram">
-        <div class="icon"><img src="{% static "images/i-twitter.png" %}" alt></div>
-        <div class="prompt">FOLLOW</div>
-        <div class="username">@ASSEMBLYPROGRAM<p></p></div>
-        <div class="bottom">Real-time Assembly party program information about events starting next.</div>
+      <a href="https://twitter.com/hashtag/Asmparty?src=hash">
+        <div class="icon"><img src="{% static "images/i-twitter.png" %}" alt="twitter icon" ></div>
+        <div class="prompt">Hastag</div>
+        <div class="username"><p></p>#asmparty<p></p></div>
+        <div class="bottom"></div>
       </a>
     </article>
     
       <article class="some-box facebook linked">
       <a href="https://www.facebook.com/events/371547649696044/">
-        <div class="icon"><img src="{% static "images/i-facebook.png" %}" alt></div>
+        <div class="icon"><img src="{% static "images/i-facebook.png" %}" alt="Facebook icon" ></div>
         <div class="prompt">JOIN US</div>
-        <div class="username">Assembly Summer 2015<p></p></div>
+        <div class="username"><p></p>Assembly Summer 2015</div>
         <!-- <div class="bottom">7 971 likes</div> -->
       </a>
     </article>
@@ -99,7 +99,7 @@
       <div class="username">ASSEMBLY COMPUTER FESTIVAL</div>
       <div class="text">
         <p>ASSEMBLY is a festival, in which thousands of people spend the weekend by meeting friends, playing games and enjoying the great productions from the demoscene.</p>
-      </div>
+      </div>-->
       <!-- <div class="bottom">14.2.2015 13.45</div> -->
     <!-- </article> -->
 
@@ -108,31 +108,11 @@
   <section class="content">
     {% placeholder "content_2" %}
   </section>
+ <a href="news" class="news_archive">{% trans "News archive" %}</a>
 
   <aside class="horizontal-sponsors cycle-slideshow" data-cycle-timeout="5000" data-cycle-fx="scrollHorz" data-cycle-speed="2000" data-cycle-slides="ul">
 
     {% include "assembly/sub_sponsors.html" %}
-
-    <!-- <ul class="sponsors-slide">
-      <li><a href="http://www.elisa.fi" target="_blank"><img src="{% static "/media/cms_page_media/39/elisa_logo-250px_i7hwu0o.png" %}" alt="Elisa.fi" title="Elisa.fi"></a></li>
-      <li><a href="http://www.pelaaja.fi" target="_blank"><img src="{% static "/media/cms_page_media/39/pelaaja-logo_cW3LYMd.jpeg" %}" alt="Pelaaja" title="Pelaaja"></a></li>
-      <li><a href="http://www.tamk.fi" target="_blank"><img src="{% static "/media/cms_page_media/39/tamk-logo_ITfMYBA_6Vhvr6t.png" %}" alt="Tamk" title="Tamk"></a></li>
-      <li><a href="http://turkugamelab.fi" target="_blank"><img src="{% static "/media/cms_page_media/39/tgl-logos14_jIxkTFo_jlie6RA.png" %}" alt="Turku Game Lab" title="Turku Game Lab"></a></li>
-    </ul>
-
-    <ul class="sponsors-slide">
-      <li><a href="http://www.metropolia.fi" target="_blank"><img src="{% static "/media/cms_page_media/39/metropolia_logo_wB9hr37.jpg" %}" alt="Metropolia" title="Metropolia"></a></li>
-      <li><a href="http://www.kamk.fi" target="_blank"><img src="{% static "/media/cms_page_media/39/Kajak_250px_qUBNzHQ.jpg" %}" alt="Kajak" title="Kajak"></a></li>
-      <li><a href="http://www.jyu.fi" target="_blank"><img src="{% static "/media/cms_page_media/39/jyu-it-250px_GaapkZ5.png" %}" alt="Jyv&auml;skyl&auml;n yliopisto" title="Jyv&auml;skyl&auml;n yliopisto"></a></li>
-      <li><a href="http://www.skrolli.fi" target="_blank"><img src="{% static "/media/cms_page_media/39/skrolli-logo250px_RAGqami_Kl0IeOe.png" %}" alt="Skrolli" title="Skrolli"></a></li>
-    </ul>
-
-    <ul class="sponsors-slide">
-      <li><a href="http://www.elisa.fi" target="_blank"><img src="{% static "/media/cms_page_media/39/elisa_logo-250px_i7hwu0o.png" %}" alt="Elisa.fi" title="Elisa.fi"></a></li>
-      <li><a href="http://www.seul.fi" target="_blank"><img src="{% static "/media/cms_page_media/39/seul-250_6CYC88r.png" %}" alt="SEUL" title="SEUL"></a></li>
-      <li><a href="http://kirkkoassyilla.blogspot.com" target="_blank"><img src="{% static "/media/cms_page_media/39/evl-logo_hpD4C65.png" %}" alt="Lataamo" title="Lataamo"></a></li>
-      <li><a href="http://www.skrolli.fi" target="_blank"><img src="{% static "/media/cms_page_media/39/skrolli-logo250px_RAGqami_Kl0IeOe.png" %}" alt="Skrolli" title="Skrolli"></a></li>
-    </ul> -->
 
     <div class="fader left"></div>
     <div class="fader right"></div>
@@ -140,6 +120,5 @@
 
 </section>
 
- <a href="/news/" class="news_archive">News archive</a>
 </div>
 {% endblock %}

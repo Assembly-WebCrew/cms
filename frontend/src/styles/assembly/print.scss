@@ -1,0 +1,13 @@
+@media print {
+
+  header, footer, aside, #cms_toolbar, #content_links, .navigation, .noprint, #cms_toolbar, .background-image, .header-image, .breadcrumbs {
+    display: none !important;
+  }
+
+  #content, article, article .article, .page {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    float: none !important;
+  }
+}

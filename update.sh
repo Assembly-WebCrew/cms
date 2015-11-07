@@ -1,10 +1,21 @@
 #!/bin/bash
-echo "Backing up current state"
-current_time=$(date "+%d%m%Y_%H%M%S")
-file_name='preupdate_state_'$current_time'.tar.gz'
-tar -zcvf /data/httpd/site/neo.assembly.org/$file_name /data/httpd/site/neo.assembly.org/staging/ &> /dev/null
+
+skip_backup=false
+while getopts 's' flag; do
+  case "${flag}" in
+    s) skip_backup=true ;;
+  esac
+done
+
+if [ $skip_backup != 'true' ] ; then
+    echo "Backing up current state"
+    current_time=$(date "+%d%m%Y_%H%M%S")
+    file_name='preupdate_state_'$current_time'.tar.gz'
+    tar -zcvf ~/backups/$file_name ./ &> /dev/null
+fi
+
 echo "Pulling repository"
-git pull
+git pull && git submodule init && git submodule update && git submodule status
 echo "Cleaning statics"
 rm -rf ./static/
 echo "Cleaning frontend"

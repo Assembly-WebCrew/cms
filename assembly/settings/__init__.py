@@ -1,1 +1,1 @@
-from assembly.settings.local import *
+from .local import *

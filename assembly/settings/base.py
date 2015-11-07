@@ -1,13 +1,12 @@
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
 gettext = lambda s: s
 BASE_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), '..')
 
-from djangocms_siteselector.site_id import SiteId
-#SITE_ID = SiteId()
-SITE_ID = 1
-
+from datetime import timedelta
 import djcelery
+
 djcelery.setup_loader()
 
 CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
@@ -27,12 +26,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'djangocms_siteselector',
     'django.contrib.sitemaps',
     'djcelery',
     'rest_framework',
     'reversion',
-    'mptt',
+    'treebeard',
     'menus',
     'sekizai',
     'ckeditor',
@@ -45,13 +43,14 @@ INSTALLED_APPS = (
     'djangocms_video',
     'djangocms_link',
     'djangocms_text_ckeditor',
-    'treebeard',
     'cms',
     'assembly.core',
     'blog',
     'tweetembly',
+    'opbeat.contrib.django',
+    # Uncomment when schedule models are ready
+    'schedule'
 )
-
 
 CKEDITOR_SETTINGS = {
     'toolbar_CMS': [
@@ -61,22 +60,24 @@ CKEDITOR_SETTINGS = {
         ['Link', 'Unlink', 'Anchor'],
         ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', 'Undo', 'Redo'],
         ['Find', 'Replace', 'SelectAll', 'Scayt'],
-        ['Format', 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'TextColor', 'BGColor', 'RemoveFormat', 'Styles'],
-        ['NumberedList', 'BulletedList', 'Outdent', 'Indent', 'Blockquote', 'CreateDiv', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']
+        ['Format', 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'TextColor', 'BGColor',
+         'RemoveFormat', 'Styles'],
+        ['NumberedList', 'BulletedList', 'Outdent', 'Indent', 'Blockquote', 'CreateDiv', 'JustifyLeft', 'JustifyCenter',
+         'JustifyRight', 'JustifyBlock']
     ],
     'skin': 'moono'
 }
 
-
 MIDDLEWARE_CLASSES = (
-    'djangocms_siteselector.middlewares.SiteSelectorMiddleware',
+    'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
-    'assembly.core.middlewares.LocaleMiddleware',
+    'assembly.middlewares.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'django.contrib.admindocs.middleware.XViewMiddleware',
     'django.middleware.common.CommonMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
@@ -91,7 +92,6 @@ MIGRATION_MODULES = {
     'djangocms_flash': 'djangocms_flash.migrations_django',
     'djangocms_googlemap': 'djangocms_googlemap.migrations_django',
     'djangocms_inherit': 'djangocms_inherit.migrations_django',
-    'djangocms_link': 'djangocms_link.migrations_django',
     'djangocms_picture': 'djangocms_picture.migrations_django',
     'djangocms_teaser': 'djangocms_teaser.migrations_django',
     'djangocms_video': 'djangocms_video.migrations_django',
@@ -119,6 +119,12 @@ USE_L10N = True
 
 USE_TZ = True
 
+OPBEAT = {
+    'ORGANIZATION_ID': '#########',
+    'APP_ID': '#########',
+    'SECRET_TOKEN': '#########',
+}
+
 MODELTRANSLATION_TRANSLATION_FILES = (
     'blog.translation',
 )
@@ -127,26 +133,25 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, "templates"),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
-            'context_processors': [
-                # Insert your TEMPLATE_CONTEXT_PROCESSORS here or use this
-                # list if you haven't customized them:
-                'django.contrib.auth.context_processors.auth',
-                'django.template.context_processors.request',
-                'django.template.context_processors.debug',
-                'django.template.context_processors.i18n',
-                'django.template.context_processors.media',
-                'django.template.context_processors.static',
-                'django.template.context_processors.tz',
-                'django.contrib.messages.context_processors.messages',
-                'sekizai.context_processors.sekizai',
-                'cms.context_processors.cms_settings',
-                'assembly.core.context_processors.asm_context',
-            ],
-        },
+            'context_processors':
+                (
+                    'django.contrib.auth.context_processors.auth',
+                    'django.template.context_processors.debug',
+                    'django.template.context_processors.i18n',
+                    'django.template.context_processors.media',
+                    'django.template.context_processors.static',
+                    'django.template.context_processors.tz',
+                    'django.template.context_processors.csrf',
+                    'django.template.context_processors.request',
+                    'django.contrib.messages.context_processors.messages',
+                    'sekizai.context_processors.sekizai',
+                    'cms.context_processors.cms_settings',
+                )
+        }
     },
 ]
 
@@ -164,13 +169,13 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 
 CMS_PLACEHOLDER_CONF = {
     # General
-    'footer_links':    { 'plugins': ['LinkPlugin'] },
+    'footer_links': {'plugins': ['LinkPlugin']},
 
     # Frontpage
-    'call_for_action': { 'plugins': ['LinkPlugin'] },
-    'main_sponsors':   { 'plugins': ['PicturePlugin'] },
-    'quick_links':     { 'plugins': ['LinkPlugin'] },
+    'call_for_action': {'plugins': ['LinkPlugin']},
+    'main_sponsors': {'plugins': ['PicturePlugin']},
+    'quick_links': {'plugins': ['LinkPlugin']},
 
     # Article page
-    'article_header_image':   { 'plugins': ['PicturePlugin'] }
+    'article_header_image': {'plugins': ['PicturePlugin']}
 }

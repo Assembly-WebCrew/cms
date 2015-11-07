@@ -23,14 +23,6 @@ DATABASES = {
     }
 }
 
-# Twitter integration settings
-TWITTER = {
-    'CONSUMER_KEY': '#######',
-    'CONSUMER_SECRET': '#######',
-    'ACCESS_TOKEN': '#######',
-    'ACCESS_SECRET': '#######'
-}
-
 # Cache configuration
 CACHES = {
     'default': {
@@ -53,3 +45,18 @@ CMS_TEMPLATES = (
     ('assembly/article_page.html', 'Article'),
     ('assembly/index.html', 'Frontpage'),
 )
+
+# Twitter integration settings
+TWITTER = {
+    'CONSUMER_KEY': '#######',
+    'CONSUMER_SECRET': '#######',
+    'ACCESS_TOKEN': '#######',
+    'ACCESS_SECRET': '#######'
+}
+
+OPBEAT = {
+    'ORGANIZATION_ID': '#######',
+    'APP_ID': '#######',
+    'SECRET_TOKEN': '#######',
+}
+

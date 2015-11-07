@@ -9,11 +9,24 @@
   line-height: 1.4;
   min-height: 800px;
 
+  @media print {
+    width: 100%;
+    font-size: 10pt;
+    min-height: auto;
+    text-align: justify;
+    line-height: 150%;
+  }
+
   .content {
     background: #fff;
     font-size: 16px;
     padding: 20px 25px 5px;
     font-weight: 400;
+
+    @media print {
+      font-size: 10pt;
+      padding: 0;
+    }
 
     p {
       margin-bottom: 24px;
@@ -22,11 +35,19 @@
     a {
       text-decoration: underline;
       color: darken($link-color, 10%);
+
+      @media print { color: #000; }
     }
   }
 
   h1, h2, h3, h4, h5, h6 {
     margin: 24px 0;
+
+    @media print {
+      color: #000!important;
+      text-transform: none;
+      font-weight: normal !important;
+    }
   }
 
   h3, h4 {
@@ -35,6 +56,14 @@
 
   h5 {
     font-weight: 800;
+  }
+
+  @media print {
+    h1:before { content: "Assembly.org: "; }
+    h1 { font-size: 20pt; }
+    h2 { font-size: 16pt; }
+    h3 { font-size: 14pt; }
+    h4, h5, h6 { font-size: 12pt; }
   }
 
   ul, ol {
@@ -147,7 +176,7 @@
       display: inline;
     }
 
-    li:first-child { display: none; }
+    li:first-child a { display: none; }
   }
 
   hr { border-style: solid; }
@@ -171,6 +200,12 @@
       background: $bg-color;
       color: #fff;
       text-align: center;
+
+      @media print {
+        color: #000;
+        background: #fff;
+        font-weight: bold;
+      }
     }
 
     tbody th:first-child {

@@ -1,10 +1,19 @@
 <!doctype html>
-{% load static cms_tags sekizai_tags menu_tags i18n site_selector %}
+{% load static cms_tags sekizai_tags menu_tags i18n %}
 {% get_current_language as LANGUAGE_CODE %}
-<html>
+{% page_attribute "meta_description" as meta_description %}
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
-  <title>ASSEMBLY &gt; {% page_attribute "page_title" %}</title>
-  {% render_block "css" %}
+{% if post.title %}
+  <title>{{post.title}} - ASSEMBLY Summer 2015</title>
+  <meta property="og:title" content="{{post.title}}" />
+  <meta name="twitter:title" content="{{post.title}}">
+{% else %}
+  <title>{% page_attribute "page_title" %} - ASSEMBLY Summer 2015</title>
+  <meta property="og:title" content="{% page_attribute "page_title" %}" />
+  <meta name="twitter:title" content="{% page_attribute "page_title" %}">
+{% endif %}
+{% render_block "css" %}
   <link rel="stylesheet" href="{% static "assembly/styles/vendor.css" %}">
   <link rel="stylesheet" href="{% static "assembly/styles/main.css" %}">
   <meta charset="UTF-8" />
@@ -13,17 +22,42 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,800,300' rel='stylesheet'>
   <link rel="icon" type="image/png" href="/static/images/favicon.png" />
 
-   <!-- Facebook optimization -->
-+  <meta property="og:url"                content="{{ current_url }}" /> 
-+  <meta property="og:type"               content="article" />
-+  <meta property="og:title"              content="{% page_attribute "page_title" %}" />
-+  <meta property="og:description"        content="{% page_attribute "meta_description" %}" />
-+  <meta property="og:image"              content="http://www.assembly.org/media/uploads/asm15s/assembly_poster_background_v4.png" />
-+  <meta property="og:locale" content="en_US" /> 
-+  <meta property="og:locale:alternate" content="fi_FI" />
-+  <meta property="og:site_name" content="Assembly" />
-+  <meta property="article:author" content="https://www.facebook.com/assemblyparty" />
-+  <meta property="article:publisher" content="https://www.facebook.com/asmorg" />
+   <!-- Facebook sharing -->
+  <meta property="og:url" content="{{ current_url }}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Assembly" />
+  <meta property="article:author" content="https://www.facebook.com/assemblyparty" />
+  <meta property="article:publisher" content="https://www.facebook.com/asmorg" />
+  <!-- Twitter sharing -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@assemblyparty" />
+
+  <!-- SoMe sharing image tags -->
+{% if post.cover_image %}
+  <meta property="og:image" content="/media/{{ post.cover_image }}" />
+  <meta name="twitter:image" content="/media/{{ post.cover_image }}" />
+{% else %}
+  <meta property="og:image" content="/media/uploads/asm15s/assembly_poster_background_v4.png" />
+  <meta name="twitter:image" content="/media/uploads/asm15s/assembly_poster_background_v4.png" />
+{% endif %}
+
+  <!-- SoMe sharing description -->
+{% if post.teaser %}
+  <meta property="og:description" content="{{ post.teaser }}" />
+  <meta name="twitter:description" content="{{ post.teaser }}" />
+{% elif meta_description %}
+  <meta property="og:description" content="{{ meta_description }}" />
+  <meta name="twitter:description" content="{{ meta_description }}" />
+{% endif %}
+
+  <!-- facebook locale -->
+{% if LANGUAGE_CODE == "en" %}
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="fi_FI" />
+{% elif LANGUAGE_CODE == "fi" %}
+  <meta property="og:locale" content="fi_FI" />
+  <meta property="og:locale:alternate" content="en_US" />
+{% endif %}
 
   <script>
     /** Global CMS features. */
@@ -38,13 +72,16 @@
   {% cms_toolbar %}
 
   <div class="container">
+    
     <div class="content-wrap">
+
       <header id="top" class="clearfix">
         <div class="top-bar">
           <div class="fader"></div>
           <div class="wrapper clearfix">
+            
             <div class="header-navigation">
-              <a href="{% site_page_url "home" %}">
+              <a href="/">
                 <div class="logocontainer">
                   <img src="{% static "images/logo_summer_2015.png" %}" class="logo"/>
                   <span class="date">30.7. &ndash; 2.8.2015</span>
@@ -122,112 +159,5 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
   </script>
-
-<script type="text/javascript">
-  window.NinchatAsyncInit = function() {
-	var languages = {
-		fi: {
-			language:       'fi',
-			audienceQueues: '239dqg97004',
-			userName:       'Asiakas',
-			titleText:      'Info',
-			translations:   {
-				'How was our customer service?': 'Kiitos! Kuinka onnistuimme? <br> <br>',
-				'Join audience queue {{audienceQueue.queue_attrs.name}}': 'Asiakaspalvelu',
-				'Join audience queue {{audienceQueue.queue_attrs.name}} (closed)': 'Asiakaspalvelu (suljettu)',
-				'Joined audience queue {{audienceQueue.queue_attrs.name}}, you are at position {{audienceQueue.queue_position}}.':
-				'Liitytty jonoon. Olet sijalla {{audienceQueue.queue_position}}.',
-				'Audience in queue {{queue}} accepted.': 'Keskustelupyyntöön vastattu',
-				'Joined audience queue {{audienceQueue.queue_attrs.name}}, you are next.': 'Olet seuraavana jonossa.',
-				'Enter your message': 'Kirjoita viesti'
-                        },
-			motd:           (
-				'<ul class="links unstyled">' +
-				'<li><a href="http://www.assembly.org/manual/first-time-guide/" target="tausta">Ensikertalaisen opas</a></li>' +
-				'<li><a href="http://www.assembly.org/about-us/contact/" target="tausta">Ota yhteyttä</a></li>' +
-				'</ul>' +
-				'<p>' +
-				'Chat avoinna 24h' +
-				'</p>'
-			)
-		},
-
-		en: {
-      		language:       'en',
-			audienceQueues: '239dqg97004',
-			userName:       'Customer',
-			titleText:      'Customer Support',
-			translations:   {
-				'How was our customer service?': 'Thanks! How did we do? <br> <br>',
-				'Join audience queue {{audienceQueue.queue_attrs.name}}': 'Start Customer support',
-				'Join audience queue {{audienceQueue.queue_attrs.name}} (closed)':'Customer support (closed)',
-				'Joined audience queue {{audienceQueue.queue_attrs.name}}, you are at position {{audienceQueue.queue_position}}.':
-				'In queue. Your position is: {{audienceQueue.queue_position}}.',
-				'Audience in queue {{queue}} accepted.': 'Conversation has started',
-				'Joined audience queue {{audienceQueue.queue_attrs.name}}, you are next.': 'You are next in line.',
-				'Enter your message': 'Enter your message'
-			},
-			motd:           (
-				'<ul class="links unstyled">' +
-				'<li><a href="http://www.assembly.org/manual/first-time-guide/" target="tausta">Frequently asked questions</a></li>' +
-				'<li><a href="http://www.assembly.org/about-us/contact/" target="tausta">Leave a message</a></li>' +
-				'</ul>' +
-				'<p>' +
-				'Chat open 24h' +
-				'</p>'
-			)
-		}
-	};
-
-	var lang = window.DJANGO.currentLanguage;
-
-	var language = languages[lang] || languages.en;
-
-	window.Ninchat.embedInit({
-		audienceRealmId: '239dq423004',
-		audienceQueues:  language.audienceQueues,
-		userName:        language.userName,
-		responsive: 	 768,
-		remember:        true,
-		audienceRating:  true,
-		css: 			 'https://ninchat.s3.amazonaws.com/b/assembly/support.css',
-		domain: 		 'supportchat.assembly.org',
-		language:        language.language,
-		titleBackground: '#141d40',
-		titleText:       language.titleText,
-		titleTextColor: '#ffffff',
-		translations:    language.translations,
-		motd:            (
-			'<style>' +
-			'.motd time { display: none; }' +
-			'.motd ul { border-top: 1px solid #ccc; }' +
-			'.motd li { border-bottom: 1px solid #ccc; padding: 5px; text-align: 	left; }' +
-			'.motd li:hover { cursor: pointer; border-bottom: 1px solid #ccc; padding: 5px; }' +
-			'.motd li a { display: block; text-align: center; text-decoration: none !important;  }' +
-			'.motd p { font-size: .9em; text-align: center; }' +
-			'</style>' +
-			language.motd
-		),
-		audienceMetadata: {
-			URL: window.location.href,
-			Referrer: document.referrer,
-			Browser: navigator.userAgent
-		}
-	});
-};
-
-(function(doc) {
-	if (doc.getElementById('ninchat-js')) {
-		return;
-	}
-
-	var js, first = doc.getElementsByTagName('script')[0];
-
-	js     = doc.createElement('script');
-	js.id  = 'ninchat-js';
-	js.src = 'https://ninchat.com/js/embed.min.js?_' + new Date().getDate();
-	first.parentNode.insertBefore(js, first);
-}(document));
-</script>
 </body>
 </html>

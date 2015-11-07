@@ -7,8 +7,8 @@
 {% block page_content %}
 <article class="article post">
   <div class="content">
-    <h2>{{ post.title }}</h2>
-    <strong class="time">{{ post.created | date:'d.m.Y' }}</strong>
+    <h1>{{ post.title }}</h1>
+    <strong class="time">{{ post.created | date:'d.m.Y G:i' }}</strong>
     <div class="clearfix">
       <div class="header-image">
         <div class="ratio-container">
@@ -21,7 +21,7 @@
       </div>
       <div class="meta">
         <!-- {% if post.updated %}
-          <strong>{% trans "Updated on" %} {{ post.updated | date:'d.m.Y' }}</strong><br>
+          <strong>{% trans "Updated on" %} {{ post.updated | date:'d.m.Y G:i' }}</strong><br>
         {% endif %} -->
         <!-- <a href="https://twitter.com/home?status={{ post.id }}"
           target="_blank"

@@ -10,12 +10,26 @@ body {
   font-weight: 400;
   font-size: 14px;
   font-family: 'Open Sans', Arial, Verdana, Tahoma !important;
+
+  @media print {
+    background: #fff;
+    color: #000;
+    font-size: 10pt;
+    line-height: 150%;
+    font-family: Georgia, "Times New Roman", Times, serif!important;
+  }
 }
 
 // Hide cms placeholders, they scew up the layout in edit mode.
 .cms_placeholder {
   display: none;
 }
+
+// Moving all template boxes to top.
+//.cms_dragarea {
+//  position: initial!important;
+//  margin-left: 2em!important;
+//}
 
 .wrapper {
   width: 100%;
@@ -26,6 +40,7 @@ body {
 
 .content img {
   max-width:100%;
+	height: auto!important;
 }
 a {
   color: $link-color;
@@ -144,7 +159,7 @@ cite:before {
   width: 100%;
   height: auto;
   min-height: 700px;
-  background: url("http://www.assembly.org/media/uploads/asm15s/assembly_summer15_background_v2_color_optimized.png") center no-repeat;
+  background: url("/media/uploads/asm15s/assembly_summer15_background_v2_color_optimized.png") center no-repeat;
   background-size: cover;
 }
 
@@ -312,7 +327,7 @@ cite:before {
   left:0;
   height:100%;
   width:100%;
-  background-image:url('http://www.assembly.org/media/uploads/asm15s/asm15s_event_bg.png');
+  background-image:url('/media/uploads/asm15s/asm15s_event_bg.png');
   background-size:cover;
 }
 .page .backgroundfade {
