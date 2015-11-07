@@ -1,5 +1,5 @@
 <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
     {% for site in sites %}
-    <option value="/{{ site.slug }}">{{ site.name }}</option>
+    <option value="/{{ site.slug }}" {% if currentSite == site.id %}selected{% endif %}>{{ site.name }}</option>
     {% endfor %}
 </select>

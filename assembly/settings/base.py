@@ -34,6 +34,7 @@ INSTALLED_APPS = (
     'menus',
     'sekizai',
     'ckeditor',
+    'djangocms_siteselector',
     'djangocms_file',
     'djangocms_flash',
     'djangocms_googlemap',
@@ -69,9 +70,10 @@ CKEDITOR_SETTINGS = {
 }
 
 MIDDLEWARE_CLASSES = (
+    'djangocms_siteselector.middlewares.SiteSelectorMiddleware',
     'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
-    'assembly.middlewares.LocaleMiddleware',
+    'assembly.core.middlewares.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
