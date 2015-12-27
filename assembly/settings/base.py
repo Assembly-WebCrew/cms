@@ -34,6 +34,18 @@ INSTALLED_APPS = (
     'menus',
     'sekizai',
     'ckeditor',
+    'easy_thumbnails',
+    'filer',
+    'cms',
+    'parler',
+    'sortedm2m',
+    'taggit',
+    'opbeat.contrib.django',
+    # Custom
+    'assembly.core',
+    'blog',
+    'schedule',
+    # CMS Addons
     'djangocms_file',
     'djangocms_flash',
     'djangocms_googlemap',
@@ -43,13 +55,22 @@ INSTALLED_APPS = (
     'djangocms_video',
     'djangocms_link',
     'djangocms_text_ckeditor',
-    'cms',
-    'assembly.core',
-    'blog',
-    'tweetembly',
-    'opbeat.contrib.django',
-    # Uncomment when schedule models are ready
-    'schedule'
+    # Aldryn Shared
+    'aldryn_apphooks_config',
+    'aldryn_boilerplates',
+    'aldryn_categories',
+    'aldryn_common',
+    'aldryn_people',
+    'aldryn_reversion',
+    'aldryn_translation_tools',
+    # Aldryn Apps
+    'aldryn_newsblog',
+)
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'aldryn_boilerplates.staticfile_finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
 CKEDITOR_SETTINGS = {
@@ -71,11 +92,11 @@ CKEDITOR_SETTINGS = {
 MIDDLEWARE_CLASSES = (
     'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
-    'assembly.middlewares.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'assembly.middlewares.LocaleMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.admindocs.middleware.XViewMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -109,6 +130,17 @@ LANGUAGES = (
     ('fi', gettext('Finnish')),
 )
 
+PARLER_LANGUAGES = {
+    1: [
+        {'code': 'en'},
+        {'code': 'fi'},
+    ],
+    'default': {
+        'fallback': 'en',             # defaults to PARLER_DEFAULT_LANGUAGE_CODE
+        'hide_untranslated': False,   # the default; let .active_translations() return fallbacks too.
+    }
+}
+
 LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
@@ -135,25 +167,41 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, "templates"),
         ],
-        'APP_DIRS': True,
+        # 'APP_DIRS': True,
         'OPTIONS': {
-            'context_processors':
-                (
-                    'django.contrib.auth.context_processors.auth',
-                    'django.template.context_processors.debug',
-                    'django.template.context_processors.i18n',
-                    'django.template.context_processors.media',
-                    'django.template.context_processors.static',
-                    'django.template.context_processors.tz',
-                    'django.template.context_processors.csrf',
-                    'django.template.context_processors.request',
-                    'django.contrib.messages.context_processors.messages',
-                    'sekizai.context_processors.sekizai',
-                    'cms.context_processors.cms_settings',
-                )
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.template.context_processors.csrf',
+                'django.template.context_processors.request',
+                'django.contrib.messages.context_processors.messages',
+                'sekizai.context_processors.sekizai',
+                'cms.context_processors.cms_settings',
+                'aldryn_boilerplates.context_processors.boilerplate',
+            ],
+            'loaders': [
+                'django.template.loaders.filesystem.Loader',
+                'aldryn_boilerplates.template_loaders.AppDirectoriesLoader',
+                'django.template.loaders.app_directories.Loader',
+            ],
         }
     },
 ]
+
+THUMBNAIL_PROCESSORS = (
+    'easy_thumbnails.processors.colorspace',
+    'easy_thumbnails.processors.autocrop',
+    # 'easy_thumbnails.processors.scale_and_crop',
+    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+    'easy_thumbnails.processors.filters',
+    'easy_thumbnails.processors.background',
+)
+
+ALDRYN_BOILERPLATE_NAME = 'bootstrap3'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/

@@ -25,6 +25,8 @@ class LocaleMiddleware(object):
             for possible_lang in possible_languages:
                 if language in possible_lang:
                     # Change active language
+                    request.session[translation.LANGUAGE_SESSION_KEY] = language
+                    request.COOKIES[settings.LANGUAGE_COOKIE_NAME] = language
                     translation.activate(language)
                     break
 
