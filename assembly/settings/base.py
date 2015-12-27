@@ -27,6 +27,14 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'cms',
+    # Aldryn Shared
+    'aldryn_common',
+    'aldryn_apphooks_config',
+    'aldryn_translation_tools',
+    'aldryn_reversion',
+    'aldryn_boilerplates',
+    # Vendor
     'djcelery',
     'rest_framework',
     'reversion',
@@ -36,7 +44,6 @@ INSTALLED_APPS = (
     'ckeditor',
     'easy_thumbnails',
     'filer',
-    'cms',
     'parler',
     'sortedm2m',
     'taggit',
@@ -46,6 +53,7 @@ INSTALLED_APPS = (
     'blog',
     'schedule',
     # CMS Addons
+    'djangocms_text_ckeditor',
     'djangocms_file',
     'djangocms_flash',
     'djangocms_googlemap',
@@ -54,16 +62,9 @@ INSTALLED_APPS = (
     'djangocms_teaser',
     'djangocms_video',
     'djangocms_link',
-    'djangocms_text_ckeditor',
-    # Aldryn Shared
-    'aldryn_apphooks_config',
-    'aldryn_boilerplates',
-    'aldryn_categories',
-    'aldryn_common',
-    'aldryn_people',
-    'aldryn_reversion',
-    'aldryn_translation_tools',
     # Aldryn Apps
+    'aldryn_categories',
+    'aldryn_people',
     'aldryn_newsblog',
 )
 
