@@ -226,5 +226,5 @@ CMS_PLACEHOLDER_CONF = {
     'quick_links': {'plugins': ['LinkPlugin']},
 
     # Article page
-    'article_header_image': {'plugins': ['PicturePlugin']}
+    'article_header_image': {'plugins': ['PicturePlugin']},
 }

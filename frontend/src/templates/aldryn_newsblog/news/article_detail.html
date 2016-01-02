@@ -1,4 +1,4 @@
-{% extends "aldryn_newsblog/fullwidth.html" %}
+{% extends "aldryn_newsblog/news/fullwidth.html" %}
 {% load i18n cms_tags apphooks_config_tags %}
 
 {% block title %}{{ article.title }} - {{ block.super }}{% endblock %}
@@ -6,7 +6,7 @@
 {% block newsblog_content %}
     {% render_placeholder view.config.placeholder_detail_top %}
     <div class="aldryn-newsblog-detail">
-        {% include "aldryn_newsblog/includes/article.html" with detail_view="true" %}
+        {% include "aldryn_newsblog/news/includes/article.html" with detail_view="true" %}
     </div>
     {% render_placeholder view.config.placeholder_detail_bottom %}
 {% endblock %}

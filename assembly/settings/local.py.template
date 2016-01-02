@@ -40,10 +40,12 @@ STATICFILES_DIRS = (
 
 # Add enabled templates here
 CMS_TEMPLATES = (
-    ('assembly/schedule_page.html', 'Schedule page'),
     ('assembly/news_page.html', 'News page'),
     ('assembly/article_page.html', 'Article'),
     ('assembly/index.html', 'Frontpage'),
+    ('aldryn_newsblog/news/article_list.html', 'News - Article List'),
+    ('aldryn_newsblog/news/article_detail.html', 'News - Article Details'),
+    ('aldryn_newsblog/news/two_column.html', 'News - Two Columns'),
 )
 
 # Twitter integration settings
