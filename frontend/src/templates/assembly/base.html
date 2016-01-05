@@ -1,5 +1,5 @@
 <!doctype html>
-{% load static cms_tags sekizai_tags menu_tags i18n %}
+{% load static cms_tags sekizai_tags menu_tags i18n site_selector %}
 {% get_current_language as LANGUAGE_CODE %}
 {% page_attribute "meta_description" as meta_description %}
 <html lang="{{ LANGUAGE_CODE }}">
@@ -72,14 +72,14 @@
   {% cms_toolbar %}
 
   <div class="container">
-    
+
     <div class="content-wrap">
 
       <header id="top" class="clearfix">
         <div class="top-bar">
           <div class="fader"></div>
           <div class="wrapper clearfix">
-            
+
             <div class="header-navigation">
               <a href="/">
                 <div class="logocontainer">
@@ -98,6 +98,10 @@
               <ul>
                 {% language_chooser "assembly/language_chooser.html" %}
               </ul>
+            </div>
+
+            <div class="site-switcher">
+              {% available_sites %}
             </div>
 
             <div class="search">
