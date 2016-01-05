@@ -21,5 +21,10 @@ You can find further reference regarding python 3 virtual environments [here](ht
 # <a name="configuration"></a> Configuration
 TODO
 
+* Copy staging database
+  * `scp [USER]@hakku.assembly.org:/data/httpd/site/neo.assembly.org/home/asmweb-stg-[DATE].sql asmweb-stg.sql`
+  * `psql kanta < asmweb-stg.sql`
+* Copy staging media `rsync -avP [USER]@hakku.assembly.org:/data/httpd/site/neo.assembly.org/staging/media .`
+
 # <a name="deployment"></a> Deployment
 TODO
