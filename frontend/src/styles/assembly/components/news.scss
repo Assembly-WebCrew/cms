@@ -1,0 +1,152 @@
+.news-article {
+  margin: 0 0 10px;
+  background: #fff;
+  display: block;
+  font-size: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.news-article-featured {
+}
+
+.news-cover-image {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 auto;
+  height: 180px;
+  min-height: 180px;
+}
+
+.news-content {
+  height: 400px;
+  border-right: 1px solid #eee;
+  font-size: 16px;
+  width: 100%;
+  display: block;
+  padding: 20px 25px 5px;
+  font-weight: 400;
+  line-height: 1.2em;
+
+  p {
+    padding: 0;
+    overflow: hidden;
+  }
+}
+
+.news-title {
+  font-size: 18px;
+  font-weight: 800 !important;
+  margin-bottom: 10px;
+  margin-top: 0;
+  overflow: hidden;
+  line-height: 1.3em;
+}
+
+.news-body {
+}
+
+.news-tags {
+}
+
+.news-categories {
+}
+
+.news-summary-meta {
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
+  width: 100%;
+
+  .news-meta-time {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 800;
+    color: #1f233b;
+    width: 50%;
+    padding: 10px;
+    margin: 0;
+  }
+
+  a {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 800;
+    text-align: center;
+    display: inline-block;
+    width: 50%;
+    background: #8aba56;
+    border: 0;
+    border-radius: 0;
+    font-size: 12px;
+    margin: 0;
+    padding: 20px 10px;
+    vertical-align: middle;
+    -webkit-transition: background 0.3s;
+    transition: background 0.3s;
+    float: right;
+    text-decoration: none;
+  }
+}
+
+.news-detail-meta {
+}
+
+.news-featured-articles,
+.news-latest-articles {
+  position: relative;
+  overflow: hidden;
+  margin-top: 60px;
+
+  .news-article {
+    width: 25%;
+    height: 460px;
+    max-height: 460px;
+    float: left;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .news-content {
+    border-right: 0;
+  }
+
+  .news-article-featured,
+  .news-latest-articles {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+
+    .news-article {
+      width: 49%;
+      height: 500px;
+      max-height: 500px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .news-featured-articles .news-article,
+  .news-latest-articles .news-article {
+    height: 460px;
+    max-height: 460px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .news-featured-articles .news-article,
+  .news-latest-articles .news-article {
+    height: 500px;
+    max-height: 500px;
+    width: 100%;
+  }
+}
