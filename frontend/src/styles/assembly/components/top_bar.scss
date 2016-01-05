@@ -87,10 +87,6 @@
     background: -webkit-gradient(linear, left top, left bottom, color-stop(55%, rgba(20, 29, 64, 1)), color-stop(100%, rgba(0, 0, 0, 0))); // Chrome,Safari4+
   }
 
-  a .logocontainer span.location, a .logocontainer span.date {
-    color: #fff;
-  }
-
   .logocontainer {
     float: left;
     width: 200px;
@@ -101,18 +97,14 @@
       margin-bottom: 8px;
     }
 
-    .date, .location {
-      font-weight: 800;
+    .date-location {
+      color: #fff;
+      font-weight: 600;
       font-family: 'Open Sans';
       font-style: italic;
       font-size: 10px;
       text-transform: uppercase;
     }
-
-    .location {
-      font-weight: 600;
-    }
-
   }
 
   .header-navigation {
