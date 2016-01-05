@@ -117,6 +117,16 @@
   font-size: 14px;
   line-height: 1.4;
   min-height: 800px;
+
+  .news-split-sidebar {
+    width: 20%;
+    float: left;
+  }
+
+  .news-split-content {
+    width: 80%;
+    float: left;
+  }
 }
 
 .news-article-list {
