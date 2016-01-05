@@ -44,17 +44,6 @@
       }
     }
   }
-  .site-switcher{
-    select{
-    background-color: transparent;
-    border: 1px none rgba(245, 245, 245, 0.8);
-    -moz-appearance: none;
-    z-index: 100;
-    -webkit-appearance: none;
-    appearance: none;
-    color: white;
-  }
-  }
 }
 
 .top-bar {
@@ -71,7 +60,30 @@
     z-index: 999;
     padding: 10px 0;
   }
-
+  .site-switcher{
+    select{
+    background-color: transparent;
+    border: 1px solid rgba(245, 245, 245, 0.8);
+    -moz-appearance: none;
+    z-index: 100;
+    -webkit-appearance: none;
+    appearance: none;
+    color: white;
+    background-image: url("../../images/triangle.png");
+    background-position: 97% center;
+    background-repeat: no-repeat;
+    padding-right: 20px;
+    background-size: 12px;
+  }
+  float: right;
+  margin-top: 13px;
+  @media screen and (max-width: 1100px) {
+    margin-top: -48px;
+  }
+  @media screen and (max-width: 692px) {
+    margin-top: -88px;
+  }
+  }
   .fader {
     height: 120px;
     z-index: -1;
