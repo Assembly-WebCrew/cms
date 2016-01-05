@@ -107,9 +107,32 @@
   }
 }
 
+.news-fullscreen {
+  margin: 0 0 10px;
+  position: relative;
+  width: 57%;
+  vertical-align: top;
+  display: block;
+  float: left;
+  font-size: 14px;
+  line-height: 1.4;
+  min-height: 800px;
+}
+
+.news-article-list {
+}
+
+.news-pagination {
+}
+
 @media screen and (max-width: 960px) {
   .news-content {
     border-right: 0;
+  }
+
+  .news-fullscreen {
+    margin: 0 5%;
+    width: 90% !important;
   }
 
   .news-article-featured,
