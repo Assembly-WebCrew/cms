@@ -62,18 +62,21 @@
   }
   .site-switcher{
     select{
-    background-color: transparent;
+    background-color: rgba(245, 245, 245, 0.8);
     border: 1px solid rgba(245, 245, 245, 0.8);
     -moz-appearance: none;
     z-index: 100;
     -webkit-appearance: none;
     appearance: none;
-    color: white;
+    color: #141D40;
     background-image: url("../../images/triangle.png");
     background-position: 97% center;
     background-repeat: no-repeat;
     padding-right: 20px;
     background-size: 12px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
   }
   float: right;
   margin-top: 13px;
