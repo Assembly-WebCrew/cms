@@ -53,6 +53,7 @@ INSTALLED_APPS = (
     'blog',
     'schedule',
     # CMS Addons
+    'djangocms_siteselector',
     'djangocms_text_ckeditor',
     'djangocms_file',
     'djangocms_flash',
@@ -91,6 +92,7 @@ CKEDITOR_SETTINGS = {
 }
 
 MIDDLEWARE_CLASSES = (
+    'djangocms_siteselector.middlewares.SiteSelectorMiddleware',
     'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
