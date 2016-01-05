@@ -16,7 +16,7 @@ You can find further reference regarding python 3 virtual environments [here](ht
 4. Run database migrations and insert initial_data from core/fixtures `python manage.py bootstrap`
 5. Create a superuser to access the cms `python manage.py createsuperuser`
 6. Setup and build frontend project `cd frontend && npm start`
-6. Run the server in foreground `python manage.py runserver` or proceed to the [deployment section](#deployment)
+6. Run the server in foreground `python manage.py runserver [host:port]` or proceed to the [deployment section](#deployment)
 
 # <a name="configuration"></a> Configuration
 TODO
