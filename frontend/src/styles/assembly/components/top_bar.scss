@@ -44,6 +44,17 @@
       }
     }
   }
+  .site-switcher{
+    select{
+    background-color: transparent;
+    border: 1px none rgba(245, 245, 245, 0.8);
+    -moz-appearance: none;
+    z-index: 100;
+    -webkit-appearance: none;
+    appearance: none;
+    color: white;
+  }
+  }
 }
 
 .top-bar {
