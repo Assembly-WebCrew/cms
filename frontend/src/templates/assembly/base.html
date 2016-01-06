@@ -83,9 +83,8 @@
             <div class="header-navigation">
               <a href="/">
                 <div class="logocontainer">
-                  <img src="{% static "images/logo_summer_2015.png" %}" class="logo"/>
-                  <!-- <span class="date">30.7. &ndash; 2.8.2015</span>
-                  <span class="location">Messukeskus, Helsinki</span> -->
+                  <!-- <img src="{% static "images/logo_summer_2015.png" %}" class="logo"/> -->
+                  {% static_placeholder "event_logo" %}
                   <span class="date-location">{% static_placeholder "event_date_location" %}</span>
                 </div>
               </a>
