@@ -14,7 +14,7 @@ class CountdownPlugin(CMSPluginBase):
     text_enabled = True
 
     def render(self, context, instance, placeholder):
-        context['countdown'] = Countdown.on_site.all()[0]
+        context['instance'] = instance
         return context
 
 plugin_pool.register_plugin(CountdownPlugin)
