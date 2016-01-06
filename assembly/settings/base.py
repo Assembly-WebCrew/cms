@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'opbeat.contrib.django',
     # Custom
     'assembly.core',
+    'frontend',
     'blog',
     'schedule',
     # CMS Addons
@@ -140,7 +141,7 @@ PARLER_LANGUAGES = {
     ],
     2: [
         {'code': 'en'},
-        {'code': 'fi'},        
+        {'code': 'fi'},
     ],
     'default': {
         'fallback': 'en',             # defaults to PARLER_DEFAULT_LANGUAGE_CODE
