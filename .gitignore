@@ -22,4 +22,4 @@ media/filer_public_thumbnails/
 media/streams
 *.zip
 *.gz
-.vagrant
+.vagrant/
