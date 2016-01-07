@@ -12,9 +12,10 @@ admin.autodiscover()
 urlpatterns = patterns('',
                             url(r'^admin/filebrowser/', include(site.urls)),
                             url(r'^admin/', include(admin.site.urls)),
+                            url(r'^filer/', include('filer.urls')),
                             url(r'^blogs/', include('blog.urls')),
-                            url(r'^schedule/', include('schedule.urls')),
                             url(r'^blogit/', include('blog.urls')),
+                            url(r'^schedule/', include('schedule.urls')),
                             url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': {'cmspages': CMSSitemap}}),
                             url(r'^', include('cms.urls')),)
 

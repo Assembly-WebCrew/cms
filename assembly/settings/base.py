@@ -224,6 +224,8 @@ MEDIA_URL = '/media/'
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
+FILER_CANONICAL_URL = 'uploads/'
+
 CMS_PLACEHOLDER_CONF = {
     # General
     'footer_links': {'plugins': ['LinkPlugin']},
