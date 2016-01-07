@@ -38,7 +38,12 @@ configure this in the Vagrantfile if you need to change it.
 7. Run the server in foreground `python manage.py runserver` or proceed to the [deployment section](#deployment)
 
 # <a name="configuration"></a> Configuration
-TODO
+
+### Importing a database dump
+
+To ease the chore of importing databases there's a simeple script in `scripts`-folder.
+Simply open ssh connection to the vagrant box `vagrant ssh` and run `./import-database.sh /path/to/dump.sql` and the script will drop the current database
+and import your dump to a clean database.
 
 # <a name="deployment"></a> Deployment
 TODO

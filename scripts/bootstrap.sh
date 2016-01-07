@@ -26,6 +26,7 @@ if ! [ -e /usr/bin/python3.5 ]; then
     ln -fs /opt/python3.5/bin/pyvenv /usr/bin/pyvenv
     cd ..
     rm -rf Python-3.5.1
+    rm Python-3.5.1.tar.xz
 fi
 
 if ! [ -e /vagrant/env ]; then
@@ -40,4 +41,6 @@ deactivate
 chmod +x /vagrant/scripts/gulp.sh
 chmod +x /vagrant/scripts/django.sh
 chmod +x /vagrant/scripts/run-dev.sh
+chmod +x /vagrant/scripts/import-database.sh
 ln -fs /vagrant/scripts/run-dev.sh /home/vagrant
+ln -fs /vagrant/scripts/import-database.sh /home/vagrant
