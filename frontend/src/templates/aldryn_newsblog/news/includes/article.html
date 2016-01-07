@@ -1,4 +1,4 @@
-{% load i18n apphooks_config_tags cms_tags sekizai_tags staticfiles thumbnail %}
+{% load i18n apphooks_config_tags cms_tags sekizai_tags staticfiles thumbnail site_selector_aldryn %}
 {% load url from future %}
 
 <article class="news-article
@@ -8,7 +8,7 @@
 
     {% block newsblog_visual %}
         {% if article.featured_image_id %}
-            {% if not detail_view %}<a href="{% namespace_url 'article-detail' article.slug namespace=namespace default='' %}">{% endif %}
+            {% if not detail_view %}<a href="{% site_namespace_url 'article-detail' article.slug namespace=namespace default='' %}">{% endif %}
         <div class="news-cover-image"
              style="background-image: url({% thumbnail article.featured_image.image 800x450 crop subject_location=article.featured_image.subject_location %});"></div>
         {% if not detail_view %}</a>{% endif %}
@@ -19,7 +19,7 @@
         {% block newsblock_title %}
             <h2 class="news-title">
                 {% if not detail_view %}
-                    <a href="{% namespace_url 'article-detail' article.slug namespace=namespace default='' %}">{% render_model article "title" %}</a>
+                    <a href="{% site_namespace_url 'article-detail' article.slug namespace=namespace default='' %}">{% render_model article "title" %}</a>
                 {% else %}
                     {% render_model article "title" %}
                 {% endif %}
@@ -46,7 +46,7 @@
                     <ul class="news-tags">
                         {% for tag in article.tags.all %}
                             <li>
-                                <a href="{% namespace_url 'article-list-by-tag' tag=tag.slug namespace=namespace default='' %}">
+                                <a href="{% site_namespace_url 'article-list-by-tag' tag=tag.slug namespace=namespace default='' %}">
                                     {{ tag.name }}
                                 </a>
                             </li>
@@ -59,7 +59,7 @@
                         <ul class="news-categories">
                             {% for category in article.categories.all %}
                                 <li>
-                                    <a href="{% namespace_url 'article-list-by-category' category.slug namespace=namespace default='' %}">
+                                    <a href="{% site_namespace_url 'article-list-by-category' category.slug namespace=namespace default='' %}">
                                         {{ category.name }}
                                     </a>
                                 </li>
@@ -71,7 +71,7 @@
         {% else %}
             <div class="news-summary-meta">
                 <p class="news-meta-time">{{ article.publishing_date }}</p>
-                <a href="{% namespace_url 'article-detail' article.slug namespace=namespace default='' %}">
+                <a href="{% site_namespace_url 'article-detail' article.slug namespace=namespace default='' %}">
                     {% trans "Read more" %}
                 </a>
             </div>

@@ -238,3 +238,5 @@ CMS_PLACEHOLDER_CONF = {
     # Article page
     'article_header_image': {'plugins': ['PicturePlugin']},
 }
+
+SITE_SELECTOR_WHITELIST = ['media', 'static', 'admin', 'filer',]
