@@ -187,6 +187,7 @@ TEMPLATES = [
                 'django.template.context_processors.csrf',
                 'django.template.context_processors.request',
                 'django.contrib.messages.context_processors.messages',
+                'djangocms_siteselector.context_processors.site_helpers',
                 'sekizai.context_processors.sekizai',
                 'cms.context_processors.cms_settings',
                 'aldryn_boilerplates.context_processors.boilerplate',
