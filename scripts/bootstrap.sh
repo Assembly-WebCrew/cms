@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Setup locale
-echo 'LC_ALL="en_US.UTF-8"'  >  /etc/default/locale
+locale-gen en_US.UTF-8
+update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 # Install dependencies
 apt-get update
@@ -18,7 +19,7 @@ su -c "createdb -O root root" postgres
 createuser -s vagrant
 createdb -O vagrant vagrant
 psql -c "CREATE USER asmweb WITH PASSWORD 'asmweb';"
-createdb -O asmweb asmweb
+createdb asmweb -O asmweb -E utf8 -l en_US.utf8 -T template0
 
 # Install Python 3.5 if not already installed
 if ! [ -d /opt/python3.5 ]; then
@@ -37,8 +38,8 @@ if ! [ -d /opt/python3.5 ]; then
 fi
 
 # Create pyvenv if not already created
-if ! [ -d /vagrant/env ]; then
-    pyvenv /vagrant/env
+if ! [ -d /home/vagrant/env ]; then
+    pyvenv /home/vagrant/env
 fi
 
 # Setup scripts
@@ -48,6 +49,8 @@ chmod +x /vagrant/scripts/django.sh
 chmod +x /vagrant/scripts/run-dev.sh
 chmod +x /vagrant/scripts/import-database.sh
 ln -fs /vagrant/scripts/run-dev.sh /home/vagrant
+ln -fs /vagrant/scripts/gulp.sh /home/vagrant
+ln -fs /vagrant/scripts/django.sh /home/vagrant
 ln -fs /vagrant/scripts/import-database.sh /home/vagrant
 ln -fs /vagrant/scripts/update-venv.sh /home/vagrant
 
