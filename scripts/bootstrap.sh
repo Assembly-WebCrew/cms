@@ -5,7 +5,7 @@ update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 # Install dependencies
 apt-get update
-apt-get install -y python3 python3-dev postgresql libpq-dev nginx make git libjpeg-dev libxml2-dev libxslt1-dev screen curl
+apt-get install -y python3 python3-dev postgresql libpq-dev nginx make git libjpeg-dev libxml2-dev libxslt1-dev screen curl dos2unix
 curl -sL https://deb.nodesource.com/setup_5.x | bash -
 apt-get install -y nodejs
 
@@ -48,6 +48,7 @@ chmod +x /vagrant/scripts/gulp.sh
 chmod +x /vagrant/scripts/django.sh
 chmod +x /vagrant/scripts/run-dev.sh
 chmod +x /vagrant/scripts/import-database.sh
+dos2unix /vagrant/scripts/*.sh
 ln -fs /vagrant/scripts/run-dev.sh /home/vagrant
 ln -fs /vagrant/scripts/gulp.sh /home/vagrant
 ln -fs /vagrant/scripts/django.sh /home/vagrant

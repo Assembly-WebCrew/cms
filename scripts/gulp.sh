@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 cd /vagrant/frontend
-npm install --upgrade
+bower install --config.interactive=false
+npm install --upgrade --no-bin-links
 gulp
