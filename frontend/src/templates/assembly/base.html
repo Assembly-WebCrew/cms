@@ -5,11 +5,11 @@
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
 {% if post.title %}
-  <title>{{post.title}} - ASSEMBLY Summer 2015</title>
+  <title>{{post.title}} - {{ current_site.name }}</title>
   <meta property="og:title" content="{{post.title}}" />
   <meta name="twitter:title" content="{{post.title}}">
 {% else %}
-  <title>{% page_attribute "page_title" %} - ASSEMBLY Summer 2015</title>
+  <title>{% page_attribute "page_title" %} - {{ current_site.name }}</title>
   <meta property="og:title" content="{% page_attribute "page_title" %}" />
   <meta name="twitter:title" content="{% page_attribute "page_title" %}">
 {% endif %}
