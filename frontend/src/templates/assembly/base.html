@@ -80,33 +80,41 @@
           <div class="fader"></div>
           <div class="wrapper clearfix">
 
-            <div class="header-navigation">
-              <a href="/">
-                <div class="logocontainer">
-                  <!-- <img src="{% static "images/logo_summer_2015.png" %}" class="logo"/> -->
-                  {% static_placeholder "event_logo" %}
-                  <span class="date-location">{% static_placeholder "event_date_location" %}</span>
+            <a href="/">
+              <div class="logocontainer">
+                <!-- <img src="{% static "images/logo_summer_2015.png" %}" class="logo"/> -->
+                {% static_placeholder "event_logo" %}
+                <span class="date-location">{% static_placeholder "event_date_location" %}</span>
+              </div>
+            </a>
+
+            <div class="side-content">
+
+              <div class="header-navigation">
+
+                <ul class="navigation">
+                  {% show_menu 0 1 1 1 %}
+                </ul>
+              </div>
+
+              <div class="tools">
+
+                <div class="language">
+                  <ul>
+                    {% language_chooser "assembly/language_chooser.html" %}
+                  </ul>
                 </div>
-              </a>
 
-              <ul class="navigation">
-                {% show_menu 0 1 1 1 %}
-              </ul>
-            </div>
+                <div class="site-switcher">
+                  {% available_sites %}
+                </div>
 
-            <div class="language">
-              <ul>
-                {% language_chooser "assembly/language_chooser.html" %}
-              </ul>
-            </div>
+                <div class="search">
+                  <gcse:search lr="lang_{{ LANGUAGE_CODE }}"></gcse:search>
+                </div>
 
-            <div class="site-switcher">
-              {% available_sites %}
-            </div>
+              </div>
 
-            <div class="search">
-              <!-- <input type="search" name="search" placeholder="Search..." results> -->
-              <gcse:search lr="lang_{{ LANGUAGE_CODE }}"></gcse:search>
             </div>
 
           </div>

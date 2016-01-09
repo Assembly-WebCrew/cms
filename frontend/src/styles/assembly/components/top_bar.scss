@@ -6,13 +6,17 @@
   }
 
   .top-bar {
+    .side-content {
+      padding: 0;
+    }
+
     .navigation {
-      margin-left: 200px;
+      //margin-left: 200px;
       padding-top: 0;
     }
 
-    .language, .search {
-      padding: 20px 10px;
+    .tools {
+      padding-top: 20px;
     }
 
     .fader {
@@ -25,6 +29,32 @@
     }
 
     @media screen and (max-width: 960px) {
+      .tools {
+        margin: 0;
+        padding: 20px 0 0 32px;
+        float: left;
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width: 540px) {
+      .header-navigation {
+        padding: 20px 0 0;
+        top: 0;
+        left: 0;
+        position: relative;
+
+        .navigation {
+          padding: 0;
+        }
+      }
+
+      .tools {
+        padding: 20px 0 0;
+      }
+    }
+
+   /*  @media screen and (max-width: 960px) {
       .navigation {
         position: absolute;
         top: 68px;
@@ -42,7 +72,7 @@
         background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, $bg-color), color-stop(100%, transparent)); // Chrome,Safari4+
         background: linear-gradient(to bottom, $bg-color 60%, transparent 100%); // W3C
       }
-    }
+    } */
   }
 }
 
@@ -60,33 +90,7 @@
     z-index: 999;
     padding: 10px 0;
   }
-  .site-switcher{
-    select{
-    background-color: rgba(245, 245, 245, 0.8);
-    border: 1px solid rgba(245, 245, 245, 0.8);
-    -moz-appearance: none;
-    z-index: 100;
-    -webkit-appearance: none;
-    appearance: none;
-    color: #141D40;
-    background-image: url("../../images/triangle.png");
-    background-position: 97% center;
-    background-repeat: no-repeat;
-    padding-right: 20px;
-    background-size: 12px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-  }
-  float: right;
-  margin-top: 13px;
-  @media screen and (max-width: 1100px) {
-    margin-top: -48px;
-  }
-  @media screen and (max-width: 692px) {
-    margin-top: -88px;
-  }
-  }
+
   .fader {
     height: 120px;
     z-index: -1;
@@ -105,7 +109,7 @@
   .logocontainer {
     float: left;
     width: 200px;
-    padding-bottom: 20px;
+    padding-top: 20px;
 
     img {
       width: 200px;
@@ -117,31 +121,35 @@
       color: #fff;
       font-weight: 600;
       font-family: 'Open Sans';
-      /* font-style: italic; */
       font-size: 10px;
-      /* text-transform: uppercase; */
     }
   }
 
+  .side-content {
+    padding-top: 20px;
+    padding-left: 200px;
+  }
+
   .header-navigation {
-    float:left;
-    padding: 20px 10px 0;
-    display: inline-block;
+    float: left;
+    padding: 20px 20px 0 10px;
+    display: block;
     box-sizing: border-box;
-    width: 73%;
     font-size: 14px;
     vertical-align: middle;
   }
 
   .navigation {
-    padding-top: 25px;
+    //padding-top: 20px;
     padding-left: 20px;
+    float: left;
 
     // Main level navigation
     > .child {
       position: relative;
       display: inline-block;
       margin: 0 15px;
+      line-height: 20px;
 
       // Sub level navigation
       ul {
@@ -165,7 +173,7 @@
         a {
           text-transform: none;
           font-weight: 400;
-					letter-spacing:1px;
+          letter-spacing:1px;
         }
       }
 
@@ -208,12 +216,45 @@
     }
   }
 
+  .tools {
+    float: right;
+    padding-right: 30px;
+    padding-top: 18px;
+  }
+
+  .site-switcher {
+    float: left;
+    transition: opacity .5s;
+    opacity: .5;
+
+    &:focus, &:hover {
+      opacity: 1;
+    }
+
+    select {
+      border: 1px solid rgba(245, 245, 245, 1);
+      -moz-appearance: none;
+      z-index: 100;
+      -webkit-appearance: none;
+      appearance: none;
+      color: #141D40;
+      background-image: url("../../images/triangle.png");
+      background-position: 97% center;
+      background-repeat: no-repeat;
+      padding-right: 20px;
+      background-size: 12px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      height: 22px;
+    }
+  }
+
   .language {
     float: left;
-    padding: 45px 10px 0;
-    display: inline-block;
+    padding: 3px 10px;
+    display: block;
     box-sizing: border-box;
-    width: 10%;
     vertical-align: middle;
     white-space: nowrap;
 
@@ -245,26 +286,11 @@
     }
   }
 
-  .search { width: 140px; }
+  .search { width: 145px; }
 
-  @media screen and (max-width: 960px) {
-    .navigation {
-      position: absolute;
-      top: 90px;
-      margin-left: 100px;
-    }
-
-    .search {
-      position: absolute;
-      top: 69px;
-    }
-
-    .navigation > .child ul {
-      display: none;
-    }
-
+  @media screen and (max-width: 1400px) {
     .fader {
-      height: 200px;
+      height: 175px;
       background: -moz-linear-gradient(top, $bg-color 65%, transparent 100%); // FF3.6+
       background: -webkit-linear-gradient(top, $bg-color 65%, transparent 100%); // Chrome10+,Safari5.1+
       background: -o-linear-gradient(top, $bg-color 65%, transparent 100%); // Opera 11.10+
@@ -272,11 +298,77 @@
       background: -webkit-gradient(linear, left top, left bottom, color-stop(65%, $bg-color), color-stop(100%, transparent)); // Chrome,Safari4+
       background: linear-gradient(to bottom, $bg-color 65%, transparent 100%); // W3C
     }
+
+    .tools {
+      padding-top: 20px;
+      float: left;
+      padding-left: 32px;
+    }
+
+    .logocontainer {
+      padding-top: 35px;
+    }
+
   }
 
-  // @media screen and (max-width: 768px) {
-  //   .logocontainer { display: none; }
-  //   .search { top: 0px; }
-  //   .navigation { margin-left: 0; }
-  // }
+  @media screen and (max-width: 960px) {
+    .logocontainer {
+      width: 100px;
+
+      img {
+        width: 100px;
+      }
+    }
+
+    .side-content {
+      padding-left: 100px;
+    }
+
+    .header-navigation {
+      width: 100%;
+    }
+
+    .navigation {
+      text-align: center;
+    }
+
+    .tools {
+      width: 400px;
+      margin: 50px auto 0;
+      float: none;
+      padding: 20px 0 0;
+    }
+
+    .fader {
+      height: 200px;
+    }
+
+    .navigation > .child ul {
+      display: none;
+    }
+
+  }
+
+  @media screen and (max-width: 540px) {
+    .side-content {
+      padding: 0;
+    }
+
+    .header-navigation {
+      padding-left: 100px;
+      top: 20px;
+      position: absolute;
+      left: 0;
+    }
+
+    .tools {
+      float: left;
+      padding: 10px;
+      width: 100%;
+    }
+
+    .site-switcher select {
+      width: 150px;
+    }
+  }
 }
