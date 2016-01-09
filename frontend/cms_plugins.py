@@ -18,3 +18,19 @@ class CountdownPlugin(CMSPluginBase):
         return context
 
 plugin_pool.register_plugin(CountdownPlugin)
+
+from .models import ScheduleView
+
+class ScheduleViewPlugin(CMSPluginBase):
+    name = _("Schedule")
+    module = _("Assembly")
+    model = ScheduleView
+    render_template = "schedule/schedule.html"
+    cache = False
+    text_enabled = True
+
+    def render(self, context, instance, placeholder):
+        context['instance'] = instance
+        return context
+
+plugin_pool.register_plugin(ScheduleViewPlugin)
