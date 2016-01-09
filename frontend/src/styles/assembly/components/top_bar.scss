@@ -43,6 +43,7 @@
         top: 0;
         left: 0;
         position: relative;
+        width: 100%;
 
         .navigation {
           padding: 0;
@@ -54,25 +55,6 @@
       }
     }
 
-   /*  @media screen and (max-width: 960px) {
-      .navigation {
-        position: absolute;
-        top: 68px;
-        margin-left: 0;
-      }
-
-      .search { top: 0; }
-
-      .fader {
-        height: 145px;
-        background: -moz-linear-gradient(top, $bg-color 60%, transparent 100%); // FF3.6+
-        background: -webkit-linear-gradient(top, $bg-color 60%, transparent 100%); // Chrome10+,Safari5.1+
-        background: -o-linear-gradient(top, $bg-color 60%, transparent 100%); // Opera 11.10+
-        background: -ms-linear-gradient(top, $bg-color 60%, transparent 100%); // IE10+
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, $bg-color), color-stop(100%, transparent)); // Chrome,Safari4+
-        background: linear-gradient(to bottom, $bg-color 60%, transparent 100%); // W3C
-      }
-    } */
   }
 }
 
@@ -355,16 +337,18 @@
     }
 
     .header-navigation {
-      padding-left: 100px;
-      top: 20px;
+      padding: 20px 0 0;
       position: absolute;
-      left: 0;
+      left: 110px;
+      top: 20px;
+      width: 70%;
     }
 
     .tools {
       float: left;
       padding: 10px;
       width: 100%;
+      margin-top: 20px;
     }
 
     .site-switcher select {
