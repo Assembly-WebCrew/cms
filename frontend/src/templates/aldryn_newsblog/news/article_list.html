@@ -7,7 +7,9 @@
         {% for article in article_list %}
             {% include "aldryn_newsblog/news/includes/article.html" %}
         {% empty %}
-            <p class="well">{% trans "No items available" %}</p>
+            <div class="news-article">
+                <p>{% trans "No items available" %}</p>
+            </div>
         {% endfor %}
     </div>
 {% endblock %}
