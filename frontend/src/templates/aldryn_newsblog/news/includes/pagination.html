@@ -3,7 +3,7 @@
 <ul class="news-pagination">
     {% if page_obj.has_previous %}
         <li>
-            <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}" aria-label="{% trans "Previous" %}">
+            <a href="/{{ current_site.slug }}{{ request.path }}?page={{ page_obj.previous_page_number }}" aria-label="{% trans "Previous" %}">
                 <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
@@ -14,10 +14,10 @@
             {% if page_obj.number == num %}
                 <li class="active"><span>{{ num }}</span></li>
             {% else %}
-                <li><a href="{{ request.path }}?page={{ num }}">{{ num }}</a></li>
+                <li><a href="/{{ current_site.slug }}{{ request.path }}?page={{ num }}">{{ num }}</a></li>
             {% endif %}
         {% else %}
-            <li><span><a href="{{ request.path }}?page={{ num|add:"5" }}">...</a></span></li>
+            <li><span><a href="/{{ current_site.slug }}{{ request.path }}?page={{ num|add:"5" }}">...</a></span></li>
         {% endif %}
     {% empty %}
         <li class="active"><span>1</span></li>
@@ -25,7 +25,7 @@
 
     {% if page_obj.has_next %}
         <li>
-            <a href="{{ request.path }}?page={{ page_obj.next_page_number }}" aria-label="{% trans "Next" %}">
+            <a href="/{{ current_site.slug }}{{ request.path }}?page={{ page_obj.next_page_number }}" aria-label="{% trans "Next" %}">
                 <span aria-hidden="true">&raquo;</span>
             </a>
         </li>
