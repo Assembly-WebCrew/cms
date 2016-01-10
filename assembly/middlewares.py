@@ -1,6 +1,8 @@
 from django.shortcuts import redirect
 from django.utils import translation
 from django.conf import settings
+from django.core.urlresolvers import resolve, Resolver404
+from djangocms_siteselector.helpers import get_current_site
 
 
 class LocaleMiddleware(object):
@@ -18,7 +20,7 @@ class LocaleMiddleware(object):
         if 'lang' in request.GET:
             # Get selected language and current view
             language = request.GET.get('lang', False)
-            current_view = request.META.get('PATH_INFO', '/')
+            current_site = get_current_site()
 
             # Checks that selected language code is supported
             possible_languages = settings.LANGUAGES
@@ -30,4 +32,8 @@ class LocaleMiddleware(object):
                     translation.activate(language)
                     break
 
-            return redirect(current_view)
+            try:
+                resolve(request.path)
+                return redirect(request.path)
+            except Resolver404:
+                return redirect('/{0}'.format(current_site.slug))
