@@ -20,7 +20,7 @@
                         aria-hidden="true">&larr;</span> {% trans "Previous Article" %}</span></li>
             {% endif %}
             <li><span class="pager-back">– <a
-                    href="{% namespace_url "article-list" %}">{% trans "Back to Overview" %}</a> –</span></li>
+                    href="/{{ current_site.slug }}{% namespace_url "article-list" %}">{% trans "Back to Overview" %}</a> –</span></li>
             {% if next_article %}
                 <li class="next"><a href="{{ next_article.get_absolute_url }}">{% trans "Next Article" %} <span
                         aria-hidden="true">&rarr;</span></a></li>
