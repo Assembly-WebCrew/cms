@@ -64,6 +64,33 @@ footer {
     }
   }
 
+  .site-switcher {
+    transition: opacity .5s;
+    opacity: .5;
+
+    &:focus, &:hover {
+      opacity: 1;
+    }
+
+    select {
+      border: 1px solid rgba(245, 245, 245, 1);
+      -moz-appearance: none;
+      z-index: 100;
+      -webkit-appearance: none;
+      appearance: none;
+      color: #141D40;
+      background-image: url("../../images/triangle.png");
+      background-position: 97% center;
+      background-repeat: no-repeat;
+      padding-right: 20px;
+      background-size: 12px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      height: 22px;
+    }
+  }
+
   @media screen and (max-width: 768px) {
     .organization .navigation a {
       display: inline-block;
