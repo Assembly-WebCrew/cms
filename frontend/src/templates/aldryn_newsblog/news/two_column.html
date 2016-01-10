@@ -9,9 +9,11 @@
         </div>
         <div class="news-split-content">
             {% if view.show_header %}
-                {% render_placeholder view.config.placeholder_base_top %}
+                <div class="news-header">
+                    {% render_placeholder view.config.placeholder_base_top %}
+                </div>
             {% endif %}
-            <div class="aldryn aldryn-newsblog">
+            <div class="news-container">
                 {% block newsblog_title %}{% endblock %}
                 {% block newsblog_content %}{% endblock %}
                 {% block newsblog_footer %}{% endblock %}

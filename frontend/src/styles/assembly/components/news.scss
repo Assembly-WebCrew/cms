@@ -1,10 +1,16 @@
-.news-article {
+.news-header {
+}
+
+.news-container {
   margin: 0 0 10px;
   background: #fff;
   display: block;
   font-size: 0;
   position: relative;
   overflow: hidden;
+}
+
+.news-article {
 }
 
 .news-article-featured {
@@ -18,50 +24,63 @@
   height: 180px;
   min-height: 180px;
 }
-.news-latest-articles{
-  .news-content{
-    height: 400px;
-  }
-}
-.news-fullscreen{
-  .news-content{
-    h3{
+
+.news-fullscreen {
+  .news-content {
+    h3 {
       margin-bottom: 15px;
       line-height: 27px;
     }
-    p{
+    p {
       margin-bottom: 22px;
       line-height: 22px;
     }
   }
-  .news-detail-meta{
+  .news-detail-meta {
     padding: 20px 25px 30px;
     color: #111;
     font-size: 14px;
-    img{
+    img {
       margin-right: 15px;
     }
   }
 }
-.aldryn-newsblog-pager{
-  .pager{
+
+.news-pager {
+  margin: 15px;
+
+  .pager {
     text-align: center;
-  }
-  li{
-    display: inline;
-  }
-  li.previous{
-    display: block;
-    float: left;
-  }
-  li.next{
-    display: block;
-    float: right;
+
+    li {
+      display: inline-block;
+      height: 30px;
+      padding: 5px 10px;
+
+      *,
+      *:active,
+      *:visited {
+        color: #56A3D7;
+        font-size: 14px;
+      }
+    }
+
+    li.previous {
+      display: block;
+      float: left;
+    }
+
+    li.next {
+      display: block;
+      float: right;
+    }
   }
 }
-.aldryn-newsblog-related{
+
+.news-related {
   color: white;
 }
+
 .news-content {
   border-right: 1px solid #eee;
   font-size: 16px;
@@ -135,6 +154,12 @@
 .news-detail-meta {
 }
 
+.news-latest-articles {
+  .news-content {
+    height: 400px;
+  }
+}
+
 .news-featured-articles,
 .news-latest-articles {
   position: relative;
@@ -142,6 +167,7 @@
   margin-top: 60px;
 
   .news-article {
+    @extend .news-container;
     width: 25%;
     height: 460px;
     max-height: 460px;

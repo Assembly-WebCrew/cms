@@ -5,14 +5,12 @@
 
 {% block newsblog_content %}
     {% render_placeholder view.config.placeholder_detail_top %}
-    <div class="aldryn-newsblog-detail">
-        {% include "aldryn_newsblog/news/includes/article.html" with detail_view="true" %}
-    </div>
+    {% include "aldryn_newsblog/news/includes/article.html" with detail_view="true" %}
     {% render_placeholder view.config.placeholder_detail_bottom %}
 {% endblock %}
 
 {% block newsblog_footer %}
-    <div class="aldryn-newsblog-pager">
+    <div class="news-pager">
         <ul class="pager">
             {% if prev_article %}
                 <li class="previous"><a href="{{ prev_article.get_absolute_url }}"><span
