@@ -210,7 +210,17 @@
     > span {
       display: block;
       padding: 5px 10px;
-      background: #4146ff;
+      background: #141d40;
+      color: #fff;
+    }
+
+    > a:active,
+    > a:visited {
+      color: #fff;
+    }
+
+    > a:hover {
+      color: #56a3dd;
     }
 
     .active {
@@ -231,7 +241,8 @@
   .news-sidebar-title {
     display: block;
     padding: 5px 10px;
-    background-color: #4146ff;
+    background: #141d40;
+    color: #fff;
   }
 
   .news-sidebar-items {
@@ -242,9 +253,16 @@
     li {
       a {
         display: block;
+        color: #56a3dd;
+
+        &:hover {
+          color: #141D40;
+        }
       }
       .badge {
         float: right;
+        background: #141d40;
+        color: #fff;
       }
     }
   }
