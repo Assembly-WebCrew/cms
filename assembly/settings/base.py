@@ -37,7 +37,6 @@ INSTALLED_APPS = (
     # Vendor
     'djcelery',
     'rest_framework',
-    'reversion',
     'treebeard',
     'menus',
     'sekizai',
@@ -51,7 +50,6 @@ INSTALLED_APPS = (
     # Custom
     'assembly.core',
     'frontend',
-    'blog',
     'schedule',
     # CMS Addons
     'djangocms_siteselector',
