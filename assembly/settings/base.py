@@ -163,10 +163,6 @@ OPBEAT = {
     'SECRET_TOKEN': '#########',
 }
 
-MODELTRANSLATION_TRANSLATION_FILES = (
-    'blog.translation',
-)
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
