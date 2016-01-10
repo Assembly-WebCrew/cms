@@ -93,7 +93,7 @@ CKEDITOR_SETTINGS = {
 }
 
 MIDDLEWARE_CLASSES = (
-    'djangocms_siteselector.middlewares.SiteSelectorMiddleware',
+    #'djangocms_siteselector.middlewares.SiteSelectorMiddleware',
     'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
