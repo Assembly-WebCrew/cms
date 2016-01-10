@@ -1,17 +1,24 @@
 {% load i18n apphooks_config_tags site_selector_aldryn %}
 
-<div class="aldryn aldryn-newsblog aldryn-newsblog-tags">
-    <ul class="list-unstyled">
-        <li{% if not newsblog_tag %} class="active"{% endif %}>
-            <a href="{% namespace_url "article-list" namespace=instance.app_config.namespace default='' %}">{% trans "All" %}</a>
+<ul class="news-sidebar-block">
+  <li>
+    <span class="news-sidebar-title">
+      {% trans "Tags" %}
+    </span>
+    <ul class="news-sidebar-items">
+      <li{% if not newsblog_tag %} class="active"{% endif %}>
+        <a href="{% namespace_url "article-list" namespace=instance.app_config.namespace default='' %}">
+          {% trans "All tags" %}
+        </a>
+      </li>
+      {% for tag in tags %}
+        <li{% if newsblog_tag.id == tag.id %} class="active"{% endif %}>
+          <a href="{% namespace_url "article-list-by-tag" tag.slug namespace=instance.app_config.namespace default='' %}">
+            {{ tag.name }}
+            <span class="badge">{{ tag.article_count }}</span>
+          </a>
         </li>
-        {% for tag in tags %}
-            <li{% if newsblog_tag.id == tag.id %} class="active"{% endif %}>
-                <a href="{% namespace_url "article-list-by-tag" tag.slug namespace=instance.app_config.namespace default='' %}">
-                    {{ tag.name }}
-                    <span class="badge">{{ tag.article_count }}</span>
-                </a>
-            </li>
-        {% endfor %}
+      {% endfor %}
     </ul>
-</div>
+  </li>
+</ul>

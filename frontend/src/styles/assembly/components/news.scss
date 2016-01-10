@@ -5,7 +5,6 @@
   margin: 0 0 10px;
   background: #fff;
   display: block;
-  font-size: 0;
   position: relative;
   overflow: hidden;
 }
@@ -178,7 +177,7 @@
 .news-fullscreen {
   margin: 0 0 10px;
   position: relative;
-  width: 57%;
+  width: 80%;
   vertical-align: top;
   display: block;
   float: left;
@@ -187,12 +186,12 @@
   min-height: 800px;
 
   .news-split-sidebar {
-    width: 20%;
+    width: 25%;
     float: left;
   }
 
   .news-split-content {
-    width: 80%;
+    width: 75%;
     float: left;
   }
 }
@@ -201,6 +200,54 @@
 }
 
 .news-pagination {
+  height: 53px;
+  padding: 10px 15px;
+
+  li {
+    float: left;
+
+    > a,
+    > span {
+      display: block;
+      padding: 5px 10px;
+      background: #4146ff;
+    }
+
+    .active {
+      background: #c0c0c0;
+    }
+  }
+}
+
+.news-sidebar-block {
+  @extend .news-container;
+
+  margin-right: 15px;
+
+  > li {
+    display: block;
+  }
+
+  .news-sidebar-title {
+    display: block;
+    padding: 5px 10px;
+    background-color: #4146ff;
+  }
+
+  .news-sidebar-items {
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 10px;
+
+    li {
+      a {
+        display: block;
+      }
+      .badge {
+        float: right;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 960px) {

@@ -1,0 +1,28 @@
+{% extends "assembly/base.html" %}
+{% load cms_tags %}
+{% load static %}
+{% load menu_tags %}
+
+{% block base_content %}
+  <div class="page">
+    <div class="backgroundimage">
+      <div class="backgroundfade"></div>
+    </div>
+    <section id="content" class="wrapper clearfix">
+
+      {% block content %}{% endblock %}
+
+      <aside class="side-sponsors main-side-sponsors">
+        {% static_placeholder "main_sponsors" %}
+      </aside>
+
+      <aside class="side-sponsors cycle-slideshow" data-cycle-timeout="5000" data-cycle-speed="2000" data-cycle-slides="ul">
+
+        {% include "assembly/sub_sponsors.html" %}
+
+      </aside>
+
+    </section>
+
+  </div>
+{% endblock %}
