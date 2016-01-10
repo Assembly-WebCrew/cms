@@ -254,15 +254,28 @@
       a {
         display: block;
         color: #56a3dd;
-
-        &:hover {
-          color: #141D40;
-        }
+        line-height: 29px;
       }
       .badge {
         float: right;
-        background: #141d40;
+        padding: 0 8px;
+        color: rgba(20, 29, 64, 0.51);
+        border-radius: 4px;
         color: #fff;
+        line-height: 25px;
+        margin-top: 2px;
+        margin-right: 2px;
+      }
+    }
+
+    &:hover {
+      background: rgba(20, 29, 64, 0.51);
+      a {
+        color: #fff;
+      }
+      .badge {
+        background: #fff;
+        color: #56a3dd;
       }
     }
   }
