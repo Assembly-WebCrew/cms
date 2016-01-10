@@ -34,6 +34,6 @@ class LocaleMiddleware(object):
 
             try:
                 resolve(request.path)
-                return redirect(request.path)
+                return redirect('/{0}{1}'.format(current_site.slug, request.path))
             except Resolver404:
                 return redirect('/{0}'.format(current_site.slug))
