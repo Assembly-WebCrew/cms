@@ -80,7 +80,7 @@
           <div class="fader"></div>
           <div class="wrapper">
 
-            <a href="/">
+            <a href="/{{ current_site.slug }}/">
               <div class="logocontainer">
                 {% if request.path != '/' %}
                   <img src="{% site_static "images/logo.png" %}" class="logo"/>
