@@ -82,8 +82,9 @@
 
             <a href="/">
               <div class="logocontainer">
-                <!-- <img src="{% static "images/logo_summer_2015.png" %}" class="logo"/> -->
-                {% static_placeholder "event_logo" %}
+                {% if request.path != '/' %}
+                  <img src="{% site_static "images/logo.png" %}" class="logo"/>
+                {% endif %}
                 <span class="date-location">{% static_placeholder "event_date_location" %}</span>
               </div>
             </a>
