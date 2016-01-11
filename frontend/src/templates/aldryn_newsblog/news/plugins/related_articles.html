@@ -6,7 +6,7 @@
             {% for article in article_list %}
                 <li>
                     <h3><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h3>
-                    <p>{% trans "by" %} <a href="#">{{ article.author }}</a> {{ article.publishing_date|date }}</p>
+                    <p>{% trans "by" %} <a href="#">{{ article.author }}</a> {{ article.publishing_date| date:"d.m.Y" }}</p>
                 </li>
             {% empty %}
                 <li class="well">{% trans "No items available" %}</li>
