@@ -90,9 +90,9 @@
         "vec3 r = vec3(rand(vec2(number*2.0,0.0)), rand(vec2(0.0, number)), rand(vec2(number, 0.0)));",
         "float scaling = (0.1 + 0.3 * r.z) * size;",
         "float theta=t*(r.g-0.5);",
-        "float cos_theta=cos(theta);",
-        "float sin_theta=sin(theta);",
-        "mat2 rotation_matrix=mat2(cos_theta, sin_theta, -sin_theta, cos_theta);",
+        "float cos_t=cos(theta);",
+        "float sin_t=sin(theta);",
+        "mat3 xz_rotation=mat3(cos_t, sin_t, 0.0, -cos_t*sin_t, cos_t*cos_t, sin_t, sin_t*sin_t, -cos_t*sin_t, cos_t);",
         "",
         "vec2 ofs = vec2(",
           "r.x * screen.x, ",
@@ -105,9 +105,9 @@
         "vAlpha = (1.0-2.0*abs(0.5 - ofs.y / screen.y)) * (0.1 + rand(vec2(number*3.0, 0.0)));",
         "vAlpha *= 0.7;",
         "",
-        "vec2 pos = (rotation_matrix*position)*scaling + ofs;",
-        "gl_Position = projection * vec4(pos, 0, 1);",
-        "vTextureCoord = position;",
+        "vec2 pos = (xz_rotation*vec3(position, 0.0)).xy * scaling + ofs;",
+        "gl_Position = projection * vec4(pos, 0.0, 1);",
+        "vTextureCoord = 0.5*(vec2(1.0) + position);",
       "}"].join('\n');
 
     var fragmentSource = [
@@ -116,8 +116,7 @@
       "varying mediump float vAlpha;",
       "uniform sampler2D uSampler;",
       "void main() { ",
-        "vec2 coord = 0.5*(vec2(1.0) + vTextureCoord.st);",
-        "vec4 color = texture2D(uSampler, coord);",
+        "vec4 color = texture2D(uSampler, vTextureCoord.st);",
         "gl_FragColor = vec4(color.rgb, color.a*vAlpha);",
       "}"].join('\n');
 
@@ -239,7 +238,7 @@
     gl.bindTexture(gl.TEXTURE_2D, texture);
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_NEAREST);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
     gl.generateMipmap(gl.TEXTURE_2D);
     gl.bindTexture(gl.TEXTURE_2D, null);
   }
