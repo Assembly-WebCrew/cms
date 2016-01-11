@@ -102,7 +102,7 @@
         "ofs.y = mod(ofs.y, screen.y + scaling*4.0) - scaling*2.0;",
         "ofs.x = mod(ofs.x, screen.x) + sin(ofs.y*(0.01*r.z))*(80.0*r.y);",
         "",
-        "vAlpha = (1.0 - ofs.y / screen.y) * (0.1 + rand(vec2(number*3.0, 0.0)));",
+        "vAlpha = (1.0-2.0*abs(0.5 - ofs.y / screen.y)) * (0.1 + rand(vec2(number*3.0, 0.0)));",
         "vAlpha *= 0.7;",
         "",
         "vec2 pos = (rotation_matrix*position)*scaling + ofs;",
@@ -117,8 +117,6 @@
       "uniform sampler2D uSampler;",
       "void main() { ",
         "vec2 coord = 0.5*(vec2(1.0) + vTextureCoord.st);",
-        //"float circle = 1.0 - length(vTextureCoord.st) / 0.707107; // sqrt(2.0) * 0.5",
-        //"circle = min(1.0, circle*4.0);",
         "vec4 color = texture2D(uSampler, coord);",
         "gl_FragColor = vec4(color.rgb, color.a*vAlpha);",
       "}"].join('\n');
