@@ -64,7 +64,7 @@
       return out;
   }
 
-  function start() {
+  function start(gl, canvas, textures) {
     var vertexSource = [
       "precision mediump float;",
       "attribute vec2 position;",
@@ -84,24 +84,28 @@
         "return fract(sin(sn) * c);",
       "}",
       "void main() { ",
-        "const float speed = 40.0;",
-        "const float size = 18.0;",
+        "const float speed = 2.0;",
+        "const float size = 20.0;",
         "float t = time;",
         "vec3 r = vec3(rand(vec2(number*2.0,0.0)), rand(vec2(0.0, number)), rand(vec2(number, 0.0)));",
         "float scaling = (0.1 + 0.3 * r.z) * size;",
+        "float theta=t*(r.g-0.5);",
+        "float cos_theta=cos(theta);",
+        "float sin_theta=sin(theta);",
+        "mat2 rotation_matrix=mat2(cos_theta, sin_theta, -sin_theta, cos_theta);",
         "",
         "vec2 ofs = vec2(",
           "r.x * screen.x, ",
-          "abs(sin(r.z)) * screen.y * 2.0 + t*(10.0 + r.y * speed)",
+          "abs(sin(r.z)) * screen.y * 2.0 - t*(10.0 + r.y * speed)",
         ");",
         "",
         "ofs.y = mod(ofs.y, screen.y + scaling*4.0) - scaling*2.0;",
-        "ofs.x = mod(ofs.x, screen.x);",
+        "ofs.x = mod(ofs.x, screen.x) + sin(ofs.y*(0.01*r.z))*(80.0*r.y);",
         "",
         "vAlpha = (1.0 - ofs.y / screen.y) * (0.1 + rand(vec2(number*3.0, 0.0)));",
         "vAlpha *= 0.7;",
         "",
-        "vec2 pos = position*scaling + ofs;",
+        "vec2 pos = (rotation_matrix*position)*scaling + ofs;",
         "gl_Position = projection * vec4(pos, 0, 1);",
         "vTextureCoord = position;",
       "}"].join('\n');
@@ -110,19 +114,14 @@
       "precision mediump float;",
       "varying mediump vec2 vTextureCoord;",
       "varying mediump float vAlpha;",
+      "uniform sampler2D uSampler;",
       "void main() { ",
-        "vec2 coord = vTextureCoord.st;",
-        "float circle = 1.0 - length(vTextureCoord.st) / 0.707107; // sqrt(2.0) * 0.5",
-        "circle = min(1.0, circle*4.0);",
-        "vec3 col = vec3(circle);",
-        "gl_FragColor = vec4(vec3(1.0), vAlpha * clamp(circle, 0.0, 1.0));",
+        "vec2 coord = 0.5*(vec2(1.0) + vTextureCoord.st);",
+        //"float circle = 1.0 - length(vTextureCoord.st) / 0.707107; // sqrt(2.0) * 0.5",
+        //"circle = min(1.0, circle*4.0);",
+        "vec4 color = texture2D(uSampler, coord);",
+        "gl_FragColor = vec4(color.rgb, color.a*vAlpha);",
       "}"].join('\n');
-
-    var canvas = document.getElementById('demo-canvas');
-    if (!canvas) return;
-
-    var gl = initGL(canvas);
-    if (!gl) return;
 
 
     var quad_vertices = [
@@ -141,7 +140,6 @@
 
     // Create huge vertex position and quad number buffers.
     for (var i = 0; i < MAX_QUADS ; i++) {
-      //vertices = vertices.concat(quad_vertices);
       vertices.push.apply(vertices, quad_vertices);
       // Each vertex has a quad index stored as an attribute.
       point_numbers.push(i, i, i, i, i, i);
@@ -204,6 +202,10 @@
     gl.blendFunc(gl.SRC_ALPHA, gl.ONE); // Additive blending since the sprites are white anyway.
     gl.disable(gl.DEPTH_TEST);
 
+    gl.activeTexture(gl.TEXTURE0);
+    gl.bindTexture(gl.TEXTURE_2D, textures["flake"]);
+    gl.uniform1i(gl.getUniformLocation(program, "uSampler"), 0);
+
     var startTime = getNow();
 
     function draw() {
@@ -225,6 +227,40 @@
     requestAnimationFrame(draw);
   }
 
-  start();
+  function loadTexture(path, doneCallback) {
+    var texture = gl.createTexture();
+    var image = new Image();
+    image.onload = function() {
+      handleTextureLoaded(image, texture); 
+      doneCallback(texture);
+    }
+    image.src = path;
+  }
 
+  function handleTextureLoaded(image, texture) {
+    gl.bindTexture(gl.TEXTURE_2D, texture);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_NEAREST);
+    gl.generateMipmap(gl.TEXTURE_2D);
+    gl.bindTexture(gl.TEXTURE_2D, null);
+  }
+
+  function initEffect() {
+    var canvas = document.getElementById('demo-canvas');
+    if (!canvas) return;
+
+    var gl = initGL(canvas);
+    if (!gl) return;
+
+    // A 32x32 transparent white unicode snowflake
+    var textureData="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AEKFzot8VJPDwAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAADJElEQVRYw+1XW6hMURg+7tc6TkiRDrmXW1EiRXlByCEPUqKQDrk8iEjtg/KCyCWUB/I0kgcdl4dT4+GcTE0iBjV0hmGapumYMbc9e26+P2vXb1l77Z1mlI5Vf3vttf9//d/617++9e+mpn+1RSKRYdVq9QtJpVLZ8tcBRKPR4TXRAGBH/wAQj8dHIuT3SqXSIhlAOp1uwbeL5XJ5dcMAwEEHOcSzArljA0D/ISQp+u+CweDgujhMpVJjaEUkyWRyNFa6Fw76ag6t+rPdhV0zorSM7IrF4hzPDk3TnApptd8xyXJ7csuy5tJYJpMZCydXIWXJeQ/0l7BovRTjV+yxcDg8FDpLdSF+BMlDjFgsNkIFwG54X8Ccn1XM9QsARGMd+mFILp/PT/rNOUI1Ex8tNuknyDknAG6ngAHohDzh0YL+MWUEBIhO1f7+KQBpm3oRic2uuQCltVD+KBnfzmaz490A+Hy+gXjfA/0Msy1i7CTZeCIYKJ+AUVaxghS+HQ6FQkNUAAB8pWrlwvYBEnya1rnf7x8ExbfMyIKch1zjWY/+ezhrY+8dkPuSwwCAHcTzM48EJbYb2RhC+TFyYhbL+nkY66q5NOh8hePthmEMYOx5ClKgxbmSFBlgdWs0+bERE31QOCYHZxKJxCgHjmklCnfNAdpfOuNO34lsKLwKAH1Y+T7aRgdWbUZEp7sCwCSHBNff5FkP8phI/E9c67IFrxGlVdKp2I3xBAG3t0aXhL1y1kOO81NBk2FsP3u/BOmWsx5ANuH5go9jbIU2ArRqGN2QuZ6digsUTtUxxHMbvkcdIhPQ3gMSzy+EwRtpgqfYw9luRCSy/jTEZLYmdHZqwy9uunFQvk450CAqDvAbU74HZkDhG1NOE/3W4TJ6BnnFawboH3AioR5RVNzK5XITdNdxoVCYzAAc0V3HlNzQaaeqifKIFuu09/PhdLGuIKGiApMdxUTfpfD6QDZTdAUJ1Y1EZJ4rJIoCnO0iEcbrVSwos6Fg0zay85z5HovSy8xZF+t321lPx5AANKQqFqX3c6xug5yEVE/SjYj+1v9/Rv0DQL3aD7ongqaFwd3yAAAAAElFTkSuQmCC";
+
+    loadTexture(textureData, function (flakeTexture) {
+      start(gl, canvas, {"flake" : flakeTexture});
+    });
+
+  }
+
+  initEffect();
 })();
