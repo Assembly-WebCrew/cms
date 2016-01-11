@@ -18,7 +18,7 @@
                 <p class="job">{{ author.function }}</p>
                 <p class="badge">{{ author.article_count }}</p>
             {% else %}
-                <p class="date">{{ article.publishing_date|date }}</p>
+                <p class="date">{{ article.publishing_date | date:"d.m.Y H.i" }}</p>
             {% endif %}
         </div>
     {% endif %}
