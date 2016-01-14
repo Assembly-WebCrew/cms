@@ -25,7 +25,7 @@
   <link rel="icon" type="image/png" href="/static/images/favicon.png"/>
 
   <!-- Facebook sharing -->
-  <!--<meta property="og:url" content="{{ current_url }}"/>-->
+  <meta property="og:url" content="{% page_url request.current_page %}"/>
   <meta property="og:type" content="article"/>
   <meta property="og:site_name" content="{{ current_site.name }}"/>
   <meta property="article:author" content="https://www.facebook.com/assemblyparty"/>
@@ -37,9 +37,9 @@
   <meta name="twitter:site" content="@assemblyparty"/>
 
   <!-- SoMe sharing image tags -->
-  {% if post.cover_image %}
-    <meta property="og:image" content="/media/{{ post.cover_image }}"/>
-    <meta name="twitter:image" content="/media/{{ post.cover_image }}"/>
+  {% if article.featured_image.image %}
+    <meta property="og:image" content="/media/{{ article.featured_image.image }}"/>
+    <meta name="twitter:image" content="/media/{{ article.featured_image.image }}"/>
   {% else %}
     <meta property="og:image" content="/static/images/{{ current_site.slug }}/some_image.png"/>
     <meta name="twitter:image" content="/static/images/{{ current_site.slug }}/some_image.png"/>
