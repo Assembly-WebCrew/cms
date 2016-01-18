@@ -4,10 +4,10 @@
 {% page_attribute "meta_description" as meta_description %}
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
-  {% if post.title %}
-    <title>{{ post.title }} - {{ current_site.name }}</title>
-    <meta property="og:title" content="{{ post.title }}" />
-    <meta name="twitter:title" content="{{ post.title }}" />
+  {% if article.title %}
+    <title>{{ article.title }} - {{ current_site.name }}</title>
+    <meta property="og:title" content="{{ article.title }}" />
+    <meta name="twitter:title" content="{{ article.title }}" />
   {% else %}
     <title>{% page_attribute "page_title" %} - {{ current_site.name }}</title>
     <meta property="og:title" content="{{ current_site.name }} - {% page_attribute "page_title" %}" />
@@ -24,37 +24,35 @@
       rel='stylesheet'>
   <link rel="icon" type="image/png" href="/static/images/favicon.png"/>
 
-  <!-- Facebook sharing -->
-  <meta property="og:url" content="{{ current.url }}"/>
+  <!-- some tags -->
+  {% comment %} Facebook {% endcomment %}
+  <meta property="og:url" content="{{ current.url }}"/> {% comment %} !!! does not work !!! {% endcomment %}
   <meta property="og:type" content="article"/>
   <meta property="og:site_name" content="{{ current_site.name }}"/>
   <meta property="article:author" content="https://www.facebook.com/assemblyparty"/>
   <meta property="article:publisher" content="https://www.facebook.com/asmorg"/>
   <meta property="fb:app_id" content="835278116581606"/>
   <meta property="og:rich_attachment" content="true"/>
-  <!-- Twitter sharing -->
+  {% comment %} Twitter {% endcomment %}
   <meta name="twitter:card" content="summary"/>
   <meta name="twitter:site" content="@assemblyparty"/>
-
-  <!-- SoMe sharing image tags -->
-  {% if article.featured_image.image %}
+  {% comment %} Images {% endcomment %}
+  {% if article.featured_image.image %} {% comment %} !!! does not work !!! {% endcomment %}
     <meta property="og:image" content="/media/{{ article.featured_image.image }}"/>
     <meta name="twitter:image" content="/media/{{ article.featured_image.image }}"/>
   {% else %}
     <meta property="og:image" content="/static/images/{{ current_site.slug }}/some_image.png"/>
     <meta name="twitter:image" content="/static/images/{{ current_site.slug }}/some_image.png"/>
   {% endif %}
-
-  <!-- SoMe sharing description -->
-  {% if post.teaser %}
-    <meta property="og:description" content="{{ post.teaser }}"/>
-    <meta name="twitter:description" content="{{ post.teaser }}"/>
+  {% comment %} Description {% endcomment %}
+  {% if article.lead_ins %}
+    <meta property="og:description" content="{{ article.lead_in|striptags|truncatewords:"20"|safe }}"/>
+    <meta name="twitter:description" content="{{ article.lead_in|striptags|truncatewords:"20"|safe }}"/>
   {% elif meta_description %}
     <meta property="og:description" content="{{ meta_description }}"/>
     <meta name="twitter:description" content="{{ meta_description }}"/>
   {% endif %}
-
-  <!-- facebook locale -->
+  {% comment %} FB locale {% endcomment %}
   {% if LANGUAGE_CODE == "en" %}
     <meta property="og:locale" content="en_US"/>
     <meta property="og:locale:alternate" content="fi_FI"/>
@@ -62,6 +60,7 @@
     <meta property="og:locale" content="fi_FI"/>
     <meta property="og:locale:alternate" content="en_US"/>
   {% endif %}
+  <!-- end of some tags -->
 
   <script>
     /** Global CMS features. */
@@ -87,7 +86,7 @@
           <a href="/{{ current_site.slug }}/">
             <div class="logocontainer">
               {% if request.path != '/' %}
-                <img src="{% site_static "images/logo.png" %}" class="logo"/>
+                <img src="{% site_static "images/logo.png" %}" class="logo" alt="{{ current_site.name }}" title="{{ current_site.name }}" />
               {% endif %}
               <span class="date-location">{% static_placeholder "event_date_location" %}</span>
             </div>
