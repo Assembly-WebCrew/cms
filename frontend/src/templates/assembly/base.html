@@ -4,10 +4,10 @@
 {% page_attribute "meta_description" as meta_description %}
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
-  {% if post.title %}
-    <title>{{ post.title }} - {{ current_site.name }}</title>
-    <meta property="og:title" content="{{ post.title }}" />
-    <meta name="twitter:title" content="{{ post.title }}" />
+  {% if article.title %}
+    <title>{{ article.title }} - {{ current_site.name }}</title>
+    <meta property="og:title" content="{{ article.title }}" />
+    <meta name="twitter:title" content="{{ article.title }}" />
   {% else %}
     <title>{% page_attribute "page_title" %} - {{ current_site.name }}</title>
     <meta property="og:title" content="{{ current_site.name }} - {% page_attribute "page_title" %}" />
