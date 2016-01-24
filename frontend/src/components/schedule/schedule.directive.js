@@ -79,12 +79,11 @@
       });
     });
   };
-
-  // Talviaika, winter time, UTC +2
+  
   Schedule.prototype.formatEvent = function (event) {
-    var start = moment(event.start_time, moment.ISO_8601).utcOffset(2),
-      orig = moment(event.original_start_time, moment.ISO_8601).utcOffset(2),
-      end = moment(event.end_time, moment.ISO_8601).utcOffset(2);
+    var start = moment(event.start_time, moment.ISO_8601).utcOffset(event.start_time),
+      orig = moment(event.original_start_time, moment.ISO_8601).utcOffset(event.original_start_time),
+      end = moment(event.end_time, moment.ISO_8601).utcOffset(event.end_time);
 
     return {
       id: event.key,
