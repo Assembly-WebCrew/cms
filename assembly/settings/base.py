@@ -27,12 +27,13 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'reversion',
+    'aldryn_reversion',
     'cms',
     # Aldryn Shared
     'aldryn_common',
     'aldryn_apphooks_config',
     'aldryn_translation_tools',
-    'aldryn_reversion',
     'aldryn_boilerplates',
     # Vendor
     'djcelery',

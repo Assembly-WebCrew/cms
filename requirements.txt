@@ -21,7 +21,7 @@ djangocms-video==0.1
 aldryn-newsblog==1.0.10
 # Deprecated modules
 djangorestframework==3.3.1
-django-reversion==1.9.3
+django-reversion==1.8.7
 django-modeltranslation==0.10.2
 tweepy==3.4.0
 django-ckeditor==5.0.2
