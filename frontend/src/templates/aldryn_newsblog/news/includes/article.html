@@ -2,9 +2,11 @@
 {% load url from future %}
 
 <article class="news-article
+{% if not detail_view %}news-summary{% endif %}
 {% if article.is_featured %} news-article-featured{% endif %}
 {% if not article.published %} unpublished{% endif %}
 {% if article.future %} future{% endif %}">
+<div class="news-content-wrapper">
 
     {% block newsblog_visual %}
         {% if article.featured_image_id %}
@@ -77,6 +79,7 @@
             </div>
         {% endif %}
     {% endblock newsblog_meta %}
+</div>
 </article>
 
 {% addtoblock "css" %}
