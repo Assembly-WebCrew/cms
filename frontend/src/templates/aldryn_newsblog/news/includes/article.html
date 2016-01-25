@@ -12,7 +12,7 @@
         {% if article.featured_image_id %}
             {% if not detail_view %}<a href="/{{ current_site.slug }}{% namespace_url 'article-detail' article.slug namespace=namespace default='' %}">{% endif %}
         <div class="news-cover-image"
-             style="background-image: url({% thumbnail article.featured_image.image 350x262 crop subject_location=article.featured_image.subject_location %});"></div>
+             style="background-image: url({% thumbnail article.featured_image.image 800x450 crop subject_location=article.featured_image.subject_location %});"></div>
         {% if not detail_view %}</a>{% endif %}
         {% endif %}
     {% endblock newsblog_visual %}
