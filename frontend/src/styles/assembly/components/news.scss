@@ -7,6 +7,8 @@
   display: block;
   position: relative;
   overflow: hidden;
+  // featured image of news are cropped to 800x450
+  max-width: 800px;
 }
 
 .news-article {
@@ -32,6 +34,27 @@
     p {
       margin-bottom: 22px;
       line-height: 22px;
+    }
+    // Next list styles are direct copies of article.scss
+    ul, ol {
+    margin-bottom: 24px;
+    padding-left: 15px;
+    display: block;
+    }
+    ol {
+      padding-left: 32px;
+      li { list-style: decimal outside; }
+    }
+    li {
+    margin: 5px 0;
+    padding: 5px 0;
+    list-style: square inside;
+
+      // Inner lists don't need margin on the bottom, but more padding for clarity.
+      ul {
+        padding-left: 20px;
+        margin: 0;
+      }
     }
   }
   .news-detail-meta {
