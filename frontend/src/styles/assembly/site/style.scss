@@ -25,12 +25,6 @@ body {
   display: none;
 }
 
-// Moving all template boxes to top.
-//.cms_dragarea {
-//  position: initial!important;
-//  margin-left: 2em!important;
-//}
-
 .wrapper {
   width: 100%;
   max-width: 1400px;
@@ -163,7 +157,8 @@ cite:before {
   width: 100%;
   height: auto;
   min-height: 700px;
-  background: url("/media/uploads/asm15s/assembly_summer15_background_v2_color_optimized.png") center no-repeat;
+  // TODO event spef front bg
+  background: url("/media/uploads/winter16/front_bg.png") center no-repeat;
   background-size: cover;
 }
 
@@ -325,15 +320,17 @@ cite:before {
 }
 
 .page .backgroundimage {
-  z-index:-20;
-  position:absolute;
-  top:-85px;
-  left:0;
-  height:100%;
-  width:100%;
-  background-image:url('/media/uploads/asm15s/asm15s_event_bg.png');
-  background-size:cover;
+  z-index: -20;
+  position: absolute;
+  top: -85px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  // TODO event spef article bg
+  background-image: url('/media/uploads/winter16/article_bg.png');
+  background-size: cover;
 }
+
 .page .backgroundfade {
   background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(20,29,64,1) 100%);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(20,29,64,1)));
