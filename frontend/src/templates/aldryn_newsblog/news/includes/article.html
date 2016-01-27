@@ -33,7 +33,7 @@
                 {% render_model article "lead_in" "" "" "striptags|truncatewords:'20'" %}
             </div>
         {% else %}
-            <div class="news-body article">
+            <div class="news-body">
                 {% render_model article "lead_in" %}
             </div>
         {% endif %}
