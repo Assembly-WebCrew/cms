@@ -20,6 +20,7 @@
 .news-cover-image {
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   margin: 0 auto;
   height: 180px;
   min-height: 180px;
@@ -27,16 +28,33 @@
 
 .news-fullscreen {
   .news-content {
-    h3 {
+	h1 {
+	  font-size: 32px;
+      line-height: 34px;
       margin-bottom: 15px;
-      line-height: 27px;
+	}
+	h2 {
+	  font-size: 28px;
+      line-height: 30px;
+      margin-bottom: 15px;
+	}
+    h3 {
+	  font-size: 24px;
+	  font-weight: 300;
+      margin-bottom: 10px;
+      line-height: 26px;
     }
+	.news-title {
+	  font-size: 36px;
+      line-height: 38px;
+      margin-bottom: 20px;
+	}
     p {
       margin-bottom: 22px;
       line-height: 22px;
     }
-    // Next list styles are direct copies of article.scss
-    ul, ol {
+    // Next list styles and tables are direct copies of article.scss
+	ul, ol {
     margin-bottom: 24px;
     padding-left: 15px;
     display: block;
@@ -56,6 +74,50 @@
         margin: 0;
       }
     }
+	table {
+    margin-bottom: 24px;
+    width: 100%;
+    font-size: 14px;
+    border: 1px solid #eee;
+
+    th {
+      font-weight: 800;
+      padding: 10px;
+      background: $bg-color;
+      color: #fff;
+      text-align: center;
+
+      @media print {
+        color: #000;
+        background: #fff;
+        font-weight: bold;
+      }
+    }
+
+    tbody th:first-child {
+      text-align: right;
+    }
+
+    tbody th:last-child {
+      text-align: left;
+    }
+
+    td {
+      padding: 10px;
+      transition: all .1s;
+      border-right: 1px solid #eee;
+    }
+
+    td:last-child {
+      border-right: 0;
+    }
+
+    tbody td:hover {
+      transform: scale(1.01);
+      box-shadow: rgba(0, 0, 0, .3) 0 0 10px;
+      background: #f6f6f6;
+    }
+  }
   }
   .news-detail-meta {
     padding: 20px 25px 30px;
@@ -64,9 +126,6 @@
     img {
       margin-right: 15px;
     }
-  }
-  .news-title {
-    font-size: 36px;
   }
 }
 
