@@ -11,6 +11,7 @@
     {% block newsblog_visual %}
         {% if article.featured_image_id %}
             {% if not detail_view %}<a href="/{{ current_site.slug }}{% namespace_url 'article-detail' article.slug namespace=namespace default='' %}">{% endif %}
+        {# "todo leikattu kuva 16:9 kuvasuhteessa, ei 4:3." #}
         <div class="news-cover-image"
              style="background-image: url({% thumbnail article.featured_image.image 800x450 crop subject_location=article.featured_image.subject_location %});"></div>
         {% if not detail_view %}</a>{% endif %}
@@ -19,13 +20,13 @@
 
     <div class="news-content">
         {% block newsblock_title %}
-            <h2 class="news-title">
+            <h1 class="news-title">
                 {% if not detail_view %}
                     <a href="/{{ current_site.slug }}{% namespace_url 'article-detail' article.slug namespace=namespace default='' %}">{% render_model article "title" %}</a>
                 {% else %}
                     {% render_model article "title" %}
                 {% endif %}
-            </h2>
+            </h1>
         {% endblock newsblock_title %}
 
         {% if not detail_view %}

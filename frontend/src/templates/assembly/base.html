@@ -86,7 +86,7 @@
           <a href="/{{ current_site.slug }}/">
             <div class="logocontainer">
               {% if request.path != '/' %}
-                <img src="{% site_static "images/logo.png" %}" class="logo" alt="{{ current_site.name }}" title="{{ current_site.name }}" />
+                <img src="/static/images/{{ current_site.slug }}/logo.png" class="logo" alt="{{ current_site.name }}" title="{{ current_site.name }}" />
               {% endif %}
               <span class="date-location">{% static_placeholder "event_date_location" %}</span>
             </div>
