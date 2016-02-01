@@ -361,11 +361,11 @@ cite:before {
 }
 
 .page .blog-post .article_right button#twitter_share {
-  background: #56a3d9;
+  background: $bg-twitter;
 }
 
 .page .blog-post .article_right button#facebook_share {
-  background: #3b579d;
+  background: $bg-facebook;
 }
 
 .page .blog-post .article_right button i.fa {
@@ -377,7 +377,7 @@ cite:before {
   min-width: 80%;
 }
 
-// FRONTPAGE SOME
+/* FRONTPAGE SOME */
 
 .blog-post-list {
   position: relative;
@@ -479,7 +479,7 @@ cite:before {
 
 }
 
-@media screen and (max-width: 768px) {
+//@media screen and (max-width: 768px) {
 //   .page .blog-post .article_left, .page .blog-post .article_right {
 //     display: block;
 //     width: 100%;
