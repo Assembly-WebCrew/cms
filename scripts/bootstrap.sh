@@ -5,7 +5,7 @@ update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 # Install dependencies
 apt-get update
-apt-get install -y python3 python3-dev postgresql libpq-dev nginx make git libjpeg-dev libxml2-dev libxslt1-dev screen curl dos2unix
+apt-get install -y python3 python3-dev postgresql libpq-dev nginx make git libjpeg-dev libxml2-dev libxslt1-dev screen curl dos2unix nginx
 curl -sL https://deb.nodesource.com/setup_5.x | bash -
 apt-get install -y nodejs
 
@@ -57,4 +57,8 @@ ln -fs /vagrant/scripts/update-venv.sh /home/vagrant
 
 # Setup pyvenv
 /vagrant/scripts/update-venv.sh
+
+# Setup and start nginx
+ln -fs /vagrant/config/nginx.conf /etc/nginx/nginx.conf
+/etc/init.d/nginx restart
 
