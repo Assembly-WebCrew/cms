@@ -15,7 +15,7 @@ urlpatterns = patterns('',
                             url(r'^filer/', include('filer.urls')),
                             url(r'^schedule/', include('schedule.urls')),
                             url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': {'cmspages': CMSSitemap}}),
-                            url(r'^', include('cms.urls')),)
+                            url(r'^winter16/', include('cms.urls')),)
 
 if settings.DEBUG:
     urlpatterns = patterns('',
