@@ -7,3 +7,6 @@ class Countdown(CMSPlugin):
 
 class ScheduleView(CMSPlugin):
     json_url = models.CharField(max_length=255)
+
+class StreamView(CMSPlugin):
+    api_url = models.CharField(max_length=255)
