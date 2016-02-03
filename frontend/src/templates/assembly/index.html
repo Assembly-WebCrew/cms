@@ -19,7 +19,9 @@
 </div>
 <div id="carousel">
   <div class="carousel_meta">
-    <!--<h3>KAHEN KILON $2 000 Siika</h3>-->
+    {% comment "TODO viimeisin featured uutinen tähän" %}
+    <h3>KAHEN <KILON></KILON> $2 000 Siika</h3>
+    {% endcomment %}
     <a href="#news" class="carousel_read_more">{% trans "News" %}</a>
   </div>
   <div class="fader"></div>
@@ -44,7 +46,7 @@
 
     <article class="some-box twitter linked">
       <a href="https://twitter.com/assemblyparty">
-        <div class="icon"><img src="{% static "images/i-twitter.png" %}" alt="twitter icon" ></div>
+        <div class="icon"><i class="fa fa-5x fa-twitter"></i></div>
         <div class="prompt">FOLLOW</div>
         <div class="username"><p></p>@ASSEMBLYPARTY<p></p></div>
         <div class="bottom"></div>
@@ -53,19 +55,17 @@
 
      <article class="some-box facebook linked">
       <a href="https://www.facebook.com/assemblyparty">
-        <div class="icon"><img src="{% static "images/i-facebook.png" %}" alt="facebook icon" ></div>
-        <div class="prompt">LIKE US</div>
+        <div class="icon"><i class="fa fa-5x fa-facebook"></i></div>
+        <div class="prompt">LIKE</div>
         <div class="username"><p></p>ASSEMBLY COMPUTER FESTIVAL<p></p></div>
-        <!-- <div class="bottom">7 971 likes</div> -->
+        {% comment "TODO tykkäysten määrä" %} <div class="bottom">7 971 likes</div> {% endcomment %}
       </a>
     </article>
 
-    <!-- TODO: Posts from SoMe. -->
-
      <article class="some-box twitter linked">
       <a href="https://twitter.com/hashtag/Asmparty?src=hash">
-        <div class="icon"><img src="{% static "images/i-twitter.png" %}" alt="twitter icon" ></div>
-        <div class="prompt"></div>
+        <div class="icon"><i class="fa fa-5x fa-twitter"></i></div>
+        <div class="prompt">TWEET</div>
         <div class="username"><p></p>#asmparty<p></p></div>
         <div class="bottom"></div>
       </a>
@@ -73,29 +73,30 @@
 
       <article class="some-box facebook linked">
       <a href="https://www.facebook.com/events/109838839364551/">
-        <div class="icon"><img src="{% static "images/i-facebook.png" %}" alt="Facebook icon" ></div>
-        <div class="prompt">JOIN US</div>
+        <div class="icon"><i class="fa fa-5x fa-facebook"></i></div>
+        <div class="prompt">JOIN</div>
         <div class="username"><p></p>{{ current_site.name }}</div>
-        <!-- <div class="bottom">7 971 likes</div> -->
       </a>
     </article>
 
-    <!-- <article class="some-box twitter">
+    {% comment "TODO: Latest posts from SoMe." %}
+    <article class="some-box twitter">
       <div class="username">@assemblyparty</div>
       <div class="real-name">Assembly Party</div>
       <div class="text">
         <p>Our new glorious website is released! Thanks #assemblycomputerfestival #webcrew ! http://www.assembly.org</p>
       </div>
       <div class="bottom">Tweeted Jun 4</div>
-    </article> -->
+    </article>
 
-    <!-- <article class="some-box facebook">
+    <article class="some-box facebook">
       <div class="username">ASSEMBLY COMPUTER FESTIVAL</div>
       <div class="text">
         <p>ASSEMBLY is a festival, in which thousands of people spend the weekend by meeting friends, playing games and enjoying the great productions from the demoscene.</p>
-      </div>-->
-      <!-- <div class="bottom">14.2.2015 13.45</div> -->
-    <!-- </article> -->
+      </div>
+      <div class="bottom">14.2.2015 13.45</div>
+    </article>
+    {% endcomment %}
 
   </div>
 
