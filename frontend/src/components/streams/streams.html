@@ -1,3 +1,18 @@
-<div>
-  <pre>{{ streams.data | json }}</pre>
+<div class="game"
+    ng-repeat="game in streams.games track by game.id">
+  <h4>
+    {{:: game.name }}
+    <span class="badge" ng-show="::game.isOnline" title="{{:: streams.locale.isOnline }}"></span>
+    <span class="badge offline" ng-show="::!game.isOnline" title="{{:: streams.locale.isOffline }}"></span>
+  </h4>
+  <div class="stream"
+      ng-repeat="stream in game.streams track by stream.id"
+      ng-class="{ offline: !stream.isOnline }">
+    <a target="_blank" ng-href="{{:: streams.baseUrl }}/{{:: stream.id }}">{{:: stream.name }} ({{:: stream.country }})</a>
+    <span class="badge" ng-show="::stream.isOnline" title="{{:: streams.locale.isOnline }}"></span>
+    <span class="viewers" ng-show="::stream.viewers" title="{{:: streams.locale.viewCount }}">
+      {{:: stream.viewers }}
+      <i class="fa fa-eye"></i>
+    </span>
+  </div>
 </div>
