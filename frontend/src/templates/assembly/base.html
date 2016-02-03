@@ -88,7 +88,7 @@
               {% if request.path != '/' %}
                 <img src="/static/images/{{ current_site.slug }}/logo.png" class="logo" alt="{{ current_site.name }}" title="{{ current_site.name }}" />
               {% endif %}
-              <span class="date-location">{% static_placeholder "event_date_location" %}</span>
+              <span class="date-location">{% static_placeholder "event_date_location" site %}</span>
             </div>
           </a>
 
@@ -135,7 +135,7 @@
         </div>
         <div class="organization">
           <div class="navigation">
-            {% static_placeholder 'footer_links' %}
+            {% static_placeholder 'footer_links' site %}
           </div>
           <p class="copyright">
             <a href="https://twitter.com/assemblyparty"><i class="fa fa-2x fa-fw fa-twitter"></i></a>
