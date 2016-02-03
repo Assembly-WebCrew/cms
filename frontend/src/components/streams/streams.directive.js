@@ -3,24 +3,56 @@
 
   var LOCALE = {
     en: {
+      isOnline: 'Online',
+      isOffline: 'Offline',
+      viewCount: 'Viewers'
     },
     fi: {
+      isOnline: 'Linjoilla',
+      isOffline: 'Poissa linjoilta',
+      viewCount: 'Katsojia'
     }
   };
 
-  var JSON = {"1":{"Game":{"id":"1","name":"StarCraft 2","shortname":"sc2","online":"0"},"Stream":[{"id":"4","name":"AssemblyTV","country_iso":"FI","online":"0","viewers":null,"public":"1","last_online":null},{"id":"6","name":"Wardi","country_iso":"GB","online":"0","viewers":null,"public":"1","last_online":null},{"id":"7","name":"Zerg","country_iso":"RU","online":"0","viewers":null,"public":"1","last_online":null}]},"2":{"Game":{"id":"2","name":"Counter-Strike: GO","shortname":"csgo","online":"0"},"Stream":[{"id":"3","name":"CS:GO English","country_iso":"GB","online":"0","viewers":null,"public":"1","last_online":null}]},"10":{"Game":{"id":"10","name":"Hearthstone","shortname":"hs","online":"0"},"Stream":[{"id":"5","name":"AssemblyTV","country_iso":"FI","online":"0","viewers":null,"public":"1","last_online":null},{"id":"8","name":"Raven","country_iso":"GB","online":"0","viewers":null,"public":"1","last_online":null},{"id":"9","name":"GamersOrigin","country_iso":"FR","online":"0","viewers":null,"public":"1","last_online":null},{"id":"10","name":"Millenium","country_iso":"FR","online":"0","viewers":null,"public":"1","last_online":null}]}};
+  var STREAM_BASE_URL = 'http://tournaments.peliliiga.fi/winter16/streams/view';
 
   function Streams($http) {
     var vm = this;
-
+    vm.$http = $http;
     vm.locale = LOCALE[DJANGO.currentLanguage];
+    vm.baseUrl = STREAM_BASE_URL;
+    vm.streams = [];
+    vm.update();
+  }
 
-    $http.get(this.source).success(function (data) {
-      //var data = JSON; // MOCK
-
-      console.log(data);
+  Streams.prototype.update = function () {
+    var vm = this;
+    return vm.$http.get(this.source).success(function (data) {
       vm.data = data;
+      vm.games = _(data).map(parseGame).valueOf();
     });
+  };
+
+  function parseGame(data) {
+    return {
+      id: data.Game.id,
+      name: data.Game.name,
+      slug: data.Game.shortname,
+      isOnline: data.Game.online === '1',
+      streams: _(data.Stream).map(parseStream).valueOf()
+    }
+  }
+
+  function parseStream(data) {
+    return {
+      id: data.id,
+      name: data.name,
+      country: data.country_iso,
+      isOnline: data.online === '1',
+      viewers: parseInt(data.viewers || 0, 10),
+      isPublic: data.public === '1',
+      lastOnline: data.last_online ? moment.unix(parseInt(data.last_online, 10)) : undefined
+    };
   }
 
   angular.module('asmApp').directive('asmStreams', function () {
