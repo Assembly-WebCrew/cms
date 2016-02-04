@@ -39,7 +39,7 @@ fi
 
 # Create pyvenv if not already created
 if ! [ -d /home/vagrant/env ]; then
-    pyvenv /home/vagrant/env
+    sudo -u vagrant pyvenv /home/vagrant/env
 fi
 
 # Setup scripts
@@ -55,10 +55,28 @@ ln -fs /vagrant/scripts/django.sh /home/vagrant
 ln -fs /vagrant/scripts/import-database.sh /home/vagrant
 ln -fs /vagrant/scripts/update-venv.sh /home/vagrant
 
+# Copy template as local.py
+cp /vagrant/assembly/settings/local.py.template /vagrant/assembly/settings/local.py
+
+# Install frontend dependencies
+cd /vagrant/frontend
+npm install --upgrade
+gulp build
+
 # Setup pyvenv
 /vagrant/scripts/update-venv.sh
+
+# Create super user
+cd /vagrant
+source /home/vagrant/env/bin/activate
+echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@dev.assembly.org', 'admin')" | python manage.py shell
+deactivate
 
 # Setup and start nginx
 ln -fs /vagrant/config/nginx.conf /etc/nginx/nginx.conf
 /etc/init.d/nginx restart
+
+# Chown all the things
+chown -R vagrant:vagrant /vagrant
+chown -R vagrant:vagrant /home/vagrant
 
