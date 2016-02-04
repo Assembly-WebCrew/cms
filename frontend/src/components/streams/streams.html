@@ -10,7 +10,7 @@
       ng-class="{ offline: !stream.isOnline }">
     <a target="_blank" ng-href="{{:: streams.baseUrl }}/{{:: stream.id }}">{{:: stream.name }} ({{:: stream.country }})</a>
     <span class="badge" ng-show="::stream.isOnline" title="{{:: streams.locale.isOnline }}"></span>
-    <span class="viewers" ng-show="::stream.viewers" title="{{:: streams.locale.viewCount }}">
+    <span class="viewers" ng-show="::stream.viewers && stream.isOnline" title="{{:: streams.locale.viewCount }}">
       {{:: stream.viewers }}
       <i class="fa fa-eye"></i>
     </span>

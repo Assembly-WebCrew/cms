@@ -10,8 +10,13 @@ asm-streams {
   .stream {
     padding: 10px;
 
+    a { font-weight: bold; }
+
     &:nth-child(even) { background-color: #f1f1f1; }
-    &.offline { opacity: 0.5; }
+    &.offline {
+      opacity: 0.5;
+      font-weight: normal;
+    }
   }
 
 
