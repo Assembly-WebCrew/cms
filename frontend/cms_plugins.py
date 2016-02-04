@@ -59,3 +59,22 @@ class StreamViewPlugin(CMSPluginBase):
         return context
 
 plugin_pool.register_plugin(StreamViewPlugin)
+
+# Iframe Plugin
+###
+
+from .models import Iframe
+
+class IframePlugin(CMSPluginBase):
+    name = _("Iframe")
+    #module = _("Assembly")
+    model = Iframe
+    render_template = "iframe/iframe.html"
+    cache = False
+    text_enabled = True
+
+    def render(self, context, instance, placeholder):
+        context['instance'] = instance
+        return context
+
+plugin_pool.register_plugin(IframePlugin)

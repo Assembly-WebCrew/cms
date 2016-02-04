@@ -10,3 +10,8 @@ class ScheduleView(CMSPlugin):
 
 class StreamView(CMSPlugin):
     api_url = models.CharField(max_length=255)
+
+class Iframe(CMSPlugin):
+    src = models.CharField(max_length=255)
+    width = models.IntegerField()
+    height = models.IntegerField()
