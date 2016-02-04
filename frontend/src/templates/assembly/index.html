@@ -9,7 +9,7 @@
       <img src="/static/images/{{ current_site.slug }}/logo.png" class="logo"/>
     </div>
     <div class="schedule-location">
-      <h3 style="font-size: 16px;">{% static_placeholder "event_date_location" site %}</h3>
+      <h3 style="font-size: 16px;">{% static_placeholder "event_date_location" site or %}Date and Location{% endstatic_placeholder %}</h3>
       {% placeholder "countdown" %}
     </div>
     <div class="call-for-action">

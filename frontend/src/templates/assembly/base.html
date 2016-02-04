@@ -26,7 +26,7 @@
 
   <!-- some tags -->
   {% comment %} Facebook {% endcomment %}
-  <meta property="og:url" content="{{ current.url }}"/> {% comment %} !!! does not work !!! {% endcomment %}
+  <meta property="og:url" content="{{ current.url }}"/> {% comment %} TODO !!! does not work !!! {% endcomment %}
   <meta property="og:type" content="article"/>
   <meta property="og:site_name" content="{{ current_site.name }}"/>
   <meta property="article:author" content="https://www.facebook.com/assemblyparty"/>
@@ -88,7 +88,7 @@
               {% if request.path != '/' %}
                 <img src="/static/images/{{ current_site.slug }}/logo.png" class="logo" alt="{{ current_site.name }}" title="{{ current_site.name }}" />
               {% endif %}
-              <span class="date-location">{% static_placeholder "event_date_location" site %}</span>
+              <span class="date-location">{% static_placeholder "event_date_location" site or %}Date and Location{% endstatic_placeholder %}</span>
             </div>
           </a>
 
