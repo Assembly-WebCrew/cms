@@ -40,7 +40,6 @@ STATICFILES_DIRS = (
 
 # Add enabled templates here
 CMS_TEMPLATES = (
-    ('assembly/schedule_page.html', 'Schedule page'),
     ('assembly/news_page.html', 'News page'),
     ('assembly/article_page.html', 'Article'),
     ('assembly/index.html', 'Frontpage'),
