@@ -20,7 +20,7 @@
       {% block content %}{% endblock %}
 
       <aside class="side-sponsors main-side-sponsors">
-        {% static_placeholder "main_sponsors" %}
+        {% static_placeholder "main_sponsors" site or %}Main sponsors{% endstatic_placeholder %}
       </aside>
 
       <aside class="side-sponsors cycle-slideshow" data-cycle-timeout="5000" data-cycle-speed="2000" data-cycle-slides="ul">
