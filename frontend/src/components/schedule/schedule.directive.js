@@ -8,7 +8,9 @@
       ongoing: 'ongoing',
       days: 'Days',
       filter: 'Filter',
-      search: 'Search'
+      search: 'Search',
+      atTime: ' at',
+      atDay: 'on'
     },
     fi: {
       ends: 'päättyy',
@@ -16,7 +18,9 @@
       ongoing: 'meneillään',
       days: 'Päivät',
       filter: 'Näytä',
-      search: 'Etsi'
+      search: 'Etsi',
+      atTime: 'na klo',
+      atDay: ''
     }
   };
 
