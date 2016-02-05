@@ -92,6 +92,7 @@
     return {
       id: event.key,
       name: event['name' + this.fieldSuffix],
+      description: event['description' + this.fieldSuffix],
       url: event.url,
       flags: event.flags,
       categories: event.categories,
