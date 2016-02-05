@@ -4,6 +4,7 @@
   var LOCALE = {
     en: {
       ends: 'ends',
+      starts: 'starts',
       original: 'originally scheduled',
       ongoing: 'ongoing',
       days: 'Days',
@@ -14,6 +15,7 @@
     },
     fi: {
       ends: 'päättyy',
+      starts:'alkaa',
       original: 'piti alkaa',
       ongoing: 'meneillään',
       days: 'Päivät',

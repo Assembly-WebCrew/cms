@@ -29,6 +29,8 @@ asm-schedule {
     display: flex;
     justify-content: space-around;
     font-size: 16px;
+
+
   }
 
   .flags {
@@ -100,7 +102,30 @@ asm-schedule {
       background: #eee;
     }
   }
+
+          .mobiletime{
+        display: none;
+      }
+
+  @media screen and (max-width: 680px) {
+        .tmptime{
+          display: none;
+        }
+
+          .mobiletime{
+        display: inline;
+        }
+
+    }
+
+
+
 }
+
+
+
+
+
 @media screen and (max-width: 960px) {
   asm-schedule {
     .flags {
@@ -115,6 +140,7 @@ asm-schedule {
       }
     }
   }
+
 }
 
 @media print {
