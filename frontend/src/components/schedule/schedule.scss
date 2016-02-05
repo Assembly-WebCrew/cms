@@ -43,6 +43,20 @@ asm-schedule {
     text-transform: uppercase;
   }
 
+  .input-container {
+    position: relative;
+
+    input { padding-right: 18px; }
+  }
+
+  .clear {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    line-height: 27px;
+    cursor: pointer;
+  }
+
   .event {
     h4 {
       margin: 0;

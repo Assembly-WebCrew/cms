@@ -121,13 +121,8 @@
       controller: Schedule,
       controllerAs: 'sch',
       bindToController: {
-        'source': '@src',
+        'source': '@src'
       }
-      // link: function ($elem) {
-      //   setTimeout(function () {
-      //     $elem.css('width', 0);
-      //   }, 1000);
-      // }
     };
   });
 
