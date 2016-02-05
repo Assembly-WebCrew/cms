@@ -25,6 +25,7 @@
       ng-repeat="event in sch.eventsByDay[day] | filter:sch.search track by event.id"
       id="{{:: event.id }}"
       ng-class="{
+        past: event.isPast,
         rescheduled: event.isRescheduled,
         selected: event.isSelected,
         major: event.flags.indexOf('major') !== -1,

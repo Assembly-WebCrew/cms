@@ -79,7 +79,7 @@
       });
     });
   };
-  
+
   Schedule.prototype.formatEvent = function (event) {
     var start = moment(event.start_time, moment.ISO_8601).utcOffset(event.start_time),
       orig = moment(event.original_start_time, moment.ISO_8601).utcOffset(event.original_start_time),
@@ -96,7 +96,8 @@
       originalStartTime: orig,
       endTime: end,
       isRescheduled: !start.isSame(orig),
-      isOngoing: moment().isBetween(start, end)
+      isOngoing: moment().isBetween(start, end),
+      isPast: moment().isAfter(end)
     };
   };
 
