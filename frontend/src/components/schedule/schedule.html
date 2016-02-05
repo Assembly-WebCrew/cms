@@ -47,7 +47,12 @@
             &ndash; {{:: sch.locale['original'] }} {{:: event.originalStartTime.format('HH:mm') }}
           </strong>
           <span ng-if=":: !event.startTime.isSame(event.endTime)">
-            &ndash; {{:: sch.locale['ends'] }} {{:: event.endTime.format('HH:mm') }}
+            &ndash;
+            {{:: sch.locale['ends'] }}
+            <span ng-if="::!event.startTime.isSame(event.endTime, 'day')">
+              on {{:: event.endTime.format('dddd') }} at
+            </span>
+            {{:: event.endTime.format('HH:mm') }}
           </span>
         </small>
       </td>

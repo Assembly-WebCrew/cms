@@ -60,7 +60,7 @@ cp /vagrant/assembly/settings/local.py.template /vagrant/assembly/settings/local
 
 # Install frontend dependencies
 cd /vagrant/frontend
-npm install --upgrade
+npm install --upgrade --no-bin-links
 gulp build
 
 # Setup pyvenv
