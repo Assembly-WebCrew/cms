@@ -38,7 +38,8 @@
       var current = $location.hash();
 
       if (current) {
-        _.find(vm.events, 'id', current).isSelected = true;
+        current = _.find(vm.events, 'id', current);
+        if (current) current.isSelected = true;
         setTimeout($anchorScroll); // Scroll to selected event.
       }
 
