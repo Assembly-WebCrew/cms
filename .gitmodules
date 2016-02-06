@@ -1,6 +1,8 @@
 [submodule "schedule"]
 	path = schedule
 	url = https://github.com/Assembly-WebCrew/schedule
+  ignore = dirty
 [submodule "djangocms_siteselector"]
 	path = djangocms_siteselector
 	url = https://github.com/ptMuta/djangocms-siteselector
+  ignore = dirty
