@@ -71,7 +71,7 @@
   </script>
 </head>
 
-<body class="{% page_attribute "slug" %}" ng-app="asmApp">
+<body class="{{ current_site.slug }} {% page_attribute "slug" %}" ng-app="asmApp">
 {% cms_toolbar %}
 
 <div class="container">
