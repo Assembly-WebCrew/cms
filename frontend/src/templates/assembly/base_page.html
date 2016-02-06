@@ -24,8 +24,14 @@
       </aside>
 
       <aside class="side-sponsors cycle-slideshow" data-cycle-timeout="5000" data-cycle-speed="2000" data-cycle-slides="ul">
-
-        {% include "assembly/sub_sponsors.html" %}
+        
+        {% if current_site.slug == "summer15" %}
+            {% include "assembly/sub_sponsors_summer15.html" %}
+        {% elif current_site.slug == "winter16" %}
+            {% include "assembly/sub_sponsors_winter16.html" %}
+        {% elif current_site.slug == "summer16" %}
+            {% include "assembly/sub_sponsors_summer16.html" %}
+        {% endif %}
 
       </aside>
 
