@@ -162,6 +162,18 @@ cite:before {
   background-size: cover;
 }
 
+.summer15 #carousel {
+  background: url("/static/images/summer15/front_bg.png") center no-repeat;
+}
+
+.winter16 #carousel {
+  background: url("/static/images/winter16/front_bg.jpg") center no-repeat;
+}
+
+.summer16 #carousel {
+  background: url("/static/images/summer16/front_bg.png") center no-repeat;
+}
+
 #carousel .fader {
   height: 317px;
   width: 100%;
@@ -329,6 +341,18 @@ cite:before {
   // TODO event spef article bg
   background-image: url('/media/uploads/article_bg');
   background-size: cover;
+}
+
+.summer15 .page .backgroundimage {
+  background: url("/static/images/summer15/article_bg.png") center no-repeat;
+}
+
+.winter16 .page .backgroundimage {
+  background: url("/static/images/winter16/article_bg.jpg") center no-repeat;
+}
+
+.summer16 .page .backgroundimage {
+  background: url("/static/images/summer16/article_bg.png") center no-repeat;
 }
 
 .page .backgroundfade {

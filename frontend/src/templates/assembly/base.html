@@ -88,7 +88,7 @@
               {% if request.path != '/' %}
                 <img src="/static/images/{{ current_site.slug }}/logo.png" class="logo" alt="{{ current_site.name }}" title="{{ current_site.name }}" />
               {% endif %}
-              <span class="date-location">{% static_placeholder "event_date_location" site or %}Date and Location{% endstatic_placeholder %}</span>
+              <span class="date-location">{% static_placeholder "event_date_location" site %}</span>
             </div>
           </a>
 

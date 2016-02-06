@@ -9,7 +9,7 @@
       <img src="/static/images/{{ current_site.slug }}/logo.png" class="logo"/>
     </div>
     <div class="schedule-location">
-      <h3 style="font-size: 16px;">{% static_placeholder "event_date_location" site or %}Date and Location{% endstatic_placeholder %}</h3>
+      <h3 style="font-size: 16px;">{% static_placeholder "event_date_location" site %}</h3>
       {% placeholder "countdown" %}
     </div>
     <div class="call-for-action">
@@ -31,7 +31,7 @@
 {% block base_content %}
 <div class="wrapper">
   <aside class="horizontal-main-sponsors" class="wrapper">
-    {% static_placeholder "main_sponsors"  site or %}Main sponsors{% endstatic_placeholder %}
+    {% static_placeholder "main_sponsors"  site %}
   </aside>
 
   <nav class="quick-links">
@@ -107,7 +107,13 @@
 
   <aside class="horizontal-sponsors cycle-slideshow" data-cycle-timeout="5000" data-cycle-fx="scrollHorz" data-cycle-speed="2000" data-cycle-slides="ul">
 
-    {% include "assembly/sub_sponsors.html" %}
+    {% if current_site.slug == "summer15" %}
+        {% include "assembly/sub_sponsors_summer15.html" %}
+    {% elif current_site.slug == "winter16" %}
+        {% include "assembly/sub_sponsors_winter16.html" %}
+    {% elif current_site.slug == "summer16" %}
+        {% include "assembly/sub_sponsors_summer16.html" %}
+    {% endif %}
 
     <div class="fader left"></div>
     <div class="fader right"></div>
