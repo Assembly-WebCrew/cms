@@ -71,8 +71,16 @@
       </a>
     </article>
 
-      <article class="some-box facebook linked">
+    <article class="some-box facebook linked">
+      {% if current_site.slug == "summer15" %}
+      <a href="https://www.facebook.com/events/371547649696044/">
+      {% elif current_site.slug == "winter16" %}
       <a href="https://www.facebook.com/events/109838839364551/">
+      {% elif current_site.slug == "summer16" %}
+      <a href="https://www.facebook.com/events/560336360787723/">
+      {% else %}
+      <a href="">
+      {% endif %}
         <div class="icon"><i class="fa fa-5x fa-facebook"></i></div>
         <div class="prompt">JOIN</div>
         <div class="username"><p></p>{{ current_site.name }}</div>
