@@ -283,6 +283,8 @@
 .slicknav_brand {
   float: left; }
 
+
+
 .slicknav_menu {
   font-size: 16px;
   line-height: 24px;
@@ -362,11 +364,20 @@
 
 @media screen and (max-width: 780px) {
 	/* #menu is the original menu */
-	.header-navigation, .tools {
+	.header-navigation, .tools, #content_links, .logocontainer{
 		display:none!important;
 	}
 	
 	.slicknav_menu, .slicknav_menu .tools {
 		display:block!important;
+	}
+	.slicknav_menu{
+	    background-image: url('/static/images/winter16/logo.png');
+		background-repeat: no-repeat;
+		background-size: 175px;
+		background-position: center top;
+	}
+	li.ancestor ul{
+		display: block!important;
 	}
 }
