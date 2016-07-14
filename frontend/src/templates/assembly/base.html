@@ -137,18 +137,19 @@
           <div class="navigation">
             {% static_placeholder 'footer_links' site %}
           </div>
-          <p class="copyright">
-            <a href="https://twitter.com/assemblyparty"><i class="fa fa-2x fa-fw fa-twitter"></i></a>
-            <a href="https://www.facebook.com/assemblyparty"><i class="fa fa-2x fa-fw fa-facebook"></i></a>
-            <a href="http://www.twitch.tv/assemblytv"><i class="fa fa-2x fa-fw fa-twitch"></i></a>
-            <a href="https://www.youtube.com/user/AssemblyTV"><i class="fa fa-2x fa-fw fa-youtube"></i></a>
-            <a href="https://www.instagram.com/assemblyparty/"><i class="fa fa-2x fa-fw fa-instagram"></i></a>
-            <br />
-            &copy; 1992 &ndash; 2016 Assembly Organizing |
+          <div class="copyright">
+			<div class="some-logos">
+				<a href="https://twitter.com/assemblyparty"><i class="fa fa-2x fa-fw fa-twitter"></i></a>
+				<a href="https://www.facebook.com/assemblyparty"><i class="fa fa-2x fa-fw fa-facebook"></i></a>
+				<a href="http://www.twitch.tv/assemblytv"><i class="fa fa-2x fa-fw fa-twitch"></i></a>
+				<a href="https://www.youtube.com/user/AssemblyTV"><i class="fa fa-2x fa-fw fa-youtube"></i></a>
+				<a href="https://www.instagram.com/assemblyparty/"><i class="fa fa-2x fa-fw fa-instagram"></i></a>
+		    </div>
+            <span class="copyright-inner">&copy; 1992 &ndash; 2016 Assembly Organizing</span> |
             <span class="site-switcher">
               Select event {% available_sites %}
             </span>
-          </p>
+          </div>
         </div>
       </div>
     </footer>

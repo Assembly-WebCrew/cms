@@ -204,42 +204,6 @@
     padding-top: 18px;
   }
 
-  .language {
-    float: left;
-    padding: 3px 10px;
-    display: block;
-    box-sizing: border-box;
-    vertical-align: middle;
-    white-space: nowrap;
-
-    .lang {
-      display: inline-block;
-      margin-right: 8px;
-    }
-
-    .active {
-      border-radius: 50%;
-      box-shadow: 0 0 12px #adf;
-    }
-
-    a {
-      color: transparent;
-      display: inline-block;
-      width: 16px;
-      height: 16px;
-      background-position: center no-repeat;
-      background-size: 100%;
-    }
-
-    [href^="?lang=fi"] {
-      background-image: url("../../images/finnish.png");
-    }
-
-    [href^="?lang=en"] {
-      background-image: url("../../images/english.png");
-    }
-  }
-
   .search { width: 145px; }
 
   @media screen and (max-width: 1400px) {
@@ -328,3 +292,39 @@
     }
   }
 }
+  .language {
+    float: left;
+    padding: 3px 10px;
+    display: block;
+    box-sizing: border-box;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    .lang {
+      display: inline-block;
+      margin-right: 8px;
+    }
+
+    .active {
+      border-radius: 50%;
+      box-shadow: 0 0 12px #adf;
+	  height: 16px;
+    }
+
+    a {
+      color: transparent;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background-position: center no-repeat;
+      background-size: 100%;
+    }
+
+    [href^="?lang=fi"] {
+      background-image: url("../../images/finnish.png");
+    }
+
+    [href^="?lang=en"] {
+      background-image: url("../../images/english.png");
+    }
+  }

@@ -71,7 +71,7 @@ footer {
   .site-switcher {
     transition: opacity .5s;
     opacity: .5;
-
+    margin-left:10px;
     &:focus, &:hover {
       opacity: 1;
     }
@@ -94,6 +94,10 @@ footer {
       height: 22px;
     }
   }
+  .copyright-inner{
+    margin-right: 10px;
+	margin-top: 10px;
+  }
 
   @media screen and (max-width: 768px) {
     .organization .navigation a {
@@ -101,4 +105,7 @@ footer {
       margin: 15px 20px;
     }
   }
+}
+.some-logos{
+	padding-bottom: 15px;
 }
