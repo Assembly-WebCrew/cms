@@ -290,6 +290,7 @@
   line-height: 24px;
   box-sizing: border-box;
   padding: 5px; 
+  background-color: #141d40;
   padding-top: 15px; }
   .slicknav_menu * {
     box-sizing: border-box; }
@@ -410,4 +411,7 @@ display: none!important;}
     height: 10%;
     border-radius: 1px;
     margin-bottom: 12%;}
-	 }
+	.page .backgroundimage{
+		top: -60px;
+	}
+}
