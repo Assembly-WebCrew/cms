@@ -599,3 +599,9 @@ cite:before {
 //     font-size: 12px;
 //   }
 //}
+@media screen and (max-width: 780px) {
+  .article {
+    margin: 0 2%!important;
+    width: 96% !important;
+    }
+  }

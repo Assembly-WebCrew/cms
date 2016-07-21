@@ -31,7 +31,7 @@
 {% block base_content %}
 <div class="wrapper">
   <aside class="horizontal-main-sponsors" class="wrapper">
-    {% static_placeholder "main_sponsors"  site %}
+    {% static_placeholder "main_sponsors" site %}
   </aside>
 
   <nav class="quick-links">
@@ -71,8 +71,16 @@
       </a>
     </article>
 
-      <article class="some-box facebook linked">
+    <article class="some-box facebook linked">
+      {% if current_site.slug == "summer15" %}
+      <a href="https://www.facebook.com/events/371547649696044/">
+      {% elif current_site.slug == "winter16" %}
       <a href="https://www.facebook.com/events/109838839364551/">
+      {% elif current_site.slug == "summer16" %}
+      <a href="https://www.facebook.com/events/560336360787723/">
+      {% else %}
+      <a href="">
+      {% endif %}
         <div class="icon"><i class="fa fa-5x fa-facebook"></i></div>
         <div class="prompt">JOIN</div>
         <div class="username"><p></p>{{ current_site.name }}</div>
@@ -107,12 +115,14 @@
 
   <aside class="horizontal-sponsors cycle-slideshow" data-cycle-timeout="5000" data-cycle-fx="scrollHorz" data-cycle-speed="2000" data-cycle-slides="ul">
 
-    {% if current_site.slug == "summer15" %}
-        {% include "assembly/sub_sponsors_summer15.html" %}
+   {% if current_site.slug == "summer15" %}
+      {% include "assembly/sub_sponsors_summer15.html" %}
     {% elif current_site.slug == "winter16" %}
-        {% include "assembly/sub_sponsors_winter16.html" %}
+      {% include "assembly/sub_sponsors_winter16.html" %}
     {% elif current_site.slug == "summer16" %}
-        {% include "assembly/sub_sponsors_summer16.html" %}
+      {% include "assembly/sub_sponsors_summer16.html" %}
+    {% elif current_site.slug == "winter17" %}
+      {% include "assembly/sub_sponsors_winter17.html" %}
     {% endif %}
 
     <div class="fader left"></div>
