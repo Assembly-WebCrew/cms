@@ -338,21 +338,22 @@ cite:before {
   left: 0;
   height: 100%;
   width: 100%;
-  // TODO event spef article bg
   background-image: url('/media/uploads/article_bg');
   background-size: cover;
 }
 
+/* Event specific backgrounds */
+
 .summer15 .page .backgroundimage {
-  background: url("/static/images/summer15/article_bg.png") center no-repeat;
+  background-image: url("/static/images/summer15/article_bg.png");
 }
 
 .winter16 .page .backgroundimage {
-  background: url("/static/images/winter16/article_bg.jpg") center no-repeat;
+  background-image: url("/static/images/winter16/article_bg.jpg");
 }
 
 .summer16 .page .backgroundimage {
-  background: url("/static/images/summer16/article_bg.png") center no-repeat;
+  background-image: url("/static/images/summer16/article_bg.png");
 }
 
 .page .backgroundfade {
