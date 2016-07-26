@@ -11,7 +11,8 @@
       filter: 'Filter',
       search: 'Search',
       atTime: ' at',
-      atDay: 'on'
+      atDay: 'on',
+      all: 'all'
     },
     fi: {
       ends: 'päättyy',
@@ -22,7 +23,8 @@
       filter: 'Näytä',
       search: 'Etsi',
       atTime: 'na klo',
-      atDay: ''
+      atDay: '',
+      all: 'kaikki'
     }
   };
 
