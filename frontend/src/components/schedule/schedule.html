@@ -1,13 +1,13 @@
 <table class="schedule-table">
   <thead>
     <tr ng-if="sch.days">
-      <th ng-bind=":: sch.locale.days"></th>
+      <th class="no-mobile" ng-bind=":: sch.locale.days"></th>
       <td class="days">
         <a ng-repeat="day in sch.days" ng-href="#{{:: day | lowercase }}" ng-bind=":: day"></a>
       </td>
     </tr>
     <tr ng-if="sch.flags">
-      <th ng-bind=":: sch.locale.filter"></th>
+      <th class="no-mobile" ng-bind=":: sch.locale.filter"></th>
       <td class="flags">
         <span>
           <a ng-repeat="flag in sch.flags" ng-click="sch.search = flag">{{:: flag }}</a>
@@ -22,7 +22,7 @@
   </thead>
   <tbody>
     <tr ng-repeat-start="day in sch.days" id="{{:: day | lowercase }}">
-      <th></th>
+      <th class="no-mobile"></th>
       <th class="subtitle" ng-bind="::day"></th>
     </tr>
     <tr class="event"
