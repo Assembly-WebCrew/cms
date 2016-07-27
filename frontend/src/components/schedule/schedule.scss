@@ -103,7 +103,7 @@ asm-schedule {
     }
   }
 
-          .mobiletime{
+          .mobiletime, mobileview {
         display: none;
       }
 
@@ -112,9 +112,13 @@ asm-schedule {
           display: none;
         }
 
-          .mobiletime{
+          .mobiletime, mobileview{
         display: inline;
         }
+    
+    th, td {
+      display: inline;
+    }
 
     }
 
