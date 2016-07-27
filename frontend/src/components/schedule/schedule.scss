@@ -111,6 +111,8 @@ asm-schedule {
     }
     .event h4 {
       font-size: initial;
+      word-break: break-word;
+      word-wrap: break-word;
     }
   }
 }
