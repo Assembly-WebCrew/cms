@@ -1,30 +1,13 @@
-
-<p class="days">
-  <a ng-repeat="day in sch.days" ng-href="#{{:: day | lowercase }}" ng-bind=":: day"></a>
-</p>
-
-<p class="flags">
-  <span>
-    <a ng-repeat="flag in sch.flags" ng-click="sch.search = flag">{{:: flag }}</a>
-    <a ng-click="sch.search = null">{{:: sch.locale.all }}</a>
-  </span>
-  <span class="input-container">
-    <input type="text" ng-model="sch.search" ng-attr-placeholder="{{:: sch.locale.search }}">
-    <i class="fa fa-times clear" ng-click="sch.search = null"></i>
-  </span>
-</p>
-
-
 <table class="schedule-table">
   <thead>
     <tr ng-if="sch.days">
-      <th ng-bind=":: sch.locale.days"></th>
+      <th class="no-mobile" ng-bind=":: sch.locale.days"></th>
       <td class="days">
         <a ng-repeat="day in sch.days" ng-href="#{{:: day | lowercase }}" ng-bind=":: day"></a>
       </td>
     </tr>
     <tr ng-if="sch.flags">
-      <th ng-bind=":: sch.locale.filter"></th>
+      <th class="no-mobile" ng-bind=":: sch.locale.filter"></th>
       <td class="flags">
         <span>
           <a ng-repeat="flag in sch.flags" ng-click="sch.search = flag">{{:: flag }}</a>
@@ -39,7 +22,7 @@
   </thead>
   <tbody>
     <tr ng-repeat-start="day in sch.days" id="{{:: day | lowercase }}">
-      <th></th>
+      <th class="no-mobile"></th>
       <th class="subtitle" ng-bind="::day"></th>
     </tr>
     <tr class="event"
@@ -80,7 +63,7 @@
             {{:: event.endTime.format('HH:mm') }}
           </span>
         </small>
-        <p class="description" ng-bind=":: event.description"></p>
+        <p class="description no-mobile" ng-bind=":: event.description"></p>
       </td>
     </tr>
 
