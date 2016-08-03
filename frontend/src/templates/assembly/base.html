@@ -69,6 +69,14 @@
       currentLanguage: '{{ LANGUAGE_CODE }}'
     };
   </script>
+
+  <!-- ninchat begins -->
+  <script type="text/javascript">
+      var lang = '{{ LANGUAGE_CODE }}';
+  </script>
+  <script src="https://ninchat.com/customer/assembly/init.js" charset="UTF-8" type="text/javascript"></script>
+  <!-- end of ninchat -->
+
 </head>
 
 <body class="{{ current_site.slug }} {% page_attribute "slug" %}" ng-app="asmApp">
