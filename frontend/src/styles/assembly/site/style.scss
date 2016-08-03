@@ -158,20 +158,22 @@ cite:before {
   height: auto;
   min-height: 700px;
   // TODO event spef front bg
-  background: url("/media/uploads/front_bg") center no-repeat;
+  background-image: url("/media/uploads/front_bg");
+  backgound-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .summer15 #carousel {
-  background: url("/static/images/summer15/front_bg.png") center no-repeat;
+  background-image: url("/static/images/summer15/front_bg.png");
 }
 
 .winter16 #carousel {
-  background: url("/static/images/winter16/front_bg.jpg") center no-repeat;
+  background-image: url("/static/images/winter16/front_bg.jpg");
 }
 
 .summer16 #carousel {
-  background: url("/static/images/summer16/front_bg.png") center no-repeat;
+  background-image: url("/static/images/summer16/front_bg.png");
 }
 
 #carousel .fader {
