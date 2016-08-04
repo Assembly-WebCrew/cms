@@ -26,7 +26,7 @@
       <th class="subtitle" ng-bind="::day"></th>
     </tr>
     <tr class="event"
-      ng-repeat="event in sch.eventsByDay[day] | filter:sch.search track by event.id"
+      ng-repeat="event in sch.eventsByDay[day] | filter:sch.search as events track by event.id"
       id="{{:: event.id }}"
       ng-class="{
         past: event.isPast,
@@ -36,8 +36,7 @@
         ongoing: event.isOngoing
       }"
       ng-repeat-end>
-
-      <th class="tmptime" ng-bind=":: event.startTime.isSame(sch.eventsByDay[day][$index - 1].startTime) ? '' : event.startTime.format('HH:mm')"></th>
+      <th class="tmptime" ng-bind="event.startTime.isSame(events[$index - 1].startTime) ? '' : event.startTime.format('HH:mm')"></th>
       <td>
         <h4>
           <span class="mobiletime" ng-if=":: !event.isPast">
