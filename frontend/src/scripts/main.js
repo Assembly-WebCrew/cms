@@ -14,7 +14,7 @@ $(function () {
   $('.page .backgroundimage').css('height', height+'px');
   $('.page .backgroundfade').css('top', (height-300)+'px');
 
-  $('.header-navigation ul.navigation').slicknav({brand:'<a href="http://www.assembly.org"><img src="/static/images/summer16/logo.png"/></a>'});
+  $('.header-navigation ul.mobile_navigation').slicknav({"allowParentLinks": true, brand:'<a href="http://www.assembly.org"><img src="/static/images/summer16/logo.png"/></a>'});
   $('.tools').clone().prependTo('.slicknav_menu')
 
   // var bodyEl = document.body,
