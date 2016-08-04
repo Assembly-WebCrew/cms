@@ -14,7 +14,7 @@
     }
   };
 
-  var STREAM_BASE_URL = 'http://tournaments.peliliiga.fi/winter16/streams/view';
+  var STREAM_BASE_URL = 'http://tournaments.peliliiga.fi/summer16/streams/view';
 
   function Streams($http) {
     var vm = this;
