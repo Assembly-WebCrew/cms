@@ -10,7 +10,8 @@
       <th class="no-mobile" ng-bind=":: sch.locale.filter"></th>
       <td class="flags">
         <span>
-          <a ng-repeat="flag in sch.flags" ng-click="sch.search = flag">{{:: flag }}</a>
+          <a ng-repeat="flag in sch.flags" ng-click="sch.toggleFlag(flag)">{{:: flag }}</a>
+          <a ng-click="sch.togglePast()">{{:: sch.locale.past }}</a>
           <a ng-click="sch.search = null">{{:: sch.locale.all }}</a>
         </span>
         <span class="input-container">
@@ -26,7 +27,7 @@
       <th class="subtitle" ng-bind="::day"></th>
     </tr>
     <tr class="event"
-      ng-repeat="event in sch.eventsByDay[day] | filter:sch.search as events track by event.id"
+      ng-repeat="event in sch.eventsByDay[day] | filter:sch.search | filter:sch.filterByFlags as events track by event.id"
       id="{{:: event.id }}"
       ng-class="{
         past: event.isPast,
