@@ -9,11 +9,11 @@
       ongoing: 'ongoing',
       days: 'Days',
       filter: 'Filter',
-			past: 'Past',
+      past: 'show past',
       search: 'Search',
       atTime: ' at',
       atDay: 'on',
-      all: 'all'
+      all: 'clear filters'
     },
     fi: {
       ends: 'päättyy',
@@ -22,11 +22,11 @@
       ongoing: 'meneillään',
       days: 'Päivät',
       filter: 'Näytä',
-			past: 'Menneet',
+      past: 'näytä menneet',
       search: 'Etsi',
       atTime: 'na klo',
       atDay: '',
-      all: 'kaikki'
+      all: 'poista rajaukset'
     }
   };
 
@@ -36,10 +36,25 @@
     vm.$location = $location;
     vm.locale = LOCALE[DJANGO.currentLanguage];
     vm.fieldSuffix = DJANGO.currentLanguage === 'en' ? '' : '_fi';
-		vm.filters = {
-			flags: [],
-			showPast: false
-		};
+    vm.filters = {
+      flags: [],
+      showPast: false
+    };
+    vm.filterByFlags = function (event) {
+      if (event.isPast && !vm.filters.showPast) {
+        return false;
+      }
+      if (vm.filters.flags.length > 0) {
+        var match;
+        for (var i = 0; i < event.flags.length; i++) {
+          if (vm.filters.flags.indexOf(event.flags[i]) > -1) {
+            match = true;
+          }
+        }
+        return match;
+      }
+      return true;
+    };
 
     $http.get(this.source).success(function (data) {
       vm.locations = _.mapValues(data.locations, vm.formatLocation.bind(vm));
@@ -124,40 +139,33 @@
     };
   };
 
-	Schedule.prototype.toggleFlag = function (flag) {
-  	var vm = this;
-		var flagIndex = -1;
+  Schedule.prototype.toggleFlag = function (flag) {
+    var vm = this;
+    var flagIndex = -1;
 
-		if ((flagIndex = vm.filters.flags.indexOf(flag)) === -1) {
-			vm.filters.flags.push(flag);
-		} else {
-			vm.filters.flags.splice(flagIndex, 1);
-		}
-	};
+    if ((flagIndex = vm.filters.flags.indexOf(flag)) === -1) {
+      vm.filters.flags.push(flag);
+    } else {
+      vm.filters.flags.splice(flagIndex, 1);
+    }
+  };
 
-	Schedule.prototype.togglePast = function () {
-		var vm = this;
-
-		vm.filters.showPast = !vm.filters.showPast;
-	};
-
-  Schedule.prototype.filterByFlags = function (events) {
+  Schedule.prototype.togglePast = function () {
     var vm = this;
 
-    events.forEach(function (event) {
-      if (event.isPast && !vm.filters.showPast) {
-       return false;
-      }
-      if (vm.filters.flags.length > 0) {
-      	var match;
-      	for (var i = 0; i < event.flags.length; i++) {
-      		if (vm.filters.flags.indexOf(event.flags[i]) > -1) {
-      			match = true;
-					}
-				}
-				return match;
-			}
-    });
+    vm.filters.showPast = !vm.filters.showPast;
+  };
+
+  Schedule.prototype.dayIsInPast = function (day) {
+    var vm = this;
+    return vm.eventsByDay[day][vm.eventsByDay[day].length - 1].isPast;
+  };
+
+  Schedule.prototype.clearFilters = function () {
+    var vm = this;
+    vm.search = null
+    vm.filters.showPast = false;
+    vm.filters.flags = [];
   };
 
   angular.module('asmApp').directive('asmSchedule', function () {
