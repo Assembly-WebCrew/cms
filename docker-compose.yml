@@ -2,6 +2,9 @@ version: '2'
 services:
   db:
     image: postgres
+    environment:
+      POSTGRES_USER: "asmweb"
+      POSTGRES_PASSWORD: "asmweb"
   web:
     build: .
     command: bash -c "./tools/update-environment.sh && python manage.py runserver 0.0.0.0:8000"

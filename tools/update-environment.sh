@@ -8,12 +8,17 @@ function write_done() {
   printf "Done\n"
 }
 
+function exit_on_error() {
+  if [[ $? != 0 ]]; then
+    exit $?;
+  fi
+}
+
 USE_VENV=false
 PRODUCTION=false
 
 for var in "$@"
 do
-  echo looping $var
   if [ "$var" == "--use-venv" ]; then
     USE_VENV=true
   elif [ "$var" == "--production" ]; then
@@ -49,6 +54,7 @@ write_done
 write_start database migrations
 echo "\nRunning manage.py migrate\n" >> update.log
 python manage.py migrate >> update.log 2>&1
+exit_on_error
 write_done
 
 if [ "$USE_VENV" == true ]; then
