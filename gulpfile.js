@@ -5,9 +5,9 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 
 var paths = gulp.paths = {
-  src: 'src',
-  statics: '../statics',
-  templates: '../templates',
+  src: 'frontend/src',
+  statics: './statics',
+  templates: './templates'
 };
 
 gulp.watchlist = [
