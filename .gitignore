@@ -12,6 +12,7 @@
 .sass-cache/
 /static/
 /templates/
+/src/
 assembly/settings/local.py
 celerybeat-schedule
 env-experimental/
