@@ -110,17 +110,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
-MIGRATION_MODULES = {
-    # Add also the following modules if you're using these plugins:
-    'djangocms_file': 'djangocms_file.migrations_django',
-    'djangocms_flash': 'djangocms_flash.migrations_django',
-    'djangocms_googlemap': 'djangocms_googlemap.migrations_django',
-    'djangocms_inherit': 'djangocms_inherit.migrations_django',
-    'djangocms_picture': 'djangocms_picture.migrations_django',
-    'djangocms_teaser': 'djangocms_teaser.migrations_django',
-    'djangocms_video': 'djangocms_video.migrations_django',
-}
-
 ROOT_URLCONF = 'assembly.urls'
 
 WSGI_APPLICATION = 'assembly.wsgi.application'
