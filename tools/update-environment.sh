@@ -46,7 +46,7 @@ fi
 write_start "python module update"
 echo "\nRunning pip install\n" >> update.log
 if [ "$PRODUCTION" == true ]; then
-  REQUIREMENTS_FILE=requirements.locked.txt
+  REQUIREMENTS_FILE=requirements.lock.txt
 else
   REQUIREMENTS_FILE=requirements.txt
 fi
