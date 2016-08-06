@@ -19,9 +19,9 @@ function print_help() {
 	exit
 }
 
-if [ "$1" -eq "-h" ]; then
+if [ "$1" == "-h" ]; then
   print_help
-elif [ "$1" -eq "--help" ]; then
+elif [ "$1" == "--help" ]; then
   print_help
 fi
 
