@@ -23,10 +23,10 @@ var compileStylesheet = function (source) {
     '!' + paths.src + '/styles/assembly/main.scss',
     '!' + paths.src + '/styles/assembly/vendor.scss',
     '!' + paths.src + '/styles/assembly/vendor/**/*.*'
-  ], { read: false });
+  ], {read: false});
 
   var injectOptions = {
-    transform: function(filePath) {
+    transform: function (filePath) {
       filePath = filePath
         .replace(paths.src + '/styles/assembly/', '')
         .replace(paths.src + '/', '');

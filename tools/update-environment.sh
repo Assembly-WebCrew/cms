@@ -14,6 +14,17 @@ function exit_on_error() {
   fi
 }
 
+function print_help() {
+	echo "usage: update-environment.sh [--use-venv] [--production]"
+	exit
+}
+
+if [ "$1" -eq "-h" ]; then
+  print_help
+elif [ "$1" -eq "--help" ]; then
+  print_help
+fi
+
 USE_VENV=false
 PRODUCTION=false
 
@@ -27,7 +38,7 @@ do
 done
 
 if [ "$USE_VENV" == true ]; then
-  echo Activating pythong virtual environment
+  echo "Activating pythong virtual environment"
   source env/bin/activate
 fi
 
@@ -39,11 +50,11 @@ if [ "$PRODUCTION" == true ]; then
 else
   REQUIREMENTS_FILE=requirements.txt
 fi
-pip install -r $REQUIREMENTS_FILE --upgrade > update.log 2>&1
+pip install -r ${REQUIREMENTS_FILE} --upgrade > update.log 2>&1
 write_done
 
 # Update frontend dependencies
-write_start frontend asset update
+write_start "frontend asset update"
 echo "\nnpm bower install\n" >> update.log
 npm install >> update.log 2>&1
 echo "\nRunning bower install\n" >> update.log
@@ -51,7 +62,7 @@ bower install --allow-sudo >> update.log 2>&1 # TODO: Deprecate Bower entirely
 write_done
 
 # Apply migrations to database
-write_start database migrations
+write_start "database migrations"
 echo "\nRunning manage.py migrate\n" >> update.log
 python manage.py migrate >> update.log 2>&1
 exit_on_error
