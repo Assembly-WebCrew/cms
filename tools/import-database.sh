@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
+if [ -z "$1" ]; then
+	echo "usage: import-database.sh </path/to/sql/dump.sql.gz> [-h hostname] [-u username] [-p password]"
+	exit
+fi
 
 for ((i=1 ; i <= $# ; i++))
-#for var in "$@"
 do
   var=${@:i:1}
   if [ "$var" == "-h" ]; then
@@ -13,11 +16,7 @@ do
   fi
 done
 
-if [ $1 ]; then
-  psql $HOSTNAME $USERNAME -d postgres -c "SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'asmweb' AND pid <> pg_backend_pid();"
-  psql $HOSTNAME $USERNAME -d postgres -c "DROP DATABASE asmweb;"
-  psql $HOSTNAME $USERNAME -d postgres -c "CREATE DATABASE asmweb OWNER asmweb;"
-  gzcat $1 | psql $HOSTNAME $USERNAME -d asmweb
-else
-  echo "Missing required argument: /path/to/sql/dump"
-fi
+psql $HOSTNAME $USERNAME -d postgres -c "SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'asmweb' AND pid <> pg_backend_pid();"
+psql $HOSTNAME $USERNAME -d postgres -c "DROP DATABASE asmweb;"
+psql $HOSTNAME $USERNAME -d postgres -c "CREATE DATABASE asmweb OWNER asmweb;"
+gzcat $1 | psql $HOSTNAME $USERNAME -d asmweb

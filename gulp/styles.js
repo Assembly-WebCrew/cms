@@ -11,8 +11,8 @@ var args = require('yargs').argv;
 var compileStylesheet = function (source) {
   var sassOptions = {
     includePaths: [
-      './src/styles/assembly',
-      './src'
+      './frontend/src/styles/assembly',
+      './frontend/src'
     ]
   };
 
