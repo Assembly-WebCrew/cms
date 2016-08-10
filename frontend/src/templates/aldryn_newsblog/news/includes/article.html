@@ -9,11 +9,13 @@
 
     {% block newsblog_visual %}
         {% if article.featured_image_id %}
-            {% if not detail_view %}<a href="/{{ current_site.slug }}{% namespace_url 'article-detail' article.slug namespace=namespace default='' %}">{% endif %}
-        {# "todo leikattu kuva 16:9 kuvasuhteessa, ei 4:3." #}
-        <div class="news-cover-image"
-             style="background-image: url({% thumbnail article.featured_image.image 800x450 crop subject_location=article.featured_image.subject_location %});"></div>
-        {% if not detail_view %}</a>{% endif %}
+            {% if not detail_view %}
+              <a href="/{{ current_site.slug }}{% namespace_url 'article-detail' article.slug namespace=namespace default='' %}">
+                <div class="news-cover-image" style="background-image: url({% thumbnail article.featured_image.image 450x0 crop="smart" subject_location=article.featured_image.subject_location %});"></div>
+              </a>
+            {% else %}
+              <div class="news-cover-image" style="background-image: url({% thumbnail article.featured_image.image 800x180 crop subject_location=article.featured_image.subject_location %});"></div>
+            {% endif %}
         {% endif %}
     {% endblock newsblog_visual %}
 
