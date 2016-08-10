@@ -1,5 +1,5 @@
 <!doctype html>
-{% load static cms_tags sekizai_tags menu_tags i18n site_selector %}
+{% load static cms_tags sekizai_tags menu_tags i18n site_selector thumbnail %}
 {% get_current_language as LANGUAGE_CODE %}
 {% page_attribute "meta_description" as meta_description %}
 <html lang="{{ LANGUAGE_CODE }}">
@@ -34,7 +34,7 @@
   <meta property="fb:app_id" content="835278116581606"/>
   <meta property="og:rich_attachment" content="true"/>
   {% comment %} Twitter {% endcomment %}
-  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:site" content="@assemblyparty"/>
   {% comment %} Images {% endcomment %}
   {% if article.featured_image.image %} {% comment %} !!! does not work !!! {% endcomment %}
