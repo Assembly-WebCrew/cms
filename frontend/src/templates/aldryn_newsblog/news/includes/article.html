@@ -9,11 +9,13 @@
 
     {% block newsblog_visual %}
         {% if article.featured_image_id %}
-            {% if not detail_view %}<a href="/{{ current_site.slug }}{% namespace_url 'article-detail' article.slug namespace=namespace default='' %}">{% endif %}
-        {# "todo leikattu kuva 16:9 kuvasuhteessa, ei 4:3." #}
-        <div class="news-cover-image"
-             style="background-image: url({% thumbnail article.featured_image.image 800x450 crop subject_location=article.featured_image.subject_location %});"></div>
-        {% if not detail_view %}</a>{% endif %}
+            {% if not detail_view %}
+              <a href="/{{ current_site.slug }}{% namespace_url 'article-detail' article.slug namespace=namespace default='' %}">
+                <div class="news-cover-image" style="background-image: url({% thumbnail article.featured_image.image 450x0 crop="smart" subject_location=article.featured_image.subject_location %});"></div>
+              </a>
+            {% else %}
+              <div class="news-cover-image" style="background-image: url({% thumbnail article.featured_image.image 800x180 crop subject_location=article.featured_image.subject_location %});"></div>
+            {% endif %}
         {% endif %}
     {% endblock newsblog_visual %}
 
@@ -30,7 +32,7 @@
 
         {% if not detail_view %}
             <div class="news-body">
-                {% render_model article "lead_in" "" "" "striptags|truncatewords:'20'" %}
+                {% render_model article "lead_in" "" "" "striptags|truncatechars:'150'" %}
             </div>
         {% else %}
             <div class="news-body">
@@ -72,7 +74,7 @@
             </div>
         {% else %}
             <div class="news-summary-meta">
-                <p class="news-meta-time">{{ article.publishing_date | date:"d.m.Y H.i" }}</p>
+                <p class="news-meta-time">{{ article.publishing_date | date:"d.m.Y" }}<br />{{ article.publishing_date | date:"H.i" }}</p>
                 <a href="/{{ current_site.slug }}{% namespace_url 'article-detail' article.slug namespace=namespace default='' %}">
                     {% trans "Read more" %}
                 </a>
