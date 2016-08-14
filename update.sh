@@ -19,10 +19,10 @@ git pull && git submodule init && git submodule update && git submodule status
 echo "Cleaning statics"
 rm -rf ./static/
 echo "Cleaning frontend"
-cd frontend && gulp clean
+gulp clean
 echo "Building frontend"
 npm install && bower install && gulp build
-cd .. && source env/bin/activate
+source env/bin/activate
 echo "Updating Python modules"
 pip install -r requirements.txt
 echo "Collecting statics"
