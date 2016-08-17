@@ -23,7 +23,10 @@ function exit_on_error() {
 function import_dump() {
   DUMB_FILE="$BASEDIR/../$(ls -t *.sql.gz | head -1)"
   if [ -f "$DUMB_FILE" ]; then
+    write_start "database dump import"
+    echo "Importing database dump..." >> update.log
     bash ${BASEDIR}/import-database.sh ${DUMB_FILE} ${IMPORT_DATABASE_ARGS} >> update.log 2>&1
+    write_done
   fi
 }
 
@@ -45,7 +48,6 @@ case $key in
     IMPORT_DATABASE=true
     ;;
     -h|--database-host)
-    echo $2
     IMPORT_DATABASE_ARGS="-h $2"
     shift # past argument value
     ;;
@@ -69,7 +71,7 @@ fi
 
 # Update python module requirements
 write_start "python module update"
-echo "\nRunning pip install\n" >> update.log
+echo "Running pip install..." >> update.log
 if [ "$PRODUCTION" == true ]; then
   REQUIREMENTS_FILE=requirements.lock.txt
 else
@@ -80,15 +82,15 @@ write_done
 
 # Update frontend dependencies
 write_start "frontend asset update"
-echo "\nnpm bower install\n" >> update.log
+echo "npm bower install..." >> update.log
 npm install >> update.log 2>&1
-echo "\nRunning bower install\n" >> update.log
+echo "Running bower install..." >> update.log
 bower install --allow-sudo >> update.log 2>&1 # TODO: Deprecate Bower entirely
 write_done
 
 # Apply migrations to database
 write_start "database migrations"
-echo "\nRunning manage.py migrate\n" >> update.log
+echo "Running manage.py migrate..." >> update.log
 python manage.py migrate >> update.log 2>&1
 exit_on_error
 write_done

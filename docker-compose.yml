@@ -9,8 +9,7 @@ services:
       - "5432:5432"
   web:
     build: .
-    entrypoint: /code/tools/docker/startup.sh db
-    command: "./tools/update-environment.sh --import-database --database-host db && python manage.py runserver 0.0.0.0:8000"
+    entrypoint: /code/tools/docker/startup.sh
     volumes:
       - .:/code
     ports:
