@@ -1,7 +1,7 @@
 FROM node
 MAINTAINER Assembly WebCrew <web@assembly.org>
 RUN apt-get update
-RUN apt-get install -y curl python3 python3-pip
+RUN apt-get install -y curl python3 python3-pip postgresql-client gzip
 RUN ln -sf /usr/bin/python3 /usr/bin/python
 RUN ln -sf /usr/bin/pip3 /usr/bin/pip
 ENV PYTHONUNBUFFERED 1

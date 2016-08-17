@@ -5,9 +5,12 @@ services:
     environment:
       POSTGRES_USER: "asmweb"
       POSTGRES_PASSWORD: "asmweb"
+    ports:
+      - "5432:5432"
   web:
     build: .
-    command: bash -c "./tools/update-environment.sh && python manage.py runserver 0.0.0.0:8000"
+    entrypoint: /code/tools/docker/startup.sh db
+    command: "./tools/update-environment.sh --import-database --database-host db && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
     ports:

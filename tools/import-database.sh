@@ -4,19 +4,28 @@ if [ -z "$1" ]; then
 	exit
 fi
 
+DATABASE="asmweb"
+USERNAME="asmweb"
+PASSWORD="asmweb"
+PGARGS=""
+
 for ((i=1 ; i <= $# ; i++))
 do
   var=${@:i:1}
   if [ "$var" == "-h" ]; then
-    PGHOST="-h ${@:i+1:1}"
+    PGARGS="$PGARGS --host ${@:i+1:1}"
+  elif [ "$var" == "-d" ]; then
+    DATABASE=${@:i+1:1}
   elif [ "$var" == "-u" ]; then
-    PGUSER="--username ${@:i+1:1}"
+    USERNAME=${@:i+1:1}
   elif [ "$var" == "-p" ]; then
-    export PGPASSWORD=${@:i+1:1}
+    PASSWORD=${@:i+1:1}
   fi
 done
 
-psql $PGHOST $PGUSER -d postgres -c "SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'asmweb' AND pid <> pg_backend_pid();"
-psql $PGHOST $PGUSER -d postgres -c "DROP DATABASE asmweb;"
-psql $PGHOST $PGUSER -d postgres -c "CREATE DATABASE asmweb OWNER asmweb;"
-gzcat $1 | psql $PGHOST $PGUSER -d asmweb
+export PGPASSWORD=${PASSWORD}
+PGARGS="$PGARGS --dbname=$DATABASE --username $USERNAME"
+psql ${PGARGS} -d postgres -c "SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'asmweb' AND pid <> pg_backend_pid();" > import.log 2>&1
+psql ${PGARGS} -d postgres -c "DROP DATABASE $DATABASE;" >> import.log 2>&1
+psql ${PGARGS} -d postgres -c "CREATE DATABASE $DATABASE OWNER $USERNAME;" >> import.log 2>&1
+gzip -dc $1 | psql ${PGARGS} -d asmweb >> import.log 2>&1

@@ -18,17 +18,18 @@ do
 done
 
 if [ "$USE_VENV" == true ]; then
-  echo "Activating pythong virtual environment"
+  echo "Activating python virtual environment"
   source env/bin/activate
 fi
 
-write_start "building frontend assets"
+write_start "to build frontend assets"
 gulp build >> build.log 2>&1
 write_done
-write_start "collecting static files"
-python manage.py collectstatic > build.log 2>&1
+write_start "to collect static files"
+python manage.py collectstatic --noinput > build.log 2>&1
 write_done
 
 if [ "$USE_VENV" == true ]; then
   deactivate
+  echo "Deactivated python virtual environment"
 fi

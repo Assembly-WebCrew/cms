@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+BASEDIR=$(dirname "$0")
+USE_VENV=false
+PRODUCTION=false
+IMPORT_DATABASE=false
+IMPORT_DATABASE_ARGS=''
+
 function write_start() {
   printf "Starting $1..."
 }
@@ -14,28 +20,47 @@ function exit_on_error() {
   fi
 }
 
-function print_help() {
-	echo "usage: update-environment.sh [--use-venv] [--production]"
-	exit
+function import_dump() {
+  DUMB_FILE="$BASEDIR/../$(ls -t *.sql.gz | head -1)"
+  if [ -f "$DUMB_FILE" ]; then
+    bash ${BASEDIR}/import-database.sh ${DUMB_FILE} ${IMPORT_DATABASE_ARGS} >> update.log 2>&1
+  fi
 }
 
-if [ "$1" == "-h" ]; then
-  print_help
-elif [ "$1" == "--help" ]; then
-  print_help
-fi
-
-USE_VENV=false
-PRODUCTION=false
-
-for var in "$@"
+while [[ $# -gt 1 ]]
 do
-  if [ "$var" == "--use-venv" ]; then
+key="$1"
+case $key in
+    -h|--help)
+	echo "usage: update-environment.sh [-e | --use-venv] [-p | --production] [-i | --import-database] [-h <address> | --database-host <address>]"
+	exit
+    ;;
+    -e|--use-venv)
     USE_VENV=true
-  elif [ "$var" == "--production" ]; then
+    ;;
+    -p|--production)
     PRODUCTION=true
-  fi
+    ;;
+    -i|--import-database)
+    IMPORT_DATABASE=true
+    ;;
+    -h|--database-host)
+    echo $2
+    IMPORT_DATABASE_ARGS="-h $2"
+    shift # past argument value
+    ;;
+    *)
+    # unknown option
+    ;;
+esac
+shift
 done
+
+echo "Starting environment update..." > update.log
+
+if [ "$IMPORT_DATABASE" == true ]; then
+  import_dump
+fi
 
 if [ "$USE_VENV" == true ]; then
   echo "Activating pythong virtual environment"
@@ -50,7 +75,7 @@ if [ "$PRODUCTION" == true ]; then
 else
   REQUIREMENTS_FILE=requirements.txt
 fi
-pip install -r ${REQUIREMENTS_FILE} --upgrade > update.log 2>&1
+pip install -r ${REQUIREMENTS_FILE} --upgrade >> update.log 2>&1
 write_done
 
 # Update frontend dependencies

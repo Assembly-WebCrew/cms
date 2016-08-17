@@ -16,7 +16,7 @@ djangocms-file
 djangocms-flash
 djangocms-googlemap
 djangocms-inherit
-#djangocms-link==1.7.1
+djangocms-link
 djangocms-picture
 djangocms-teaser
 djangocms-text-ckeditor

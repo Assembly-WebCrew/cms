@@ -6,7 +6,7 @@ var $ = require('gulp-load-plugins')();
 
 var paths = gulp.paths = {
   src: 'frontend/src',
-  statics: './statics',
+  statics: './static',
   templates: './templates'
 };
 
