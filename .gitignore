@@ -26,3 +26,4 @@ media/streams
 media/uploads/*
 statics/
 templates/assembly/
+frontend/static

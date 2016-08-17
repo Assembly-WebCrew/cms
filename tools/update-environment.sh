@@ -85,7 +85,9 @@ write_start "frontend asset update"
 echo "npm bower install..." >> update.log
 npm install >> update.log 2>&1
 echo "Running bower install..." >> update.log
-bower install --allow-sudo >> update.log 2>&1 # TODO: Deprecate Bower entirely
+bower install --allow-root >> update.log 2>&1 # TODO: Deprecate Bower entirely
+echo "Build frontend assets..." >> update.log
+gulp build >> update.log 2>&1
 write_done
 
 # Apply migrations to database
