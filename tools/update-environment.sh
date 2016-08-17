@@ -30,7 +30,7 @@ function import_dump() {
   fi
 }
 
-while [[ $# -gt 1 ]]
+while [[ $# -gt 0 ]]
 do
 key="$1"
 case $key in
